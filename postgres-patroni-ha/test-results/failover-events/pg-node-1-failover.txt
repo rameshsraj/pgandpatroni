@@ -1,0 +1,159 @@
+=== Rendered Patroni config for pg-node-1 ===
+# ============================================================
+# Patroni Configuration Template
+# ============================================================
+# Environment variables are substituted at container startup
+# by the entrypoint script. Patroni also reads PATRONI_*
+# environment variables directly for many settings.
+# ============================================================
+
+scope: pg-ha-cluster
+namespace: /service/
+name: pg-node-1
+
+restapi:
+  listen: 0.0.0.0:8008
+  connect_address: pg-node-1:8008
+
+etcd3:
+  hosts: etcd:2379
+
+# ---- Bootstrap Configuration ----
+# These settings apply ONLY during the initial cluster bootstrap.
+# After the cluster is initialized, changes here do not take effect
+# unless the cluster is reinitialized.
+bootstrap:
+  dcs:
+    ttl: 30
+    loop_wait: 10
+    retry_timeout: 10
+    maximum_lag_on_failover: 1048576
+    postgresql:
+      use_pg_rewind: true
+      use_slots: true
+      parameters:
+        wal_level: replica
+        hot_standby: "on"
+        max_connections: 100
+        max_worker_processes: 8
+        max_wal_senders: 5
+        max_replication_slots: 5
+        hot_standby_feedback: "on"
+        wal_log_hints: "on"
+        logging_collector: "on"
+        log_directory: pg_log
+        log_filename: postgresql-%Y-%m-%d_%H%M%S.log
+        log_statement: all
+        log_min_duration_statement: 0
+  initdb:
+    - encoding: UTF8
+    - data-checksums
+  pg_hba:
+    - host replication replicator 0.0.0.0/0 md5
+    - host all all 0.0.0.0/0 md5
+  users:
+    appuser:
+      password: appuser-ha-lab-2024
+      options:
+        - createrole
+        - createdb
+
+postgresql:
+  listen: 0.0.0.0:5432
+  connect_address: pg-node-1:5432
+  data_dir: /var/lib/postgresql/data/pgdata
+  authentication:
+    superuser:
+      username: postgres
+      password: postgres-ha-lab-2024
+2026-08-29 14:49:09,986 INFO: Selected new etcd server http://etcd:2379
+2026-08-29 14:49:10,043 INFO: No PostgreSQL configuration items changed, nothing to reload.
+2026-08-29 14:49:10,165 ERROR: watchprefix failed: ProtocolError("Connection broken: InvalidChunkLength(got length b'', 0 bytes read)", InvalidChunkLength(got length b'', 0 bytes read))
+2026-08-29 14:49:10,115 INFO: Lock owner: None; I am pg-node-1
+2026-08-29 14:49:10,211 INFO: failed to acquire initialize lock
+2026-08-29 14:49:13,230 INFO: Lock owner: pg-node-2; I am pg-node-1
+2026-08-29 14:49:13,233 INFO: trying to bootstrap from leader 'pg-node-2'
+2026-08-29 14:49:13,376 INFO: Lock owner: pg-node-2; I am pg-node-1
+2026-08-29 14:49:13,424 INFO: bootstrap from leader 'pg-node-2' in progress
+2026-08-29 14:49:14,312 INFO: replica has been created using basebackup
+2026-08-29 14:49:14,314 INFO: bootstrapped from leader 'pg-node-2'
+2026-08-29 14:49:14.989 UTC [42] LOG:  redirecting log output to logging collector process
+2026-08-29 14:49:14.989 UTC [42] HINT:  Future log output will appear in directory "pg_log".
+2026-08-29 14:49:14,986 INFO: postmaster pid=42
+2026-08-29 14:49:14,993 INFO: establishing a new patroni heartbeat connection to postgres
+2026-08-29 14:49:16,301 INFO: Lock owner: pg-node-2; I am pg-node-1
+2026-08-29 14:49:16,301 INFO: establishing a new patroni heartbeat connection to postgres
+2026-08-29 14:49:16,360 INFO: no action. I am (pg-node-1), a secondary, and following a leader (pg-node-2)
+2026-08-29 14:49:16,514 INFO: establishing a new patroni restapi connection to postgres
+2026-08-29 14:49:23,469 INFO: no action. I am (pg-node-1), a secondary, and following a leader (pg-node-2)
+2026-08-29 14:49:33,423 INFO: no action. I am (pg-node-1), a secondary, and following a leader (pg-node-2)
+2026-08-29 14:49:43,922 INFO: no action. I am (pg-node-1), a secondary, and following a leader (pg-node-2)
+2026-08-29 14:49:53,871 INFO: no action. I am (pg-node-1), a secondary, and following a leader (pg-node-2)
+2026-08-29 14:50:03,469 INFO: no action. I am (pg-node-1), a secondary, and following a leader (pg-node-2)
+2026-08-29 14:50:13,424 INFO: no action. I am (pg-node-1), a secondary, and following a leader (pg-node-2)
+2026-08-29 14:50:23,464 INFO: no action. I am (pg-node-1), a secondary, and following a leader (pg-node-2)
+2026-08-29 14:50:33,422 INFO: no action. I am (pg-node-1), a secondary, and following a leader (pg-node-2)
+2026-08-29 14:50:43,918 INFO: no action. I am (pg-node-1), a secondary, and following a leader (pg-node-2)
+2026-08-29 14:50:53,421 INFO: no action. I am (pg-node-1), a secondary, and following a leader (pg-node-2)
+2026-08-29 14:51:03,920 INFO: no action. I am (pg-node-1), a secondary, and following a leader (pg-node-2)
+2026-08-29 14:51:13,879 INFO: no action. I am (pg-node-1), a secondary, and following a leader (pg-node-2)
+2026-08-29 14:51:23,461 INFO: no action. I am (pg-node-1), a secondary, and following a leader (pg-node-2)
+2026-08-29 14:51:33,919 INFO: no action. I am (pg-node-1), a secondary, and following a leader (pg-node-2)
+2026-08-29 14:51:43,873 INFO: no action. I am (pg-node-1), a secondary, and following a leader (pg-node-2)
+2026-08-29 14:51:53,469 INFO: no action. I am (pg-node-1), a secondary, and following a leader (pg-node-2)
+2026-08-29 14:52:03,969 INFO: no action. I am (pg-node-1), a secondary, and following a leader (pg-node-2)
+2026-08-29 14:52:13,879 INFO: no action. I am (pg-node-1), a secondary, and following a leader (pg-node-2)
+2026-08-29 14:52:23,837 INFO: Got response from pg-node-3 http://pg-node-3:8008/patroni: {"state": "running", "postmaster_start_time": "2026-08-29 14:49:15.076586+00:00", "role": "replica", "server_version": 160004, "xlog": {"received_location": 71868192, "replayed_location": 71868192, "replayed_timestamp": "2026-08-29 14:50:52.982733+00:00", "paused": false}, "timeline": 1, "cluster_unlocked": true, "dcs_last_seen": 1788015143, "database_system_identifier": "7679465736627556386", "patroni": {"version": "3.3.2", "scope": "pg-ha-cluster", "name": "pg-node-3"}}
+2026-08-29 14:52:31,829 WARNING: failed to resolve host pg-node-2: [Errno -3] Temporary failure in name resolution
+2026-08-29 14:52:31,830 WARNING: Request failed to pg-node-2: GET http://pg-node-2:8008/patroni (HTTPConnectionPool(host='pg-node-2', port=8008): Max retries exceeded with url: /patroni (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7c78431b79d0>: Failed to establish a new connection: getaddrinfo returns an empty list')))
+2026-08-29 14:52:31,928 WARNING: Could not activate Linux watchdog device: Can't open watchdog device: [Errno 2] No such file or directory: '/dev/watchdog'
+2026-08-29 14:52:31,980 INFO: promoted self to leader by acquiring session lock
+2026-08-29 14:52:31,981 INFO: Lock owner: pg-node-1; I am pg-node-1
+2026-08-29 14:52:31,982 INFO: Reaped pid=401, exit status=0
+2026-08-29 14:52:32,087 INFO: updated leader lock during promote
+2026-08-29 14:52:36,010 INFO: Lock owner: pg-node-1; I am pg-node-1
+2026-08-29 14:52:36,108 INFO: Reaped pid=414, exit status=0
+2026-08-29 14:52:36,235 INFO: no action. I am (pg-node-1), the leader with the lock
+2026-08-29 14:52:36,398 INFO: no action. I am (pg-node-1), the leader with the lock
+2026-08-29 14:52:46,304 INFO: no action. I am (pg-node-1), the leader with the lock
+2026-08-29 14:52:56,299 INFO: no action. I am (pg-node-1), the leader with the lock
+2026-08-29 14:53:06,401 INFO: no action. I am (pg-node-1), the leader with the lock
+2026-08-29 14:53:16,302 INFO: no action. I am (pg-node-1), the leader with the lock
+2026-08-29 14:53:26,395 INFO: no action. I am (pg-node-1), the leader with the lock
+2026-08-29 14:53:36,301 INFO: no action. I am (pg-node-1), the leader with the lock
+2026-08-29 14:53:46,298 INFO: no action. I am (pg-node-1), the leader with the lock
+2026-08-29 14:53:56,299 INFO: no action. I am (pg-node-1), the leader with the lock
+2026-08-29 14:54:06,294 INFO: no action. I am (pg-node-1), the leader with the lock
+2026-08-29 14:54:16,350 INFO: no action. I am (pg-node-1), the leader with the lock
+2026-08-29 14:54:26,300 INFO: no action. I am (pg-node-1), the leader with the lock
+2026-08-29 14:54:36,297 INFO: no action. I am (pg-node-1), the leader with the lock
+2026-08-29 14:54:46,305 INFO: no action. I am (pg-node-1), the leader with the lock
+2026-08-29 14:54:56,300 INFO: no action. I am (pg-node-1), the leader with the lock
+2026-08-29 14:55:06,304 INFO: no action. I am (pg-node-1), the leader with the lock
+2026-08-29 14:55:16,305 INFO: no action. I am (pg-node-1), the leader with the lock
+2026-08-29 14:55:26,302 INFO: no action. I am (pg-node-1), the leader with the lock
+2026-08-29 14:55:36,301 INFO: no action. I am (pg-node-1), the leader with the lock
+2026-08-29 14:55:46,293 INFO: no action. I am (pg-node-1), the leader with the lock
+2026-08-29 14:55:56,293 INFO: no action. I am (pg-node-1), the leader with the lock
+2026-08-29 14:56:06,294 INFO: no action. I am (pg-node-1), the leader with the lock
+2026-08-29 14:56:16,293 INFO: no action. I am (pg-node-1), the leader with the lock
+    replication:
+      username: replicator
+      password: replicator-ha-lab-2024
+  parameters:
+    unix_socket_directories: /var/run/postgresql
+  create_replica_methods:
+    - basebackup
+  basebackup:
+    checkpoint: fast
+
+tags:
+  nofailover: false
+  noloadbalance: false
+  clonefrom: false
+  nosync: false
+=== Starting Patroni ===
+localhost:5432 - rejecting connections
+localhost:5432 - rejecting connections
+localhost:5432 - accepting connections
+server promoting

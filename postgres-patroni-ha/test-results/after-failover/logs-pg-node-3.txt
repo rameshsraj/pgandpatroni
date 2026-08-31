@@ -1,0 +1,100 @@
+2026-08-29 14:49:33,422 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-2)
+2026-08-29 14:49:43,923 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-2)
+2026-08-29 14:49:53,871 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-2)
+2026-08-29 14:49:59,595 WARNING: Exception happened during processing of request from 172.18.0.6:47844
+2026-08-29 14:49:59,596 WARNING: Traceback (most recent call last):
+  File "/usr/lib/python3.11/socketserver.py", line 691, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.11/socketserver.py", line 361, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 105, in __init__
+    super(RestApiHandler, self).__init__(request, client_address, server)
+  File "/usr/lib/python3.11/socketserver.py", line 755, in __init__
+    self.handle()
+  File "/usr/lib/python3.11/http/server.py", line 432, in handle
+    self.handle_one_request()
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 1348, in handle_one_request
+    BaseHTTPRequestHandler.handle_one_request(self)
+  File "/usr/lib/python3.11/http/server.py", line 420, in handle_one_request
+    method()
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 375, in do_GET
+    self._write_status_response(status_code, response)
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 221, in _write_status_response
+    self._write_json_response(status_code, response)
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 167, in _write_json_response
+    self.write_response(status_code, json.dumps(response, default=str), content_type='application/json')
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 157, in write_response
+    self.wfile.write(body.encode('utf-8'))
+  File "/usr/lib/python3.11/socketserver.py", line 834, in write
+    self._sock.sendall(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+
+2026-08-29 14:50:03,468 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-2)
+2026-08-29 14:50:13,425 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-2)
+2026-08-29 14:50:23,467 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-2)
+2026-08-29 14:50:33,421 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-2)
+2026-08-29 14:50:43,918 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-2)
+2026-08-29 14:50:53,423 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-2)
+2026-08-29 14:51:03,920 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-2)
+2026-08-29 14:51:13,879 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-2)
+2026-08-29 14:51:23,464 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-2)
+2026-08-29 14:51:33,919 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-2)
+2026-08-29 14:51:43,873 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-2)
+2026-08-29 14:51:53,465 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-2)
+2026-08-29 14:52:03,967 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-2)
+2026-08-29 14:52:13,881 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-2)
+2026-08-29 14:52:23,848 INFO: Got response from pg-node-1 http://pg-node-1:8008/patroni: {"state": "running", "postmaster_start_time": "2026-08-29 14:49:15.022945+00:00", "role": "replica", "server_version": 160004, "xlog": {"received_location": 71868192, "replayed_location": 71868192, "replayed_timestamp": "2026-08-29 14:50:52.982733+00:00", "paused": false}, "timeline": 1, "cluster_unlocked": true, "dcs_last_seen": 1788015143, "database_system_identifier": "7679465736627556386", "patroni": {"version": "3.3.2", "scope": "pg-ha-cluster", "name": "pg-node-1"}}
+2026-08-29 14:52:31,830 WARNING: failed to resolve host pg-node-2: [Errno -3] Temporary failure in name resolution
+2026-08-29 14:52:31,830 WARNING: Request failed to pg-node-2: GET http://pg-node-2:8008/patroni (HTTPConnectionPool(host='pg-node-2', port=8008): Max retries exceeded with url: /patroni (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x74ab284c2ad0>: Failed to establish a new connection: getaddrinfo returns an empty list')))
+2026-08-29 14:52:31,929 INFO: Could not take out TTL lock
+2026-08-29 14:52:31,930 ERROR: watchprefix failed: ProtocolError("Connection broken: InvalidChunkLength(got length b'', 0 bytes read)", InvalidChunkLength(got length b'', 0 bytes read))
+server signaled
+2026-08-29 14:52:31,949 INFO: Reaped pid=380, exit status=0
+2026-08-29 14:52:31,950 INFO: following new leader after trying and failing to obtain lock
+2026-08-29 14:52:31,951 INFO: Lock owner: pg-node-1; I am pg-node-3
+2026-08-29 14:52:31,957 INFO: Local timeline=1 lsn=0/4489F20
+2026-08-29 14:52:31,960 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-1)
+2026-08-29 14:52:36,105 INFO: Lock owner: pg-node-1; I am pg-node-3
+2026-08-29 14:52:36,118 INFO: Local timeline=1 lsn=0/4489F20
+2026-08-29 14:52:36,120 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-1)
+2026-08-29 14:52:36,348 INFO: Lock owner: pg-node-1; I am pg-node-3
+2026-08-29 14:52:36,370 INFO: Local timeline=1 lsn=0/4489F20
+2026-08-29 14:52:36,416 INFO: primary_timeline=2
+2026-08-29 14:52:36,417 INFO: primary: history=1	0/4489F20	no recovery target specified
+2026-08-29 14:52:36,423 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-1)
+2026-08-29 14:52:46,939 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-1)
+2026-08-29 14:52:56,851 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-1)
+2026-08-29 14:53:06,450 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-1)
+2026-08-29 14:53:16,893 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-1)
+2026-08-29 14:53:26,397 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-1)
+2026-08-29 14:53:36,896 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-1)
+2026-08-29 14:53:46,854 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-1)
+2026-08-29 14:53:56,895 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-1)
+2026-08-29 14:54:06,855 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-1)
+2026-08-29 14:54:16,938 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-1)
+2026-08-29 14:54:26,848 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-1)
+2026-08-29 14:54:36,897 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-1)
+2026-08-29 14:54:46,855 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-1)
+2026-08-29 14:54:56,897 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-1)
+2026-08-29 14:55:06,853 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-1)
+2026-08-29 14:55:16,892 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-1)
+2026-08-29 14:55:26,852 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-1)
+2026-08-29 14:55:36,901 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-1)
+2026-08-29 14:55:46,850 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-1)
+2026-08-29 14:55:56,889 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-1)
+2026-08-29 14:56:06,850 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-1)
+2026-08-29 14:56:16,893 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-1)
+2026-08-29 14:56:26,846 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-1)
+2026-08-29 14:56:36,893 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-1)
+2026-08-29 14:56:46,851 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-1)
+2026-08-29 14:56:56,893 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-1)
+2026-08-29 14:57:06,399 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-1)
+2026-08-29 14:57:16,465 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-1)
+2026-08-29 14:57:26,906 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-1)
+2026-08-29 14:57:36,860 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-1)
+2026-08-29 14:57:46,447 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-1)
+2026-08-29 14:57:56,887 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-1)
+2026-08-29 14:58:06,848 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-1)
+2026-08-29 14:58:16,888 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-1)
+2026-08-29 14:58:26,842 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-1)
+2026-08-29 14:58:36,893 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-1)

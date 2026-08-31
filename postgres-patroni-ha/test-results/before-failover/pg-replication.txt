@@ -1,0 +1,6 @@
+ pid | application_name | client_addr |   state   | sync_state | sent_lsn  | write_lsn | flush_lsn | replay_lsn 
+-----+------------------+-------------+-----------+------------+-----------+-----------+-----------+------------
+  75 | pg-node-1        | 172.18.0.5  | streaming | async      | 0/4484770 | 0/4484770 | 0/4484770 | 0/4484770
+  76 | pg-node-3        | 172.18.0.4  | streaming | async      | 0/4484770 | 0/4484770 | 0/4484770 | 0/4484770
+(2 rows)
+

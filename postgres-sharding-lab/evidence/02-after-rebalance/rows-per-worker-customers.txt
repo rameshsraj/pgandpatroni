@@ -1,0 +1,7 @@
+ nodename | shard_count | total_rows 
+----------+-------------+------------
+ worker-1 |           4 |        148
+ worker-2 |           4 |        168
+ worker-3 |           4 |        184
+(3 rows)
+
