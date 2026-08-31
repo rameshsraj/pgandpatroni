@@ -113,46 +113,7 @@ Each component handles one of these. There is no overlap, which is useful when s
 
 ### 2.2 Component overview
 
-```mermaid
-graph TD
-    subgraph "What the application sees"
-        Client["Application or psql<br/>connects to localhost port 5000"]
-    end
-
-    subgraph "Routing Layer"
-        HAProxy["<b>HAProxy</b><br/>Port 5000: writes to current primary<br/>Port 5001: reads across replicas<br/>Port 7000: statistics page"]
-    end
-
-    subgraph "Database Layer: three PostgreSQL nodes"
-        Node1["<b>pg-node-1</b><br/>PostgreSQL port 5432<br/>Patroni port 8008<br/>Role: Leader<br/><i>after the failover</i>"]
-        Node2["<b>pg-node-2</b><br/>PostgreSQL port 5432<br/>Patroni port 8008<br/>Role: Replica<br/><i>was the first leader</i>"]
-        Node3["<b>pg-node-3</b><br/>PostgreSQL port 5432<br/>Patroni port 8008<br/>Role: Replica"]
-    end
-
-    subgraph "Consensus Layer"
-        ETCD["<b>etcd</b><br/>Port 2379: client API<br/>Port 2380: peer API<br/>Holds the leader lock,<br/>cluster config and member state"]
-    end
-
-    Client -->|"PostgreSQL wire protocol"| HAProxy
-    HAProxy -->|"health check every 3 seconds<br/>GET /primary or /replica"| Node1
-    HAProxy -->|"health check every 3 seconds"| Node2
-    HAProxy -->|"health check every 3 seconds"| Node3
-    HAProxy -->|"forwards TCP to the node<br/>that answers 200"| Node1
-
-    Node1 ---|"WAL streaming"| Node2
-    Node1 ---|"WAL streaming"| Node3
-
-    Node1 -->|"renews leader lock<br/>every 10 seconds"| ETCD
-    Node2 -->|"reads leader key,<br/>registers as member"| ETCD
-    Node3 -->|"reads leader key,<br/>registers as member"| ETCD
-
-    style Client fill:#607D8B,color:#fff,stroke:#37474F
-    style HAProxy fill:#FF9800,color:#fff,stroke:#E65100
-    style Node1 fill:#4CAF50,color:#fff,stroke:#2E7D32
-    style Node2 fill:#2196F3,color:#fff,stroke:#1565C0
-    style Node3 fill:#2196F3,color:#fff,stroke:#1565C0
-    style ETCD fill:#9C27B0,color:#fff,stroke:#6A1B9A
-```
+![Figure 1](images/diagram-01.png){width=6.02in height=8.20in}
 
 ### 2.3 PostgreSQL, the database engine
 
@@ -307,29 +268,7 @@ What HAProxy does not do:
 
 **Reading the HAProxy status page without being alarmed.** There are two separate backend pools, and each one health checks a different Patroni endpoint. A node marked DOWN in one pool is not broken. It simply is not playing the role that the pool is looking for.
 
-```mermaid
-graph TB
-    subgraph "Primary backend on port 5000"
-        direction LR
-        P1["pg-node-1<br/><b>UP</b><br/>GET /primary returns 200<br/><i>I am the primary</i>"]
-        P2["pg-node-2<br/><b>DOWN</b><br/>GET /primary returns 503<br/><i>I am a replica, not the primary</i>"]
-        P3["pg-node-3<br/><b>DOWN</b><br/>GET /primary returns 503<br/><i>I am a replica, not the primary</i>"]
-    end
-
-    subgraph "Replica backend on port 5001"
-        direction LR
-        R1["pg-node-1<br/><b>DOWN</b><br/>GET /replica returns 503<br/><i>I am the primary, not a replica</i>"]
-        R2["pg-node-2<br/><b>UP</b><br/>GET /replica returns 200<br/><i>I am a replica</i>"]
-        R3["pg-node-3<br/><b>UP</b><br/>GET /replica returns 200<br/><i>I am a replica</i>"]
-    end
-
-    style P1 fill:#4CAF50,color:#fff
-    style P2 fill:#ef9a9a,color:#000
-    style P3 fill:#ef9a9a,color:#000
-    style R1 fill:#ef9a9a,color:#000
-    style R2 fill:#4CAF50,color:#fff
-    style R3 fill:#4CAF50,color:#fff
-```
+![Figure 2](images/diagram-02.png){width=6.30in height=5.24in}
 
 In a healthy three node cluster you will always see one server up and two down in the primary pool, and two up and one down in the replica pool. The down entries are not faults. They are proof that role based routing is working.
 
@@ -337,42 +276,7 @@ In a healthy three node cluster you will always see one server up and two down i
 
 This diagram shows every path between the components, with the port numbers.
 
-```mermaid
-graph TD
-    Client["Client<br/>your machine"]
-
-    subgraph Docker network
-        HAProxy["HAProxy"]
-        Node1["pg-node-1<br/>PostgreSQL and Patroni"]
-        Node2["pg-node-2<br/>PostgreSQL and Patroni"]
-        Node3["pg-node-3<br/>PostgreSQL and Patroni"]
-        ETCD["etcd"]
-    end
-
-    Client -->|"TCP 5000<br/>host to container"| HAProxy
-    Client -->|"TCP 5001<br/>host to container"| HAProxy
-    Client -->|"HTTP 7000<br/>statistics page"| HAProxy
-
-    HAProxy -->|"HTTP 8008<br/>health check"| Node1
-    HAProxy -->|"HTTP 8008<br/>health check"| Node2
-    HAProxy -->|"HTTP 8008<br/>health check"| Node3
-
-    HAProxy -->|"TCP 5432<br/>forwarded connection"| Node1
-
-    Node1 -->|"HTTP 2379<br/>renew leader lock"| ETCD
-    Node2 -->|"HTTP 2379<br/>register member"| ETCD
-    Node3 -->|"HTTP 2379<br/>register member"| ETCD
-
-    Node2 -->|"TCP 5432<br/>streaming replication"| Node1
-    Node3 -->|"TCP 5432<br/>streaming replication"| Node1
-
-    style Client fill:#607D8B,color:#fff
-    style HAProxy fill:#FF9800,color:#fff
-    style Node1 fill:#4CAF50,color:#fff
-    style Node2 fill:#2196F3,color:#fff
-    style Node3 fill:#2196F3,color:#fff
-    style ETCD fill:#9C27B0,color:#fff
-```
+![Figure 3](images/diagram-03.png){width=6.30in height=4.50in}
 
 Every port in one table:
 
@@ -392,30 +296,7 @@ Note that PostgreSQL port 5432 and the Patroni port 8008 are deliberately not pu
 
 Every database container runs two processes side by side. Patroni is the parent, and it starts and manages PostgreSQL.
 
-```mermaid
-graph TD
-    subgraph "Container: one PostgreSQL node"
-        EP["Entrypoint script<br/>writes the Patroni config<br/>from a template plus<br/>environment variables"]
-        PAT["Patroni process<br/>Python, runs as PID 1"]
-        PG["PostgreSQL process<br/>started by Patroni"]
-        REST["Patroni HTTP API<br/>port 8008"]
-        PGPORT["PostgreSQL listener<br/>port 5432"]
-        DATA["Data directory<br/>on a Docker volume"]
-
-        EP --> PAT
-        PAT -->|"starts and manages"| PG
-        PAT --> REST
-        PG --> PGPORT
-        PG -->|"reads and writes"| DATA
-    end
-
-    style EP fill:#FFC107,color:#000
-    style PAT fill:#4CAF50,color:#fff
-    style PG fill:#2196F3,color:#fff
-    style REST fill:#FF9800,color:#fff
-    style PGPORT fill:#FF9800,color:#fff
-    style DATA fill:#795548,color:#fff
-```
+![Figure 4](images/diagram-04.png){width=6.30in height=1.67in}
 
 When a container starts:
 
@@ -430,26 +311,7 @@ When a container starts:
 
 Streaming replication is what keeps the replicas synchronised. It works at the level of the write ahead log, not at the level of SQL statements. A replica receives and replays exactly the same low level changes that the primary made.
 
-```mermaid
-sequenceDiagram
-    participant App as Application
-    participant PRI as Primary
-    participant WAL as Log on the primary
-    participant R1 as Replica 1
-    participant R2 as Replica 2
-
-    App->>PRI: INSERT a row
-    PRI->>WAL: write the log record
-    PRI->>App: commit confirmed
-
-    Note over PRI,R2: continuous streaming
-    WAL->>R1: send the log record
-    WAL->>R2: send the log record
-    R1->>R1: write, replay, apply to data files
-    R2->>R2: write, replay, apply to data files
-
-    Note over R1,R2: both replicas now hold the same row
-```
+![Figure 5](images/diagram-05.png){width=6.30in height=3.71in}
 
 This cluster uses asynchronous replication, which the tools report as a synchronisation state of async. That means:
 
@@ -477,34 +339,7 @@ When all four positions match, the replication lag is zero.
 
 This diagram shows the transitions that were actually observed during the test.
 
-```mermaid
-stateDiagram-v2
-    state "1. First time setup" as S1
-    state "2. Normal operation" as S2
-    state "3. Primary stopped" as S3
-    state "4. Leader lock expired" as S4
-    state "5. Election" as S5
-    state "6. New primary" as S6
-    state "7. Running on two nodes" as S7
-    state "8. Old primary restarted" as S8
-    state "9. All three nodes healthy" as S9
-    state "10. Replica stopped" as S10
-    state "11. Replica restarted" as S11
-
-    [*] --> S1: containers started
-    S1 --> S2: leader elected,<br/>replicas streaming
-    S2 --> S3: primary container stopped
-    S3 --> S4: timeout expires after 30s
-    S4 --> S5: replicas race for the lock
-    S5 --> S6: winner promoted,<br/>timeline 1 to 2
-    S6 --> S7: HAProxy routes<br/>to the new primary
-    S7 --> S8: old primary container started
-    S8 --> S9: pg_rewind, then rejoin<br/>as a replica
-    S9 --> S10: replica container stopped
-    S10 --> S11: replica container started
-    S11 --> S9: replica streaming again
-    S9 --> [*]: cluster shut down
-```
+![Figure 6](images/diagram-06.png){width=2.83in height=8.20in}
 
 ### 2.11 What this architecture does not protect against
 
@@ -577,27 +412,7 @@ Only three ports are published to the host: 5000 for writes, 5001 for reads and 
 
 Every service is set to restart unless it has been stopped deliberately. This matters during the test, because it is the reason a stopped container stays stopped until it is started again by hand.
 
-```mermaid
-graph TD
-    ETCD["etcd<br/>starts first,<br/>must pass its health check"]
-    N1["pg-node-1<br/>waits for etcd"]
-    N2["pg-node-2<br/>waits for etcd"]
-    N3["pg-node-3<br/>waits for etcd"]
-    HAP["HAProxy<br/>waits for the three nodes"]
-
-    ETCD --> N1
-    ETCD --> N2
-    ETCD --> N3
-    N1 --> HAP
-    N2 --> HAP
-    N3 --> HAP
-
-    style ETCD fill:#9C27B0,color:#fff
-    style N1 fill:#2196F3,color:#fff
-    style N2 fill:#2196F3,color:#fff
-    style N3 fill:#2196F3,color:#fff
-    style HAP fill:#FF9800,color:#fff
-```
+![Figure 7](images/diagram-07.png){width=6.30in height=4.07in}
 
 The three database nodes start at the same time once etcd is ready. Whichever one takes the leader lock first creates the database, and the other two copy it.
 
@@ -906,27 +721,7 @@ Reading that in order: Patroni confirmed it was not the leader, ran crash recove
 
 The whole sequence took three seconds, from container start to healthy streaming replica.
 
-```mermaid
-flowchart LR
-    subgraph S1["Work out the situation"]
-        direction TB
-        A1["Old primary<br/>container started"] --> A2["Patroni asks etcd<br/>who the leader is"] --> A3["The leader is<br/>another node"]
-    end
-    subgraph S2["Find the divergence"]
-        direction TB
-        B1["Compare local timeline<br/>against the primary"] --> B2["Local is on timeline 1,<br/>primary is on timeline 2"] --> B3["Run pg_rewind back to<br/>the last common checkpoint"]
-    end
-    subgraph S3["Catch up and rejoin"]
-        direction TB
-        C1["Start PostgreSQL<br/>in recovery mode"] --> C2["Replay the log<br/>from the new primary"] --> C3["Healthy replica,<br/>zero lag"]
-    end
-
-    S1 --> S2 --> S3
-
-    style A1 fill:#FF9800,color:#fff
-    style B3 fill:#F44336,color:#fff
-    style C3 fill:#4CAF50,color:#fff
-```
+![Figure 8](images/diagram-08.png){width=6.30in height=3.06in}
 
 The cluster after recovery:
 
@@ -1017,24 +812,7 @@ The marker table holds five rows: three from before the failover, one written af
 
 ## 17. Connection Path Explained
 
-```mermaid
-sequenceDiagram
-    participant App as Application or psql
-    participant HAP as HAProxy port 5000
-    participant PAT as Patroni API port 8008
-    participant PG as PostgreSQL port 5432
-
-    Note over HAP,PAT: every 3 seconds, in the background
-    loop Health check
-        HAP->>PAT: GET /primary
-        PAT-->>HAP: 200 if primary, 503 if replica
-    end
-
-    App->>HAP: PostgreSQL wire protocol over TCP
-    HAP->>PG: forward to the node that answered 200
-    PG-->>HAP: query result
-    HAP-->>App: query result
-```
+![Figure 9](images/diagram-09.png){width=6.30in height=3.30in}
 
 The application connects to HAProxy. The application does not connect to Patroni. The Patroni API exists for HAProxy to health check, and nothing else. The application never needs to know which node is the primary.
 
@@ -1046,79 +824,11 @@ When the primary changes, the next health check finds out, and new connections g
 
 ### The sequence of events
 
-```mermaid
-sequenceDiagram
-    participant Docker
-    participant Primary as Primary, pg-node-2
-    participant ETCD as etcd
-    participant Replica1 as pg-node-1, replica
-    participant Replica2 as pg-node-3, replica
-    participant HAProxy
-
-    Note over Docker,Primary: the primary is stopped
-    Docker->>Primary: stop the container
-    Primary--xETCD: lock renewals stop
-
-    Note over ETCD: 30 second countdown begins
-
-    loop every 10 seconds
-        Replica1->>ETCD: is there a leader?
-        ETCD-->>Replica1: yes, pg-node-2
-        Replica2->>ETCD: is there a leader?
-        ETCD-->>Replica2: yes, pg-node-2
-    end
-
-    Note over ETCD: the lock expires
-
-    Replica1->>ETCD: try to take the lock
-    Replica2->>ETCD: try to take the lock
-    ETCD-->>Replica1: granted
-    ETCD-->>Replica2: refused
-
-    Note over Replica1: promotion
-    Replica1->>Replica1: promote PostgreSQL
-    Replica1-->>ETCD: update the leader key
-
-    Replica2->>ETCD: who is the leader now?
-    ETCD-->>Replica2: pg-node-1
-    Replica2->>Replica1: start streaming from the new leader
-
-    Note over HAProxy: routing update
-    HAProxy->>Primary: GET /primary times out
-    HAProxy->>Replica1: GET /primary returns 200
-    HAProxy->>HAProxy: old primary down, new primary up
-
-    Note over HAProxy: new connections go to pg-node-1
-```
+![Figure 10](images/diagram-10.png){width=6.30in height=6.17in}
 
 ### The same thing as a state machine
 
-```mermaid
-flowchart LR
-    subgraph P1["1. Failure detected"]
-        direction TB
-        A1["Cluster healthy,<br/>pg-node-2 is leader"] --> A2["Primary stops,<br/>lock renewals stop"] --> A3["Leader lock expires<br/>after 30 seconds"]
-    end
-    subgraph P2["2. New leader chosen"]
-        direction TB
-        B1["Surviving nodes<br/>race for the lock"] --> B2["pg-node-1 wins<br/>and is promoted"] --> B3["Timeline moves<br/>from 1 to 2"]
-    end
-    subgraph P3["3. Traffic follows"]
-        direction TB
-        C1["Health check returns 200<br/>on the new primary"] --> C2["HAProxy switches<br/>the write backend"] --> C3["New connections reach<br/>the new primary"]
-    end
-    subgraph P4["4. Old node returns"]
-        direction TB
-        D1["Old primary<br/>restarted"] --> D2["pg_rewind to the<br/>divergence point"] --> D3["Rejoins as a<br/>streaming replica"]
-    end
-
-    P1 --> P2 --> P3 --> P4
-
-    style A1 fill:#4CAF50,color:#fff
-    style A3 fill:#F44336,color:#fff
-    style B2 fill:#4CAF50,color:#fff
-    style D3 fill:#2196F3,color:#fff
-```
+![Figure 11](images/diagram-11.png){width=6.30in height=2.41in}
 
 Walking through what happened, step by step:
 

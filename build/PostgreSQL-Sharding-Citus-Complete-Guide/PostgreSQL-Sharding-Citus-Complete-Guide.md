@@ -121,30 +121,7 @@ The honest summary is that partitioning helps you manage a big table on one mach
 
 ### 3.1 The components
 
-```mermaid
-graph TD
-    Client["Application or psql<br/>connects to the coordinator"]
-
-    subgraph Host["Host machine, Docker"]
-        subgraph Net["Docker network"]
-            Coord["<b>Coordinator</b><br/>PostgreSQL 16.6 with Citus 12.1.6<br/>Port 5432, published to the host<br/>Holds metadata, no table data<br/>Plans and routes every query"]
-            W1["<b>worker-1</b><br/>Four shards after the rebalance<br/>102010, 102014,<br/>102016, 102018"]
-            W2["<b>worker-2</b><br/>Four shards after the rebalance<br/>102009, 102015,<br/>102017, 102019"]
-            W3["<b>worker-3</b><br/>Added later<br/>102008, 102011,<br/>102012, 102013"]
-        end
-    end
-
-    Client -->|"SQL"| Coord
-    Coord -->|"port 5432"| W1
-    Coord -->|"port 5432"| W2
-    Coord -->|"port 5432"| W3
-
-    style Client fill:#607D8B,color:#fff,stroke:#37474F
-    style Coord fill:#FF9800,color:#fff,stroke:#E65100
-    style W1 fill:#4CAF50,color:#fff,stroke:#2E7D32
-    style W2 fill:#2196F3,color:#fff,stroke:#1565C0
-    style W3 fill:#9C27B0,color:#fff,stroke:#6A1B9A
-```
+![Figure 1](images/diagram-01.png){width=6.30in height=5.03in}
 
 Two structural points shape everything else in this guide.
 
@@ -154,33 +131,7 @@ Two structural points shape everything else in this guide.
 
 ### 3.2 How a query flows
 
-```mermaid
-flowchart TD
-    Client["Application or psql"]
-    Coord["Coordinator<br/>parses the SQL and works out<br/>which shards are involved"]
-
-    subgraph "Worker nodes"
-        W1["worker-1<br/>102010, 102014, 102016, 102018"]
-        W2["worker-2<br/>102009, 102015, 102017, 102019"]
-        W3["worker-3<br/>102008, 102011, 102012, 102013"]
-    end
-
-    Client -->|"SQL query"| Coord
-    Coord -->|"single shard query<br/>goes to one worker only"| W1
-    Coord -->|"query touching all shards"| W1
-    Coord -->|"query touching all shards"| W2
-    Coord -->|"query touching all shards"| W3
-    W1 -->|"partial result"| Coord
-    W2 -->|"partial result"| Coord
-    W3 -->|"partial result"| Coord
-    Coord -->|"combined result"| Client
-
-    style Client fill:#607D8B,color:#fff
-    style Coord fill:#FF9800,color:#fff
-    style W1 fill:#4CAF50,color:#fff
-    style W2 fill:#2196F3,color:#fff
-    style W3 fill:#9C27B0,color:#fff
-```
+![Figure 2](images/diagram-02.png){width=6.30in height=2.83in}
 
 There are two shapes of query here, and the difference matters more than anything else for performance. A query that filters on the shard key goes to exactly one worker. A query that does not filter on the shard key has to be sent to every shard, with each one returning a partial answer for the coordinator to combine.
 
@@ -747,33 +698,7 @@ The referential integrity checks are the ones worth noting. Because the tables a
 
 ## 21. What Happens Inside a Shard Move
 
-```mermaid
-sequenceDiagram
-    participant Coord as Coordinator
-    participant Src as Source worker
-    participant Dst as Destination worker
-
-    Note over Coord: planning
-    Coord->>Coord: work out the fewest moves<br/>that balance the cluster
-
-    Note over Coord,Dst: for each shard that moves
-    Coord->>Dst: create the shard table
-    Coord->>Src: set up a logical replication publication
-    Coord->>Dst: subscribe to the source
-
-    Note over Src,Dst: copying
-    Src->>Dst: copy all existing rows
-    Src->>Dst: stream any ongoing changes
-
-    Note over Coord: switch over
-    Coord->>Src: briefly block writes to this shard
-    Src->>Dst: send the last outstanding changes
-    Coord->>Coord: update the metadata:<br/>the shard now lives on the destination
-    Coord->>Src: drop the old shard table
-    Coord->>Coord: release the lock
-
-    Note over Coord: the shard is now on the destination
-```
+![Figure 3](images/diagram-03.png){width=6.30in height=7.18in}
 
 The points that matter:
 

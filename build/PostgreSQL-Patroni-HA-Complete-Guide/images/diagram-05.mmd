@@ -1,0 +1,18 @@
+sequenceDiagram
+    participant App as Application
+    participant PRI as Primary
+    participant WAL as Log on the primary
+    participant R1 as Replica 1
+    participant R2 as Replica 2
+
+    App->>PRI: INSERT a row
+    PRI->>WAL: write the log record
+    PRI->>App: commit confirmed
+
+    Note over PRI,R2: continuous streaming
+    WAL->>R1: send the log record
+    WAL->>R2: send the log record
+    R1->>R1: write, replay, apply to data files
+    R2->>R2: write, replay, apply to data files
+
+    Note over R1,R2: both replicas now hold the same row

@@ -1,0 +1,26 @@
+stateDiagram-v2
+    state "1. First time setup" as S1
+    state "2. Normal operation" as S2
+    state "3. Primary stopped" as S3
+    state "4. Leader lock expired" as S4
+    state "5. Election" as S5
+    state "6. New primary" as S6
+    state "7. Running on two nodes" as S7
+    state "8. Old primary restarted" as S8
+    state "9. All three nodes healthy" as S9
+    state "10. Replica stopped" as S10
+    state "11. Replica restarted" as S11
+
+    [*] --> S1: containers started
+    S1 --> S2: leader elected,<br/>replicas streaming
+    S2 --> S3: primary container stopped
+    S3 --> S4: timeout expires after 30s
+    S4 --> S5: replicas race for the lock
+    S5 --> S6: winner promoted,<br/>timeline 1 to 2
+    S6 --> S7: HAProxy routes<br/>to the new primary
+    S7 --> S8: old primary container started
+    S8 --> S9: pg_rewind, then rejoin<br/>as a replica
+    S9 --> S10: replica container stopped
+    S10 --> S11: replica container started
+    S11 --> S9: replica streaming again
+    S9 --> [*]: cluster shut down

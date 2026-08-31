@@ -1,0 +1,22 @@
+graph TD
+    Client["Application or psql<br/>connects to the coordinator"]
+
+    subgraph Host["Host machine, Docker"]
+        subgraph Net["Docker network"]
+            Coord["<b>Coordinator</b><br/>PostgreSQL 16.6 with Citus 12.1.6<br/>Port 5432, published to the host<br/>Holds metadata, no table data<br/>Plans and routes every query"]
+            W1["<b>worker-1</b><br/>Four shards after the rebalance<br/>102010, 102014,<br/>102016, 102018"]
+            W2["<b>worker-2</b><br/>Four shards after the rebalance<br/>102009, 102015,<br/>102017, 102019"]
+            W3["<b>worker-3</b><br/>Added later<br/>102008, 102011,<br/>102012, 102013"]
+        end
+    end
+
+    Client -->|"SQL"| Coord
+    Coord -->|"port 5432"| W1
+    Coord -->|"port 5432"| W2
+    Coord -->|"port 5432"| W3
+
+    style Client fill:#607D8B,color:#fff,stroke:#37474F
+    style Coord fill:#FF9800,color:#fff,stroke:#E65100
+    style W1 fill:#4CAF50,color:#fff,stroke:#2E7D32
+    style W2 fill:#2196F3,color:#fff,stroke:#1565C0
+    style W3 fill:#9C27B0,color:#fff,stroke:#6A1B9A
