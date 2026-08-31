@@ -1,0 +1,82 @@
+# ============================================================
+# Patroni Configuration Template
+# ============================================================
+# Environment variables are substituted at container startup
+# by the entrypoint script. Patroni also reads PATRONI_*
+# environment variables directly for many settings.
+# ============================================================
+
+scope: pg-ha-cluster
+namespace: /service/
+name: PATRONI_NAME_PLACEHOLDER
+
+restapi:
+  listen: 0.0.0.0:8008
+  connect_address: PATRONI_CONNECT_ADDRESS_PLACEHOLDER:8008
+
+etcd3:
+  hosts: PATRONI_ETCD_HOSTS_PLACEHOLDER
+
+# ---- Bootstrap Configuration ----
+# These settings apply ONLY during the initial cluster bootstrap.
+# After the cluster is initialized, changes here do not take effect
+# unless the cluster is reinitialized.
+bootstrap:
+  dcs:
+    ttl: 30
+    loop_wait: 10
+    retry_timeout: 10
+    maximum_lag_on_failover: 1048576
+    postgresql:
+      use_pg_rewind: true
+      use_slots: true
+      parameters:
+        wal_level: replica
+        hot_standby: "on"
+        max_connections: 100
+        max_worker_processes: 8
+        max_wal_senders: 5
+        max_replication_slots: 5
+        hot_standby_feedback: "on"
+        wal_log_hints: "on"
+        logging_collector: "on"
+        log_directory: pg_log
+        log_filename: postgresql-%Y-%m-%d_%H%M%S.log
+        log_statement: all
+        log_min_duration_statement: 0
+  initdb:
+    - encoding: UTF8
+    - data-checksums
+  pg_hba:
+    - host replication PATRONI_REPL_USER_PLACEHOLDER 0.0.0.0/0 md5
+    - host all all 0.0.0.0/0 md5
+  users:
+    APP_USER_PLACEHOLDER:
+      password: APP_PASSWORD_PLACEHOLDER
+      options:
+        - createrole
+        - createdb
+
+postgresql:
+  listen: 0.0.0.0:5432
+  connect_address: PATRONI_PG_CONNECT_PLACEHOLDER:5432
+  data_dir: /var/lib/postgresql/data/pgdata
+  authentication:
+    superuser:
+      username: PATRONI_SU_USER_PLACEHOLDER
+      password: PATRONI_SU_PASS_PLACEHOLDER
+    replication:
+      username: PATRONI_REPL_USER_PLACEHOLDER
+      password: PATRONI_REPL_PASS_PLACEHOLDER
+  parameters:
+    unix_socket_directories: /var/run/postgresql
+  create_replica_methods:
+    - basebackup
+  basebackup:
+    checkpoint: fast
+
+tags:
+  nofailover: false
+  noloadbalance: false
+  clonefrom: false
+  nosync: false

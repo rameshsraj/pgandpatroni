@@ -1,0 +1,99 @@
+services:
+  coordinator:
+    image: citusdata/citus:12.1
+    container_name: citus-coordinator
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
+    command: >
+      postgres
+      -c shared_preload_libraries=citus
+      -c wal_level=logical
+      -c citus.shard_count=12
+      -c citus.shard_replication_factor=1
+      -c max_worker_processes=32
+      -c max_prepared_transactions=200
+    volumes:
+      - coordinator-data:/var/lib/postgresql/data
+    networks:
+      - citus-net
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  worker-1:
+    image: citusdata/citus:12.1
+    container_name: citus-worker-1
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
+    command: >
+      postgres
+      -c shared_preload_libraries=citus
+      -c wal_level=logical
+      -c max_worker_processes=32
+      -c max_prepared_transactions=200
+    volumes:
+      - worker1-data:/var/lib/postgresql/data
+    networks:
+      - citus-net
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  worker-2:
+    image: citusdata/citus:12.1
+    container_name: citus-worker-2
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
+    command: >
+      postgres
+      -c shared_preload_libraries=citus
+      -c wal_level=logical
+      -c max_worker_processes=32
+      -c max_prepared_transactions=200
+    volumes:
+      - worker2-data:/var/lib/postgresql/data
+    networks:
+      - citus-net
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  worker-3:
+    image: citusdata/citus:12.1
+    container_name: citus-worker-3
+    profiles: ["add-shard"]
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
+    command: >
+      postgres
+      -c shared_preload_libraries=citus
+      -c wal_level=logical
+      -c max_worker_processes=32
+      -c max_prepared_transactions=200
+    volumes:
+      - worker3-data:/var/lib/postgresql/data
+    networks:
+      - citus-net
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  coordinator-data:
+  worker1-data:
+  worker2-data:
+  worker3-data:
+
+networks:
+  citus-net:
+    driver: bridge
