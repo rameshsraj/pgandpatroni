@@ -1,3 +1,6 @@
 .env
-#evidence/
-#*.log
+evidence/
+*.log
+docs/
+PostgreSQL-*
+POSTGRES*
