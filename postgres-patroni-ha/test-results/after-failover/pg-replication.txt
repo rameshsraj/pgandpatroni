@@ -1,5 +1,0 @@
- pid | application_name | client_addr |   state   | sync_state | sent_lsn  | write_lsn | flush_lsn | replay_lsn 
------+------------------+-------------+-----------+------------+-----------+-----------+-----------+------------
- 423 | pg-node-3        | 172.18.0.4  | streaming | async      | 0/4499AB0 | 0/4499AB0 | 0/4499AB0 | 0/4499AB0
-(1 row)
-
