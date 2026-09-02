@@ -5,3 +5,4 @@ docs/
 PostgreSQL-*
 POSTGRES*
 build/  
+*.docx
