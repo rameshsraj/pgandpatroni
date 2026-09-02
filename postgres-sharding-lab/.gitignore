@@ -4,3 +4,4 @@ evidence/
 docs/
 PostgreSQL-*
 POSTGRES*
+build/  

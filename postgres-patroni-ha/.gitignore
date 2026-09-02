@@ -4,3 +4,4 @@ test-results/
 docs/
 PostgreSQL-*
 POSTGRES*
+build/  
