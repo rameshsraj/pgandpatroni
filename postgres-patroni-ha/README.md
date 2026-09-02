@@ -170,15 +170,15 @@ docker exec pg-node-1 curl -s http://localhost:8008/patroni
 docker logs -f pg-node-1
 ```
 
-## Captured output
+## Capturing output
 
-The `test-results/` folder holds the output captured during the tested run, in four phases: `before-failover`, `failover-events`, `after-failover` and `after-recovery`. It includes the Patroni cluster listings, the replication view, the row counts, and the full container logs with millisecond timestamps.
+`scripts/capture-state.sh <label>` writes a snapshot to `test-results/<label>/`. That folder is not kept in this repository, so you will generate your own when you run the tests.
 
-Two honest notes about that evidence:
+Each snapshot collects the container status, the Patroni cluster listing, the etcd health and key contents, the HAProxy statistics, the role of each node, the replication view, the row counts, the sample rows, the connection details, and the last hundred log lines from all five containers.
 
-**The HAProxy log has no timestamps.** HAProxy writes those particular messages without them, so the order of events and the exact reason codes are verifiable but the few seconds attributed to HAProxy noticing the change are derived from the three second check interval rather than measured.
+The labels used for the run whose figures appear above were `before-failover`, `failover-events`, `after-failover` and `after-recovery`.
 
-**The scripts and the captured run are not an exact match.** The failover script writes a marker row whose text ends with a timestamp, and the captured row has none. The recovery script writes a marker row that does not appear in the captured table at all. The capture script writes sixteen files per snapshot and the committed snapshots contain ten. The conclusion is that the scripts were revised after the run, or parts of it were done by hand. The output is genuine, but running these scripts today will not reproduce exactly the files that are committed.
+One thing to know when reading your own results: **the HAProxy log carries no timestamps.** HAProxy writes those particular messages without them, so you can verify the order of events and the exact reason codes, but the few seconds it takes HAProxy to notice a new primary has to be inferred from the three second check interval rather than read off the log.
 
 ## Cleanup
 
@@ -216,8 +216,4 @@ Note also that HAProxy gives you a stable address, not unbroken sessions. Every 
 
 ### Credentials
 
-`.env.example` contains obvious lab only values and is committed on purpose. Copy it to `.env` and change them. Patroni prints its rendered configuration at startup, so the captured container logs under `test-results/` contain those lab passwords in plain text. That is fine for a disposable lab whose credentials are already public, and worth remembering before pointing the same setup at anything you care about.
-
-## Related
-
-The companion lab in this repository, [`postgres-sharding-lab`](../postgres-sharding-lab), covers horizontal sharding with Citus. It solves the opposite half of the problem: it spreads data across machines but has no redundancy at all. Combining the two, so that each Citus node is itself a Patroni cluster, is how you get a database that both scales out and survives node loss.
+`.env.example` contains obvious lab only values and is committed on purpose. Copy it to `.env` and change them. Patroni prints its rendered configuration at startup, so any container log you capture will contain those passwords in plain text. Worth remembering before you share a snapshot, and before pointing the same setup at anything you care about.

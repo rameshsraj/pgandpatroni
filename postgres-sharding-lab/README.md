@@ -210,7 +210,3 @@ Sharding imposes permanent costs. Queries that do not filter on the shard key ge
 Before reaching for it, exhaust the cheaper options: indexing, query tuning, connection pooling, read replicas, table partitioning, and simply using a larger machine. Modern hardware runs single node PostgreSQL into the multi terabyte range without complaint.
 
 Shard when you have a demonstrated limit on write throughput or data volume that one machine cannot meet, and when your access patterns have a natural distribution key, usually a tenant or customer. If you cannot name that key with confidence, you are not ready to shard.
-
-## Related
-
-The companion lab in this repository, [`postgres-patroni-ha`](../postgres-patroni-ha), covers automatic failover with Patroni, etcd and HAProxy. It solves the opposite half of the problem: it survives losing a node but holds only one machine's worth of data. Combining the two, so that the coordinator and each worker are themselves Patroni clusters, is how you get a database that both scales out and survives node loss.
