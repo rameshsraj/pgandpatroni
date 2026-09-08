@@ -1,7 +1,7 @@
 #.env
-evidence/
-*.log
-docs/
+#evidence/
+#*.log
+#docs/
 PostgreSQL-*
 POSTGRES*
 build/  
