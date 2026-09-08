@@ -1,20 +1,23 @@
 # PostgreSQL High Availability with Patroni, etcd and HAProxy
 
-A working three node PostgreSQL cluster that survives losing its primary, built with Docker Compose and tested by deliberately killing the primary.
+A PostgreSQL HA lab built with Docker Compose and tested by deliberately failing
+the primary. The current configuration has four permanent PostgreSQL nodes, one
+optional elastic read replica, one etcd, and one HAProxy with stable client endpoints.
 
-<<<<<<< Updated upstream
-Five containers: three PostgreSQL nodes managed by Patroni, one etcd holding the leader lock, and one HAProxy giving the application a single address that does not change when the primary does.
-=======
-See [the original guide](docs/POSTGRES_PATRONI_HA_COMPLETE_GUIDE.md) for the initial
-three-node experiment. Later phases expand the topology; their measured results and
-limitations take precedence over general claims in that historical guide.
->>>>>>> Stashed changes
+The historical summary below describes the initial three-node experiment; its
+standalone guide is absent from the current checkout. Later phases expand the topology.
+Use [the audited Phase 2 report](test-results/phase2/PHASE2_REPORT.md) and
+[the Phase 3 guide](docs/PHASE3_TRAFFIC_SCALING_LAB.md) for those phases' measured
+results and limitations rather than generalizing the original observations.
 
 This is a laboratory build. It is a good way to learn how automatic failover actually works and a bad way to run a production database. See [Known limitations](#known-limitations) before using any of it as a template.
 
 ## What this lab demonstrates
 
-The primary was stopped on purpose and the cluster recovered without human intervention. Measured from the captured container logs:
+The [Phase 3 guide](docs/PHASE3_TRAFFIC_SCALING_LAB.md) documents the current
+traffic-driven scale-out/scale-in tests, sequential failovers, rejoin, and evidence.
+The table below retains the **original three-node experiment's historical summary**;
+its timings and node names are not the Phase 2 or Phase 3 results.
 
 | Question | Result |
 |---|---|
@@ -22,19 +25,21 @@ The primary was stopped on purpose and the cluster recovered without human inter
 | Time to a new primary | About 34 seconds, of which about 30 was the leader lock timeout |
 | Time until write traffic followed | About 36 seconds |
 | Did the application connection string change? | No. Port 5000 on localhost throughout. |
-| Was committed data lost? | No. The PostgreSQL timeline advanced from 1 to 2. |
+| Were the observed sample records retained? | Yes; timeline advancement from 1 to 2 alone does not prove zero data loss. |
 | Time for the failed node to rejoin | About 1.5 seconds, as a replica |
 | Did losing a replica cause a failover? | No, and writes were never interrupted |
 
 Two details worth knowing, because both are widely misunderstood:
 
-**The failed primary rejoined without `pg_rewind`.** Stopping a container lets Patroni shut PostgreSQL down cleanly, so nothing diverged and there was nothing to rewind. A rewind is what you see after an abrupt loss such as a power cut.
+**Rejoin does not always require `pg_rewind`.** A clean shutdown can avoid divergent
+history; an abrupt failure may require rewind or a new base backup. The later Phase 2
+and Phase 3 recovery logs explicitly record automatic rewind. Do not generalize the
+original run's recovery path to every failure.
 
 **The lock does not expire 30 seconds after the failure.** It expires 30 seconds after its last renewal. In this run the container stopped about 5 seconds after a renewal, so the lock survived roughly 25 more seconds. The delay before an election therefore varies with where in the renewal cycle the failure lands.
 
 ## Architecture
 
-<<<<<<< Updated upstream
 ```
 Application
     |
@@ -46,6 +51,8 @@ HAProxy        :5000 write traffic to the current primary
     +--> pg-node-1  PostgreSQL :5432  Patroni :8008
     +--> pg-node-2  PostgreSQL :5432  Patroni :8008
     +--> pg-node-3  PostgreSQL :5432  Patroni :8008
+     +--> pg-node-4  PostgreSQL :5432  Patroni :8008
+     +--> pg-node-5  optional elastic read replica, excluded from elections
                         |
                         v
                       etcd :2379   leader lock and cluster state
@@ -72,12 +79,9 @@ Each component has exactly one job:
 | 2379 | etcd | No | Client API, internal only |
 
 PostgreSQL and the Patroni API are deliberately not published to the host. All client access goes through HAProxy.
-=======
-- 4 permanent PostgreSQL nodes managed by Patroni (expanded from the original 3)
-- Optional `pg-node-5` elastic read replica, excluded from elections; data volume retained on scale-in
-- etcd as distributed configuration store (DCS)
-- HAProxy as stable client endpoint (port 5000 write, port 5001 read)
->>>>>>> Stashed changes
+
+The four permanent database nodes include one primary. The optional `pg-node-5`
+replica retains its data volume when scaled in; it is not a second writable primary.
 
 ## Traffic-driven scaling demonstration (Phase 3)
 
@@ -111,6 +115,19 @@ Read scaling duplicates the full dataset; it does **not** redistribute shards or
 increase single-primary write capacity. All containers share one Docker host, so
 additional replicas may reduce measured throughput rather than improve it.
 
+### Can the nodes scale automatically outside a benchmark?
+
+**Yes, with a separate always-on controller; that controller is not implemented yet.**
+The existing finite test scales out after two samples above 30 successful read TPS
+and scales in after two samples below 10 TPS, within a four-to-five-node boundary.
+Those actions are automatic, but only during their designated benchmark stages.
+
+An unattended controller must monitor real application demand, reconcile desired
+replica count continuously, apply cooldowns, admit only ready replicas, and drain
+before stopping a replica. It must not generate benchmark traffic or kill primaries.
+See [the proposed continuous-scaling design](docs/PHASE3_TRAFFIC_SCALING_LAB.md#always-on-automated-scaling-proposed-not-implemented)
+for safety controls, restart behavior, and infrastructure limits.
+
 ## Versions
 
 Tested together and confirmed working:
@@ -126,10 +143,11 @@ One version note that cost real time during the build: etcd 3.5 disables the old
 
 ## Prerequisites
 
-- Docker Desktop or Docker Engine, version 4 or later
+- Docker Desktop with Linux containers, or Docker Engine with Compose v2
 - Docker Compose version 2, which ships with Docker Desktop
 - At least 4 GB of memory available to Docker
-- `psql` on the host is optional, since you can run it inside any container
+- PowerShell 7.2+ for the Phase 3 runner; it uses the container's PostgreSQL clients
+- The older Bash scripts require Bash and, for some checks, host `psql` and `curl`
 
 ## Quick start
 
@@ -144,6 +162,10 @@ Give it 15 to 30 seconds, then check the cluster:
 ```bash
 docker exec pg-node-1 patronictl -c /etc/patroni/patroni.yml list
 ```
+
+Illustrative output from the original three-node experiment follows. The current
+configuration starts four permanent nodes; wait for one leader and streaming replicas
+rather than treating the startup estimate as a readiness guarantee.
 
 ```
 + Cluster: pg-ha-cluster ---------+---------+-----------+----+-----------+
@@ -217,13 +239,19 @@ docker logs -f pg-node-1
 
 ## Capturing output
 
-`scripts/capture-state.sh <label>` writes a snapshot to `test-results/<label>/`. That folder is not kept in this repository, so you will generate your own when you run the tests.
+[scripts/capture-state.sh](scripts/capture-state.sh) writes a labelled snapshot under
+[test-results/](test-results/). Captured evidence exists locally, but the current
+[ignore rules](.gitignore) exclude both that directory and [docs/](docs/) from normal
+Git adds. Local documentation/evidence is not the same as a committed or remote backup;
+review redaction and retention before deliberately versioning or archiving it.
 
-Each snapshot collects the container status, the Patroni cluster listing, the etcd health and key contents, the HAProxy statistics, the role of each node, the replication view, the row counts, the sample rows, the connection details, and the last hundred log lines from all five containers.
+Each snapshot collects the container status, the Patroni cluster listing, the etcd health and key contents, the HAProxy statistics, the role of each node, the replication view, the row counts, the sample rows, the connection details, and the last hundred log lines from discovered PostgreSQL containers plus etcd and HAProxy.
 
 The labels used for the run whose figures appear above were `before-failover`, `failover-events`, `after-failover` and `after-recovery`.
 
-One thing to know when reading your own results: **the HAProxy log carries no timestamps.** HAProxy writes those particular messages without them, so you can verify the order of events and the exact reason codes, but the few seconds it takes HAProxy to notice a new primary has to be inferred from the three second check interval rather than read off the log.
+The older capture script does not request Docker timestamps for HAProxy logs, so
+those messages alone cannot establish precise routing delays. Phase 3 records
+timestamped container logs, UTC command timings, and client probes separately.
 
 ## Cleanup
 
@@ -246,7 +274,7 @@ This build protects against exactly one thing: the loss of a single PostgreSQL n
 
 | Limitation | Why it matters | What production needs |
 |---|---|---|
-| One etcd node | If etcd fails, no election can happen and the cluster freezes in place | Three or five etcd nodes |
+| One etcd node | Losing DCS prevents safe elections; inability to renew the leader lock can also make Patroni demote the primary | Three or five etcd nodes |
 | All containers on one host | Losing the machine loses everything, however many nodes are configured | Separate physical or virtual machines |
 | Credentials in a file, committed defaults | The example values are public | A secrets manager, and your own values |
 | Password authentication from any address | Unacceptable outside an isolated network | Restricted source ranges, and `scram-sha-256` |
@@ -255,10 +283,17 @@ This build protects against exactly one thing: the loss of a single PostgreSQL n
 | Every statement logged | Enormous log volume, and query parameters written to disk | Log only slow statements |
 | Asynchronous replication | A commit in the final milliseconds before a crash can be lost | Consider synchronous replication |
 
-The most important line is the one about backups, and it is the one most often skipped because replication feels like it already covers the problem. It does not. A mistaken `DROP TABLE` reaches all three nodes in milliseconds.
+The most important line is the one about backups, and it is the one most often skipped because replication feels like it already covers the problem. It does not. A mistaken `DROP TABLE` is replicated to the replicas too.
 
-Note also that HAProxy gives you a stable address, not unbroken sessions. Every open connection breaks during a failover, and the application needs connection and transaction retry logic.
+Note also that HAProxy gives you a stable address, not unbroken sessions. Connections
+to the failed or demoted primary break; applications need connection and transaction
+retry logic. Connections to surviving read replicas need not all break.
 
 ### Credentials
 
-`.env.example` contains obvious lab only values and is committed on purpose. Copy it to `.env` and change them. Patroni prints its rendered configuration at startup, so any container log you capture will contain those passwords in plain text. Worth remembering before you share a snapshot, and before pointing the same setup at anything you care about.
+[.env.example](.env.example) contains lab-only values. The current checkout also
+tracks [.env](.env); do not place real secrets in a tracked file. The current
+[entrypoint](patroni/entrypoint.sh) no longer prints rendered credentials, but older
+logs may contain them and SQL logging can expose sensitive values. Phase 3 redacts
+known configured passwords; still review artifacts before sharing. Adding an ignore
+rule alone would not remove an already tracked file or its history.
