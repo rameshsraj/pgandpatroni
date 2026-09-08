@@ -1,0 +1,42 @@
+{
+  "start": "2026-09-08T11:26:55.8351354Z",
+  "p95Ms": 5418.194,
+  "requestedSeconds": 60,
+  "clients": 12,
+  "achievedTps": 55.1,
+  "observedCompletionSpanSeconds": 59.591206073760986,
+  "meanMs": 2554.116366303692,
+  "end": "2026-09-08T11:28:01.0405259Z",
+  "p99Ms": 6678.47,
+  "successfulTransactions": 3306,
+  "offeredTps": 120,
+  "routes": [
+    {
+      "endStatus": "UP",
+      "connections": 907,
+      "node": "pg-node-1"
+    },
+    {
+      "endStatus": "DOWN",
+      "connections": 0,
+      "node": "pg-node-2"
+    },
+    {
+      "endStatus": "UP",
+      "connections": 620,
+      "node": "pg-node-3"
+    },
+    {
+      "endStatus": "UP",
+      "connections": 908,
+      "node": "pg-node-4"
+    },
+    {
+      "endStatus": "UP",
+      "connections": 907,
+      "node": "pg-node-5"
+    }
+  ],
+  "failedBatches": 1,
+  "stage": "07-rejoin-under-load"
+}

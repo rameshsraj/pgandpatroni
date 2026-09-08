@@ -1,0 +1,12 @@
+START 2026-09-08T11:23:22.5782035Z
+COMMAND docker "run" "-d" "--name" "phase3-20260908t112126z-03-auto-scale-out" "--network" "postgres-patroni-ha_patroni-net" "--mount" "type=bind,source=C:\GitHub\pgandpatroni\postgres-patroni-ha\scripts\phase3,target=/work,readonly" "--mount" "type=bind,source=C:\GitHub\pgandpatroni\postgres-patroni-ha\test-results\phase3\20260908T112126Z/03-auto-scale-out/traffic,target=/evidence" "-e" "PGUSER=appuser" "-e" "PGDATABASE=appdb" "-e" "PGPASSWORD=[REDACTED]" "-e" "PGCONNECT_TIMEOUT=3" "--entrypoint" "/bin/bash" "postgres-patroni-ha-pg-node-1" "/work/traffic.sh" "65" "120" "12"
+STDIN
+
+STDOUT
+145ace6c764e97ac9ea74c173515d191f12e210b5d6dc8c47dfeefb82f2f165c
+
+STDERR
+
+END 2026-09-08T11:23:23.3388915Z
+EXIT 0
+SECONDS 0.7606929

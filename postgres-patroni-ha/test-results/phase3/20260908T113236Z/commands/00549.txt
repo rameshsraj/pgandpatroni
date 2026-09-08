@@ -1,0 +1,248 @@
+START 2026-09-08T11:39:40.2533516Z
+COMMAND docker "logs" "--timestamps" "--since" "2026-09-08T11:32:36.2713338Z" "pg-node-5"
+STDIN
+
+STDOUT
+2026-09-08T11:34:40.690645761Z === Rendered Patroni config for pg-node-5 (credentials not logged) ===
+2026-09-08T11:34:40.690704166Z === Starting Patroni ===
+2026-09-08T11:34:42.897627546Z localhost:5432 - rejecting connections
+2026-09-08T11:34:42.969964873Z localhost:5432 - rejecting connections
+2026-09-08T11:34:44.085350607Z localhost:5432 - accepting connections
+2026-09-08T11:36:59.699147013Z server signaled
+2026-09-08T11:37:01.859148046Z server signaled
+
+STDERR
+2026-09-08T11:34:41.860752354Z 2026-09-08 11:34:41,860 INFO: Selected new etcd server http://etcd:2379
+2026-09-08T11:34:41.918075530Z 2026-09-08 11:34:41,917 INFO: No PostgreSQL configuration items changed, nothing to reload.
+2026-09-08T11:34:41.928254278Z 2026-09-08 11:34:41,926 INFO: Reaped pid=24, exit status=0
+2026-09-08T11:34:41.986793256Z 2026-09-08 11:34:41,985 INFO: Reaped pid=27, exit status=0
+2026-09-08T11:34:41.987554419Z 2026-09-08 11:34:41,986 WARNING: Postgresql is not running.
+2026-09-08T11:34:41.990577971Z 2026-09-08 11:34:41,987 INFO: Lock owner: pg-node-2; I am pg-node-5
+2026-09-08T11:34:41.991832976Z 2026-09-08 11:34:41,990 INFO: Reaped pid=28, exit status=0
+2026-09-08T11:34:41.993525617Z 2026-09-08 11:34:41,990 INFO: pg_controldata:
+2026-09-08T11:34:41.993555519Z   pg_control version number: 1300
+2026-09-08T11:34:41.993560119Z   Catalog version number: 202307071
+2026-09-08T11:34:41.993563720Z   Database system identifier: 7683096657686442020
+2026-09-08T11:34:41.993567320Z   Database cluster state: in archive recovery
+2026-09-08T11:34:41.993570820Z   pg_control last modified: Tue Sep  8 11:28:35 2026
+2026-09-08T11:34:41.993574321Z   Latest checkpoint location: 0/B0031D0
+2026-09-08T11:34:41.993577721Z   Latest checkpoint's REDO location: 0/B003198
+2026-09-08T11:34:41.993581021Z   Latest checkpoint's REDO WAL file: 00000004000000000000000B
+2026-09-08T11:34:41.993584521Z   Latest checkpoint's TimeLineID: 4
+2026-09-08T11:34:41.993587622Z   Latest checkpoint's PrevTimeLineID: 4
+2026-09-08T11:34:41.993590822Z   Latest checkpoint's full_page_writes: on
+2026-09-08T11:34:41.993594122Z   Latest checkpoint's NextXID: 0:821
+2026-09-08T11:34:41.993597623Z   Latest checkpoint's NextOID: 32768
+2026-09-08T11:34:41.993600923Z   Latest checkpoint's NextMultiXactId: 1
+2026-09-08T11:34:41.993604223Z   Latest checkpoint's NextMultiOffset: 0
+2026-09-08T11:34:41.993608023Z   Latest checkpoint's oldestXID: 723
+2026-09-08T11:34:41.993611324Z   Latest checkpoint's oldestXID's DB: 1
+2026-09-08T11:34:41.993614624Z   Latest checkpoint's oldestActiveXID: 821
+2026-09-08T11:34:41.993618024Z   Latest checkpoint's oldestMultiXid: 1
+2026-09-08T11:34:41.993621225Z   Latest checkpoint's oldestMulti's DB: 1
+2026-09-08T11:34:41.993624825Z   Latest checkpoint's oldestCommitTsXid: 0
+2026-09-08T11:34:41.993628125Z   Latest checkpoint's newestCommitTsXid: 0
+2026-09-08T11:34:41.993631525Z   Time of latest checkpoint: Tue Sep  8 11:25:57 2026
+2026-09-08T11:34:41.993634926Z   Fake LSN counter for unlogged rels: 0/3E8
+2026-09-08T11:34:41.993638126Z   Minimum recovery ending location: 0/B008ED0
+2026-09-08T11:34:41.993665728Z   Min recovery ending loc's timeline: 4
+2026-09-08T11:34:41.993670029Z   Backup start location: 0/0
+2026-09-08T11:34:41.993673329Z   Backup end location: 0/0
+2026-09-08T11:34:41.993676829Z   End-of-backup record required: no
+2026-09-08T11:34:41.993680129Z   wal_level setting: replica
+2026-09-08T11:34:41.993683530Z   wal_log_hints setting: on
+2026-09-08T11:34:41.993686830Z   max_connections setting: 100
+2026-09-08T11:34:41.993690130Z   max_worker_processes setting: 8
+2026-09-08T11:34:41.993693531Z   max_wal_senders setting: 5
+2026-09-08T11:34:41.993696831Z   max_prepared_xacts setting: 0
+2026-09-08T11:34:41.993700131Z   max_locks_per_xact setting: 64
+2026-09-08T11:34:41.993703631Z   track_commit_timestamp setting: off
+2026-09-08T11:34:41.993706832Z   Maximum data alignment: 8
+2026-09-08T11:34:41.993710232Z   Database block size: 8192
+2026-09-08T11:34:41.993713332Z   Blocks per segment of large relation: 131072
+2026-09-08T11:34:41.993716832Z   WAL block size: 8192
+2026-09-08T11:34:41.993720033Z   Bytes per WAL segment: 16777216
+2026-09-08T11:34:41.993723233Z   Maximum length of identifiers: 64
+2026-09-08T11:34:41.993726733Z   Maximum columns in an index: 32
+2026-09-08T11:34:41.993730134Z   Maximum size of a TOAST chunk: 1996
+2026-09-08T11:34:41.993733434Z   Size of a large-object chunk: 2048
+2026-09-08T11:34:41.993739734Z   Date/time type storage: 64-bit integers
+2026-09-08T11:34:41.993743035Z   Float8 argument passing: by value
+2026-09-08T11:34:41.993746335Z   Data page checksum version: 1
+2026-09-08T11:34:41.993749635Z   Mock authentication nonce: 266ef46d0e8af2ee606feeb078525f453db9fa869f9cb0abf503f4aa8a6282db
+2026-09-08T11:34:41.993753336Z 
+2026-09-08T11:34:42.009943284Z 2026-09-08 11:34:41,991 INFO: Lock owner: pg-node-2; I am pg-node-5
+2026-09-08T11:34:42.009999989Z 2026-09-08 11:34:42,008 INFO: Reaped pid=30, exit status=0
+2026-09-08T11:34:42.012794922Z 2026-09-08 11:34:42,012 INFO: Reaped pid=31, exit status=0
+2026-09-08T11:34:42.013766803Z 2026-09-08 11:34:42,012 INFO: Local timeline=4 lsn=0/B008ED0
+2026-09-08T11:34:42.071473011Z 2026-09-08 11:34:42,070 INFO: primary_timeline=4
+2026-09-08T11:34:42.078839525Z 2026-09-08 11:34:42,071 INFO: Lock owner: pg-node-2; I am pg-node-5
+2026-09-08T11:34:42.078890229Z 2026-09-08 11:34:42,073 INFO: starting as a secondary
+2026-09-08T11:34:42.800128822Z 2026-09-08 11:34:42.799 UTC [36] LOG:  redirecting log output to logging collector process
+2026-09-08T11:34:42.800167026Z 2026-09-08 11:34:42.799 UTC [36] HINT:  Future log output will appear in directory "pg_log".
+2026-09-08T11:34:42.805832898Z 2026-09-08 11:34:42,805 INFO: postmaster pid=36
+2026-09-08T11:34:44.095770575Z 2026-09-08 11:34:44,093 INFO: Lock owner: pg-node-2; I am pg-node-5
+2026-09-08T11:34:44.095806778Z 2026-09-08 11:34:44,093 INFO: establishing a new patroni heartbeat connection to postgres
+2026-09-08T11:34:44.190515369Z 2026-09-08 11:34:44,189 INFO: no action. I am (pg-node-5), a secondary, and following a leader (pg-node-2)
+2026-09-08T11:34:45.741377686Z 2026-09-08 11:34:45,740 INFO: establishing a new patroni restapi connection to postgres
+2026-09-08T11:34:47.616465486Z 2026-09-08 11:34:47,614 INFO: no action. I am (pg-node-5), a secondary, and following a leader (pg-node-2)
+2026-09-08T11:34:57.706711644Z 2026-09-08 11:34:57,705 INFO: no action. I am (pg-node-5), a secondary, and following a leader (pg-node-2)
+2026-09-08T11:35:07.666376405Z 2026-09-08 11:35:07,665 INFO: no action. I am (pg-node-5), a secondary, and following a leader (pg-node-2)
+2026-09-08T11:35:17.711168267Z 2026-09-08 11:35:17,710 INFO: no action. I am (pg-node-5), a secondary, and following a leader (pg-node-2)
+2026-09-08T11:35:27.684635632Z 2026-09-08 11:35:27,683 INFO: no action. I am (pg-node-5), a secondary, and following a leader (pg-node-2)
+2026-09-08T11:35:37.722808310Z 2026-09-08 11:35:37,722 INFO: no action. I am (pg-node-5), a secondary, and following a leader (pg-node-2)
+2026-09-08T11:35:47.666240668Z 2026-09-08 11:35:47,665 INFO: no action. I am (pg-node-5), a secondary, and following a leader (pg-node-2)
+2026-09-08T11:35:54.757749020Z 2026-09-08 11:35:54,755 WARNING: Exception happened during processing of request from 172.19.0.4:47304
+2026-09-08T11:35:54.796253801Z 2026-09-08 11:35:54,795 WARNING: Traceback (most recent call last):
+2026-09-08T11:35:54.796334909Z   File "/usr/lib/python3.11/socketserver.py", line 691, in process_request_thread
+2026-09-08T11:35:54.796343110Z     self.finish_request(request, client_address)
+2026-09-08T11:35:54.796349311Z   File "/usr/lib/python3.11/socketserver.py", line 361, in finish_request
+2026-09-08T11:35:54.796355511Z     self.RequestHandlerClass(request, client_address, self)
+2026-09-08T11:35:54.796361312Z   File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 105, in __init__
+2026-09-08T11:35:54.796367513Z     super(RestApiHandler, self).__init__(request, client_address, server)
+2026-09-08T11:35:54.796373513Z   File "/usr/lib/python3.11/socketserver.py", line 755, in __init__
+2026-09-08T11:35:54.796379614Z     self.handle()
+2026-09-08T11:35:54.796385214Z   File "/usr/lib/python3.11/http/server.py", line 432, in handle
+2026-09-08T11:35:54.796391415Z     self.handle_one_request()
+2026-09-08T11:35:54.796397216Z   File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 1348, in handle_one_request
+2026-09-08T11:35:54.796403516Z     BaseHTTPRequestHandler.handle_one_request(self)
+2026-09-08T11:35:54.796443520Z   File "/usr/lib/python3.11/http/server.py", line 420, in handle_one_request
+2026-09-08T11:35:54.796449321Z     method()
+2026-09-08T11:35:54.796453121Z   File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 375, in do_GET
+2026-09-08T11:35:54.796457222Z     self._write_status_response(status_code, response)
+2026-09-08T11:35:54.796461022Z   File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 221, in _write_status_response
+2026-09-08T11:35:54.796465223Z     self._write_json_response(status_code, response)
+2026-09-08T11:35:54.796469023Z   File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 167, in _write_json_response
+2026-09-08T11:35:54.796473223Z     self.write_response(status_code, json.dumps(response, default=str), content_type='application/json')
+2026-09-08T11:35:54.796477324Z   File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 157, in write_response
+2026-09-08T11:35:54.796481724Z     self.wfile.write(body.encode('utf-8'))
+2026-09-08T11:35:54.796485725Z   File "/usr/lib/python3.11/socketserver.py", line 834, in write
+2026-09-08T11:35:54.796489825Z     self._sock.sendall(b)
+2026-09-08T11:35:54.796493625Z ConnectionResetError: [Errno 104] Connection reset by peer
+2026-09-08T11:35:54.796497526Z 
+2026-09-08T11:35:57.765665920Z 2026-09-08 11:35:57,763 INFO: no action. I am (pg-node-5), a secondary, and following a leader (pg-node-2)
+2026-09-08T11:36:07.854594026Z 2026-09-08 11:36:07,853 INFO: no action. I am (pg-node-5), a secondary, and following a leader (pg-node-2)
+2026-09-08T11:36:17.668449350Z 2026-09-08 11:36:17,667 INFO: no action. I am (pg-node-5), a secondary, and following a leader (pg-node-2)
+2026-09-08T11:36:23.285768346Z 2026-09-08 11:36:23,284 WARNING: Exception happened during processing of request from 172.19.0.4:58892
+2026-09-08T11:36:23.287351709Z 2026-09-08 11:36:23,286 WARNING: Traceback (most recent call last):
+2026-09-08T11:36:23.287380612Z   File "/usr/lib/python3.11/socketserver.py", line 691, in process_request_thread
+2026-09-08T11:36:23.287389913Z     self.finish_request(request, client_address)
+2026-09-08T11:36:23.287397213Z   File "/usr/lib/python3.11/socketserver.py", line 361, in finish_request
+2026-09-08T11:36:23.287403714Z     self.RequestHandlerClass(request, client_address, self)
+2026-09-08T11:36:23.287409815Z   File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 105, in __init__
+2026-09-08T11:36:23.287415215Z     super(RestApiHandler, self).__init__(request, client_address, server)
+2026-09-08T11:36:23.287419016Z   File "/usr/lib/python3.11/socketserver.py", line 755, in __init__
+2026-09-08T11:36:23.287422616Z     self.handle()
+2026-09-08T11:36:23.287426116Z   File "/usr/lib/python3.11/http/server.py", line 432, in handle
+2026-09-08T11:36:23.287429617Z     self.handle_one_request()
+2026-09-08T11:36:23.287433017Z   File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 1348, in handle_one_request
+2026-09-08T11:36:23.287453119Z     BaseHTTPRequestHandler.handle_one_request(self)
+2026-09-08T11:36:23.287455919Z   File "/usr/lib/python3.11/http/server.py", line 420, in handle_one_request
+2026-09-08T11:36:23.287458420Z     method()
+2026-09-08T11:36:23.287460620Z   File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 375, in do_GET
+2026-09-08T11:36:23.287463020Z     self._write_status_response(status_code, response)
+2026-09-08T11:36:23.287465320Z   File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 221, in _write_status_response
+2026-09-08T11:36:23.287467521Z     self._write_json_response(status_code, response)
+2026-09-08T11:36:23.287469721Z   File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 167, in _write_json_response
+2026-09-08T11:36:23.287472021Z     self.write_response(status_code, json.dumps(response, default=str), content_type='application/json')
+2026-09-08T11:36:23.287474221Z   File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 157, in write_response
+2026-09-08T11:36:23.287476722Z     self.wfile.write(body.encode('utf-8'))
+2026-09-08T11:36:23.287478922Z   File "/usr/lib/python3.11/socketserver.py", line 834, in write
+2026-09-08T11:36:23.287481222Z     self._sock.sendall(b)
+2026-09-08T11:36:23.287483322Z ConnectionResetError: [Errno 104] Connection reset by peer
+2026-09-08T11:36:23.287485522Z 
+2026-09-08T11:36:27.723374427Z 2026-09-08 11:36:27,722 INFO: no action. I am (pg-node-5), a secondary, and following a leader (pg-node-2)
+2026-09-08T11:36:27.835811378Z 2026-09-08 11:36:27,830 WARNING: Exception happened during processing of request from 172.19.0.4:53390
+2026-09-08T11:36:27.835864283Z 2026-09-08 11:36:27,832 WARNING: Traceback (most recent call last):
+2026-09-08T11:36:27.835875084Z   File "/usr/lib/python3.11/socketserver.py", line 691, in process_request_thread
+2026-09-08T11:36:27.835883285Z     self.finish_request(request, client_address)
+2026-09-08T11:36:27.835890786Z   File "/usr/lib/python3.11/socketserver.py", line 361, in finish_request
+2026-09-08T11:36:27.835898087Z     self.RequestHandlerClass(request, client_address, self)
+2026-09-08T11:36:27.835905287Z   File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 105, in __init__
+2026-09-08T11:36:27.835912588Z     super(RestApiHandler, self).__init__(request, client_address, server)
+2026-09-08T11:36:27.835919089Z   File "/usr/lib/python3.11/socketserver.py", line 755, in __init__
+2026-09-08T11:36:27.835926290Z     self.handle()
+2026-09-08T11:36:27.835933390Z   File "/usr/lib/python3.11/http/server.py", line 432, in handle
+2026-09-08T11:36:27.835940291Z     self.handle_one_request()
+2026-09-08T11:36:27.835947192Z   File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 1348, in handle_one_request
+2026-09-08T11:36:27.835954692Z     BaseHTTPRequestHandler.handle_one_request(self)
+2026-09-08T11:36:27.835988796Z   File "/usr/lib/python3.11/http/server.py", line 420, in handle_one_request
+2026-09-08T11:36:27.835995497Z     method()
+2026-09-08T11:36:27.835999597Z   File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 375, in do_GET
+2026-09-08T11:36:27.836004098Z     self._write_status_response(status_code, response)
+2026-09-08T11:36:27.836008398Z   File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 221, in _write_status_response
+2026-09-08T11:36:27.836012598Z     self._write_json_response(status_code, response)
+2026-09-08T11:36:27.836016599Z   File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 167, in _write_json_response
+2026-09-08T11:36:27.836020699Z     self.write_response(status_code, json.dumps(response, default=str), content_type='application/json')
+2026-09-08T11:36:27.836025100Z   File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 157, in write_response
+2026-09-08T11:36:27.836029800Z     self.wfile.write(body.encode('utf-8'))
+2026-09-08T11:36:27.836034501Z   File "/usr/lib/python3.11/socketserver.py", line 834, in write
+2026-09-08T11:36:27.836039701Z     self._sock.sendall(b)
+2026-09-08T11:36:27.836044302Z ConnectionResetError: [Errno 104] Connection reset by peer
+2026-09-08T11:36:27.836048602Z 
+2026-09-08T11:36:30.839657929Z 2026-09-08 11:36:30,836 WARNING: Exception happened during processing of request from 172.19.0.4:53396
+2026-09-08T11:36:30.839973261Z 2026-09-08 11:36:30,838 WARNING: Traceback (most recent call last):
+2026-09-08T11:36:30.839988963Z   File "/usr/lib/python3.11/socketserver.py", line 691, in process_request_thread
+2026-09-08T11:36:30.839995063Z     self.finish_request(request, client_address)
+2026-09-08T11:36:30.839999364Z   File "/usr/lib/python3.11/socketserver.py", line 361, in finish_request
+2026-09-08T11:36:30.840003564Z     self.RequestHandlerClass(request, client_address, self)
+2026-09-08T11:36:30.840007865Z   File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 105, in __init__
+2026-09-08T11:36:30.840012465Z     super(RestApiHandler, self).__init__(request, client_address, server)
+2026-09-08T11:36:30.840016965Z   File "/usr/lib/python3.11/socketserver.py", line 755, in __init__
+2026-09-08T11:36:30.840021666Z     self.handle()
+2026-09-08T11:36:30.840025666Z   File "/usr/lib/python3.11/http/server.py", line 432, in handle
+2026-09-08T11:36:30.840030367Z     self.handle_one_request()
+2026-09-08T11:36:30.840034767Z   File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 1348, in handle_one_request
+2026-09-08T11:36:30.840040068Z     BaseHTTPRequestHandler.handle_one_request(self)
+2026-09-08T11:36:30.840044268Z   File "/usr/lib/python3.11/http/server.py", line 420, in handle_one_request
+2026-09-08T11:36:30.840049169Z     method()
+2026-09-08T11:36:30.840081272Z   File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 375, in do_GET
+2026-09-08T11:36:30.840088473Z     self._write_status_response(status_code, response)
+2026-09-08T11:36:30.840093373Z   File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 221, in _write_status_response
+2026-09-08T11:36:30.840098274Z     self._write_json_response(status_code, response)
+2026-09-08T11:36:30.840102674Z   File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 167, in _write_json_response
+2026-09-08T11:36:30.840107275Z     self.write_response(status_code, json.dumps(response, default=str), content_type='application/json')
+2026-09-08T11:36:30.840111675Z   File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 157, in write_response
+2026-09-08T11:36:30.840115876Z     self.wfile.write(body.encode('utf-8'))
+2026-09-08T11:36:30.840120176Z   File "/usr/lib/python3.11/socketserver.py", line 834, in write
+2026-09-08T11:36:30.840124976Z     self._sock.sendall(b)
+2026-09-08T11:36:30.840128677Z ConnectionResetError: [Errno 104] Connection reset by peer
+2026-09-08T11:36:30.840132577Z 
+2026-09-08T11:36:38.225469810Z 2026-09-08 11:36:38,224 INFO: no action. I am (pg-node-5), a secondary, and following a leader (pg-node-2)
+2026-09-08T11:36:48.123848236Z 2026-09-08 11:36:48,121 INFO: no action. I am (pg-node-5), a secondary, and following a leader (pg-node-2)
+2026-09-08T11:36:59.724449187Z 2026-09-08 11:36:59,723 INFO: Reaped pid=1993, exit status=0
+2026-09-08T11:36:59.783987644Z 2026-09-08 11:36:59,783 INFO: following a different leader because I am not allowed to promote
+2026-09-08T11:37:01.847354146Z 2026-09-08 11:37:01,834 INFO: Lock owner: pg-node-3; I am pg-node-5
+2026-09-08T11:37:01.847404751Z 2026-09-08 11:37:01,846 INFO: Local timeline=4 lsn=0/B01BF10
+2026-09-08T11:37:01.874962655Z 2026-09-08 11:37:01,874 INFO: Reaped pid=2025, exit status=0
+2026-09-08T11:37:01.876130574Z 2026-09-08 11:37:01,875 INFO: no action. I am (pg-node-5), a secondary, and following a leader (pg-node-3)
+2026-09-08T11:37:09.073206282Z 2026-09-08 11:37:09,031 INFO: Lock owner: pg-node-3; I am pg-node-5
+2026-09-08T11:37:09.073947252Z 2026-09-08 11:37:09,069 INFO: Local timeline=4 lsn=0/B01BF10
+2026-09-08T11:37:09.081887107Z 2026-09-08 11:37:09,079 INFO: no action. I am (pg-node-5), a secondary, and following a leader (pg-node-3)
+2026-09-08T11:37:09.707930938Z 2026-09-08 11:37:09,668 INFO: Lock owner: pg-node-3; I am pg-node-5
+2026-09-08T11:37:09.708014746Z 2026-09-08 11:37:09,698 INFO: Local timeline=4 lsn=0/B01BF10
+2026-09-08T11:37:09.793383164Z 2026-09-08 11:37:09,792 INFO: primary_timeline=5
+2026-09-08T11:37:09.797617867Z 2026-09-08 11:37:09,796 INFO: primary: history=1	0/50000A0	no recovery target specified
+2026-09-08T11:37:09.797654270Z 2	0/700FAF0	no recovery target specified
+2026-09-08T11:37:09.797691974Z 3	0/B003168	no recovery target specified
+2026-09-08T11:37:09.797697774Z 4	0/B01BF10	no recovery target specified
+2026-09-08T11:37:09.860689964Z 2026-09-08 11:37:09,859 INFO: no action. I am (pg-node-5), a secondary, and following a leader (pg-node-3)
+2026-09-08T11:37:19.753320433Z 2026-09-08 11:37:19,752 INFO: no action. I am (pg-node-5), a secondary, and following a leader (pg-node-3)
+2026-09-08T11:37:29.755241678Z 2026-09-08 11:37:29,754 INFO: no action. I am (pg-node-5), a secondary, and following a leader (pg-node-3)
+2026-09-08T11:37:39.725043789Z 2026-09-08 11:37:39,724 INFO: no action. I am (pg-node-5), a secondary, and following a leader (pg-node-3)
+2026-09-08T11:37:49.763979607Z 2026-09-08 11:37:49,763 INFO: no action. I am (pg-node-5), a secondary, and following a leader (pg-node-3)
+2026-09-08T11:37:59.724623200Z 2026-09-08 11:37:59,723 INFO: no action. I am (pg-node-5), a secondary, and following a leader (pg-node-3)
+2026-09-08T11:38:09.749186323Z 2026-09-08 11:38:09,748 INFO: no action. I am (pg-node-5), a secondary, and following a leader (pg-node-3)
+2026-09-08T11:38:19.857227383Z 2026-09-08 11:38:19,856 INFO: no action. I am (pg-node-5), a secondary, and following a leader (pg-node-3)
+2026-09-08T11:38:30.269566435Z 2026-09-08 11:38:30,268 INFO: no action. I am (pg-node-5), a secondary, and following a leader (pg-node-3)
+2026-09-08T11:38:39.721985601Z 2026-09-08 11:38:39,721 INFO: no action. I am (pg-node-5), a secondary, and following a leader (pg-node-3)
+2026-09-08T11:38:49.758804929Z 2026-09-08 11:38:49,758 INFO: no action. I am (pg-node-5), a secondary, and following a leader (pg-node-3)
+2026-09-08T11:38:59.721332828Z 2026-09-08 11:38:59,720 INFO: no action. I am (pg-node-5), a secondary, and following a leader (pg-node-3)
+2026-09-08T11:39:09.768285955Z 2026-09-08 11:39:09,766 INFO: no action. I am (pg-node-5), a secondary, and following a leader (pg-node-3)
+2026-09-08T11:39:19.727885045Z 2026-09-08 11:39:19,726 INFO: no action. I am (pg-node-5), a secondary, and following a leader (pg-node-3)
+2026-09-08T11:39:29.765133339Z 2026-09-08 11:39:29,764 INFO: no action. I am (pg-node-5), a secondary, and following a leader (pg-node-3)
+2026-09-08T11:39:39.700426446Z 2026-09-08 11:39:39,699 INFO: no action. I am (pg-node-5), a secondary, and following a leader (pg-node-3)
+
+END 2026-09-08T11:39:40.3305936Z
+EXIT 0
+SECONDS 0.0772471

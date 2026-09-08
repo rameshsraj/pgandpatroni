@@ -1,0 +1,80 @@
+"seconds","command","input","output","exit","id","end","start"
+"0.2348738","curl.exe ""-fsS"" ""--max-time"" ""4"" ""http://localhost:7000/;csv""","","commands/00009.txt","56","00009","2026-09-08T11:33:02.1313344Z","2026-09-08T11:33:01.8964725Z"
+"0.2200285","curl.exe ""-fsS"" ""--max-time"" ""4"" ""http://localhost:7000/;csv""","","commands/00011.txt","56","00011","2026-09-08T11:33:03.4498751Z","2026-09-08T11:33:03.2298521Z"
+"0.2299136","curl.exe ""-fsS"" ""--max-time"" ""4"" ""http://localhost:7000/;csv""","","commands/00013.txt","56","00013","2026-09-08T11:33:05.4907096Z","2026-09-08T11:33:05.2608111Z"
+"0.2315484","curl.exe ""-fsS"" ""--max-time"" ""4"" ""http://localhost:7000/;csv""","","commands/00015.txt","52","00015","2026-09-08T11:33:07.5013020Z","2026-09-08T11:33:07.2697681Z"
+"0.217952","curl.exe ""-fsS"" ""--max-time"" ""4"" ""http://localhost:7000/;csv""","","commands/00017.txt","56","00017","2026-09-08T11:33:09.5341278Z","2026-09-08T11:33:09.3161821Z"
+"0.2254368","curl.exe ""-fsS"" ""--max-time"" ""4"" ""http://localhost:7000/;csv""","","commands/00019.txt","56","00019","2026-09-08T11:33:11.5613721Z","2026-09-08T11:33:11.3359546Z"
+"0.2286609","curl.exe ""-fsS"" ""--max-time"" ""4"" ""http://localhost:7000/;csv""","","commands/00021.txt","56","00021","2026-09-08T11:33:13.5786972Z","2026-09-08T11:33:13.3500467Z"
+"0.2222476","curl.exe ""-fsS"" ""--max-time"" ""4"" ""http://localhost:7000/;csv""","","commands/00023.txt","56","00023","2026-09-08T11:33:15.5975834Z","2026-09-08T11:33:15.3753469Z"
+"0.242086","curl.exe ""-fsS"" ""--max-time"" ""4"" ""http://localhost:7000/;csv""","","commands/00025.txt","52","00025","2026-09-08T11:33:17.6350165Z","2026-09-08T11:33:17.3929519Z"
+"0.0523975","docker ""exec"" ""-e"" ""PGPASSWORD=[REDACTED]"" ""-e"" ""PGCONNECT_TIMEOUT=3"" ""-e"" ""PGOPTIONS=-c statement_timeout=5000"" ""pg-node-5"" ""psql"" ""-X"" ""-A"" ""-t"" ""-v"" ""ON_ERROR_STOP=1"" ""-U"" ""appuser"" ""-d"" ""appdb"" ""-c"" ""SELECT json_build_object('node','pg-node-5','replica',pg_is_in_recovery(),'server',inet_server_addr(),
+ 'items',(SELECT count(*) FROM phase3_lab.items),
+ 'items_hash',(SELECT md5(string_agg(md5(id::text || payload),'' ORDER BY id)) FROM phase3_lab.items),
+ 'events',(SELECT count(*) FROM phase3_lab.events),
+ 'events_hash',(SELECT md5(coalesce(string_agg(token || ':' || stage,'' ORDER BY token),'')) FROM phase3_lab.events),
+ 'customers',(SELECT count(*) FROM customers),'orders',(SELECT count(*) FROM orders),'ha_test',(SELECT count(*) FROM ha_test),
+ 'databases',(SELECT json_agg(datname) FROM pg_database WHERE NOT datistemplate),
+ 'tables',(SELECT json_agg(schemaname || '.' || tablename) FROM pg_tables WHERE schemaname NOT IN ('pg_catalog','information_schema')),
+ 'partitions',(SELECT count(*) FROM pg_partitioned_table),
+ 'citus',(SELECT count(*) FROM pg_extension WHERE extname='citus'));""","","commands/00043.txt","1","00043","2026-09-08T11:33:27.6962050Z","2026-09-08T11:33:27.6438122Z"
+"0.0482734","docker ""exec"" ""-e"" ""PGPASSWORD=[REDACTED]"" ""-e"" ""PGCONNECT_TIMEOUT=3"" ""-e"" ""PGOPTIONS=-c statement_timeout=5000"" ""pg-node-5"" ""psql"" ""-X"" ""-A"" ""-t"" ""-v"" ""ON_ERROR_STOP=1"" ""-U"" ""postgres"" ""-d"" ""appdb"" ""-c"" ""SELECT json_build_object('senders',(SELECT json_agg(t) FROM (SELECT application_name,state,sync_state,sent_lsn,replay_lsn,pg_wal_lsn_diff(sent_lsn,replay_lsn) lag_bytes FROM pg_stat_replication) t),'receiver',(SELECT json_agg(t) FROM (SELECT status,sender_host,received_tli,written_lsn,flushed_lsn FROM pg_stat_wal_receiver) t));""","","commands/00044.txt","1","00044","2026-09-08T11:33:27.7589385Z","2026-09-08T11:33:27.7106747Z"
+"0.0562381","docker ""exec"" ""-e"" ""PGPASSWORD=[REDACTED]"" ""-e"" ""PGCONNECT_TIMEOUT=3"" ""-e"" ""PGOPTIONS=-c statement_timeout=5000"" ""pg-node-5"" ""psql"" ""-X"" ""-A"" ""-t"" ""-v"" ""ON_ERROR_STOP=1"" ""-U"" ""appuser"" ""-d"" ""appdb"" ""-c"" ""SELECT json_build_object('node','pg-node-5','replica',pg_is_in_recovery(),'server',inet_server_addr(),
+ 'items',(SELECT count(*) FROM phase3_lab.items),
+ 'items_hash',(SELECT md5(string_agg(md5(id::text || payload),'' ORDER BY id)) FROM phase3_lab.items),
+ 'events',(SELECT count(*) FROM phase3_lab.events),
+ 'events_hash',(SELECT md5(coalesce(string_agg(token || ':' || stage,'' ORDER BY token),'')) FROM phase3_lab.events),
+ 'customers',(SELECT count(*) FROM customers),'orders',(SELECT count(*) FROM orders),'ha_test',(SELECT count(*) FROM ha_test),
+ 'databases',(SELECT json_agg(datname) FROM pg_database WHERE NOT datistemplate),
+ 'tables',(SELECT json_agg(schemaname || '.' || tablename) FROM pg_tables WHERE schemaname NOT IN ('pg_catalog','information_schema')),
+ 'partitions',(SELECT count(*) FROM pg_partitioned_table),
+ 'citus',(SELECT count(*) FROM pg_extension WHERE extname='citus'));""","","commands/00148.txt","1","00148","2026-09-08T11:34:30.5199711Z","2026-09-08T11:34:30.4637381Z"
+"0.0601297","docker ""exec"" ""-e"" ""PGPASSWORD=[REDACTED]"" ""-e"" ""PGCONNECT_TIMEOUT=3"" ""-e"" ""PGOPTIONS=-c statement_timeout=5000"" ""pg-node-5"" ""psql"" ""-X"" ""-A"" ""-t"" ""-v"" ""ON_ERROR_STOP=1"" ""-U"" ""postgres"" ""-d"" ""appdb"" ""-c"" ""SELECT json_build_object('senders',(SELECT json_agg(t) FROM (SELECT application_name,state,sync_state,sent_lsn,replay_lsn,pg_wal_lsn_diff(sent_lsn,replay_lsn) lag_bytes FROM pg_stat_replication) t),'receiver',(SELECT json_agg(t) FROM (SELECT status,sender_host,received_tli,written_lsn,flushed_lsn FROM pg_stat_wal_receiver) t));""","","commands/00149.txt","1","00149","2026-09-08T11:34:30.5944007Z","2026-09-08T11:34:30.5342763Z"
+"0.1085892","docker ""exec"" ""-e"" ""PGPASSWORD=[REDACTED]"" ""-e"" ""PGCONNECT_TIMEOUT=3"" ""-e"" ""PGOPTIONS=-c statement_timeout=5000"" ""pg-node-2"" ""psql"" ""-X"" ""-A"" ""-t"" ""-v"" ""ON_ERROR_STOP=1"" ""-U"" ""appuser"" ""-d"" ""appdb"" ""-c"" ""SELECT json_build_object('node','pg-node-2','replica',pg_is_in_recovery(),'server',inet_server_addr(),
+ 'items',(SELECT count(*) FROM phase3_lab.items),
+ 'items_hash',(SELECT md5(string_agg(md5(id::text || payload),'' ORDER BY id)) FROM phase3_lab.items),
+ 'events',(SELECT count(*) FROM phase3_lab.events),
+ 'events_hash',(SELECT md5(coalesce(string_agg(token || ':' || stage,'' ORDER BY token),'')) FROM phase3_lab.events),
+ 'customers',(SELECT count(*) FROM customers),'orders',(SELECT count(*) FROM orders),'ha_test',(SELECT count(*) FROM ha_test),
+ 'databases',(SELECT json_agg(datname) FROM pg_database WHERE NOT datistemplate),
+ 'tables',(SELECT json_agg(schemaname || '.' || tablename) FROM pg_tables WHERE schemaname NOT IN ('pg_catalog','information_schema')),
+ 'partitions',(SELECT count(*) FROM pg_partitioned_table),
+ 'citus',(SELECT count(*) FROM pg_extension WHERE extname='citus'));""","","commands/00322.txt","1","00322","2026-09-08T11:36:42.5447597Z","2026-09-08T11:36:42.4361812Z"
+"0.1349074","docker ""exec"" ""-e"" ""PGPASSWORD=[REDACTED]"" ""-e"" ""PGCONNECT_TIMEOUT=3"" ""-e"" ""PGOPTIONS=-c statement_timeout=5000"" ""pg-node-2"" ""psql"" ""-X"" ""-A"" ""-t"" ""-v"" ""ON_ERROR_STOP=1"" ""-U"" ""postgres"" ""-d"" ""appdb"" ""-c"" ""SELECT json_build_object('senders',(SELECT json_agg(t) FROM (SELECT application_name,state,sync_state,sent_lsn,replay_lsn,pg_wal_lsn_diff(sent_lsn,replay_lsn) lag_bytes FROM pg_stat_replication) t),'receiver',(SELECT json_agg(t) FROM (SELECT status,sender_host,received_tli,written_lsn,flushed_lsn FROM pg_stat_wal_receiver) t));""","","commands/00323.txt","1","00323","2026-09-08T11:36:42.7129509Z","2026-09-08T11:36:42.5780557Z"
+"0.3933449","docker ""exec"" ""-e"" ""PGPASSWORD=[REDACTED]"" ""-e"" ""PGCONNECT_TIMEOUT=3"" ""-e"" ""PGOPTIONS=-c statement_timeout=5000"" ""pg-node-1"" ""psql"" ""-X"" ""-A"" ""-t"" ""-v"" ""ON_ERROR_STOP=1"" ""-U"" ""appuser"" ""-d"" ""appdb"" ""-h"" ""haproxy"" ""-p"" ""5000"" ""-c"" ""SELECT json_build_object('port',5000,'server',inet_server_addr(),'replica',pg_is_in_recovery());""","","commands/00330.txt","2","00330","2026-09-08T11:36:46.8175573Z","2026-09-08T11:36:46.4242233Z"
+"0.4849228","docker ""exec"" ""-e"" ""PGPASSWORD=[REDACTED]"" ""-e"" ""PGCONNECT_TIMEOUT=3"" ""-e"" ""PGOPTIONS=-c statement_timeout=5000"" ""pg-node-1"" ""psql"" ""-X"" ""-A"" ""-t"" ""-v"" ""ON_ERROR_STOP=1"" ""-U"" ""appuser"" ""-d"" ""appdb"" ""-h"" ""haproxy"" ""-p"" ""5000"" ""-c"" ""INSERT INTO phase3_lab.events(token,stage) VALUES ('20260908T113236Z-00054','05-failover-under-load') ON CONFLICT(token) DO NOTHING; SELECT json_build_object('token',token,'server',inet_server_addr(),'replica',pg_is_in_recovery()) FROM phase3_lab.events WHERE token='20260908T113236Z-00054';""","","commands/00340.txt","2","00340","2026-09-08T11:36:53.6322630Z","2026-09-08T11:36:53.1473610Z"
+"0.4221818","docker ""exec"" ""-e"" ""PGPASSWORD=[REDACTED]"" ""-e"" ""PGCONNECT_TIMEOUT=3"" ""-e"" ""PGOPTIONS=-c statement_timeout=5000"" ""pg-node-1"" ""psql"" ""-X"" ""-A"" ""-t"" ""-v"" ""ON_ERROR_STOP=1"" ""-U"" ""appuser"" ""-d"" ""appdb"" ""-h"" ""haproxy"" ""-p"" ""5000"" ""-c"" ""INSERT INTO phase3_lab.events(token,stage) VALUES ('20260908T113236Z-00054','05-failover-under-load') ON CONFLICT(token) DO NOTHING; SELECT json_build_object('token',token,'server',inet_server_addr(),'replica',pg_is_in_recovery()) FROM phase3_lab.events WHERE token='20260908T113236Z-00054';""","","commands/00344.txt","2","00344","2026-09-08T11:36:59.0779765Z","2026-09-08T11:36:58.6558072Z"
+"0.3752915","docker ""exec"" ""-e"" ""PGPASSWORD=[REDACTED]"" ""-e"" ""PGCONNECT_TIMEOUT=3"" ""-e"" ""PGOPTIONS=-c statement_timeout=5000"" ""pg-node-1"" ""psql"" ""-X"" ""-A"" ""-t"" ""-v"" ""ON_ERROR_STOP=1"" ""-U"" ""appuser"" ""-d"" ""appdb"" ""-h"" ""haproxy"" ""-p"" ""5000"" ""-c"" ""INSERT INTO phase3_lab.events(token,stage) VALUES ('20260908T113236Z-00054','05-failover-under-load') ON CONFLICT(token) DO NOTHING; SELECT json_build_object('token',token,'server',inet_server_addr(),'replica',pg_is_in_recovery()) FROM phase3_lab.events WHERE token='20260908T113236Z-00054';""","","commands/00348.txt","2","00348","2026-09-08T11:37:04.4071286Z","2026-09-08T11:37:04.0318490Z"
+"0.076902","docker ""exec"" ""-e"" ""PGPASSWORD=[REDACTED]"" ""-e"" ""PGCONNECT_TIMEOUT=3"" ""-e"" ""PGOPTIONS=-c statement_timeout=5000"" ""pg-node-2"" ""psql"" ""-X"" ""-A"" ""-t"" ""-v"" ""ON_ERROR_STOP=1"" ""-U"" ""appuser"" ""-d"" ""appdb"" ""-c"" ""SELECT json_build_object('node','pg-node-2','replica',pg_is_in_recovery(),'server',inet_server_addr(),
+ 'items',(SELECT count(*) FROM phase3_lab.items),
+ 'items_hash',(SELECT md5(string_agg(md5(id::text || payload),'' ORDER BY id)) FROM phase3_lab.items),
+ 'events',(SELECT count(*) FROM phase3_lab.events),
+ 'events_hash',(SELECT md5(coalesce(string_agg(token || ':' || stage,'' ORDER BY token),'')) FROM phase3_lab.events),
+ 'customers',(SELECT count(*) FROM customers),'orders',(SELECT count(*) FROM orders),'ha_test',(SELECT count(*) FROM ha_test),
+ 'databases',(SELECT json_agg(datname) FROM pg_database WHERE NOT datistemplate),
+ 'tables',(SELECT json_agg(schemaname || '.' || tablename) FROM pg_tables WHERE schemaname NOT IN ('pg_catalog','information_schema')),
+ 'partitions',(SELECT count(*) FROM pg_partitioned_table),
+ 'citus',(SELECT count(*) FROM pg_extension WHERE extname='citus'));""","","commands/00405.txt","1","00405","2026-09-08T11:38:03.6535976Z","2026-09-08T11:38:03.5767055Z"
+"0.0763048","docker ""exec"" ""-e"" ""PGPASSWORD=[REDACTED]"" ""-e"" ""PGCONNECT_TIMEOUT=3"" ""-e"" ""PGOPTIONS=-c statement_timeout=5000"" ""pg-node-2"" ""psql"" ""-X"" ""-A"" ""-t"" ""-v"" ""ON_ERROR_STOP=1"" ""-U"" ""postgres"" ""-d"" ""appdb"" ""-c"" ""SELECT json_build_object('senders',(SELECT json_agg(t) FROM (SELECT application_name,state,sync_state,sent_lsn,replay_lsn,pg_wal_lsn_diff(sent_lsn,replay_lsn) lag_bytes FROM pg_stat_replication) t),'receiver',(SELECT json_agg(t) FROM (SELECT status,sender_host,received_tli,written_lsn,flushed_lsn FROM pg_stat_wal_receiver) t));""","","commands/00406.txt","1","00406","2026-09-08T11:38:03.7471495Z","2026-09-08T11:38:03.6708506Z"
+"0.4282025","docker ""exec"" ""-e"" ""PGPASSWORD=[REDACTED]"" ""-e"" ""PGCONNECT_TIMEOUT=3"" ""-e"" ""PGOPTIONS=-c statement_timeout=5000"" ""pg-node-2"" ""psql"" ""-X"" ""-A"" ""-t"" ""-v"" ""ON_ERROR_STOP=1"" ""-U"" ""appuser"" ""-d"" ""appdb"" ""-c"" ""SELECT json_build_object('node','pg-node-2','replica',pg_is_in_recovery(),'server',inet_server_addr(),
+ 'items',(SELECT count(*) FROM phase3_lab.items),
+ 'items_hash',(SELECT md5(string_agg(md5(id::text || payload),'' ORDER BY id)) FROM phase3_lab.items),
+ 'events',(SELECT count(*) FROM phase3_lab.events),
+ 'events_hash',(SELECT md5(coalesce(string_agg(token || ':' || stage,'' ORDER BY token),'')) FROM phase3_lab.events),
+ 'customers',(SELECT count(*) FROM customers),'orders',(SELECT count(*) FROM orders),'ha_test',(SELECT count(*) FROM ha_test),
+ 'databases',(SELECT json_agg(datname) FROM pg_database WHERE NOT datistemplate),
+ 'tables',(SELECT json_agg(schemaname || '.' || tablename) FROM pg_tables WHERE schemaname NOT IN ('pg_catalog','information_schema')),
+ 'partitions',(SELECT count(*) FROM pg_partitioned_table),
+ 'citus',(SELECT count(*) FROM pg_extension WHERE extname='citus'));""","","commands/00436.txt","2","00436","2026-09-08T11:38:22.3221308Z","2026-09-08T11:38:21.8939404Z"
+"0.40217","docker ""exec"" ""-e"" ""PGPASSWORD=[REDACTED]"" ""-e"" ""PGCONNECT_TIMEOUT=3"" ""-e"" ""PGOPTIONS=-c statement_timeout=5000"" ""pg-node-2"" ""psql"" ""-X"" ""-A"" ""-t"" ""-v"" ""ON_ERROR_STOP=1"" ""-U"" ""postgres"" ""-d"" ""appdb"" ""-c"" ""SELECT json_build_object('senders',(SELECT json_agg(t) FROM (SELECT application_name,state,sync_state,sent_lsn,replay_lsn,pg_wal_lsn_diff(sent_lsn,replay_lsn) lag_bytes FROM pg_stat_replication) t),'receiver',(SELECT json_agg(t) FROM (SELECT status,sender_host,received_tli,written_lsn,flushed_lsn FROM pg_stat_wal_receiver) t));""","","commands/00437.txt","2","00437","2026-09-08T11:38:22.7567876Z","2026-09-08T11:38:22.3546300Z"
+"0.0599396","docker ""exec"" ""-e"" ""PGPASSWORD=[REDACTED]"" ""-e"" ""PGCONNECT_TIMEOUT=3"" ""-e"" ""PGOPTIONS=-c statement_timeout=5000"" ""pg-node-5"" ""psql"" ""-X"" ""-A"" ""-t"" ""-v"" ""ON_ERROR_STOP=1"" ""-U"" ""appuser"" ""-d"" ""appdb"" ""-c"" ""SELECT json_build_object('node','pg-node-5','replica',pg_is_in_recovery(),'server',inet_server_addr(),
+ 'items',(SELECT count(*) FROM phase3_lab.items),
+ 'items_hash',(SELECT md5(string_agg(md5(id::text || payload),'' ORDER BY id)) FROM phase3_lab.items),
+ 'events',(SELECT count(*) FROM phase3_lab.events),
+ 'events_hash',(SELECT md5(coalesce(string_agg(token || ':' || stage,'' ORDER BY token),'')) FROM phase3_lab.events),
+ 'customers',(SELECT count(*) FROM customers),'orders',(SELECT count(*) FROM orders),'ha_test',(SELECT count(*) FROM ha_test),
+ 'databases',(SELECT json_agg(datname) FROM pg_database WHERE NOT datistemplate),
+ 'tables',(SELECT json_agg(schemaname || '.' || tablename) FROM pg_tables WHERE schemaname NOT IN ('pg_catalog','information_schema')),
+ 'partitions',(SELECT count(*) FROM pg_partitioned_table),
+ 'citus',(SELECT count(*) FROM pg_extension WHERE extname='citus'));""","","commands/00638.txt","1","00638","2026-09-08T11:40:33.1454008Z","2026-09-08T11:40:33.0854674Z"
+"0.0624468","docker ""exec"" ""-e"" ""PGPASSWORD=[REDACTED]"" ""-e"" ""PGCONNECT_TIMEOUT=3"" ""-e"" ""PGOPTIONS=-c statement_timeout=5000"" ""pg-node-5"" ""psql"" ""-X"" ""-A"" ""-t"" ""-v"" ""ON_ERROR_STOP=1"" ""-U"" ""postgres"" ""-d"" ""appdb"" ""-c"" ""SELECT json_build_object('senders',(SELECT json_agg(t) FROM (SELECT application_name,state,sync_state,sent_lsn,replay_lsn,pg_wal_lsn_diff(sent_lsn,replay_lsn) lag_bytes FROM pg_stat_replication) t),'receiver',(SELECT json_agg(t) FROM (SELECT status,sender_host,received_tli,written_lsn,flushed_lsn FROM pg_stat_wal_receiver) t));""","","commands/00639.txt","1","00639","2026-09-08T11:40:33.2244220Z","2026-09-08T11:40:33.1619842Z"

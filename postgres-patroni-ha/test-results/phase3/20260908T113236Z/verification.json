@@ -1,0 +1,11 @@
+{
+  "rawCommandOutputs": 678,
+  "note": "Expected nonzero commands include observing absent/killed/scaled-in nodes; examine nonzero-commands.csv and raw outputs.",
+  "nonzeroCommands": 25,
+  "liveChecked": true,
+  "credentialLeaks": 0,
+  "acknowledgedTokens": 103,
+  "missingAcknowledgedTokens": 0,
+  "utc": "2026-09-08T11:53:20.4783198Z",
+  "onlineNodeFingerprintsMatch": true
+}

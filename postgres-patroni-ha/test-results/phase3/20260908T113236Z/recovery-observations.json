@@ -1,0 +1,9 @@
+{
+  "firstSuccessfulWriteEnd": "2026-09-08T11:37:09.5500244Z",
+  "lastPreKillAcknowledgment": "2026-09-08T11:36:36.5648846Z",
+  "killStart": "2026-09-08T11:36:37.1178584Z",
+  "note": "Sampled upper-bound observations, not continuous outage duration. Snapshots pause write probes while independent read traffic continues.",
+  "secondsToSuccessfulWriteCompletion": 32.432,
+  "firstSuccessfulWriteStart": "2026-09-08T11:37:08.9059384Z",
+  "failedWriteAttempts": 3
+}

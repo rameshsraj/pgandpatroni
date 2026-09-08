@@ -1,0 +1,15 @@
+START 2026-09-08T11:25:32.9563057Z
+COMMAND docker "exec" "-e" "PGPASSWORD=[REDACTED]" "-e" "PGCONNECT_TIMEOUT=3" "-e" "PGOPTIONS=-c statement_timeout=5000" "pg-node-1" "psql" "-X" "-A" "-t" "-v" "ON_ERROR_STOP=1" "-U" "appuser" "-d" "appdb" "-h" "haproxy" "-p" "5000" "-c" "SELECT json_build_object('port',5000,'server',inet_server_addr(),'replica',pg_is_in_recovery());"
+STDIN
+
+STDOUT
+
+STDERR
+psql: error: connection to server at "haproxy" (172.19.0.6), port 5000 failed: server closed the connection unexpectedly
+	This probably means the server terminated abnormally
+	before or while processing the request.
+
+END 2026-09-08T11:25:33.3017457Z
+EXIT 2
+SECONDS 0.3454484
+

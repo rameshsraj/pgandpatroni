@@ -1,0 +1,30 @@
+{"level":"info","ts":"2026-09-08T09:38:47.713277Z","caller":"mvcc/kvstore.go:418","msg":"kvstore restored","current-rev":1}
+{"level":"info","ts":"2026-09-08T09:38:47.716077Z","caller":"etcdserver/quota.go:94","msg":"enabled backend quota with default value","quota-name":"v3-applier","quota-size-bytes":2147483648,"quota-size":"2.1 GB"}
+{"level":"info","ts":"2026-09-08T09:38:47.719665Z","caller":"etcdserver/server.go:867","msg":"starting etcd server","local-member-id":"950d7d42887b7a9e","local-server-version":"3.5.15","cluster-version":"to_be_decided"}
+{"level":"info","ts":"2026-09-08T09:38:47.720975Z","caller":"v3rpc/health.go:61","msg":"grpc service status changed","service":"","status":"SERVING"}
+{"level":"info","ts":"2026-09-08T09:38:47.722471Z","caller":"fileutil/purge.go:50","msg":"started to purge file","dir":"/etcd-data/member/snap","suffix":"snap.db","max":5,"interval":"30s"}
+{"level":"info","ts":"2026-09-08T09:38:47.722598Z","caller":"fileutil/purge.go:50","msg":"started to purge file","dir":"/etcd-data/member/snap","suffix":"snap","max":5,"interval":"30s"}
+{"level":"info","ts":"2026-09-08T09:38:47.722621Z","caller":"fileutil/purge.go:50","msg":"started to purge file","dir":"/etcd-data/member/wal","suffix":"wal","max":5,"interval":"30s"}
+{"level":"info","ts":"2026-09-08T09:38:47.721171Z","caller":"etcdserver/server.go:751","msg":"started as single-node; fast-forwarding election ticks","local-member-id":"950d7d42887b7a9e","forward-ticks":9,"forward-duration":"900ms","election-ticks":10,"election-timeout":"1s"}
+{"level":"info","ts":"2026-09-08T09:38:47.725078Z","caller":"embed/etcd.go:279","msg":"now serving peer/client/metrics","local-member-id":"950d7d42887b7a9e","initial-advertise-peer-urls":["http://etcd:2380"],"listen-peer-urls":["http://0.0.0.0:2380"],"advertise-client-urls":["http://etcd:2379"],"listen-client-urls":["http://0.0.0.0:2379"],"listen-metrics-urls":[]}
+{"level":"info","ts":"2026-09-08T09:38:47.725694Z","logger":"raft","caller":"etcdserver/zap_raft.go:77","msg":"950d7d42887b7a9e switched to configuration voters=(10740378411059608222)"}
+{"level":"info","ts":"2026-09-08T09:38:47.725934Z","caller":"membership/cluster.go:421","msg":"added member","cluster-id":"50e7f6d7b35c1ffc","local-member-id":"950d7d42887b7a9e","added-peer-id":"950d7d42887b7a9e","added-peer-peer-urls":["http://etcd:2380"]}
+{"level":"info","ts":"2026-09-08T09:38:47.726547Z","caller":"embed/etcd.go:599","msg":"serving peer traffic","address":"[::]:2380"}
+{"level":"info","ts":"2026-09-08T09:38:47.726604Z","caller":"embed/etcd.go:571","msg":"cmux::serve","address":"[::]:2380"}
+{"level":"info","ts":"2026-09-08T09:38:48.197771Z","logger":"raft","caller":"etcdserver/zap_raft.go:77","msg":"950d7d42887b7a9e is starting a new election at term 1"}
+{"level":"info","ts":"2026-09-08T09:38:48.197889Z","logger":"raft","caller":"etcdserver/zap_raft.go:77","msg":"950d7d42887b7a9e became pre-candidate at term 1"}
+{"level":"info","ts":"2026-09-08T09:38:48.197939Z","logger":"raft","caller":"etcdserver/zap_raft.go:77","msg":"950d7d42887b7a9e received MsgPreVoteResp from 950d7d42887b7a9e at term 1"}
+{"level":"info","ts":"2026-09-08T09:38:48.198006Z","logger":"raft","caller":"etcdserver/zap_raft.go:77","msg":"950d7d42887b7a9e became candidate at term 2"}
+{"level":"info","ts":"2026-09-08T09:38:48.198017Z","logger":"raft","caller":"etcdserver/zap_raft.go:77","msg":"950d7d42887b7a9e received MsgVoteResp from 950d7d42887b7a9e at term 2"}
+{"level":"info","ts":"2026-09-08T09:38:48.198030Z","logger":"raft","caller":"etcdserver/zap_raft.go:77","msg":"950d7d42887b7a9e became leader at term 2"}
+{"level":"info","ts":"2026-09-08T09:38:48.198041Z","logger":"raft","caller":"etcdserver/zap_raft.go:77","msg":"raft.node: 950d7d42887b7a9e elected leader 950d7d42887b7a9e at term 2"}
+{"level":"info","ts":"2026-09-08T09:38:48.199656Z","caller":"etcdserver/server.go:2629","msg":"setting up initial cluster version using v2 API","cluster-version":"3.5"}
+{"level":"info","ts":"2026-09-08T09:38:48.200228Z","caller":"embed/serve.go:103","msg":"ready to serve client requests"}
+{"level":"info","ts":"2026-09-08T09:38:48.200200Z","caller":"etcdserver/server.go:2118","msg":"published local member to cluster through raft","local-member-id":"950d7d42887b7a9e","local-member-attributes":"{Name:etcd0 ClientURLs:[http://etcd:2379]}","request-path":"/0/members/950d7d42887b7a9e/attributes","cluster-id":"50e7f6d7b35c1ffc","publish-timeout":"7s"}
+{"level":"info","ts":"2026-09-08T09:38:48.200998Z","caller":"membership/cluster.go:584","msg":"set initial cluster version","cluster-id":"50e7f6d7b35c1ffc","local-member-id":"950d7d42887b7a9e","cluster-version":"3.5"}
+{"level":"info","ts":"2026-09-08T09:38:48.201210Z","caller":"api/capability.go:75","msg":"enabled capabilities for version","cluster-version":"3.5"}
+{"level":"info","ts":"2026-09-08T09:38:48.201497Z","caller":"etcdserver/server.go:2653","msg":"cluster version is updated","cluster-version":"3.5"}
+{"level":"info","ts":"2026-09-08T09:38:48.201524Z","caller":"etcdmain/main.go:44","msg":"notifying init daemon"}
+{"level":"info","ts":"2026-09-08T09:38:48.201545Z","caller":"etcdmain/main.go:50","msg":"successfully notified init daemon"}
+{"level":"info","ts":"2026-09-08T09:38:48.204217Z","caller":"v3rpc/health.go:61","msg":"grpc service status changed","service":"","status":"SERVING"}
+{"level":"info","ts":"2026-09-08T09:38:48.204923Z","caller":"embed/serve.go:187","msg":"serving client traffic insecurely; this is strongly discouraged!","traffic":"grpc+http","address":"[::]:2379"}

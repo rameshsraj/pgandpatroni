@@ -1,0 +1,21 @@
+START 2026-09-08T11:23:32.7181125Z
+COMMAND docker "exec" "-e" "PGPASSWORD=[REDACTED]" "-e" "PGCONNECT_TIMEOUT=3" "-e" "PGOPTIONS=-c statement_timeout=5000" "pg-node-1" "psql" "-X" "-A" "-t" "-v" "ON_ERROR_STOP=1" "-U" "appuser" "-d" "appdb" "-c" "SELECT json_build_object('node','pg-node-1','replica',pg_is_in_recovery(),'server',inet_server_addr(),
+ 'items',(SELECT count(*) FROM phase3_lab.items),
+ 'items_hash',(SELECT md5(string_agg(md5(id::text || payload),'' ORDER BY id)) FROM phase3_lab.items),
+ 'events',(SELECT count(*) FROM phase3_lab.events),
+ 'events_hash',(SELECT md5(coalesce(string_agg(token || ':' || stage,'' ORDER BY token),'')) FROM phase3_lab.events),
+ 'customers',(SELECT count(*) FROM customers),'orders',(SELECT count(*) FROM orders),'ha_test',(SELECT count(*) FROM ha_test),
+ 'databases',(SELECT json_agg(datname) FROM pg_database WHERE NOT datistemplate),
+ 'tables',(SELECT json_agg(schemaname || '.' || tablename) FROM pg_tables WHERE schemaname NOT IN ('pg_catalog','information_schema')),
+ 'partitions',(SELECT count(*) FROM pg_partitioned_table),
+ 'citus',(SELECT count(*) FROM pg_extension WHERE extname='citus'));"
+STDIN
+
+STDOUT
+{"node" : "pg-node-1", "replica" : true, "server" : null, "items" : 100000, "items_hash" : "f011a889f8ba13b3bf60a9a5cc4acea7", "events" : 27, "events_hash" : "07bcf4bed6d8e192a3c5e789134b4eb1", "customers" : 5, "orders" : 7, "ha_test" : 5, "databases" : ["postgres", "appdb"], "tables" : ["public.customers", "public.orders", "public.ha_test", "phase3_lab.items", "phase3_lab.events"], "partitions" : 0, "citus" : 0}
+
+STDERR
+
+END 2026-09-08T11:23:33.4975274Z
+EXIT 0
+SECONDS 0.7794237

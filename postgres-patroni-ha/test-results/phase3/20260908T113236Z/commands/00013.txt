@@ -1,0 +1,12 @@
+START 2026-09-08T11:33:05.2608111Z
+COMMAND curl.exe "-fsS" "--max-time" "4" "http://localhost:7000/;csv"
+STDIN
+
+STDOUT
+
+STDERR
+curl: (56) Recv failure: Connection was reset
+
+END 2026-09-08T11:33:05.4907096Z
+EXIT 56
+SECONDS 0.2299136

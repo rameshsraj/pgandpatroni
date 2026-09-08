@@ -1,0 +1,14 @@
+START 2026-09-08T11:22:00.3996389Z
+COMMAND docker "stats" "--no-stream" "haproxy"
+STDIN
+
+STDOUT
+CONTAINER ID   NAME      CPU %     MEM USAGE / LIMIT     MEM %     NET I/O         BLOCK I/O   PIDS
+e6e1697c2373   haproxy   0.00%     3.953MiB / 7.647GiB   0.05%     1.37kB / 480B   0B / 0B     1
+
+STDERR
+
+END 2026-09-08T11:22:02.1319008Z
+EXIT 0
+SECONDS 1.7322812
+

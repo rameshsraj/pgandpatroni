@@ -1,0 +1,51 @@
+START 2026-09-08T11:22:10.5302298Z
+COMMAND docker "compose" "--profile" "elastic" "build" "pg-node-5"
+STDIN
+
+STDOUT
+#1 [internal] load local bake definitions
+#1 reading from stdin 579B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 826B 0.0s done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/postgres:16.4-bookworm
+#3 DONE 2.7s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [1/3] FROM docker.io/library/postgres:16.4-bookworm@sha256:e62fbf9d3e2b49816a32c400ed2dba83e3b361e6833e624024309c35d334b412
+#5 resolve docker.io/library/postgres:16.4-bookworm@sha256:e62fbf9d3e2b49816a32c400ed2dba83e3b361e6833e624024309c35d334b412 0.0s done
+#5 DONE 0.0s
+
+#6 [2/3] RUN apt-get update && apt-get install -y --no-install-recommends     python3     python3-pip     python3-psycopg2     python3-yaml     python3-urllib3     python3-certifi     python3-requests     python3-six     python3-click     python3-dateutil     python3-prettytable     curl     jq     && pip3 install --break-system-packages patroni[etcd3]==3.3.2     && apt-get clean     && rm -rf /var/lib/apt/lists/*
+#6 CACHED
+
+#7 [3/3] RUN mkdir -p /etc/patroni && chown postgres:postgres /etc/patroni
+#7 CACHED
+
+#8 exporting to image
+#8 exporting layers done
+#8 exporting manifest sha256:82443b59d086942e6eb5f9ac6c3507d857612d836e0bdca34d88037269afc1dd done
+#8 exporting config sha256:3352ea86a1012dfb1b50e710cf4b1455d49122270f834d20a0b6c36bb555eb28 done
+#8 exporting attestation manifest sha256:0628c7d60a6f3ccd22b0b7b1cacaec00a7f5c7e2c60afa8cdea596d2af2100ba 0.0s done
+#8 exporting manifest list sha256:a39b2884daab63d52a2f8f16933f9aabc7d46f93a96201439fe63c1627b98e1d
+#8 exporting manifest list sha256:a39b2884daab63d52a2f8f16933f9aabc7d46f93a96201439fe63c1627b98e1d 0.0s done
+#8 naming to docker.io/library/postgres-patroni-ha-pg-node-5:latest done
+#8 unpacking to docker.io/library/postgres-patroni-ha-pg-node-5:latest 0.0s done
+#8 DONE 0.1s
+
+#9 resolving provenance for metadata file
+#9 DONE 0.0s
+
+STDERR
+ Image postgres-patroni-ha-pg-node-5 Building 
+ Image postgres-patroni-ha-pg-node-5 Built 
+
+END 2026-09-08T11:22:14.3844693Z
+EXIT 0
+SECONDS 3.8542478

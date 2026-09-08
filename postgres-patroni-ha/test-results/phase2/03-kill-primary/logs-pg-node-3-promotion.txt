@@ -1,0 +1,60 @@
+2026-09-08 10:20:36,544 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-2)
+2026-09-08 10:20:37,341 INFO: establishing a new patroni restapi connection to postgres
+2026-09-08 10:20:37,752 INFO: Lock owner: pg-node-2; I am pg-node-3
+2026-09-08 10:20:37,779 INFO: Local timeline=1 lsn=0/448D0E0
+2026-09-08 10:20:37,780 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-2)
+2026-09-08 10:20:47,737 INFO: Lock owner: pg-node-2; I am pg-node-3
+2026-09-08 10:20:47,757 INFO: Local timeline=2 lsn=0/7000000
+2026-09-08 10:20:47,788 INFO: primary_timeline=2
+2026-09-08 10:20:47,880 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-2)
+2026-09-08 10:20:57,783 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-2)
+2026-09-08 10:21:08,291 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-2)
+2026-09-08 10:21:18,240 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-2)
+2026-09-08 10:21:28,288 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-2)
+2026-09-08 10:21:38,233 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-2)
+2026-09-08 10:21:48,289 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-2)
+2026-09-08 10:21:58,235 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-2)
+2026-09-08 10:22:08,279 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-2)
+2026-09-08 10:22:18,238 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-2)
+2026-09-08 10:22:28,281 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-2)
+2026-09-08 10:22:38,234 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-2)
+2026-09-08 10:22:48,290 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-2)
+2026-09-08 10:22:58,235 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-2)
+2026-09-08 10:23:08,294 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-2)
+2026-09-08 10:23:18,240 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-2)
+2026-09-08 10:23:28,285 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-2)
+2026-09-08 10:23:38,232 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-2)
+2026-09-08 10:23:47,831 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-2)
+2026-09-08 10:23:58,291 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-2)
+2026-09-08 10:24:08,239 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-2)
+2026-09-08 10:24:18,296 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-2)
+2026-09-08 10:24:28,240 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-2)
+2026-09-08 10:24:38,285 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-2)
+server promoting
+2026-09-08 10:24:48,239 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-2)
+2026-09-08 10:24:58,289 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-2)
+2026-09-08 10:25:08,241 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-2)
+2026-09-08 10:25:18,283 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-2)
+2026-09-08 10:25:28,237 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-2)
+2026-09-08 10:25:38,335 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-2)
+2026-09-08 10:25:47,801 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-2)
+2026-09-08 10:25:57,825 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-2)
+2026-09-08 10:26:08,279 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-2)
+2026-09-08 10:26:18,240 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-2)
+2026-09-08 10:26:28,299 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-2)
+2026-09-08 10:26:38,280 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-2)
+2026-09-08 10:26:48,278 INFO: no action. I am (pg-node-3), a secondary, and following a leader (pg-node-2)
+2026-09-08 10:26:58,031 INFO: Got response from pg-node-1 http://pg-node-1:8008/patroni: {"state": "running", "postmaster_start_time": "2026-09-08 10:20:33.839349+00:00", "role": "replica", "server_version": 160004, "xlog": {"received_location": 117504752, "replayed_location": 117504752, "replayed_timestamp": "2026-09-08 10:25:54.719256+00:00", "paused": false}, "timeline": 2, "cluster_unlocked": true, "dcs_last_seen": 1788863217, "database_system_identifier": "7683096657686442020", "patroni": {"version": "3.3.2", "scope": "pg-ha-cluster", "name": "pg-node-1"}}
+2026-09-08 10:26:58,070 INFO: Got response from pg-node-4 http://pg-node-4:8008/patroni: {"state": "running", "postmaster_start_time": "2026-09-08 10:20:40.759183+00:00", "role": "replica", "server_version": 160004, "xlog": {"received_location": 117504752, "replayed_location": 117504752, "replayed_timestamp": "2026-09-08 10:25:54.719256+00:00", "paused": false}, "timeline": 2, "cluster_unlocked": true, "dcs_last_seen": 1788863217, "database_system_identifier": "7683096657686442020", "patroni": {"version": "3.3.2", "scope": "pg-ha-cluster", "name": "pg-node-4"}}
+2026-09-08 10:27:04,551 WARNING: failed to resolve host pg-node-2: [Errno -2] Name or service not known
+2026-09-08 10:27:04,552 WARNING: Request failed to pg-node-2: GET http://pg-node-2:8008/patroni (HTTPConnectionPool(host='pg-node-2', port=8008): Max retries exceeded with url: /patroni (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x73015680df90>: Failed to establish a new connection: getaddrinfo returns an empty list')))
+2026-09-08 10:27:04,645 WARNING: Could not activate Linux watchdog device: Can't open watchdog device: [Errno 2] No such file or directory: '/dev/watchdog'
+2026-09-08 10:27:04,690 INFO: promoted self to leader by acquiring session lock
+2026-09-08 10:27:04,695 INFO: Lock owner: pg-node-3; I am pg-node-3
+2026-09-08 10:27:04,696 INFO: Reaped pid=692, exit status=0
+2026-09-08 10:27:04,786 INFO: updated leader lock during promote
+2026-09-08 10:27:08,717 INFO: Lock owner: pg-node-3; I am pg-node-3
+2026-09-08 10:27:08,827 INFO: Reaped pid=706, exit status=0
+2026-09-08 10:27:08,982 INFO: no action. I am (pg-node-3), the leader with the lock
+2026-09-08 10:27:09,135 INFO: no action. I am (pg-node-3), the leader with the lock
+2026-09-08 10:27:19,033 INFO: no action. I am (pg-node-3), the leader with the lock

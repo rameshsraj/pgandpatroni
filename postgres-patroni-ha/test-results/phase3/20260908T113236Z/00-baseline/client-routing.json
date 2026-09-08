@@ -1,0 +1,47 @@
+[
+  {
+    "command": "00045",
+    "response": "{\"port\" : 5000, \"server\" : \"172.19.0.7\", \"replica\" : false}\n",
+    "exit": 0
+  },
+  {
+    "command": "00046",
+    "response": "{\"port\" : 5001, \"server\" : \"172.19.0.3\", \"replica\" : true}\n",
+    "exit": 0
+  },
+  {
+    "command": "00047",
+    "response": "{\"port\" : 5001, \"server\" : \"172.19.0.8\", \"replica\" : true}\n",
+    "exit": 0
+  },
+  {
+    "command": "00048",
+    "response": "{\"port\" : 5001, \"server\" : \"172.19.0.5\", \"replica\" : true}\n",
+    "exit": 0
+  },
+  {
+    "command": "00049",
+    "response": "{\"port\" : 5001, \"server\" : \"172.19.0.3\", \"replica\" : true}\n",
+    "exit": 0
+  },
+  {
+    "command": "00050",
+    "response": "{\"port\" : 5001, \"server\" : \"172.19.0.8\", \"replica\" : true}\n",
+    "exit": 0
+  },
+  {
+    "command": "00051",
+    "response": "{\"port\" : 5001, \"server\" : \"172.19.0.5\", \"replica\" : true}\n",
+    "exit": 0
+  },
+  {
+    "command": "00052",
+    "response": "{\"port\" : 5001, \"server\" : \"172.19.0.3\", \"replica\" : true}\n",
+    "exit": 0
+  },
+  {
+    "command": "00053",
+    "response": "{\"port\" : 5001, \"server\" : \"172.19.0.8\", \"replica\" : true}\n",
+    "exit": 0
+  }
+]

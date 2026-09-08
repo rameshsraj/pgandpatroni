@@ -1,0 +1,17 @@
+START 2026-09-08T11:38:45.1864305Z
+COMMAND docker "stats" "--no-stream" "--format" "{{json .}}" "pg-node-1" "pg-node-2" "pg-node-3" "pg-node-4" "pg-node-5" "haproxy"
+STDIN
+
+STDOUT
+{"BlockIO":"0B / 344MB","CPUPerc":"23.96%","Container":"pg-node-1","ID":"1305b23c35fa","MemPerc":"1.44%","MemUsage":"112.9MiB / 7.647GiB","Name":"pg-node-1","NetIO":"134MB / 18MB","PIDs":"17"}
+{"BlockIO":"0B / 35.4MB","CPUPerc":"24.67%","Container":"pg-node-2","ID":"3dbab6223db5","MemPerc":"1.00%","MemUsage":"78.07MiB / 7.647GiB","Name":"pg-node-2","NetIO":"251MB / 472kB","PIDs":"17"}
+{"BlockIO":"0B / 74.7MB","CPUPerc":"0.60%","Container":"pg-node-3","ID":"5a28ba627c9d","MemPerc":"1.51%","MemUsage":"118.6MiB / 7.647GiB","Name":"pg-node-3","NetIO":"238MB / 258MB","PIDs":"21"}
+{"BlockIO":"8.19kB / 329MB","CPUPerc":"32.83%","Container":"pg-node-4","ID":"475a72423795","MemPerc":"1.43%","MemUsage":"111.7MiB / 7.647GiB","Name":"pg-node-4","NetIO":"133MB / 17.4MB","PIDs":"18"}
+{"BlockIO":"0B / 18.5MB","CPUPerc":"24.01%","Container":"pg-node-5","ID":"7abf528601d3","MemPerc":"1.28%","MemUsage":"100.4MiB / 7.647GiB","Name":"pg-node-5","NetIO":"4.36MB / 4.4MB","PIDs":"18"}
+{"BlockIO":"0B / 0B","CPUPerc":"16.60%","Container":"haproxy","ID":"e6e1697c2373","MemPerc":"0.16%","MemUsage":"12.73MiB / 7.647GiB","Name":"haproxy","NetIO":"41.9MB / 41.4MB","PIDs":"9"}
+
+STDERR
+
+END 2026-09-08T11:38:47.3681371Z
+EXIT 0
+SECONDS 2.181719

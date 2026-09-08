@@ -1,0 +1,12 @@
+START 2026-09-08T11:29:00.2799643Z
+COMMAND docker "run" "-d" "--name" "phase3-20260908t112126z-10-low-four-final" "--network" "postgres-patroni-ha_patroni-net" "--mount" "type=bind,source=C:\GitHub\pgandpatroni\postgres-patroni-ha\scripts\phase3,target=/work,readonly" "--mount" "type=bind,source=C:\GitHub\pgandpatroni\postgres-patroni-ha\test-results\phase3\20260908T112126Z/10-low-four-final/traffic,target=/evidence" "-e" "PGUSER=appuser" "-e" "PGDATABASE=appdb" "-e" "PGPASSWORD=[REDACTED]" "-e" "PGCONNECT_TIMEOUT=3" "--entrypoint" "/bin/bash" "postgres-patroni-ha-pg-node-1" "/work/traffic.sh" "20" "5" "2"
+STDIN
+
+STDOUT
+5a16a29a5362073bc771a6c3dc44c2574f6396e2e729376a0d3e85300b32f7e5
+
+STDERR
+
+END 2026-09-08T11:29:01.0421818Z
+EXIT 0
+SECONDS 0.762222

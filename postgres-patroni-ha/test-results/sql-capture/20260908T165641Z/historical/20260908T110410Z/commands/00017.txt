@@ -1,0 +1,13 @@
+START 2026-09-08T11:04:44.2301183Z
+COMMAND curl.exe "-fsS" "--max-time" "4" "http://localhost:7000/;csv"
+STDIN
+
+STDOUT
+
+STDERR
+curl: (52) Empty reply from server
+
+END 2026-09-08T11:04:44.4657284Z
+EXIT 52
+SECONDS 0.2356288
+

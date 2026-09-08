@@ -1,0 +1,42 @@
+{
+  "offeredTps": 5,
+  "failedBatches": 0,
+  "routes": [
+    {
+      "endStatus": "UP",
+      "node": "pg-node-1",
+      "connections": 39
+    },
+    {
+      "endStatus": "DOWN",
+      "node": "pg-node-2",
+      "connections": 0
+    },
+    {
+      "endStatus": "UP",
+      "node": "pg-node-3",
+      "connections": 38
+    },
+    {
+      "endStatus": "UP",
+      "node": "pg-node-4",
+      "connections": 39
+    },
+    {
+      "endStatus": "MAINT (resolution)",
+      "node": "pg-node-5",
+      "connections": 0
+    }
+  ],
+  "p95Ms": 50.578,
+  "stage": "01-low-four",
+  "clients": 2,
+  "meanMs": 24.482028846153863,
+  "end": "2026-09-08T11:33:51.9120265Z",
+  "p99Ms": 63.599,
+  "observedCompletionSpanSeconds": 19.520431995391846,
+  "start": "2026-09-08T11:33:29.5352177Z",
+  "successfulTransactions": 104,
+  "requestedSeconds": 20,
+  "achievedTps": 5.2
+}

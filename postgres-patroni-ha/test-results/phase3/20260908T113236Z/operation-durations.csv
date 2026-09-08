@@ -1,0 +1,6 @@
+"operation","start","end","seconds"
+"Traffic trigger to ready observation","2026-09-08T11:34:38.6286158Z","2026-09-08T11:35:04.5126709Z","25.884"
+"Kill command","2026-09-08T11:36:37.1178584Z","2026-09-08T11:36:37.9204217Z","0.803"
+"Kill start to promotion observation","2026-09-08T11:36:37.1178584Z","2026-09-08T11:37:06.3360169Z","29.218"
+"Restore to rejoin observation","2026-09-08T11:38:14.2102141Z","2026-09-08T11:38:41.2412856Z","27.031"
+"Low demand trigger to stopped replica","2026-09-08T11:39:32.7620294Z","2026-09-08T11:39:43.0581879Z","10.296"

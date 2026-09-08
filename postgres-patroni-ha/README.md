@@ -1,5 +1,8 @@
 # PostgreSQL High Availability with Patroni, etcd and HAProxy
 
+**After Phase 3:** See the [post-run audit and consolidated SQL evidence](POST_PHASE3_AUDIT.md)
+for the HAProxy maintenance timeline, captured commands/queries, and evidence retention gaps.
+
 A PostgreSQL HA lab built with Docker Compose and tested by deliberately failing
 the primary. The current configuration has four permanent PostgreSQL nodes, one
 optional elastic read replica, one etcd, and one HAProxy with stable client endpoints.

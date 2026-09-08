@@ -1,0 +1,4 @@
+{"senders" : [{"application_name":"pg-node-4","state":"streaming","sync_state":"async","sent_lsn":"0/B017E28","replay_lsn":"0/B017E28","lag_bytes":0}, 
+ {"application_name":"pg-node-3","state":"streaming","sync_state":"async","sent_lsn":"0/B017E28","replay_lsn":"0/B017E28","lag_bytes":0}, 
+ {"application_name":"pg-node-1","state":"streaming","sync_state":"async","sent_lsn":"0/B017E28","replay_lsn":"0/B017E28","lag_bytes":0}], "receiver" : null}
+

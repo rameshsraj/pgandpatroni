@@ -1,0 +1,338 @@
+[
+  {
+    "offeredTps": 5,
+    "failedBatches": 0,
+    "routes": [
+      {
+        "endStatus": "UP",
+        "node": "pg-node-1",
+        "connections": 39
+      },
+      {
+        "endStatus": "DOWN",
+        "node": "pg-node-2",
+        "connections": 0
+      },
+      {
+        "endStatus": "UP",
+        "node": "pg-node-3",
+        "connections": 38
+      },
+      {
+        "endStatus": "UP",
+        "node": "pg-node-4",
+        "connections": 39
+      },
+      {
+        "endStatus": "MAINT (resolution)",
+        "node": "pg-node-5",
+        "connections": 0
+      }
+    ],
+    "p95Ms": 50.578,
+    "stage": "01-low-four",
+    "clients": 2,
+    "meanMs": 24.482028846153863,
+    "end": "2026-09-08T11:33:51.9120265Z",
+    "p99Ms": 63.599,
+    "observedCompletionSpanSeconds": 19.520431995391846,
+    "start": "2026-09-08T11:33:29.5352177Z",
+    "successfulTransactions": 104,
+    "requestedSeconds": 20,
+    "achievedTps": 5.2
+  },
+  {
+    "offeredTps": 120,
+    "failedBatches": 0,
+    "routes": [
+      {
+        "endStatus": "UP",
+        "node": "pg-node-1",
+        "connections": 922
+      },
+      {
+        "endStatus": "DOWN",
+        "node": "pg-node-2",
+        "connections": 0
+      },
+      {
+        "endStatus": "UP",
+        "node": "pg-node-3",
+        "connections": 922
+      },
+      {
+        "endStatus": "UP",
+        "node": "pg-node-4",
+        "connections": 922
+      },
+      {
+        "endStatus": "MAINT (resolution)",
+        "node": "pg-node-5",
+        "connections": 0
+      }
+    ],
+    "p95Ms": 2208.829,
+    "stage": "02-high-four",
+    "clients": 12,
+    "meanMs": 965.9542280829404,
+    "end": "2026-09-08T11:34:26.1160042Z",
+    "p99Ms": 2512.495,
+    "observedCompletionSpanSeconds": 29.079149961471558,
+    "start": "2026-09-08T11:33:51.9390745Z",
+    "successfulTransactions": 2749,
+    "requestedSeconds": 30,
+    "achievedTps": 91.63333333333334
+  },
+  {
+    "offeredTps": 120,
+    "failedBatches": 0,
+    "routes": [
+      {
+        "endStatus": "UP",
+        "node": "pg-node-1",
+        "connections": 1455
+      },
+      {
+        "endStatus": "DOWN",
+        "node": "pg-node-2",
+        "connections": 0
+      },
+      {
+        "endStatus": "UP",
+        "node": "pg-node-3",
+        "connections": 1455
+      },
+      {
+        "endStatus": "UP",
+        "node": "pg-node-4",
+        "connections": 1454
+      },
+      {
+        "endStatus": "UP",
+        "node": "pg-node-5",
+        "connections": 745
+      }
+    ],
+    "p95Ms": 3874.349,
+    "stage": "03-auto-scale-out",
+    "clients": 12,
+    "meanMs": 1662.5424724300904,
+    "end": "2026-09-08T11:35:41.9684049Z",
+    "p99Ms": 4901.398,
+    "observedCompletionSpanSeconds": 64.49583101272583,
+    "start": "2026-09-08T11:34:32.6427811Z",
+    "successfulTransactions": 5078,
+    "requestedSeconds": 65,
+    "achievedTps": 78.12307692307692
+  },
+  {
+    "offeredTps": 120,
+    "failedBatches": 0,
+    "routes": [
+      {
+        "endStatus": "UP",
+        "node": "pg-node-1",
+        "connections": 517
+      },
+      {
+        "endStatus": "DOWN",
+        "node": "pg-node-2",
+        "connections": 0
+      },
+      {
+        "endStatus": "UP",
+        "node": "pg-node-3",
+        "connections": 517
+      },
+      {
+        "endStatus": "UP",
+        "node": "pg-node-4",
+        "connections": 517
+      },
+      {
+        "endStatus": "UP",
+        "node": "pg-node-5",
+        "connections": 517
+      }
+    ],
+    "p95Ms": 4160.362,
+    "stage": "04-high-five",
+    "clients": 12,
+    "meanMs": 2257.031402919706,
+    "end": "2026-09-08T11:36:24.3346109Z",
+    "p99Ms": 4909.277,
+    "observedCompletionSpanSeconds": 30.062750101089478,
+    "start": "2026-09-08T11:35:50.1817557Z",
+    "successfulTransactions": 2055,
+    "requestedSeconds": 30,
+    "achievedTps": 68.5
+  },
+  {
+    "offeredTps": 120,
+    "failedBatches": 0,
+    "routes": [
+      {
+        "endStatus": "UP",
+        "node": "pg-node-1",
+        "connections": 1549
+      },
+      {
+        "endStatus": "MAINT (resolution)",
+        "node": "pg-node-2",
+        "connections": 0
+      },
+      {
+        "endStatus": "DOWN",
+        "node": "pg-node-3",
+        "connections": 630
+      },
+      {
+        "endStatus": "UP",
+        "node": "pg-node-4",
+        "connections": 1550
+      },
+      {
+        "endStatus": "UP",
+        "node": "pg-node-5",
+        "connections": 1550
+      }
+    ],
+    "p95Ms": 5223.087,
+    "stage": "05-failover-under-load",
+    "clients": 12,
+    "meanMs": 2760.6157263880928,
+    "end": "2026-09-08T11:38:00.7753400Z",
+    "p99Ms": 5768.181,
+    "observedCompletionSpanSeconds": 90.20986700057983,
+    "start": "2026-09-08T11:36:25.3199302Z",
+    "successfulTransactions": 5241,
+    "requestedSeconds": 90,
+    "achievedTps": 58.233333333333334
+  },
+  {
+    "offeredTps": 120,
+    "failedBatches": 0,
+    "routes": [
+      {
+        "endStatus": "UP",
+        "node": "pg-node-1",
+        "connections": 831
+      },
+      {
+        "endStatus": "UP",
+        "node": "pg-node-2",
+        "connections": 412
+      },
+      {
+        "endStatus": "DOWN",
+        "node": "pg-node-3",
+        "connections": 0
+      },
+      {
+        "endStatus": "UP",
+        "node": "pg-node-4",
+        "connections": 831
+      },
+      {
+        "endStatus": "UP",
+        "node": "pg-node-5",
+        "connections": 830
+      }
+    ],
+    "p95Ms": 5953.412,
+    "stage": "07-rejoin-under-load",
+    "clients": 12,
+    "meanMs": 2867.2740128516793,
+    "end": "2026-09-08T11:39:13.9341893Z",
+    "p99Ms": 7027.695,
+    "observedCompletionSpanSeconds": 59.78620505332947,
+    "start": "2026-09-08T11:38:09.2345241Z",
+    "successfulTransactions": 2879,
+    "requestedSeconds": 60,
+    "achievedTps": 47.983333333333334
+  },
+  {
+    "offeredTps": 5,
+    "failedBatches": 0,
+    "routes": [
+      {
+        "endStatus": "UP",
+        "node": "pg-node-1",
+        "connections": 71
+      },
+      {
+        "endStatus": "UP",
+        "node": "pg-node-2",
+        "connections": 72
+      },
+      {
+        "endStatus": "DOWN",
+        "node": "pg-node-3",
+        "connections": 0
+      },
+      {
+        "endStatus": "UP",
+        "node": "pg-node-4",
+        "connections": 71
+      },
+      {
+        "endStatus": "MAINT (resolution)",
+        "node": "pg-node-5",
+        "connections": 11
+      }
+    ],
+    "p95Ms": 55.12,
+    "stage": "09-auto-scale-in",
+    "clients": 2,
+    "meanMs": 26.642099999999985,
+    "end": "2026-09-08T11:40:06.5989516Z",
+    "p99Ms": 69.597,
+    "observedCompletionSpanSeconds": 39.111063957214355,
+    "start": "2026-09-08T11:39:24.3599446Z",
+    "successfulTransactions": 200,
+    "requestedSeconds": 40,
+    "achievedTps": 5
+  },
+  {
+    "offeredTps": 5,
+    "failedBatches": 0,
+    "routes": [
+      {
+        "endStatus": "UP",
+        "node": "pg-node-1",
+        "connections": 37
+      },
+      {
+        "endStatus": "UP",
+        "node": "pg-node-2",
+        "connections": 37
+      },
+      {
+        "endStatus": "DOWN",
+        "node": "pg-node-3",
+        "connections": 0
+      },
+      {
+        "endStatus": "UP",
+        "node": "pg-node-4",
+        "connections": 37
+      },
+      {
+        "endStatus": "MAINT (resolution)",
+        "node": "pg-node-5",
+        "connections": 0
+      }
+    ],
+    "p95Ms": 50.045,
+    "stage": "10-low-four-final",
+    "clients": 2,
+    "meanMs": 23.82141414141415,
+    "end": "2026-09-08T11:40:28.5082517Z",
+    "p99Ms": 62.436,
+    "observedCompletionSpanSeconds": 19.46627187728882,
+    "start": "2026-09-08T11:40:06.6120487Z",
+    "successfulTransactions": 99,
+    "requestedSeconds": 20,
+    "achievedTps": 4.95
+  }
+]

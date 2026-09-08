@@ -1,0 +1,8 @@
++ Cluster: pg-ha-cluster (7683096657686442020) ----+-----------+
+| Member    | Host      | Role    | State     | TL | Lag in MB |
++-----------+-----------+---------+-----------+----+-----------+
+| pg-node-1 | pg-node-1 | Replica | streaming |  2 |         0 |
+| pg-node-2 | pg-node-2 | Leader  | running   |  2 |           |
+| pg-node-3 | pg-node-3 | Replica | streaming |  2 |         0 |
+| pg-node-4 | pg-node-4 | Replica | streaming |  2 |         0 |
++-----------+-----------+---------+-----------+----+-----------+

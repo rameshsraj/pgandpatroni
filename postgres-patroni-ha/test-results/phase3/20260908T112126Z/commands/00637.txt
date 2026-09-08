@@ -1,0 +1,12 @@
+START 2026-09-08T11:29:29.4732429Z
+COMMAND docker "exec" "-e" "PGPASSWORD=[REDACTED]" "-e" "PGCONNECT_TIMEOUT=3" "-e" "PGOPTIONS=-c statement_timeout=5000" "pg-node-5" "psql" "-X" "-A" "-t" "-v" "ON_ERROR_STOP=1" "-U" "postgres" "-d" "appdb" "-c" "SELECT json_build_object('senders',(SELECT json_agg(t) FROM (SELECT application_name,state,sync_state,sent_lsn,replay_lsn,pg_wal_lsn_diff(sent_lsn,replay_lsn) lag_bytes FROM pg_stat_replication) t),'receiver',(SELECT json_agg(t) FROM (SELECT status,sender_host,received_tli,written_lsn,flushed_lsn FROM pg_stat_wal_receiver) t));"
+STDIN
+
+STDOUT
+
+STDERR
+Error response from daemon: container 8e9f6789c899c604246d5abaa0b21468cabcf1cd5d0fe9f2d871affb37e2e514 is not running
+
+END 2026-09-08T11:29:29.5869657Z
+EXIT 1
+SECONDS 0.1137296

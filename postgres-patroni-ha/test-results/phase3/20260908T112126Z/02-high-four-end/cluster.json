@@ -1,0 +1,37 @@
+[
+  {
+    "Cluster": "pg-ha-cluster",
+    "Member": "pg-node-1",
+    "Host": "pg-node-1",
+    "Role": "Replica",
+    "State": "streaming",
+    "TL": 3,
+    "Lag in MB": 0
+  },
+  {
+    "Cluster": "pg-ha-cluster",
+    "Member": "pg-node-2",
+    "Host": "pg-node-2",
+    "Role": "Replica",
+    "State": "streaming",
+    "TL": 3,
+    "Lag in MB": 0
+  },
+  {
+    "Cluster": "pg-ha-cluster",
+    "Member": "pg-node-3",
+    "Host": "pg-node-3",
+    "Role": "Leader",
+    "State": "running",
+    "TL": 3
+  },
+  {
+    "Cluster": "pg-ha-cluster",
+    "Member": "pg-node-4",
+    "Host": "pg-node-4",
+    "Role": "Replica",
+    "State": "streaming",
+    "TL": 3,
+    "Lag in MB": 0
+  }
+]

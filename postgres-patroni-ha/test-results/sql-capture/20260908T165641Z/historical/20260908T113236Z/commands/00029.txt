@@ -1,0 +1,41 @@
+START 2026-09-08T11:33:22.7228483Z
+COMMAND docker "exec" "-i" "-e" "PGPASSWORD=[REDACTED]" "pg-node-1" "psql" "-X" "-v" "ON_ERROR_STOP=1" "-h" "haproxy" "-p" "5000" "-U" "appuser" "-d" "appdb"
+STDIN
+\set ON_ERROR_STOP on
+CREATE SCHEMA IF NOT EXISTS phase3_lab;
+CREATE TABLE IF NOT EXISTS phase3_lab.items (
+    id integer PRIMARY KEY,
+    payload text NOT NULL
+);
+INSERT INTO phase3_lab.items
+SELECT i, repeat(md5(i::text), 8) FROM generate_series(1, 100000) AS g(i)
+ON CONFLICT DO NOTHING;
+CREATE TABLE IF NOT EXISTS phase3_lab.events (
+    token text PRIMARY KEY,
+    stage text NOT NULL,
+    created_at timestamptz NOT NULL DEFAULT clock_timestamp()
+);
+ANALYZE phase3_lab.items;
+SELECT count(*), md5(string_agg(md5(id::text || payload), '' ORDER BY id))
+FROM phase3_lab.items;
+STDOUT
+CREATE SCHEMA
+CREATE TABLE
+INSERT 0 0
+CREATE TABLE
+ANALYZE
+ count  |               md5                
+--------+----------------------------------
+ 100000 | f011a889f8ba13b3bf60a9a5cc4acea7
+(1 row)
+
+
+STDERR
+NOTICE:  schema "phase3_lab" already exists, skipping
+NOTICE:  relation "items" already exists, skipping
+NOTICE:  relation "events" already exists, skipping
+
+END 2026-09-08T11:33:23.4912737Z
+EXIT 0
+SECONDS 0.76843
+

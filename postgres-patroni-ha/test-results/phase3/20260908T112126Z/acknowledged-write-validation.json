@@ -1,0 +1,26 @@
+[
+  {
+    "missing": [],
+    "acknowledged": 102,
+    "present": 102,
+    "node": "pg-node-1"
+  },
+  {
+    "missing": [],
+    "acknowledged": 102,
+    "present": 102,
+    "node": "pg-node-2"
+  },
+  {
+    "missing": [],
+    "acknowledged": 102,
+    "present": 102,
+    "node": "pg-node-3"
+  },
+  {
+    "missing": [],
+    "acknowledged": 102,
+    "present": 102,
+    "node": "pg-node-4"
+  }
+]

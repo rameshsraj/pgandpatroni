@@ -70,6 +70,11 @@ function Cmd([string[]]$Arguments, [string]$InputText = '', [switch]$AllowFailur
     $body = "START $($result.start)`nCOMMAND $display`nSTDIN`n$InputText`nSTDOUT`n$($result.stdout)`nSTDERR`n$($result.stderr)`nEND $($result.end)`nEXIT $($result.exit)`nSECONDS $($result.seconds)"
     Redact $body | Set-Content "$Out/commands/$id.txt" -Encoding utf8
     JsonLine "$Out/commands.jsonl" @{id=$id;start=$result.start;end=$result.end;seconds=$result.seconds;exit=$result.exit;command=$display;input=(Redact $InputText);output="commands/$id.txt"}
+    if ($Arguments -contains 'psql') {
+        $queryIndex = [Array]::IndexOf($Arguments, '-c')
+        $query = if ($queryIndex -ge 0) { $Arguments[$queryIndex + 1] } else { $InputText }
+        JsonLine "$Out/sql-statements.jsonl" @{id=$id;start=$result.start;end=$result.end;exit=$result.exit;sql=(Redact $query);command=$display;output="commands/$id.txt"}
+    }
     $process.Dispose()
     if ($result.exit -ne 0 -and -not $AllowFailure) { throw "Command $id failed: $display : $(Redact $result.stderr)" }
     return [pscustomobject]$result
@@ -156,11 +161,15 @@ SELECT json_build_object('node','$node','replica',pg_is_in_recovery(),'server',i
     Event snapshot-end $Label
 }
 function ArchiveLogs([string]$Label, [string[]]$Names = $Nodes) {
+    $logDir = "$Out/server-logs/$Label"
+    New-Item -ItemType Directory $logDir -Force | Out-Null
     foreach ($node in $Names) {
         [void](Cmd @('logs','--timestamps','--since',$StartUtc.ToString('o'),$node) -AllowFailure)
         if ($node -like 'pg-node-*') {
             # PostgreSQL's logging_collector stores expanded SQL separately from Docker logs.
-            [void](Cmd @('exec',$node,'bash','-c','find "$PATRONI_POSTGRESQL_DATA_DIR/pg_log" -type f -name "*.log" -exec cat {} +') -AllowFailure)
+            $logs = Cmd @('exec',$node,'bash','-c','find "$PATRONI_POSTGRESQL_DATA_DIR/pg_log" -type f -name "*.log" -exec cat {} +') -AllowFailure
+            Redact $logs.stdout | Set-Content "$logDir/$node.log" -Encoding utf8
+            JsonLine "$Out/server-log-index.jsonl" @{label=$Label;node=$node;command=$logs.id;exit=$logs.exit;file="server-logs/$Label/$node.log"}
         }
     }
     Event logs-archived $Label
@@ -430,5 +439,7 @@ try {
         # These are client-only containers; no database containers or volumes removed.
         [void](Cmd @('rm','-f',$name) -AllowFailure)
     }
+    try { ArchiveLogs 'cleanup' ($Nodes[0..3] + @('haproxy','etcd')) }
+    catch { Write-Warning "Cleanup log capture failed: $($_.Exception.Message)" }
     Event evidence-location $Out
 }

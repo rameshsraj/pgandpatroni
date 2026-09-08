@@ -1,0 +1,12 @@
+START 2026-09-08T11:33:24.7700736Z
+COMMAND docker "exec" "etcd" "etcdctl" "endpoint" "health" "--endpoints=http://localhost:2379"
+STDIN
+
+STDOUT
+http://localhost:2379 is healthy: successfully committed proposal: took = 2.125121ms
+
+STDERR
+
+END 2026-09-08T11:33:24.9507009Z
+EXIT 0
+SECONDS 0.180634

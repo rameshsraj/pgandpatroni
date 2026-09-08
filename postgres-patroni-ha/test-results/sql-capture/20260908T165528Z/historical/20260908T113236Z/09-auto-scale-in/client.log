@@ -1,0 +1,1302 @@
+2026-09-08T11:39:25.691108156Z 2026-09-08T11:39:25.688601003Z BEGIN batch=1
+2026-09-08T11:39:25.691414487Z COMMAND pgbench -n -h haproxy -p 5001 -U appuser -d appdb -c 2 -j 2 -C -T 10 -R 5 -P 2 -f /work/read.sql -l --log-prefix=/evidence/tx-1
+2026-09-08T11:39:25.915157724Z pgbench (16.4 (Debian 16.4-1.pgdg120+2))
+2026-09-08T11:39:35.882945493Z transaction type: /work/read.sql
+2026-09-08T11:39:35.882989697Z scaling factor: 1
+2026-09-08T11:39:35.882994198Z query mode: simple
+2026-09-08T11:39:35.882996798Z number of clients: 2
+2026-09-08T11:39:35.882999198Z number of threads: 2
+2026-09-08T11:39:35.883001398Z maximum number of tries: 1
+2026-09-08T11:39:35.883003799Z duration: 10 s
+2026-09-08T11:39:35.883006099Z number of transactions actually processed: 57
+2026-09-08T11:39:35.883008699Z number of failed transactions: 0 (0.000%)
+2026-09-08T11:39:35.883010899Z latency average = 30.717 ms
+2026-09-08T11:39:35.883013200Z latency stddev = 17.274 ms
+2026-09-08T11:39:35.883016000Z rate limit schedule lag: avg 27.889 (max 83.867) ms
+2026-09-08T11:39:35.883018700Z average connection time = 26.851 ms
+2026-09-08T11:39:35.883021200Z tps = 5.730901 (including reconnection times)
+2026-09-08T11:39:35.886094310Z 2026-09-08T11:39:35.885431344Z END batch=1 exit=0
+2026-09-08T11:39:35.888096312Z 2026-09-08T11:39:35.887468649Z BEGIN batch=2
+2026-09-08T11:39:35.888114914Z COMMAND pgbench -n -h haproxy -p 5001 -U appuser -d appdb -c 2 -j 2 -C -T 10 -R 5 -P 2 -f /work/read.sql -l --log-prefix=/evidence/tx-2
+2026-09-08T11:39:35.966487521Z pgbench (16.4 (Debian 16.4-1.pgdg120+2))
+2026-09-08T11:39:45.894916111Z transaction type: /work/read.sql
+2026-09-08T11:39:45.894938913Z scaling factor: 1
+2026-09-08T11:39:45.894942313Z query mode: simple
+2026-09-08T11:39:45.894944914Z number of clients: 2
+2026-09-08T11:39:45.894947714Z number of threads: 2
+2026-09-08T11:39:45.894950514Z maximum number of tries: 1
+2026-09-08T11:39:45.894953515Z duration: 10 s
+2026-09-08T11:39:45.894956415Z number of transactions actually processed: 50
+2026-09-08T11:39:45.894959315Z number of failed transactions: 0 (0.000%)
+2026-09-08T11:39:45.894962216Z latency average = 23.993 ms
+2026-09-08T11:39:45.894964916Z latency stddev = 7.545 ms
+2026-09-08T11:39:45.894967616Z rate limit schedule lag: avg 21.882 (max 44.824) ms
+2026-09-08T11:39:45.894970616Z average connection time = 21.218 ms
+2026-09-08T11:39:45.894973317Z tps = 5.038241 (including reconnection times)
+2026-09-08T11:39:45.897640486Z 2026-09-08T11:39:45.897039326Z END batch=2 exit=0
+2026-09-08T11:39:45.899411966Z 2026-09-08T11:39:45.898865610Z BEGIN batch=3
+2026-09-08T11:39:45.899425767Z COMMAND pgbench -n -h haproxy -p 5001 -U appuser -d appdb -c 2 -j 2 -C -T 10 -R 5 -P 2 -f /work/read.sql -l --log-prefix=/evidence/tx-3
+2026-09-08T11:39:45.945961373Z pgbench (16.4 (Debian 16.4-1.pgdg120+2))
+2026-09-08T11:39:55.655546062Z transaction type: /work/read.sql
+2026-09-08T11:39:55.655578666Z scaling factor: 1
+2026-09-08T11:39:55.655581166Z query mode: simple
+2026-09-08T11:39:55.655582966Z number of clients: 2
+2026-09-08T11:39:55.655584666Z number of threads: 2
+2026-09-08T11:39:55.655586467Z maximum number of tries: 1
+2026-09-08T11:39:55.655588267Z duration: 10 s
+2026-09-08T11:39:55.655590067Z number of transactions actually processed: 48
+2026-09-08T11:39:55.655592867Z number of failed transactions: 0 (0.000%)
+2026-09-08T11:39:55.655594567Z latency average = 23.713 ms
+2026-09-08T11:39:55.655596167Z latency stddev = 13.264 ms
+2026-09-08T11:39:55.655598068Z rate limit schedule lag: avg 21.746 (max 54.003) ms
+2026-09-08T11:39:55.655599768Z average connection time = 21.657 ms
+2026-09-08T11:39:55.655601368Z tps = 4.947687 (including reconnection times)
+2026-09-08T11:39:55.658561367Z 2026-09-08T11:39:55.657804090Z END batch=3 exit=0
+2026-09-08T11:39:55.660668879Z 2026-09-08T11:39:55.659843496Z BEGIN batch=4
+2026-09-08T11:39:55.660721485Z COMMAND pgbench -n -h haproxy -p 5001 -U appuser -d appdb -c 2 -j 2 -C -T 10 -R 5 -P 2 -f /work/read.sql -l --log-prefix=/evidence/tx-4
+2026-09-08T11:39:55.711103468Z pgbench (16.4 (Debian 16.4-1.pgdg120+2))
+2026-09-08T11:40:05.313160229Z transaction type: /work/read.sql
+2026-09-08T11:40:05.313210634Z scaling factor: 1
+2026-09-08T11:40:05.313218035Z query mode: simple
+2026-09-08T11:40:05.313222935Z number of clients: 2
+2026-09-08T11:40:05.313227036Z number of threads: 2
+2026-09-08T11:40:05.313231836Z maximum number of tries: 1
+2026-09-08T11:40:05.313236937Z duration: 10 s
+2026-09-08T11:40:05.313242037Z number of transactions actually processed: 45
+2026-09-08T11:40:05.313247238Z number of failed transactions: 0 (0.000%)
+2026-09-08T11:40:05.313252338Z latency average = 27.550 ms
+2026-09-08T11:40:05.313257139Z latency stddev = 13.917 ms
+2026-09-08T11:40:05.313261939Z rate limit schedule lag: avg 25.442 (max 53.743) ms
+2026-09-08T11:40:05.313267039Z average connection time = 24.677 ms
+2026-09-08T11:40:05.313272040Z tps = 4.690943 (including reconnection times)
+2026-09-08T11:40:05.318517051Z 2026-09-08T11:40:05.317439446Z END batch=4 exit=0
+2026-09-08T11:39:25.915102218Z pgbench: pghost: haproxy pgport: 5001 nclients: 2 duration: 10 dbName: appdb
+2026-09-08T11:39:25.936382271Z pgbench: pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:25.936431776Z client 0 executing script "/work/read.sql"
+2026-09-08T11:39:26.193283962Z pgbench: client 1 executing \set first
+2026-09-08T11:39:26.193335768Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:26.193343969Z FROM phase3_lab.items WHERE id BETWEEN 8623 AND 8623 + 99;
+2026-09-08T11:39:26.193349269Z pgbench: client 1 receiving
+2026-09-08T11:39:26.197356875Z pgbench: client 1 receiving
+2026-09-08T11:39:26.198360776Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:26.418976296Z pgbench: client 1 executing \set first
+2026-09-08T11:39:26.419025201Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:26.419033602Z FROM phase3_lab.items WHERE id BETWEEN 23165 AND 23165 + 99;
+2026-09-08T11:39:26.419039503Z pgbench: client 1 receiving
+2026-09-08T11:39:26.421702972Z pgbench: client 1 receiving
+2026-09-08T11:39:26.421730975Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:26.426817090Z pgbench: client 0 executing \set first
+2026-09-08T11:39:26.426865494Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:26.426874795Z FROM phase3_lab.items WHERE id BETWEEN 99847 AND 99847 + 99;
+2026-09-08T11:39:26.426896598Z pgbench: client 0 receiving
+2026-09-08T11:39:26.430497462Z pgbench: client 0 receiving
+2026-09-08T11:39:26.431307344Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:26.458654111Z pgbench: client 1 executing \set first
+2026-09-08T11:39:26.458707816Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:26.458716617Z FROM phase3_lab.items WHERE id BETWEEN 32460 AND 32460 + 99;
+2026-09-08T11:39:26.459254871Z pgbench: client 1 receiving
+2026-09-08T11:39:26.462080357Z pgbench: client 1 receiving
+2026-09-08T11:39:26.462129062Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:26.648272021Z pgbench: client 0 executing \set first
+2026-09-08T11:39:26.648332927Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:26.648340928Z FROM phase3_lab.items WHERE id BETWEEN 64364 AND 64364 + 99;
+2026-09-08T11:39:26.649055800Z pgbench: client 0 receiving
+2026-09-08T11:39:26.652827982Z pgbench: client 0 receiving
+2026-09-08T11:39:26.652905390Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:26.685365080Z pgbench: client 0 executing \set first
+2026-09-08T11:39:26.685419986Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:26.685428687Z FROM phase3_lab.items WHERE id BETWEEN 42742 AND 42742 + 99;
+2026-09-08T11:39:26.685433987Z pgbench: client 0 receiving
+2026-09-08T11:39:26.688406689Z pgbench: client 0 receiving
+2026-09-08T11:39:26.688444792Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:26.733202929Z pgbench: client 1 executing \set first
+2026-09-08T11:39:26.733257935Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:26.733268736Z FROM phase3_lab.items WHERE id BETWEEN 62710 AND 62710 + 99;
+2026-09-08T11:39:26.733275836Z pgbench: client 1 receiving
+2026-09-08T11:39:26.737093023Z pgbench: client 1 receiving
+2026-09-08T11:39:26.737748190Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:27.228032884Z pgbench: client 1 executing \set first
+2026-09-08T11:39:27.228085189Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:27.228094490Z FROM phase3_lab.items WHERE id BETWEEN 16378 AND 16378 + 99;
+2026-09-08T11:39:27.228100791Z pgbench: client 1 receiving
+2026-09-08T11:39:27.231015586Z pgbench: client 1 receiving
+2026-09-08T11:39:27.231308016Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:27.252008314Z pgbench: client 0 executing \set first
+2026-09-08T11:39:27.252060119Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:27.252069620Z FROM phase3_lab.items WHERE id BETWEEN 30604 AND 30604 + 99;
+2026-09-08T11:39:27.254548471Z pgbench: client 0 receiving
+2026-09-08T11:39:27.259939818Z pgbench: client 0 receiving
+2026-09-08T11:39:27.260141738Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:27.694254139Z pgbench: client 0 executing \set first
+2026-09-08T11:39:27.694324046Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:27.694331947Z FROM phase3_lab.items WHERE id BETWEEN 49021 AND 49021 + 99;
+2026-09-08T11:39:27.694337047Z pgbench: client 0 receiving
+2026-09-08T11:39:27.698197039Z pgbench: client 0 receiving
+2026-09-08T11:39:27.698276947Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:27.740327609Z pgbench: client 1 executing \set first
+2026-09-08T11:39:27.740373313Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:27.740382414Z FROM phase3_lab.items WHERE id BETWEEN 29304 AND 29304 + 99;
+2026-09-08T11:39:27.740386015Z pgbench: client 1 receiving
+2026-09-08T11:39:27.743100490Z pgbench: client 1 receiving
+2026-09-08T11:39:27.743138494Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:27.936387381Z progress: 2.0 s, 5.5 tps, lat 55.499 ms stddev 17.842, 0 failed, lag 51.252 ms
+2026-09-08T11:39:28.204339540Z pgbench: client 1 executing \set first
+2026-09-08T11:39:28.204384145Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:28.204393045Z FROM phase3_lab.items WHERE id BETWEEN 39218 AND 39218 + 99;
+2026-09-08T11:39:28.204398446Z pgbench: client 1 receiving
+2026-09-08T11:39:28.207967808Z pgbench: client 1 receiving
+2026-09-08T11:39:28.208010512Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:28.304229465Z pgbench: client 1 executing \set first
+2026-09-08T11:39:28.304284070Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:28.304293171Z FROM phase3_lab.items WHERE id BETWEEN 348 AND 348 + 99;
+2026-09-08T11:39:28.304298372Z pgbench: client 1 receiving
+2026-09-08T11:39:28.308565604Z pgbench: client 1 receiving
+2026-09-08T11:39:28.308607608Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:28.379832928Z pgbench: client 1 executing \set first
+2026-09-08T11:39:28.379885333Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:28.379894834Z FROM phase3_lab.items WHERE id BETWEEN 56319 AND 56319 + 99;
+2026-09-08T11:39:28.379901435Z pgbench: client 1 receiving
+2026-09-08T11:39:28.385177969Z pgbench: client 1 receiving
+2026-09-08T11:39:28.385225974Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:28.645000304Z pgbench: client 1 executing \set first
+2026-09-08T11:39:28.645059510Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:28.645068211Z FROM phase3_lab.items WHERE id BETWEEN 98895 AND 98895 + 99;
+2026-09-08T11:39:28.645073112Z pgbench: client 1 receiving
+2026-09-08T11:39:28.648536663Z pgbench: client 1 receiving
+2026-09-08T11:39:28.648805090Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:29.169593976Z pgbench: client 0 executing \set first
+2026-09-08T11:39:29.169643281Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:29.169651782Z FROM phase3_lab.items WHERE id BETWEEN 64233 AND 64233 + 99;
+2026-09-08T11:39:29.169657783Z pgbench: client 0 receiving
+2026-09-08T11:39:29.172667688Z pgbench: client 0 receiving
+2026-09-08T11:39:29.173016323Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:29.251658794Z pgbench: client 1 executing \set first
+2026-09-08T11:39:29.251713900Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:29.251748303Z FROM phase3_lab.items WHERE id BETWEEN 26202 AND 26202 + 99;
+2026-09-08T11:39:29.251755304Z pgbench: client 1 receiving
+2026-09-08T11:39:29.255235857Z pgbench: client 1 receiving
+2026-09-08T11:39:29.255284762Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:29.554794319Z pgbench: client 1 executing \set first
+2026-09-08T11:39:29.554848525Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:29.554857526Z FROM phase3_lab.items WHERE id BETWEEN 17651 AND 17651 + 99;
+2026-09-08T11:39:29.554863026Z pgbench: client 1 receiving
+2026-09-08T11:39:29.561490598Z pgbench: client 1 receiving
+2026-09-08T11:39:29.561541303Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:29.675545058Z pgbench: client 0 executing \set first
+2026-09-08T11:39:29.675586362Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:29.675593063Z FROM phase3_lab.items WHERE id BETWEEN 46891 AND 46891 + 99;
+2026-09-08T11:39:29.675597964Z pgbench: client 0 receiving
+2026-09-08T11:39:29.677977705Z pgbench: client 0 receiving
+2026-09-08T11:39:29.678215429Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:29.720538119Z pgbench: client 0 executing \set first
+2026-09-08T11:39:29.720581623Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:29.720587524Z FROM phase3_lab.items WHERE id BETWEEN 76897 AND 76897 + 99;
+2026-09-08T11:39:29.720591624Z pgbench: client 0 receiving
+2026-09-08T11:39:29.723284797Z pgbench: client 0 receiving
+2026-09-08T11:39:29.723317600Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:29.747130114Z pgbench: client 0 executing \set first
+2026-09-08T11:39:29.747170218Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:29.747175718Z FROM phase3_lab.items WHERE id BETWEEN 26169 AND 26169 + 99;
+2026-09-08T11:39:29.747178419Z pgbench: client 0 receiving
+2026-09-08T11:39:29.749163620Z pgbench: client 0 receiving
+2026-09-08T11:39:29.749183622Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:29.936260184Z progress: 4.0 s, 5.0 tps, lat 39.805 ms stddev 8.750, 0 failed, lag 35.965 ms
+2026-09-08T11:39:29.937087367Z pgbench: client 1 executing \set first
+2026-09-08T11:39:29.937108670Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:29.937113970Z FROM phase3_lab.items WHERE id BETWEEN 91512 AND 91512 + 99;
+2026-09-08T11:39:29.937118171Z pgbench: client 1 receiving
+2026-09-08T11:39:29.939904653Z pgbench: client 1 receiving
+2026-09-08T11:39:29.939935756Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:30.100453326Z pgbench: client 0 executing \set first
+2026-09-08T11:39:30.100484629Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:30.100487829Z FROM phase3_lab.items WHERE id BETWEEN 5519 AND 5519 + 99;
+2026-09-08T11:39:30.100489730Z pgbench: client 0 receiving
+2026-09-08T11:39:30.102074390Z pgbench: client 0 receiving
+2026-09-08T11:39:30.102095092Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:30.253593648Z pgbench: client 0 executing \set first
+2026-09-08T11:39:30.253639753Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:30.253646053Z FROM phase3_lab.items WHERE id BETWEEN 20370 AND 20370 + 99;
+2026-09-08T11:39:30.253649654Z pgbench: client 0 receiving
+2026-09-08T11:39:30.256474040Z pgbench: client 0 receiving
+2026-09-08T11:39:30.256516944Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:30.716262043Z pgbench: client 0 executing \set first
+2026-09-08T11:39:30.716348152Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:30.716353552Z FROM phase3_lab.items WHERE id BETWEEN 31528 AND 31528 + 99;
+2026-09-08T11:39:30.716356452Z pgbench: client 0 receiving
+2026-09-08T11:39:30.719336755Z pgbench: client 0 receiving
+2026-09-08T11:39:30.719373658Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:30.756376909Z pgbench: client 1 executing \set first
+2026-09-08T11:39:30.756412412Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:30.756417013Z FROM phase3_lab.items WHERE id BETWEEN 20441 AND 20441 + 99;
+2026-09-08T11:39:30.756419613Z pgbench: client 1 receiving
+2026-09-08T11:39:30.757870360Z pgbench: client 1 receiving
+2026-09-08T11:39:30.758157589Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:31.174621701Z pgbench: client 0 executing \set first
+2026-09-08T11:39:31.174647004Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:31.174649504Z FROM phase3_lab.items WHERE id BETWEEN 34066 AND 34066 + 99;
+2026-09-08T11:39:31.174651104Z pgbench: client 0 receiving
+2026-09-08T11:39:31.176213463Z pgbench: client 0 receiving
+2026-09-08T11:39:31.176335075Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:31.618799622Z pgbench: client 1 executing \set first
+2026-09-08T11:39:31.618828825Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:31.618831725Z FROM phase3_lab.items WHERE id BETWEEN 53669 AND 53669 + 99;
+2026-09-08T11:39:31.618833726Z pgbench: client 1 receiving
+2026-09-08T11:39:31.620453190Z pgbench: client 1 receiving
+2026-09-08T11:39:31.620968642Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:31.743600472Z pgbench: client 1 executing \set first
+2026-09-08T11:39:31.743636375Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:31.743641676Z FROM phase3_lab.items WHERE id BETWEEN 24534 AND 24534 + 99;
+2026-09-08T11:39:31.743644876Z pgbench: client 1 receiving
+2026-09-08T11:39:31.745270641Z pgbench: client 1 receiving
+2026-09-08T11:39:31.745291243Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:31.801130603Z pgbench: client 0 executing \set first
+2026-09-08T11:39:31.801165306Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:31.801168507Z FROM phase3_lab.items WHERE id BETWEEN 81144 AND 81144 + 99;
+2026-09-08T11:39:31.801170607Z pgbench: client 0 receiving
+2026-09-08T11:39:31.803594452Z pgbench: client 0 receiving
+2026-09-08T11:39:31.803627056Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:31.903477176Z pgbench: client 1 executing \set first
+2026-09-08T11:39:31.903529082Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:31.903535582Z FROM phase3_lab.items WHERE id BETWEEN 72943 AND 72943 + 99;
+2026-09-08T11:39:31.903538683Z pgbench: client 1 receiving
+2026-09-08T11:39:31.905592891Z pgbench: client 1 receiving
+2026-09-08T11:39:31.905630195Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:31.936087982Z progress: 6.0 s, 5.0 tps, lat 21.436 ms stddev 3.835, 0 failed, lag 19.188 ms
+2026-09-08T11:39:32.458688651Z pgbench: client 1 executing \set first
+2026-09-08T11:39:32.458727755Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:32.458733656Z FROM phase3_lab.items WHERE id BETWEEN 81912 AND 81912 + 99;
+2026-09-08T11:39:32.458941577Z pgbench: client 1 receiving
+2026-09-08T11:39:32.460990285Z pgbench: client 1 receiving
+2026-09-08T11:39:32.461174103Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:32.476839791Z pgbench: client 0 executing \set first
+2026-09-08T11:39:32.476874095Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:32.476880295Z FROM phase3_lab.items WHERE id BETWEEN 53898 AND 53898 + 99;
+2026-09-08T11:39:32.476884096Z pgbench: client 0 receiving
+2026-09-08T11:39:32.478525862Z pgbench: client 0 receiving
+2026-09-08T11:39:32.479591070Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:32.510246577Z pgbench: client 1 executing \set first
+2026-09-08T11:39:32.510275480Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:32.510278380Z FROM phase3_lab.items WHERE id BETWEEN 64032 AND 64032 + 99;
+2026-09-08T11:39:32.510293782Z pgbench: client 1 receiving
+2026-09-08T11:39:32.512234079Z pgbench: client 1 receiving
+2026-09-08T11:39:32.512246980Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:32.553728684Z pgbench: client 0 executing \set first
+2026-09-08T11:39:32.553761988Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:32.553766988Z FROM phase3_lab.items WHERE id BETWEEN 21939 AND 21939 + 99;
+2026-09-08T11:39:32.553770389Z pgbench: client 0 receiving
+2026-09-08T11:39:32.555503364Z pgbench: client 0 receiving
+2026-09-08T11:39:32.555525466Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:32.605674349Z pgbench: client 0 executing \set first
+2026-09-08T11:39:32.605709553Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:32.605712453Z FROM phase3_lab.items WHERE id BETWEEN 10145 AND 10145 + 99;
+2026-09-08T11:39:32.605714554Z pgbench: client 0 receiving
+2026-09-08T11:39:32.607512036Z pgbench: client 0 receiving
+2026-09-08T11:39:32.607535338Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:32.864179851Z pgbench: client 1 executing \set first
+2026-09-08T11:39:32.864209654Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:32.864213654Z FROM phase3_lab.items WHERE id BETWEEN 48151 AND 48151 + 99;
+2026-09-08T11:39:32.864216655Z pgbench: client 0 executing \set first
+2026-09-08T11:39:32.864219055Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:32.864221655Z FROM phase3_lab.items WHERE id BETWEEN 31475 AND 31475 + 99;
+2026-09-08T11:39:32.864224055Z pgbench: client 1 receiving
+2026-09-08T11:39:32.864226456Z pgbench: client 0 receiving
+2026-09-08T11:39:32.865510186Z pgbench: client 1 receiving
+2026-09-08T11:39:32.865616197Z pgbench: client 0 receiving
+2026-09-08T11:39:32.865626298Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:32.865659401Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:33.003271549Z pgbench: client 1 executing \set first
+2026-09-08T11:39:33.003300552Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:33.003304152Z FROM phase3_lab.items WHERE id BETWEEN 43728 AND 43728 + 99;
+2026-09-08T11:39:33.003306953Z pgbench: client 1 receiving
+2026-09-08T11:39:33.005250450Z pgbench: client 1 receiving
+2026-09-08T11:39:33.005267151Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:33.041008974Z pgbench: client 0 executing \set first
+2026-09-08T11:39:33.041036877Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:33.041039677Z FROM phase3_lab.items WHERE id BETWEEN 33722 AND 33722 + 99;
+2026-09-08T11:39:33.041054479Z pgbench: client 0 receiving
+2026-09-08T11:39:33.042500225Z pgbench: client 0 receiving
+2026-09-08T11:39:33.042621637Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:33.121293211Z pgbench: client 0 executing \set first
+2026-09-08T11:39:33.121329615Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:33.121334316Z FROM phase3_lab.items WHERE id BETWEEN 63325 AND 63325 + 99;
+2026-09-08T11:39:33.121337116Z pgbench: client 0 receiving
+2026-09-08T11:39:33.123104395Z pgbench: client 0 receiving
+2026-09-08T11:39:33.123132598Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:33.318007650Z pgbench: client 0 executing \set first
+2026-09-08T11:39:33.318042654Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:33.318047354Z FROM phase3_lab.items WHERE id BETWEEN 36440 AND 36440 + 99;
+2026-09-08T11:39:33.318050254Z pgbench: client 0 receiving
+2026-09-08T11:39:33.320477900Z pgbench: client 0 receiving
+2026-09-08T11:39:33.320496602Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:33.566620649Z pgbench: client 1 executing \set first
+2026-09-08T11:39:33.566685855Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:33.566689256Z FROM phase3_lab.items WHERE id BETWEEN 90515 AND 90515 + 99;
+2026-09-08T11:39:33.566691056Z pgbench: client 1 receiving
+2026-09-08T11:39:33.568805270Z pgbench: client 1 receiving
+2026-09-08T11:39:33.568824472Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:33.826002239Z pgbench: client 1 executing \set first
+2026-09-08T11:39:33.826027442Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:33.826029942Z FROM phase3_lab.items WHERE id BETWEEN 56842 AND 56842 + 99;
+2026-09-08T11:39:33.826031542Z pgbench: client 1 receiving
+2026-09-08T11:39:33.827341075Z pgbench: client 1 receiving
+2026-09-08T11:39:33.827354276Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:33.936077696Z progress: 8.0 s, 6.5 tps, lat 19.523 ms stddev 5.481, 0 failed, lag 17.590 ms
+2026-09-08T11:39:33.996244495Z pgbench: client 1 executing \set first
+2026-09-08T11:39:33.996277298Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:33.996282198Z FROM phase3_lab.items WHERE id BETWEEN 79474 AND 79474 + 99;
+2026-09-08T11:39:33.996284899Z pgbench: client 1 receiving
+2026-09-08T11:39:33.998848058Z pgbench: client 1 receiving
+2026-09-08T11:39:33.998871361Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:34.012945787Z pgbench: client 1 executing \set first
+2026-09-08T11:39:34.012993292Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:34.012996592Z FROM phase3_lab.items WHERE id BETWEEN 28004 AND 28004 + 99;
+2026-09-08T11:39:34.012998293Z pgbench: client 1 receiving
+2026-09-08T11:39:34.014387333Z pgbench: client 1 receiving
+2026-09-08T11:39:34.014403335Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:34.123326575Z pgbench: client 0 executing \set first
+2026-09-08T11:39:34.123367879Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:34.123371480Z FROM phase3_lab.items WHERE id BETWEEN 60921 AND 60921 + 99;
+2026-09-08T11:39:34.123374380Z pgbench: client 0 receiving
+2026-09-08T11:39:34.125347880Z pgbench: client 0 receiving
+2026-09-08T11:39:34.125556001Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:34.408329763Z pgbench: client 1 executing \set first
+2026-09-08T11:39:34.408361866Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:34.408367066Z FROM phase3_lab.items WHERE id BETWEEN 11731 AND 11731 + 99;
+2026-09-08T11:39:34.408540584Z pgbench: client 1 receiving
+2026-09-08T11:39:34.411204854Z pgbench: client 1 receiving
+2026-09-08T11:39:34.411230157Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:34.845259299Z pgbench: client 0 executing \set first
+2026-09-08T11:39:34.845347508Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:34.845358109Z FROM phase3_lab.items WHERE id BETWEEN 62896 AND 62896 + 99;
+2026-09-08T11:39:34.845361910Z pgbench: client 0 receiving
+2026-09-08T11:39:34.848831160Z pgbench: client 0 receiving
+2026-09-08T11:39:34.848977874Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:34.923595603Z pgbench: client 0 executing \set first
+2026-09-08T11:39:34.923631106Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:34.923634807Z FROM phase3_lab.items WHERE id BETWEEN 5132 AND 5132 + 99;
+2026-09-08T11:39:34.923637107Z pgbench: client 0 receiving
+2026-09-08T11:39:34.925040248Z pgbench: client 0 receiving
+2026-09-08T11:39:34.925063651Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:35.141838221Z pgbench: client 0 executing \set first
+2026-09-08T11:39:35.141867724Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:35.141871925Z FROM phase3_lab.items WHERE id BETWEEN 20545 AND 20545 + 99;
+2026-09-08T11:39:35.141873825Z pgbench: client 0 receiving
+2026-09-08T11:39:35.143056244Z pgbench: client 0 receiving
+2026-09-08T11:39:35.143073446Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:35.260252468Z pgbench: client 1 executing \set first
+2026-09-08T11:39:35.260294773Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:35.260298473Z FROM phase3_lab.items WHERE id BETWEEN 62898 AND 62898 + 99;
+2026-09-08T11:39:35.260300073Z pgbench: client 1 receiving
+2026-09-08T11:39:35.261770022Z pgbench: client 1 receiving
+2026-09-08T11:39:35.261784323Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:35.363027038Z pgbench: client 0 executing \set first
+2026-09-08T11:39:35.363094944Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:35.363098645Z FROM phase3_lab.items WHERE id BETWEEN 51683 AND 51683 + 99;
+2026-09-08T11:39:35.363101245Z pgbench: client 0 receiving
+2026-09-08T11:39:35.365929330Z pgbench: client 0 receiving
+2026-09-08T11:39:35.365971135Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:35.428030996Z pgbench: client 0 executing \set first
+2026-09-08T11:39:35.428064599Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:35.428067600Z FROM phase3_lab.items WHERE id BETWEEN 427 AND 427 + 99;
+2026-09-08T11:39:35.428069400Z pgbench: client 0 receiving
+2026-09-08T11:39:35.429473841Z pgbench: client 0 receiving
+2026-09-08T11:39:35.429485843Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:35.471972229Z pgbench: client 1 executing \set first
+2026-09-08T11:39:35.471999932Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:35.472002432Z FROM phase3_lab.items WHERE id BETWEEN 59017 AND 59017 + 99;
+2026-09-08T11:39:35.472004132Z pgbench: client 1 receiving
+2026-09-08T11:39:35.473702704Z pgbench: client 1 receiving
+2026-09-08T11:39:35.473858919Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:35.590403278Z pgbench: client 0 executing \set first
+2026-09-08T11:39:35.590429880Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:35.590433981Z FROM phase3_lab.items WHERE id BETWEEN 30794 AND 30794 + 99;
+2026-09-08T11:39:35.590436781Z pgbench: client 0 receiving
+2026-09-08T11:39:35.592906830Z pgbench: client 0 receiving
+2026-09-08T11:39:35.594413982Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:35.878806075Z pgbench: client 0 executing \set first
+2026-09-08T11:39:35.878842379Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:35.878846079Z FROM phase3_lab.items WHERE id BETWEEN 31137 AND 31137 + 99;
+2026-09-08T11:39:35.878847979Z pgbench: client 0 receiving
+2026-09-08T11:39:35.880812578Z pgbench: client 0 receiving
+2026-09-08T11:39:35.880835180Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:35.966487521Z pgbench: pghost: haproxy pgport: 5001 nclients: 2 duration: 10 dbName: appdb
+2026-09-08T11:39:35.972110389Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:35.972147092Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:36.158666311Z pgbench: client 0 executing \set first
+2026-09-08T11:39:36.158704014Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:36.158709015Z FROM phase3_lab.items WHERE id BETWEEN 67434 AND 67434 + 99;
+2026-09-08T11:39:36.158712115Z pgbench: client 0 receiving
+2026-09-08T11:39:36.159271272Z pgbench: client 1 executing \set first
+2026-09-08T11:39:36.159285873Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:36.159289673Z FROM phase3_lab.items WHERE id BETWEEN 79420 AND 79420 + 99;
+2026-09-08T11:39:36.159292574Z pgbench: client 1 receiving
+2026-09-08T11:39:36.160474893Z pgbench: client 0 receiving
+2026-09-08T11:39:36.160642810Z pgbench: client 1 receiving
+2026-09-08T11:39:36.160964042Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:36.161024148Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:36.366827912Z pgbench: client 0 executing \set first
+2026-09-08T11:39:36.366859615Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:36.366864416Z FROM phase3_lab.items WHERE id BETWEEN 7527 AND 7527 + 99;
+2026-09-08T11:39:36.366883518Z pgbench: client 0 receiving
+2026-09-08T11:39:36.368339565Z pgbench: client 0 receiving
+2026-09-08T11:39:36.368353966Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:36.552369734Z pgbench: client 1 executing \set first
+2026-09-08T11:39:36.552402537Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:36.552405438Z FROM phase3_lab.items WHERE id BETWEEN 92600 AND 92600 + 99;
+2026-09-08T11:39:36.552407438Z pgbench: client 1 receiving
+2026-09-08T11:39:36.553782677Z pgbench: client 1 receiving
+2026-09-08T11:39:36.553877986Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:37.026182638Z pgbench: client 0 executing \set first
+2026-09-08T11:39:37.026220642Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:37.026225942Z FROM phase3_lab.items WHERE id BETWEEN 50155 AND 50155 + 99;
+2026-09-08T11:39:37.026229242Z pgbench: client 0 receiving
+2026-09-08T11:39:37.028481870Z pgbench: client 0 receiving
+2026-09-08T11:39:37.028513873Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:37.051416384Z pgbench: client 1 executing \set first
+2026-09-08T11:39:37.051465389Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:37.051471989Z FROM phase3_lab.items WHERE id BETWEEN 82779 AND 82779 + 99;
+2026-09-08T11:39:37.051886731Z pgbench: client 1 receiving
+2026-09-08T11:39:37.054667612Z pgbench: client 1 receiving
+2026-09-08T11:39:37.054870532Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:37.179821038Z pgbench: client 0 executing \set first
+2026-09-08T11:39:37.179857742Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:37.179862543Z FROM phase3_lab.items WHERE id BETWEEN 92301 AND 92301 + 99;
+2026-09-08T11:39:37.179866143Z pgbench: client 0 receiving
+2026-09-08T11:39:37.181567415Z pgbench: client 0 receiving
+2026-09-08T11:39:37.181588717Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:37.386864227Z pgbench: client 1 executing \set first
+2026-09-08T11:39:37.386903131Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:37.386908232Z FROM phase3_lab.items WHERE id BETWEEN 42287 AND 42287 + 99;
+2026-09-08T11:39:37.386911032Z pgbench: client 1 receiving
+2026-09-08T11:39:37.389430886Z pgbench: client 1 receiving
+2026-09-08T11:39:37.389450988Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:37.513541108Z pgbench: client 1 executing \set first
+2026-09-08T11:39:37.513572011Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:37.513588713Z FROM phase3_lab.items WHERE id BETWEEN 59513 AND 59513 + 99;
+2026-09-08T11:39:37.513590713Z pgbench: client 1 receiving
+2026-09-08T11:39:37.515441000Z pgbench: client 1 receiving
+2026-09-08T11:39:37.515626518Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:37.651963574Z pgbench: client 0 executing \set first
+2026-09-08T11:39:37.651995477Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:37.651999677Z FROM phase3_lab.items WHERE id BETWEEN 1492 AND 1492 + 99;
+2026-09-08T11:39:37.652002578Z pgbench: client 0 receiving
+2026-09-08T11:39:37.653593138Z pgbench: client 0 receiving
+2026-09-08T11:39:37.653612340Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:37.758030675Z pgbench: client 0 executing \set first
+2026-09-08T11:39:37.758062778Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:37.758067779Z FROM phase3_lab.items WHERE id BETWEEN 79414 AND 79414 + 99;
+2026-09-08T11:39:37.758070879Z pgbench: client 0 receiving
+2026-09-08T11:39:37.759849558Z pgbench: client 0 receiving
+2026-09-08T11:39:37.759965470Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:37.768852167Z pgbench: client 1 executing \set first
+2026-09-08T11:39:37.768890270Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:37.768894171Z FROM phase3_lab.items WHERE id BETWEEN 8059 AND 8059 + 99;
+2026-09-08T11:39:37.768896271Z pgbench: client 1 receiving
+2026-09-08T11:39:37.771484732Z pgbench: client 1 receiving
+2026-09-08T11:39:37.771505634Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:37.949433286Z pgbench: client 0 executing \set first
+2026-09-08T11:39:37.949475690Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:37.949480190Z FROM phase3_lab.items WHERE id BETWEEN 42582 AND 42582 + 99;
+2026-09-08T11:39:37.949483091Z pgbench: client 0 receiving
+2026-09-08T11:39:37.951676012Z pgbench: client 0 receiving
+2026-09-08T11:39:37.951699514Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:37.970405902Z progress: 2.0 s, 6.5 tps, lat 22.048 ms stddev 3.868, 0 failed, lag 19.951 ms
+2026-09-08T11:39:39.422746230Z pgbench: client 1 executing \set first
+2026-09-08T11:39:39.422776833Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:39.422782034Z FROM phase3_lab.items WHERE id BETWEEN 25706 AND 25706 + 99;
+2026-09-08T11:39:39.422785334Z pgbench: client 1 receiving
+2026-09-08T11:39:39.424913949Z pgbench: client 1 receiving
+2026-09-08T11:39:39.424939651Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:39.472315731Z pgbench: client 0 executing \set first
+2026-09-08T11:39:39.472343634Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:39.472348235Z FROM phase3_lab.items WHERE id BETWEEN 59729 AND 59729 + 99;
+2026-09-08T11:39:39.472351835Z pgbench: client 0 receiving
+2026-09-08T11:39:39.473870588Z pgbench: client 0 receiving
+2026-09-08T11:39:39.473883489Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:39.698302031Z pgbench: client 1 executing \set first
+2026-09-08T11:39:39.698330334Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:39.698334735Z FROM phase3_lab.items WHERE id BETWEEN 43542 AND 43542 + 99;
+2026-09-08T11:39:39.698337535Z pgbench: client 1 receiving
+2026-09-08T11:39:39.700177020Z pgbench: client 1 receiving
+2026-09-08T11:39:39.700455249Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:39.729122641Z pgbench: client 1 executing \set first
+2026-09-08T11:39:39.729153544Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:39.729156444Z FROM phase3_lab.items WHERE id BETWEEN 53840 AND 53840 + 99;
+2026-09-08T11:39:39.729158444Z pgbench: client 1 receiving
+2026-09-08T11:39:39.730816812Z pgbench: client 1 receiving
+2026-09-08T11:39:39.730835414Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:39.970271571Z progress: 4.0 s, 2.0 tps, lat 18.015 ms stddev 0.958, 0 failed, lag 16.073 ms
+2026-09-08T11:39:40.117753250Z pgbench: client 1 executing \set first
+2026-09-08T11:39:40.117800755Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:40.117808056Z FROM phase3_lab.items WHERE id BETWEEN 84106 AND 84106 + 99;
+2026-09-08T11:39:40.117812156Z pgbench: client 1 receiving
+2026-09-08T11:39:40.119397116Z pgbench: client 1 receiving
+2026-09-08T11:39:40.119426519Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:40.258066607Z pgbench: client 0 executing \set first
+2026-09-08T11:39:40.258114111Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:40.258119512Z FROM phase3_lab.items WHERE id BETWEEN 83575 AND 83575 + 99;
+2026-09-08T11:39:40.258123512Z pgbench: client 0 receiving
+2026-09-08T11:39:40.259798881Z pgbench: client 0 receiving
+2026-09-08T11:39:40.260181920Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:40.443192884Z pgbench: client 1 executing \set first
+2026-09-08T11:39:40.443242489Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:40.443250490Z FROM phase3_lab.items WHERE id BETWEEN 14843 AND 14843 + 99;
+2026-09-08T11:39:40.443255091Z pgbench: client 1 receiving
+2026-09-08T11:39:40.445388006Z pgbench: client 1 receiving
+2026-09-08T11:39:40.445411908Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:40.720026314Z pgbench: client 0 executing \set first
+2026-09-08T11:39:40.720052617Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:40.720057418Z FROM phase3_lab.items WHERE id BETWEEN 85080 AND 85080 + 99;
+2026-09-08T11:39:40.720060718Z pgbench: client 0 receiving
+2026-09-08T11:39:40.722148228Z pgbench: client 0 receiving
+2026-09-08T11:39:40.722438058Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:40.759661113Z pgbench: client 1 executing \set first
+2026-09-08T11:39:40.759696017Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:40.759699617Z FROM phase3_lab.items WHERE id BETWEEN 60659 AND 60659 + 99;
+2026-09-08T11:39:40.759701817Z pgbench: client 1 receiving
+2026-09-08T11:39:40.761520401Z pgbench: client 1 receiving
+2026-09-08T11:39:40.761543903Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:40.922944087Z pgbench: client 0 executing \set first
+2026-09-08T11:39:40.922979791Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:40.922985091Z FROM phase3_lab.items WHERE id BETWEEN 81343 AND 81343 + 99;
+2026-09-08T11:39:40.922988992Z pgbench: client 0 receiving
+2026-09-08T11:39:40.924872982Z pgbench: client 0 receiving
+2026-09-08T11:39:40.924999094Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:40.945954109Z pgbench: client 0 executing \set first
+2026-09-08T11:39:40.945988512Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:40.945993112Z FROM phase3_lab.items WHERE id BETWEEN 49945 AND 49945 + 99;
+2026-09-08T11:39:40.945996613Z pgbench: client 0 receiving
+2026-09-08T11:39:40.947737989Z pgbench: client 0 receiving
+2026-09-08T11:39:40.947761191Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:41.005400606Z pgbench: client 0 executing \set first
+2026-09-08T11:39:41.005438410Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:41.005444911Z FROM phase3_lab.items WHERE id BETWEEN 18181 AND 18181 + 99;
+2026-09-08T11:39:41.005457712Z pgbench: client 0 receiving
+2026-09-08T11:39:41.008016870Z pgbench: client 0 receiving
+2026-09-08T11:39:41.008048473Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:41.072740800Z pgbench: client 0 executing \set first
+2026-09-08T11:39:41.072781204Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:41.072787305Z FROM phase3_lab.items WHERE id BETWEEN 50731 AND 50731 + 99;
+2026-09-08T11:39:41.072791405Z pgbench: client 0 receiving
+2026-09-08T11:39:41.074884116Z pgbench: client 0 receiving
+2026-09-08T11:39:41.074953423Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:41.181352258Z pgbench: client 0 executing \set first
+2026-09-08T11:39:41.181395062Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:41.181399763Z FROM phase3_lab.items WHERE id BETWEEN 44947 AND 44947 + 99;
+2026-09-08T11:39:41.181403063Z pgbench: client 0 receiving
+2026-09-08T11:39:41.183252250Z pgbench: client 0 receiving
+2026-09-08T11:39:41.183807506Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:41.430941540Z pgbench: client 1 executing \set first
+2026-09-08T11:39:41.430983344Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:41.430988644Z FROM phase3_lab.items WHERE id BETWEEN 64613 AND 64613 + 99;
+2026-09-08T11:39:41.430991745Z pgbench: client 1 receiving
+2026-09-08T11:39:41.433474795Z pgbench: client 1 receiving
+2026-09-08T11:39:41.433501798Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:41.435283978Z pgbench: client 0 executing \set first
+2026-09-08T11:39:41.435299179Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:41.435303680Z FROM phase3_lab.items WHERE id BETWEEN 8470 AND 8470 + 99;
+2026-09-08T11:39:41.435307080Z pgbench: client 0 receiving
+2026-09-08T11:39:41.437120363Z pgbench: client 0 receiving
+2026-09-08T11:39:41.437139065Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:41.645951332Z pgbench: client 1 executing \set first
+2026-09-08T11:39:41.645997237Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:41.646001237Z FROM phase3_lab.items WHERE id BETWEEN 52773 AND 52773 + 99;
+2026-09-08T11:39:41.646004738Z pgbench: client 1 receiving
+2026-09-08T11:39:41.648121451Z pgbench: client 1 receiving
+2026-09-08T11:39:41.648155054Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:41.668520809Z pgbench: client 1 executing \set first
+2026-09-08T11:39:41.668558813Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:41.668563214Z FROM phase3_lab.items WHERE id BETWEEN 17122 AND 17122 + 99;
+2026-09-08T11:39:41.668566114Z pgbench: client 1 receiving
+2026-09-08T11:39:41.670916551Z pgbench: client 1 receiving
+2026-09-08T11:39:41.671692929Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:41.765786823Z pgbench: client 1 executing \set first
+2026-09-08T11:39:41.765825226Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:41.765828827Z FROM phase3_lab.items WHERE id BETWEEN 53935 AND 53935 + 99;
+2026-09-08T11:39:41.765847329Z pgbench: client 1 receiving
+2026-09-08T11:39:41.767569802Z pgbench: client 1 receiving
+2026-09-08T11:39:41.767583104Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:41.784138174Z pgbench: client 1 executing \set first
+2026-09-08T11:39:41.784159676Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:41.784164677Z FROM phase3_lab.items WHERE id BETWEEN 34953 AND 34953 + 99;
+2026-09-08T11:39:41.784167877Z pgbench: client 1 receiving
+2026-09-08T11:39:41.785746436Z pgbench: client 1 receiving
+2026-09-08T11:39:41.785854247Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:41.922675551Z pgbench: client 0 executing \set first
+2026-09-08T11:39:41.922739658Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:41.922743658Z FROM phase3_lab.items WHERE id BETWEEN 61791 AND 61791 + 99;
+2026-09-08T11:39:41.922745558Z pgbench: client 0 receiving
+2026-09-08T11:39:41.926078595Z pgbench: client 0 receiving
+2026-09-08T11:39:41.926108298Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:41.970317758Z progress: 6.0 s, 8.5 tps, lat 24.186 ms stddev 5.890, 0 failed, lag 21.992 ms
+2026-09-08T11:39:42.264020890Z pgbench: client 1 executing \set first
+2026-09-08T11:39:42.264053093Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:42.264056094Z FROM phase3_lab.items WHERE id BETWEEN 36386 AND 36386 + 99;
+2026-09-08T11:39:42.264057894Z pgbench: client 1 receiving
+2026-09-08T11:39:42.266796770Z pgbench: client 1 receiving
+2026-09-08T11:39:42.266828973Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:42.582987782Z pgbench: client 1 executing \set first
+2026-09-08T11:39:42.583014485Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:42.583016885Z FROM phase3_lab.items WHERE id BETWEEN 92245 AND 92245 + 99;
+2026-09-08T11:39:42.583018385Z pgbench: client 1 receiving
+2026-09-08T11:39:42.584350320Z pgbench: client 1 receiving
+2026-09-08T11:39:42.584422127Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:42.676029091Z pgbench: client 1 executing \set first
+2026-09-08T11:39:42.676053194Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:42.676055294Z FROM phase3_lab.items WHERE id BETWEEN 80506 AND 80506 + 99;
+2026-09-08T11:39:42.676056994Z pgbench: client 1 receiving
+2026-09-08T11:39:42.677209611Z pgbench: client 1 receiving
+2026-09-08T11:39:42.677219812Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:42.705275049Z pgbench: client 1 executing \set first
+2026-09-08T11:39:42.705313853Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:42.705316653Z FROM phase3_lab.items WHERE id BETWEEN 49405 AND 49405 + 99;
+2026-09-08T11:39:42.705317953Z pgbench: client 1 receiving
+2026-09-08T11:39:42.706618985Z pgbench: client 1 receiving
+2026-09-08T11:39:42.706630386Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:42.937963280Z pgbench: client 1 executing \set first
+2026-09-08T11:39:42.938002084Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:42.938006284Z FROM phase3_lab.items WHERE id BETWEEN 33514 AND 33514 + 99;
+2026-09-08T11:39:42.938008885Z pgbench: client 1 receiving
+2026-09-08T11:39:42.939698456Z pgbench: client 1 receiving
+2026-09-08T11:39:42.939717157Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:43.179838841Z pgbench: client 1 executing \set first
+2026-09-08T11:39:43.179885145Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:43.179891946Z FROM phase3_lab.items WHERE id BETWEEN 32566 AND 32566 + 99;
+2026-09-08T11:39:43.179896946Z pgbench: client 1 receiving
+2026-09-08T11:39:43.181685527Z pgbench: client 1 receiving
+2026-09-08T11:39:43.181712930Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:43.262618112Z pgbench: client 1 executing \set first
+2026-09-08T11:39:43.262656316Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:43.262661216Z FROM phase3_lab.items WHERE id BETWEEN 9299 AND 9299 + 99;
+2026-09-08T11:39:43.262664216Z pgbench: client 1 receiving
+2026-09-08T11:39:43.264325885Z pgbench: client 1 receiving
+2026-09-08T11:39:43.264352287Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:43.371552928Z pgbench: client 1 executing \set first
+2026-09-08T11:39:43.371593332Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:43.371599933Z FROM phase3_lab.items WHERE id BETWEEN 58036 AND 58036 + 99;
+2026-09-08T11:39:43.371604733Z pgbench: client 1 receiving
+2026-09-08T11:39:43.373929368Z pgbench: client 1 receiving
+2026-09-08T11:39:43.373957671Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:43.490210428Z pgbench: client 1 executing \set first
+2026-09-08T11:39:43.490241831Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:43.490246231Z FROM phase3_lab.items WHERE id BETWEEN 34231 AND 34231 + 99;
+2026-09-08T11:39:43.490249432Z pgbench: client 1 receiving
+2026-09-08T11:39:43.492063415Z pgbench: client 1 receiving
+2026-09-08T11:39:43.492091118Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:43.660016400Z pgbench: client 1 executing \set first
+2026-09-08T11:39:43.660065405Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:43.660068805Z FROM phase3_lab.items WHERE id BETWEEN 65860 AND 65860 + 99;
+2026-09-08T11:39:43.660070805Z pgbench: client 1 receiving
+2026-09-08T11:39:43.662236224Z pgbench: client 1 receiving
+2026-09-08T11:39:43.662251526Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:43.970380386Z progress: 8.0 s, 5.0 tps, lat 20.715 ms stddev 6.504, 0 failed, lag 18.795 ms
+2026-09-08T11:39:44.246988459Z pgbench: client 1 executing \set first
+2026-09-08T11:39:44.247024063Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:44.247027963Z FROM phase3_lab.items WHERE id BETWEEN 46165 AND 46165 + 99;
+2026-09-08T11:39:44.247030663Z pgbench: client 1 receiving
+2026-09-08T11:39:44.249149578Z pgbench: client 1 receiving
+2026-09-08T11:39:44.249855449Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:44.528954874Z pgbench: client 0 executing \set first
+2026-09-08T11:39:44.529001079Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:44.529009879Z FROM phase3_lab.items WHERE id BETWEEN 22626 AND 22626 + 99;
+2026-09-08T11:39:44.529015380Z pgbench: client 0 receiving
+2026-09-08T11:39:44.532130195Z pgbench: client 0 receiving
+2026-09-08T11:39:44.532170499Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:44.667296464Z pgbench: client 0 executing \set first
+2026-09-08T11:39:44.667334468Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:44.667338768Z FROM phase3_lab.items WHERE id BETWEEN 16621 AND 16621 + 99;
+2026-09-08T11:39:44.667341569Z pgbench: client 0 receiving
+2026-09-08T11:39:44.669766714Z pgbench: client 0 receiving
+2026-09-08T11:39:44.669796417Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:44.852555899Z pgbench: client 0 executing \set first
+2026-09-08T11:39:44.852589702Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:44.852594303Z FROM phase3_lab.items WHERE id BETWEEN 4178 AND 4178 + 99;
+2026-09-08T11:39:44.852597103Z pgbench: client 0 receiving
+2026-09-08T11:39:44.854934940Z pgbench: client 0 receiving
+2026-09-08T11:39:44.854952041Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:45.086728880Z pgbench: client 0 executing \set first
+2026-09-08T11:39:45.086761184Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:45.086766984Z FROM phase3_lab.items WHERE id BETWEEN 82252 AND 82252 + 99;
+2026-09-08T11:39:45.086770385Z pgbench: client 0 receiving
+2026-09-08T11:39:45.088335243Z pgbench: client 0 receiving
+2026-09-08T11:39:45.088381148Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:45.891319447Z pgbench: client 1 executing \set first
+2026-09-08T11:39:45.891355751Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:45.891360351Z FROM phase3_lab.items WHERE id BETWEEN 14860 AND 14860 + 99;
+2026-09-08T11:39:45.891362651Z pgbench: client 1 receiving
+2026-09-08T11:39:45.893057923Z pgbench: client 1 receiving
+2026-09-08T11:39:45.893072724Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:45.945986776Z pgbench: pghost: haproxy pgport: 5001 nclients: 2 duration: 10 dbName: appdb
+2026-09-08T11:39:45.953310416Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:45.953332118Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:46.535584000Z pgbench: client 0 executing \set first
+2026-09-08T11:39:46.535615704Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:46.535620104Z FROM phase3_lab.items WHERE id BETWEEN 44523 AND 44523 + 99;
+2026-09-08T11:39:46.535622804Z pgbench: client 0 receiving
+2026-09-08T11:39:46.537192263Z pgbench: client 0 receiving
+2026-09-08T11:39:46.537695314Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:46.623878029Z pgbench: client 1 executing \set first
+2026-09-08T11:39:46.623926634Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:46.623946736Z FROM phase3_lab.items WHERE id BETWEEN 6060 AND 6060 + 99;
+2026-09-08T11:39:46.623952237Z pgbench: client 1 receiving
+2026-09-08T11:39:46.625078251Z pgbench: client 1 receiving
+2026-09-08T11:39:46.625451188Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:46.821689934Z pgbench: client 0 executing \set first
+2026-09-08T11:39:46.821726037Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:46.821732938Z FROM phase3_lab.items WHERE id BETWEEN 78563 AND 78563 + 99;
+2026-09-08T11:39:46.821737538Z pgbench: client 0 receiving
+2026-09-08T11:39:46.824039571Z pgbench: client 0 receiving
+2026-09-08T11:39:46.824075475Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:46.939793077Z pgbench: client 0 executing \set first
+2026-09-08T11:39:46.939821180Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:46.939823480Z FROM phase3_lab.items WHERE id BETWEEN 76357 AND 76357 + 99;
+2026-09-08T11:39:46.939824980Z pgbench: client 0 receiving
+2026-09-08T11:39:46.941916892Z pgbench: client 0 receiving
+2026-09-08T11:39:46.942010701Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:47.181781949Z pgbench: client 0 executing \set first
+2026-09-08T11:39:47.181823453Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:47.181828354Z FROM phase3_lab.items WHERE id BETWEEN 45232 AND 45232 + 99;
+2026-09-08T11:39:47.181831554Z pgbench: client 0 receiving
+2026-09-08T11:39:47.184755150Z pgbench: client 0 receiving
+2026-09-08T11:39:47.184805455Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:47.213394346Z pgbench: client 1 executing \set first
+2026-09-08T11:39:47.213438250Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:47.213442951Z FROM phase3_lab.items WHERE id BETWEEN 73162 AND 73162 + 99;
+2026-09-08T11:39:47.213539661Z pgbench: client 1 receiving
+2026-09-08T11:39:47.215633972Z pgbench: client 1 receiving
+2026-09-08T11:39:47.215650174Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:47.326869021Z pgbench: client 0 executing \set first
+2026-09-08T11:39:47.326894524Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:47.326896724Z FROM phase3_lab.items WHERE id BETWEEN 71961 AND 71961 + 99;
+2026-09-08T11:39:47.326898124Z pgbench: client 0 receiving
+2026-09-08T11:39:47.328057342Z pgbench: client 0 receiving
+2026-09-08T11:39:47.328102346Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:47.402383958Z pgbench: client 0 executing \set first
+2026-09-08T11:39:47.402417861Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:47.402419962Z FROM phase3_lab.items WHERE id BETWEEN 1553 AND 1553 + 99;
+2026-09-08T11:39:47.402421262Z pgbench: client 0 receiving
+2026-09-08T11:39:47.403572678Z pgbench: client 0 receiving
+2026-09-08T11:39:47.403668088Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:47.496208746Z pgbench: client 0 executing \set first
+2026-09-08T11:39:47.496243950Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:47.496248050Z FROM phase3_lab.items WHERE id BETWEEN 30704 AND 30704 + 99;
+2026-09-08T11:39:47.496250551Z pgbench: client 0 receiving
+2026-09-08T11:39:47.498091537Z pgbench: client 0 receiving
+2026-09-08T11:39:47.498104638Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:47.644570650Z pgbench: client 1 executing \set first
+2026-09-08T11:39:47.644595752Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:47.644599253Z FROM phase3_lab.items WHERE id BETWEEN 78853 AND 78853 + 99;
+2026-09-08T11:39:47.644601653Z pgbench: client 1 receiving
+2026-09-08T11:39:47.645729867Z pgbench: client 1 receiving
+2026-09-08T11:39:47.645739568Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:47.691282874Z pgbench: client 1 executing \set first
+2026-09-08T11:39:47.691338979Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:47.691343880Z FROM phase3_lab.items WHERE id BETWEEN 80505 AND 80505 + 99;
+2026-09-08T11:39:47.691369283Z pgbench: client 1 receiving
+2026-09-08T11:39:47.694116260Z pgbench: client 1 receiving
+2026-09-08T11:39:47.694142063Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:47.834640071Z pgbench: client 1 executing \set first
+2026-09-08T11:39:47.834687276Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:47.834695177Z FROM phase3_lab.items WHERE id BETWEEN 1510 AND 1510 + 99;
+2026-09-08T11:39:47.834866594Z pgbench: client 1 receiving
+2026-09-08T11:39:47.837098420Z pgbench: client 1 receiving
+2026-09-08T11:39:47.837123922Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:47.839221635Z pgbench: client 0 executing \set first
+2026-09-08T11:39:47.839238536Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:47.839243637Z FROM phase3_lab.items WHERE id BETWEEN 91153 AND 91153 + 99;
+2026-09-08T11:39:47.839247737Z pgbench: client 0 receiving
+2026-09-08T11:39:47.841306545Z pgbench: client 0 receiving
+2026-09-08T11:39:47.841324947Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:47.953961538Z progress: 2.0 s, 6.5 tps, lat 27.665 ms stddev 16.433, 0 failed, lag 25.618 ms
+2026-09-08T11:39:48.093784478Z pgbench: client 0 executing \set first
+2026-09-08T11:39:48.093834383Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:48.093839784Z FROM phase3_lab.items WHERE id BETWEEN 13406 AND 13406 + 99;
+2026-09-08T11:39:48.093842384Z pgbench: client 0 receiving
+2026-09-08T11:39:48.096799983Z pgbench: client 0 receiving
+2026-09-08T11:39:48.096833186Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:48.133797624Z pgbench: client 1 executing \set first
+2026-09-08T11:39:48.133831628Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:48.133834228Z FROM phase3_lab.items WHERE id BETWEEN 87089 AND 87089 + 99;
+2026-09-08T11:39:48.133835928Z pgbench: client 1 receiving
+2026-09-08T11:39:48.135489596Z pgbench: client 1 receiving
+2026-09-08T11:39:48.135505797Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:48.178881584Z pgbench: client 0 executing \set first
+2026-09-08T11:39:48.178914187Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:48.178917787Z FROM phase3_lab.items WHERE id BETWEEN 66212 AND 66212 + 99;
+2026-09-08T11:39:48.178919888Z pgbench: client 0 receiving
+2026-09-08T11:39:48.180270424Z pgbench: client 0 receiving
+2026-09-08T11:39:48.180294827Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:48.239991864Z pgbench: client 0 executing \set first
+2026-09-08T11:39:48.240016666Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:48.240018766Z FROM phase3_lab.items WHERE id BETWEEN 94537 AND 94537 + 99;
+2026-09-08T11:39:48.240020267Z pgbench: client 0 receiving
+2026-09-08T11:39:48.241248191Z pgbench: client 0 receiving
+2026-09-08T11:39:48.241354802Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:48.591066367Z pgbench: client 0 executing \set first
+2026-09-08T11:39:48.591117972Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:48.591122073Z FROM phase3_lab.items WHERE id BETWEEN 38557 AND 38557 + 99;
+2026-09-08T11:39:48.591124373Z pgbench: client 0 receiving
+2026-09-08T11:39:48.593546618Z pgbench: client 0 receiving
+2026-09-08T11:39:48.593580321Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:48.881022690Z pgbench: client 0 executing \set first
+2026-09-08T11:39:48.881078395Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:48.881086596Z FROM phase3_lab.items WHERE id BETWEEN 7449 AND 7449 + 99;
+2026-09-08T11:39:48.881090997Z pgbench: client 0 receiving
+2026-09-08T11:39:48.883649756Z pgbench: client 0 receiving
+2026-09-08T11:39:48.883670858Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:48.996407558Z pgbench: client 0 executing \set first
+2026-09-08T11:39:48.996436661Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:48.996440062Z FROM phase3_lab.items WHERE id BETWEEN 15834 AND 15834 + 99;
+2026-09-08T11:39:48.996442462Z pgbench: client 0 receiving
+2026-09-08T11:39:48.998668487Z pgbench: client 0 receiving
+2026-09-08T11:39:48.998682889Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:49.022198967Z pgbench: client 1 executing \set first
+2026-09-08T11:39:49.022245671Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:49.022251172Z FROM phase3_lab.items WHERE id BETWEEN 23494 AND 23494 + 99;
+2026-09-08T11:39:49.022254872Z pgbench: client 1 receiving
+2026-09-08T11:39:49.025126963Z pgbench: client 1 receiving
+2026-09-08T11:39:49.025158566Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:49.716487579Z pgbench: client 0 executing \set first
+2026-09-08T11:39:49.716512081Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:49.716514081Z FROM phase3_lab.items WHERE id BETWEEN 8968 AND 8968 + 99;
+2026-09-08T11:39:49.716515582Z pgbench: client 0 receiving
+2026-09-08T11:39:49.717981330Z pgbench: client 0 receiving
+2026-09-08T11:39:49.718383370Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:49.846045981Z pgbench: client 1 executing \set first
+2026-09-08T11:39:49.846115188Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:49.846119988Z FROM phase3_lab.items WHERE id BETWEEN 19945 AND 19945 + 99;
+2026-09-08T11:39:49.846121488Z pgbench: client 1 receiving
+2026-09-08T11:39:49.848760555Z pgbench: client 1 receiving
+2026-09-08T11:39:49.848787958Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:49.928796949Z pgbench: client 0 executing \set first
+2026-09-08T11:39:49.928836453Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:49.928841054Z FROM phase3_lab.items WHERE id BETWEEN 44061 AND 44061 + 99;
+2026-09-08T11:39:49.928844854Z pgbench: client 0 receiving
+2026-09-08T11:39:49.930096181Z pgbench: client 0 receiving
+2026-09-08T11:39:49.930203991Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:49.953842682Z progress: 4.0 s, 5.5 tps, lat 23.359 ms stddev 12.819, 0 failed, lag 21.122 ms
+2026-09-08T11:39:50.668394315Z pgbench: client 1 executing \set first
+2026-09-08T11:39:50.668429018Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:50.668433219Z FROM phase3_lab.items WHERE id BETWEEN 82504 AND 82504 + 99;
+2026-09-08T11:39:50.668449721Z pgbench: client 1 receiving
+2026-09-08T11:39:50.670309808Z pgbench: client 1 receiving
+2026-09-08T11:39:50.670322209Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:51.204107462Z pgbench: client 0 executing \set first
+2026-09-08T11:39:51.204142566Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:51.204149067Z FROM phase3_lab.items WHERE id BETWEEN 72157 AND 72157 + 99;
+2026-09-08T11:39:51.204153267Z pgbench: client 0 receiving
+2026-09-08T11:39:51.206087562Z pgbench: client 0 receiving
+2026-09-08T11:39:51.206101064Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:51.224802550Z pgbench: client 1 executing \set first
+2026-09-08T11:39:51.224831353Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:51.224835554Z FROM phase3_lab.items WHERE id BETWEEN 40360 AND 40360 + 99;
+2026-09-08T11:39:51.224838154Z pgbench: client 1 receiving
+2026-09-08T11:39:51.226385710Z pgbench: client 1 receiving
+2026-09-08T11:39:51.226394011Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:51.370944894Z pgbench: client 1 executing \set first
+2026-09-08T11:39:51.370975397Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:51.370979098Z FROM phase3_lab.items WHERE id BETWEEN 52359 AND 52359 + 99;
+2026-09-08T11:39:51.370981698Z pgbench: client 1 receiving
+2026-09-08T11:39:51.372972599Z pgbench: client 1 receiving
+2026-09-08T11:39:51.373066508Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:51.572169196Z pgbench: client 1 executing \set first
+2026-09-08T11:39:51.572200499Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:51.572203299Z FROM phase3_lab.items WHERE id BETWEEN 63756 AND 63756 + 99;
+2026-09-08T11:39:51.572205499Z pgbench: client 1 receiving
+2026-09-08T11:39:51.573411721Z pgbench: client 1 receiving
+2026-09-08T11:39:51.573422822Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:51.621486471Z pgbench: client 1 executing \set first
+2026-09-08T11:39:51.621540777Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:51.621545177Z FROM phase3_lab.items WHERE id BETWEEN 72545 AND 72545 + 99;
+2026-09-08T11:39:51.621547177Z pgbench: client 1 receiving
+2026-09-08T11:39:51.623384763Z pgbench: client 1 receiving
+2026-09-08T11:39:51.623431267Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:51.953506468Z progress: 6.0 s, 3.0 tps, lat 19.233 ms stddev 4.918, 0 failed, lag 17.371 ms
+2026-09-08T11:39:52.075055631Z pgbench: client 0 executing \set first
+2026-09-08T11:39:52.075129239Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:52.075133739Z FROM phase3_lab.items WHERE id BETWEEN 20413 AND 20413 + 99;
+2026-09-08T11:39:52.075135339Z pgbench: client 0 receiving
+2026-09-08T11:39:52.076711398Z pgbench: client 0 receiving
+2026-09-08T11:39:52.076733000Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:52.391316638Z pgbench: client 1 executing \set first
+2026-09-08T11:39:52.391341741Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:52.391344341Z FROM phase3_lab.items WHERE id BETWEEN 87617 AND 87617 + 99;
+2026-09-08T11:39:52.391346141Z pgbench: client 1 receiving
+2026-09-08T11:39:52.392778586Z pgbench: client 1 receiving
+2026-09-08T11:39:52.392792287Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:52.442694022Z pgbench: client 0 executing \set first
+2026-09-08T11:39:52.442724125Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:52.442728925Z FROM phase3_lab.items WHERE id BETWEEN 84849 AND 84849 + 99;
+2026-09-08T11:39:52.442732026Z pgbench: client 0 receiving
+2026-09-08T11:39:52.444471401Z pgbench: client 0 receiving
+2026-09-08T11:39:52.444487803Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:52.482822870Z pgbench: client 0 executing \set first
+2026-09-08T11:39:52.482847373Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:52.482849873Z FROM phase3_lab.items WHERE id BETWEEN 50627 AND 50627 + 99;
+2026-09-08T11:39:52.482851673Z pgbench: client 0 receiving
+2026-09-08T11:39:52.484159305Z pgbench: client 0 receiving
+2026-09-08T11:39:52.484177107Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:52.759548489Z pgbench: client 0 executing \set first
+2026-09-08T11:39:52.759591093Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:52.759596694Z FROM phase3_lab.items WHERE id BETWEEN 35580 AND 35580 + 99;
+2026-09-08T11:39:52.759600294Z pgbench: client 0 receiving
+2026-09-08T11:39:52.761533289Z pgbench: client 0 receiving
+2026-09-08T11:39:52.761553191Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:52.867183348Z pgbench: client 0 executing \set first
+2026-09-08T11:39:52.867211051Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:52.867215551Z FROM phase3_lab.items WHERE id BETWEEN 48464 AND 48464 + 99;
+2026-09-08T11:39:52.867218252Z pgbench: client 0 receiving
+2026-09-08T11:39:52.868503081Z pgbench: client 0 receiving
+2026-09-08T11:39:52.868517183Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:53.330408082Z pgbench: client 1 executing \set first
+2026-09-08T11:39:53.330436585Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:53.330440885Z FROM phase3_lab.items WHERE id BETWEEN 97605 AND 97605 + 99;
+2026-09-08T11:39:53.330443186Z pgbench: client 1 receiving
+2026-09-08T11:39:53.331994142Z pgbench: client 1 receiving
+2026-09-08T11:39:53.332531496Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:53.383968286Z pgbench: client 1 executing \set first
+2026-09-08T11:39:53.383993988Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:53.383996489Z FROM phase3_lab.items WHERE id BETWEEN 45843 AND 45843 + 99;
+2026-09-08T11:39:53.383998089Z pgbench: client 1 receiving
+2026-09-08T11:39:53.385539844Z pgbench: client 1 receiving
+2026-09-08T11:39:53.385551946Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:53.507749474Z pgbench: client 1 executing \set first
+2026-09-08T11:39:53.507777977Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:53.507781777Z FROM phase3_lab.items WHERE id BETWEEN 91457 AND 91457 + 99;
+2026-09-08T11:39:53.507783877Z pgbench: client 1 receiving
+2026-09-08T11:39:53.508996800Z pgbench: client 1 receiving
+2026-09-08T11:39:53.509011301Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:53.593063581Z pgbench: client 0 executing \set first
+2026-09-08T11:39:53.593090884Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:53.593093184Z FROM phase3_lab.items WHERE id BETWEEN 8858 AND 8858 + 99;
+2026-09-08T11:39:53.593094784Z pgbench: client 0 receiving
+2026-09-08T11:39:53.594695846Z pgbench: client 0 receiving
+2026-09-08T11:39:53.594730449Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:53.769161747Z pgbench: client 1 executing \set first
+2026-09-08T11:39:53.769192151Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:53.769196251Z FROM phase3_lab.items WHERE id BETWEEN 61474 AND 61474 + 99;
+2026-09-08T11:39:53.769198651Z pgbench: client 1 receiving
+2026-09-08T11:39:53.770581391Z pgbench: client 1 receiving
+2026-09-08T11:39:53.770591192Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:53.954091405Z progress: 8.0 s, 5.5 tps, lat 19.188 ms stddev 5.450, 0 failed, lag 17.553 ms
+2026-09-08T11:39:54.033833750Z pgbench: client 0 executing \set first
+2026-09-08T11:39:54.033870854Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:54.033875654Z FROM phase3_lab.items WHERE id BETWEEN 44761 AND 44761 + 99;
+2026-09-08T11:39:54.033878554Z pgbench: client 0 receiving
+2026-09-08T11:39:54.036207189Z pgbench: client 0 receiving
+2026-09-08T11:39:54.036237592Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:54.130559008Z pgbench: client 1 executing \set first
+2026-09-08T11:39:54.130582011Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:54.130584111Z FROM phase3_lab.items WHERE id BETWEEN 82116 AND 82116 + 99;
+2026-09-08T11:39:54.130585611Z pgbench: client 1 receiving
+2026-09-08T11:39:54.132015555Z pgbench: client 1 receiving
+2026-09-08T11:39:54.132031157Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:54.144188984Z pgbench: client 0 executing \set first
+2026-09-08T11:39:54.144212286Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:54.144214486Z FROM phase3_lab.items WHERE id BETWEEN 13902 AND 13902 + 99;
+2026-09-08T11:39:54.144215986Z pgbench: client 0 receiving
+2026-09-08T11:39:54.145356601Z pgbench: client 0 receiving
+2026-09-08T11:39:54.145366702Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:54.380814756Z pgbench: client 1 executing \set first
+2026-09-08T11:39:54.380849360Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:54.380854160Z FROM phase3_lab.items WHERE id BETWEEN 82062 AND 82062 + 99;
+2026-09-08T11:39:54.380857161Z pgbench: client 1 receiving
+2026-09-08T11:39:54.383626440Z pgbench: client 1 receiving
+2026-09-08T11:39:54.383665944Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:54.573441690Z pgbench: client 0 executing \set first
+2026-09-08T11:39:54.573476894Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:54.573481194Z FROM phase3_lab.items WHERE id BETWEEN 92611 AND 92611 + 99;
+2026-09-08T11:39:54.573483995Z pgbench: client 0 receiving
+2026-09-08T11:39:54.575696218Z pgbench: client 0 receiving
+2026-09-08T11:39:54.575714220Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:54.605156290Z pgbench: client 0 executing \set first
+2026-09-08T11:39:54.605184593Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:54.605187193Z FROM phase3_lab.items WHERE id BETWEEN 67836 AND 67836 + 99;
+2026-09-08T11:39:54.605189093Z pgbench: client 0 receiving
+2026-09-08T11:39:54.607090185Z pgbench: client 0 receiving
+2026-09-08T11:39:54.607110987Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:55.652377443Z pgbench: client 1 executing \set first
+2026-09-08T11:39:55.652411246Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:55.652415147Z FROM phase3_lab.items WHERE id BETWEEN 58094 AND 58094 + 99;
+2026-09-08T11:39:55.652494655Z pgbench: client 1 receiving
+2026-09-08T11:39:55.653841590Z pgbench: client 1 receiving
+2026-09-08T11:39:55.653860892Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:55.711102567Z pgbench: pghost: haproxy pgport: 5001 nclients: 2 duration: 10 dbName: appdb
+2026-09-08T11:39:55.718554419Z pgbench: pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:55.718595723Z client 0 executing script "/work/read.sql"
+2026-09-08T11:39:55.904318961Z pgbench: client 0 executing \set first
+2026-09-08T11:39:55.904348764Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:55.904351664Z FROM phase3_lab.items WHERE id BETWEEN 39492 AND 39492 + 99;
+2026-09-08T11:39:55.904353564Z pgbench: client 0 receiving
+2026-09-08T11:39:55.906013232Z pgbench: client 0 receiving
+2026-09-08T11:39:55.906412572Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:56.140664205Z pgbench: client 1 executing \set first
+2026-09-08T11:39:56.140701409Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:56.140708110Z FROM phase3_lab.items WHERE id BETWEEN 23866 AND 23866 + 99;
+2026-09-08T11:39:56.140712310Z pgbench: client 1 receiving
+2026-09-08T11:39:56.142602701Z pgbench: client 1 receiving
+2026-09-08T11:39:56.143200861Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:56.205588256Z pgbench: client 1 executing \set first
+2026-09-08T11:39:56.205627659Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:56.205632060Z FROM phase3_lab.items WHERE id BETWEEN 49570 AND 49570 + 99;
+2026-09-08T11:39:56.205634660Z pgbench: client 1 receiving
+2026-09-08T11:39:56.207425441Z pgbench: client 1 receiving
+2026-09-08T11:39:56.207451043Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:56.665467952Z pgbench: client 1 executing \set first
+2026-09-08T11:39:56.665499855Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:56.665503456Z FROM phase3_lab.items WHERE id BETWEEN 55743 AND 55743 + 99;
+2026-09-08T11:39:56.665505556Z pgbench: client 1 receiving
+2026-09-08T11:39:56.666623169Z pgbench: client 1 receiving
+2026-09-08T11:39:56.666631970Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:56.678072624Z pgbench: client 1 executing \set first
+2026-09-08T11:39:56.678097426Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:56.678100527Z FROM phase3_lab.items WHERE id BETWEEN 26147 AND 26147 + 99;
+2026-09-08T11:39:56.678102727Z pgbench: client 1 receiving
+2026-09-08T11:39:56.679296947Z pgbench: client 1 receiving
+2026-09-08T11:39:56.679307748Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:56.990670161Z pgbench: client 1 executing \set first
+2026-09-08T11:39:56.990694364Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:56.990696664Z FROM phase3_lab.items WHERE id BETWEEN 31807 AND 31807 + 99;
+2026-09-08T11:39:56.990698464Z pgbench: client 1 receiving
+2026-09-08T11:39:56.991815477Z pgbench: client 1 receiving
+2026-09-08T11:39:56.991967092Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:57.002140719Z pgbench: client 0 executing \set first
+2026-09-08T11:39:57.002174522Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:57.002177622Z FROM phase3_lab.items WHERE id BETWEEN 20946 AND 20946 + 99;
+2026-09-08T11:39:57.002179123Z pgbench: client 0 receiving
+2026-09-08T11:39:57.003420748Z pgbench: client 0 receiving
+2026-09-08T11:39:57.003435949Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:57.133732195Z pgbench: client 0 executing \set first
+2026-09-08T11:39:57.133773399Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:57.133778599Z FROM phase3_lab.items WHERE id BETWEEN 33172 AND 33172 + 99;
+2026-09-08T11:39:57.133781800Z pgbench: client 0 receiving
+2026-09-08T11:39:57.136542578Z pgbench: client 0 receiving
+2026-09-08T11:39:57.136577482Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:57.279759927Z pgbench: client 1 executing \set first
+2026-09-08T11:39:57.279800231Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:57.279806032Z FROM phase3_lab.items WHERE id BETWEEN 81327 AND 81327 + 99;
+2026-09-08T11:39:57.279810632Z pgbench: client 1 receiving
+2026-09-08T11:39:57.282244078Z pgbench: client 1 receiving
+2026-09-08T11:39:57.282275381Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:57.300115581Z pgbench: client 1 executing \set first
+2026-09-08T11:39:57.300150785Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:57.300156185Z FROM phase3_lab.items WHERE id BETWEEN 46264 AND 46264 + 99;
+2026-09-08T11:39:57.300159185Z pgbench: client 1 receiving
+2026-09-08T11:39:57.302017973Z pgbench: client 1 receiving
+2026-09-08T11:39:57.302053276Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:57.307622638Z pgbench: client 0 executing \set first
+2026-09-08T11:39:57.307646541Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:57.307650841Z FROM phase3_lab.items WHERE id BETWEEN 35884 AND 35884 + 99;
+2026-09-08T11:39:57.307653942Z pgbench: client 0 receiving
+2026-09-08T11:39:57.309058083Z pgbench: client 0 receiving
+2026-09-08T11:39:57.309073785Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:57.718807822Z progress: 2.0 s, 5.5 tps, lat 23.771 ms stddev 11.802, 0 failed, lag 21.961 ms
+2026-09-08T11:39:57.867780452Z pgbench: client 1 executing \set first
+2026-09-08T11:39:57.867829857Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:57.867833557Z FROM phase3_lab.items WHERE id BETWEEN 35122 AND 35122 + 99;
+2026-09-08T11:39:57.867836058Z pgbench: client 1 receiving
+2026-09-08T11:39:57.869180593Z pgbench: client 1 receiving
+2026-09-08T11:39:57.869202495Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:58.138305045Z pgbench: client 0 executing \set first
+2026-09-08T11:39:58.138361751Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:58.138370551Z FROM phase3_lab.items WHERE id BETWEEN 98058 AND 98058 + 99;
+2026-09-08T11:39:58.138374852Z pgbench: client 0 receiving
+2026-09-08T11:39:58.141988116Z pgbench: client 0 receiving
+2026-09-08T11:39:58.142028721Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:58.217135598Z pgbench: client 1 executing \set first
+2026-09-08T11:39:58.217173902Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:58.217182303Z FROM phase3_lab.items WHERE id BETWEEN 98289 AND 98289 + 99;
+2026-09-08T11:39:58.217188003Z pgbench: client 1 receiving
+2026-09-08T11:39:58.220570445Z pgbench: client 1 receiving
+2026-09-08T11:39:58.220610149Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:58.458610360Z pgbench: client 0 executing \set first
+2026-09-08T11:39:58.458639763Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:58.458642663Z FROM phase3_lab.items WHERE id BETWEEN 11500 AND 11500 + 99;
+2026-09-08T11:39:58.458644664Z pgbench: client 0 receiving
+2026-09-08T11:39:58.459882688Z pgbench: client 0 receiving
+2026-09-08T11:39:58.459926493Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:58.732150569Z pgbench: client 1 executing \set first
+2026-09-08T11:39:58.732190372Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:58.732196373Z FROM phase3_lab.items WHERE id BETWEEN 44002 AND 44002 + 99;
+2026-09-08T11:39:58.732278381Z pgbench: client 1 receiving
+2026-09-08T11:39:58.734455293Z pgbench: client 1 receiving
+2026-09-08T11:39:58.734515599Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:58.868944387Z pgbench: client 0 executing \set first
+2026-09-08T11:39:58.868991292Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:58.868994692Z FROM phase3_lab.items WHERE id BETWEEN 85889 AND 85889 + 99;
+2026-09-08T11:39:58.868997193Z pgbench: client 0 receiving
+2026-09-08T11:39:58.870191709Z pgbench: client 0 receiving
+2026-09-08T11:39:58.870248614Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:59.442881369Z pgbench: client 1 executing \set first
+2026-09-08T11:39:59.442923873Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:59.442930774Z FROM phase3_lab.items WHERE id BETWEEN 61993 AND 61993 + 99;
+2026-09-08T11:39:59.442935874Z pgbench: client 1 receiving
+2026-09-08T11:39:59.445829156Z pgbench: client 1 receiving
+2026-09-08T11:39:59.445867460Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:39:59.556212003Z pgbench: client 0 executing \set first
+2026-09-08T11:39:59.556246707Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:59.556251007Z FROM phase3_lab.items WHERE id BETWEEN 32273 AND 32273 + 99;
+2026-09-08T11:39:59.556254407Z pgbench: client 0 receiving
+2026-09-08T11:39:59.557855163Z pgbench: client 0 receiving
+2026-09-08T11:39:59.557880366Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:59.719116865Z progress: 4.0 s, 4.0 tps, lat 31.562 ms stddev 16.282, 0 failed, lag 29.208 ms
+2026-09-08T11:39:59.783348318Z pgbench: client 0 executing \set first
+2026-09-08T11:39:59.783373321Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:59.783389723Z FROM phase3_lab.items WHERE id BETWEEN 44885 AND 44885 + 99;
+2026-09-08T11:39:59.783392323Z pgbench: client 0 receiving
+2026-09-08T11:39:59.784562737Z pgbench: client 0 receiving
+2026-09-08T11:39:59.784660246Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:39:59.823869864Z pgbench: client 1 executing \set first
+2026-09-08T11:39:59.823971874Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:39:59.823981775Z FROM phase3_lab.items WHERE id BETWEEN 47385 AND 47385 + 99;
+2026-09-08T11:39:59.823984475Z pgbench: client 1 receiving
+2026-09-08T11:39:59.826568027Z pgbench: client 1 receiving
+2026-09-08T11:39:59.826603930Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:40:00.063563402Z pgbench: client 0 executing \set first
+2026-09-08T11:40:00.063605006Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:40:00.063607406Z FROM phase3_lab.items WHERE id BETWEEN 57686 AND 57686 + 99;
+2026-09-08T11:40:00.063609206Z pgbench: client 0 receiving
+2026-09-08T11:40:00.065853025Z pgbench: client 0 receiving
+2026-09-08T11:40:00.065880727Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:40:00.688836281Z pgbench: client 1 executing \set first
+2026-09-08T11:40:00.688875885Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:40:00.688882786Z FROM phase3_lab.items WHERE id BETWEEN 70896 AND 70896 + 99;
+2026-09-08T11:40:00.688898487Z pgbench: client 1 receiving
+2026-09-08T11:40:00.691467438Z pgbench: client 1 receiving
+2026-09-08T11:40:00.691486739Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:40:00.695053587Z pgbench: client 0 executing \set first
+2026-09-08T11:40:00.695081589Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:40:00.695085790Z FROM phase3_lab.items WHERE id BETWEEN 61824 AND 61824 + 99;
+2026-09-08T11:40:00.695088790Z pgbench: client 0 receiving
+2026-09-08T11:40:00.698345207Z pgbench: client 0 receiving
+2026-09-08T11:40:00.698383111Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:40:00.748322873Z pgbench: client 1 executing \set first
+2026-09-08T11:40:00.748362977Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:40:00.748367278Z FROM phase3_lab.items WHERE id BETWEEN 62136 AND 62136 + 99;
+2026-09-08T11:40:00.748370178Z pgbench: client 1 receiving
+2026-09-08T11:40:00.750496185Z pgbench: client 1 receiving
+2026-09-08T11:40:00.750515187Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:40:01.117174887Z pgbench: client 0 executing \set first
+2026-09-08T11:40:01.117261895Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:40:01.117267196Z FROM phase3_lab.items WHERE id BETWEEN 39405 AND 39405 + 99;
+2026-09-08T11:40:01.117269196Z pgbench: client 0 receiving
+2026-09-08T11:40:01.118671032Z pgbench: client 0 receiving
+2026-09-08T11:40:01.118683534Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:40:01.404368649Z pgbench: client 0 executing \set first
+2026-09-08T11:40:01.404398752Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:40:01.404401152Z FROM phase3_lab.items WHERE id BETWEEN 12977 AND 12977 + 99;
+2026-09-08T11:40:01.404402853Z pgbench: client 0 receiving
+2026-09-08T11:40:01.405742683Z pgbench: client 0 receiving
+2026-09-08T11:40:01.405755184Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:40:01.416647645Z pgbench: client 0 executing \set first
+2026-09-08T11:40:01.416671047Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:40:01.416674647Z FROM phase3_lab.items WHERE id BETWEEN 18794 AND 18794 + 99;
+2026-09-08T11:40:01.416676648Z pgbench: client 0 receiving
+2026-09-08T11:40:01.417895066Z pgbench: client 0 receiving
+2026-09-08T11:40:01.417955172Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:40:01.442647776Z pgbench: client 1 executing \set first
+2026-09-08T11:40:01.442674979Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:40:01.442677279Z FROM phase3_lab.items WHERE id BETWEEN 9243 AND 9243 + 99;
+2026-09-08T11:40:01.442678879Z pgbench: client 1 receiving
+2026-09-08T11:40:01.444064814Z pgbench: client 1 receiving
+2026-09-08T11:40:01.444523359Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:40:01.573216089Z pgbench: client 1 executing \set first
+2026-09-08T11:40:01.573244792Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:40:01.573249792Z FROM phase3_lab.items WHERE id BETWEEN 98063 AND 98063 + 99;
+2026-09-08T11:40:01.573281696Z pgbench: client 1 receiving
+2026-09-08T11:40:01.575399102Z pgbench: client 1 receiving
+2026-09-08T11:40:01.575416903Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:40:01.718771361Z progress: 6.0 s, 5.5 tps, lat 24.022 ms stddev 9.624, 0 failed, lag 21.985 ms
+2026-09-08T11:40:01.769387589Z pgbench: client 1 executing \set first
+2026-09-08T11:40:01.769406491Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:40:01.769408391Z FROM phase3_lab.items WHERE id BETWEEN 71249 AND 71249 + 99;
+2026-09-08T11:40:01.769409792Z pgbench: client 1 receiving
+2026-09-08T11:40:01.770609108Z pgbench: client 1 receiving
+2026-09-08T11:40:01.770624710Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:40:01.943771768Z pgbench: client 1 executing \set first
+2026-09-08T11:40:01.943803371Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:40:01.943806872Z FROM phase3_lab.items WHERE id BETWEEN 61359 AND 61359 + 99;
+2026-09-08T11:40:01.943808972Z pgbench: client 1 receiving
+2026-09-08T11:40:01.945456632Z pgbench: client 1 receiving
+2026-09-08T11:40:01.945482335Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:40:01.959001751Z pgbench: client 1 executing \set first
+2026-09-08T11:40:01.959039855Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:40:01.959042655Z FROM phase3_lab.items WHERE id BETWEEN 73470 AND 73470 + 99;
+2026-09-08T11:40:01.959250875Z pgbench: client 1 receiving
+2026-09-08T11:40:01.961213267Z pgbench: client 1 receiving
+2026-09-08T11:40:01.961236169Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:40:02.162511166Z pgbench: client 0 executing \set first
+2026-09-08T11:40:02.162541969Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:40:02.162545569Z FROM phase3_lab.items WHERE id BETWEEN 23918 AND 23918 + 99;
+2026-09-08T11:40:02.162547969Z pgbench: client 0 receiving
+2026-09-08T11:40:02.164377848Z pgbench: client 0 receiving
+2026-09-08T11:40:02.165066215Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:40:02.600607421Z pgbench: client 1 executing \set first
+2026-09-08T11:40:02.600634024Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:40:02.600636524Z FROM phase3_lab.items WHERE id BETWEEN 74272 AND 74272 + 99;
+2026-09-08T11:40:02.600638424Z pgbench: client 1 receiving
+2026-09-08T11:40:02.602173374Z pgbench: client 1 receiving
+2026-09-08T11:40:02.602183575Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:40:03.287801430Z pgbench: client 0 executing \set first
+2026-09-08T11:40:03.287834233Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:40:03.287837333Z FROM phase3_lab.items WHERE id BETWEEN 6645 AND 6645 + 99;
+2026-09-08T11:40:03.287839634Z pgbench: client 0 receiving
+2026-09-08T11:40:03.289247671Z pgbench: client 0 receiving
+2026-09-08T11:40:03.289275473Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:40:03.465331015Z pgbench: client 0 executing \set first
+2026-09-08T11:40:03.465376219Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:40:03.465385320Z FROM phase3_lab.items WHERE id BETWEEN 17377 AND 17377 + 99;
+2026-09-08T11:40:03.465391421Z pgbench: client 0 receiving
+2026-09-08T11:40:03.468199494Z pgbench: client 0 receiving
+2026-09-08T11:40:03.468380912Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:40:03.516884235Z pgbench: client 1 executing \set first
+2026-09-08T11:40:03.516914037Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:40:03.516917738Z FROM phase3_lab.items WHERE id BETWEEN 55864 AND 55864 + 99;
+2026-09-08T11:40:03.516920238Z pgbench: client 1 receiving
+2026-09-08T11:40:03.518570499Z pgbench: client 1 receiving
+2026-09-08T11:40:03.518581600Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:40:03.718784893Z progress: 8.0 s, 4.0 tps, lat 24.340 ms stddev 11.917, 0 failed, lag 22.426 ms
+2026-09-08T11:40:03.757938505Z pgbench: client 1 executing \set first
+2026-09-08T11:40:03.757973408Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:40:03.757978209Z FROM phase3_lab.items WHERE id BETWEEN 1013 AND 1013 + 99;
+2026-09-08T11:40:03.757980909Z pgbench: client 1 receiving
+2026-09-08T11:40:03.759539461Z pgbench: client 1 receiving
+2026-09-08T11:40:03.759556162Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:40:03.842921579Z pgbench: client 0 executing \set first
+2026-09-08T11:40:03.842968184Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:40:03.842972284Z FROM phase3_lab.items WHERE id BETWEEN 91545 AND 91545 + 99;
+2026-09-08T11:40:03.842974784Z pgbench: client 0 receiving
+2026-09-08T11:40:03.845548135Z pgbench: client 0 receiving
+2026-09-08T11:40:03.845573737Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:40:04.207656092Z pgbench: client 1 executing \set first
+2026-09-08T11:40:04.207688395Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:40:04.207693495Z FROM phase3_lab.items WHERE id BETWEEN 9686 AND 9686 + 99;
+2026-09-08T11:40:04.207855411Z pgbench: client 1 receiving
+2026-09-08T11:40:04.209625883Z pgbench: client 1 receiving
+2026-09-08T11:40:04.209806201Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:40:04.679970879Z pgbench: client 1 executing \set first
+2026-09-08T11:40:04.680003982Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:40:04.680008082Z FROM phase3_lab.items WHERE id BETWEEN 18714 AND 18714 + 99;
+2026-09-08T11:40:04.680010682Z pgbench: client 1 receiving
+2026-09-08T11:40:04.682083584Z pgbench: client 1 receiving
+2026-09-08T11:40:04.682097986Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:40:04.903442537Z pgbench: client 1 executing \set first
+2026-09-08T11:40:04.903484341Z pgbench: client 1 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:40:04.903490842Z FROM phase3_lab.items WHERE id BETWEEN 23948 AND 23948 + 99;
+2026-09-08T11:40:04.903518544Z pgbench: client 1 receiving
+2026-09-08T11:40:04.906030689Z pgbench: client 1 receiving
+2026-09-08T11:40:04.906057291Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T11:40:05.087010410Z pgbench: client 0 executing \set first
+2026-09-08T11:40:05.087070116Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:40:05.087079617Z FROM phase3_lab.items WHERE id BETWEEN 11220 AND 11220 + 99;
+2026-09-08T11:40:05.087085517Z pgbench: client 0 receiving
+2026-09-08T11:40:05.090559156Z pgbench: client 0 receiving
+2026-09-08T11:40:05.090601260Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T11:40:05.305378271Z pgbench: client 0 executing \set first
+2026-09-08T11:40:05.305423576Z pgbench: client 0 sending SELECT sum(id), sum(length(payload))
+2026-09-08T11:40:05.305432977Z FROM phase3_lab.items WHERE id BETWEEN 86521 AND 86521 + 99;
+2026-09-08T11:40:05.305438977Z pgbench: client 0 receiving
+2026-09-08T11:40:05.308430269Z pgbench: client 0 receiving
+2026-09-08T11:40:05.308467672Z pgbench: client 0 executing script "/work/read.sql"
+
+

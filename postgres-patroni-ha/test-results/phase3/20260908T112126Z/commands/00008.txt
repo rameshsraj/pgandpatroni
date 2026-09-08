@@ -1,0 +1,13 @@
+START 2026-09-08T11:21:47.4910952Z
+COMMAND docker "compose" "restart" "--no-deps" "haproxy"
+STDIN
+
+STDOUT
+
+STDERR
+ Container haproxy Restarting 
+ Container haproxy Started 
+
+END 2026-09-08T11:21:52.7140461Z
+EXIT 0
+SECONDS 5.2229635

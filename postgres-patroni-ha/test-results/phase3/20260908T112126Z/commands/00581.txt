@@ -1,0 +1,13 @@
+START 2026-09-08T11:28:28.5560044Z
+COMMAND docker "stop" "--time" "30" "pg-node-5"
+STDIN
+
+STDOUT
+Flag --time has been deprecated, use --timeout instead
+pg-node-5
+
+STDERR
+
+END 2026-09-08T11:28:59.1089470Z
+EXIT 0
+SECONDS 30.5529466

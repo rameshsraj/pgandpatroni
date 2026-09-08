@@ -1,0 +1,19 @@
+START 2026-09-08T11:05:01.3897662Z
+COMMAND docker "compose" "--profile" "elastic" "ps" "-a"
+STDIN
+
+STDOUT
+NAME        IMAGE                           COMMAND                  SERVICE     CREATED             STATUS                             PORTS
+etcd        quay.io/coreos/etcd:v3.5.15     "/usr/local/bin/etcd"    etcd        About an hour ago   Up About an hour (healthy)         2379-2380/tcp
+haproxy     haproxy:2.9-alpine              "docker-entrypoint.sΓÇª"   haproxy     About an hour ago   Up 26 seconds (health: starting)   0.0.0.0:5000-5001->5000-5001/tcp, [::]:5000-5001->5000-5001/tcp, 0.0.0.0:7000->7000/tcp, [::]:7000->7000/tcp
+pg-node-1   postgres-patroni-ha-pg-node-1   "/bin/bash /entrypoiΓÇª"   pg-node-1   44 minutes ago      Up 44 minutes (healthy)            5432/tcp, 8008/tcp
+pg-node-2   postgres-patroni-ha-pg-node-2   "/bin/bash /entrypoiΓÇª"   pg-node-2   44 minutes ago      Up 36 minutes (healthy)            5432/tcp, 8008/tcp
+pg-node-3   postgres-patroni-ha-pg-node-3   "/bin/bash /entrypoiΓÇª"   pg-node-3   44 minutes ago      Up 44 minutes (healthy)            5432/tcp, 8008/tcp
+pg-node-4   postgres-patroni-ha-pg-node-4   "/bin/bash /entrypoiΓÇª"   pg-node-4   44 minutes ago      Up 44 minutes (healthy)            5432/tcp, 8008/tcp
+
+STDERR
+
+END 2026-09-08T11:05:01.8181972Z
+EXIT 0
+SECONDS 0.4284392
+

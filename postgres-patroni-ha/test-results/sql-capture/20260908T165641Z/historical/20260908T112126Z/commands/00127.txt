@@ -1,0 +1,13 @@
+START 2026-09-08T11:23:09.5926973Z
+COMMAND docker "stats" "--no-stream" "--format" "{{json .}}" "pg-node-1" "pg-node-2" "pg-node-3" "pg-node-4" "pg-node-5" "haproxy"
+STDIN
+
+STDOUT
+
+STDERR
+Error response from daemon: No such container: pg-node-5
+
+END 2026-09-08T11:23:10.8204595Z
+EXIT 1
+SECONDS 1.2277699
+

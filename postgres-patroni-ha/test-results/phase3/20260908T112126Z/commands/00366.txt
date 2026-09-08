@@ -1,0 +1,14 @@
+START 2026-09-08T11:25:46.8712149Z
+COMMAND docker "exec" "-e" "PGPASSWORD=[REDACTED]" "-e" "PGCONNECT_TIMEOUT=3" "-e" "PGOPTIONS=-c statement_timeout=5000" "pg-node-1" "psql" "-X" "-A" "-t" "-v" "ON_ERROR_STOP=1" "-U" "appuser" "-d" "appdb" "-h" "haproxy" "-p" "5000" "-c" "INSERT INTO phase3_lab.events(token,stage) VALUES ('20260908T112126Z-00061','05-failover-under-load') ON CONFLICT(token) DO NOTHING; SELECT json_build_object('token',token,'server',inet_server_addr(),'replica',pg_is_in_recovery()) FROM phase3_lab.events WHERE token='20260908T112126Z-00061';"
+STDIN
+
+STDOUT
+
+STDERR
+psql: error: connection to server at "haproxy" (172.19.0.6), port 5000 failed: server closed the connection unexpectedly
+	This probably means the server terminated abnormally
+	before or while processing the request.
+
+END 2026-09-08T11:25:47.1814697Z
+EXIT 2
+SECONDS 0.3102646

@@ -1,0 +1,60 @@
+2026-09-08 10:30:42,463 INFO: no action. I am (pg-node-2), a secondary, and following a leader (pg-node-3)
+2026-09-08 10:30:50,401 WARNING: Exception happened during processing of request from 172.19.0.6:47628
+2026-09-08 10:30:50,403 WARNING: Traceback (most recent call last):
+  File "/usr/lib/python3.11/socketserver.py", line 691, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.11/socketserver.py", line 361, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 105, in __init__
+    super(RestApiHandler, self).__init__(request, client_address, server)
+  File "/usr/lib/python3.11/socketserver.py", line 755, in __init__
+    self.handle()
+  File "/usr/lib/python3.11/http/server.py", line 432, in handle
+    self.handle_one_request()
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 1348, in handle_one_request
+    BaseHTTPRequestHandler.handle_one_request(self)
+  File "/usr/lib/python3.11/http/server.py", line 420, in handle_one_request
+    method()
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 375, in do_GET
+    self._write_status_response(status_code, response)
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 221, in _write_status_response
+    self._write_json_response(status_code, response)
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 167, in _write_json_response
+    self.write_response(status_code, json.dumps(response, default=str), content_type='application/json')
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 157, in write_response
+    self.wfile.write(body.encode('utf-8'))
+  File "/usr/lib/python3.11/socketserver.py", line 834, in write
+    self._sock.sendall(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+
+2026-09-08 10:30:50,405 WARNING: Exception happened during processing of request from 172.19.0.6:47636
+2026-09-08 10:30:50,407 WARNING: Traceback (most recent call last):
+  File "/usr/lib/python3.11/socketserver.py", line 691, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.11/socketserver.py", line 361, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 105, in __init__
+    super(RestApiHandler, self).__init__(request, client_address, server)
+  File "/usr/lib/python3.11/socketserver.py", line 755, in __init__
+    self.handle()
+  File "/usr/lib/python3.11/http/server.py", line 432, in handle
+    self.handle_one_request()
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 1348, in handle_one_request
+    BaseHTTPRequestHandler.handle_one_request(self)
+  File "/usr/lib/python3.11/http/server.py", line 420, in handle_one_request
+    method()
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 375, in do_GET
+    self._write_status_response(status_code, response)
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 221, in _write_status_response
+    self._write_json_response(status_code, response)
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 167, in _write_json_response
+    self.write_response(status_code, json.dumps(response, default=str), content_type='application/json')
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 157, in write_response
+    self.wfile.write(body.encode('utf-8'))
+  File "/usr/lib/python3.11/socketserver.py", line 834, in write
+    self._sock.sendall(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+
+2026-09-08 10:30:52,419 INFO: no action. I am (pg-node-2), a secondary, and following a leader (pg-node-3)
+2026-09-08 10:31:02,469 INFO: no action. I am (pg-node-2), a secondary, and following a leader (pg-node-3)
+2026-09-08 10:31:12,413 INFO: no action. I am (pg-node-2), a secondary, and following a leader (pg-node-3)

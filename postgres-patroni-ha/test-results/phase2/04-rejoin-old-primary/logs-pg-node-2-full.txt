@@ -1,0 +1,967 @@
+=== Rendered Patroni config for pg-node-2 ===
+# ============================================================
+# Patroni Configuration Template
+# ============================================================
+# Environment variables are substituted at container startup
+# by the entrypoint script. Patroni also reads PATRONI_*
+# environment variables directly for many settings.
+# ============================================================
+
+scope: pg-ha-cluster
+namespace: /service/
+name: pg-node-2
+
+restapi:
+  listen: 0.0.0.0:8008
+  connect_address: pg-node-2:8008
+
+etcd3:
+  hosts: etcd:2379
+
+# ---- Bootstrap Configuration ----
+# These settings apply ONLY during the initial cluster bootstrap.
+# After the cluster is initialized, changes here do not take effect
+# unless the cluster is reinitialized.
+bootstrap:
+  dcs:
+    ttl: 30
+    loop_wait: 10
+    retry_timeout: 10
+    maximum_lag_on_failover: 1048576
+    postgresql:
+      use_pg_rewind: true
+      use_slots: true
+      parameters:
+        wal_level: replica
+        hot_standby: "on"
+        max_connections: 100
+        max_worker_processes: 8
+        max_wal_senders: 5
+        max_replication_slots: 5
+        hot_standby_feedback: "on"
+2026-09-08 10:20:32,564 INFO: Selected new etcd server http://etcd:2379
+2026-09-08 10:20:32,614 WARNING: I am the leader but not owner of the lease
+2026-09-08 10:20:32,645 WARNING: I am the leader but not owner of the lease
+2026-09-08 10:20:32,647 INFO: No PostgreSQL configuration items changed, nothing to reload.
+2026-09-08 10:20:32,669 INFO: Reaped pid=23, exit status=0
+2026-09-08 10:20:32,734 WARNING: I am the leader but not owner of the lease
+2026-09-08 10:20:32,742 INFO: Reaped pid=26, exit status=0
+2026-09-08 10:20:32,744 WARNING: Postgresql is not running.
+2026-09-08 10:20:32,744 INFO: Lock owner: pg-node-2; I am pg-node-2
+2026-09-08 10:20:32,840 INFO: Reaped pid=27, exit status=0
+2026-09-08 10:20:32,841 INFO: pg_controldata:
+  pg_control version number: 1300
+  Catalog version number: 202307071
+  Database system identifier: 7683096657686442020
+  Database cluster state: in production
+  pg_control last modified: Tue Sep  8 09:44:06 2026
+  Latest checkpoint location: 0/4050398
+  Latest checkpoint's REDO location: 0/4050360
+  Latest checkpoint's REDO WAL file: 000000010000000000000004
+  Latest checkpoint's TimeLineID: 1
+  Latest checkpoint's PrevTimeLineID: 1
+  Latest checkpoint's full_page_writes: on
+  Latest checkpoint's NextXID: 0:745
+  Latest checkpoint's NextOID: 24576
+  Latest checkpoint's NextMultiXactId: 1
+  Latest checkpoint's NextMultiOffset: 0
+  Latest checkpoint's oldestXID: 723
+  Latest checkpoint's oldestXID's DB: 1
+  Latest checkpoint's oldestActiveXID: 745
+  Latest checkpoint's oldestMultiXid: 1
+  Latest checkpoint's oldestMulti's DB: 1
+  Latest checkpoint's oldestCommitTsXid: 0
+  Latest checkpoint's newestCommitTsXid: 0
+  Time of latest checkpoint: Tue Sep  8 09:44:02 2026
+  Fake LSN counter for unlogged rels: 0/3E8
+  Minimum recovery ending location: 0/0
+  Min recovery ending loc's timeline: 0
+  Backup start location: 0/0
+  Backup end location: 0/0
+  End-of-backup record required: no
+  wal_level setting: replica
+  wal_log_hints setting: on
+  max_connections setting: 100
+  max_worker_processes setting: 8
+  max_wal_senders setting: 5
+  max_prepared_xacts setting: 0
+  max_locks_per_xact setting: 64
+  track_commit_timestamp setting: off
+  Maximum data alignment: 8
+  Database block size: 8192
+  Blocks per segment of large relation: 131072
+  WAL block size: 8192
+  Bytes per WAL segment: 16777216
+  Maximum length of identifiers: 64
+  Maximum columns in an index: 32
+  Maximum size of a TOAST chunk: 1996
+  Size of a large-object chunk: 2048
+  Date/time type storage: 64-bit integers
+  Float8 argument passing: by value
+  Data page checksum version: 1
+  Mock authentication nonce: 266ef46d0e8af2ee606feeb078525f453db9fa869f9cb0abf503f4aa8a6282db
+
+2026-09-08 10:20:32,916 INFO: doing crash recovery in a single user mode
+2026-09-08 10:20:35,535 WARNING: Postgresql is not running.
+2026-09-08 10:20:35,535 INFO: Lock owner: pg-node-2; I am pg-node-2
+2026-09-08 10:20:35,586 INFO: Reaped pid=43, exit status=0
+2026-09-08 10:20:35,587 INFO: pg_controldata:
+  pg_control version number: 1300
+  Catalog version number: 202307071
+  Database system identifier: 7683096657686442020
+  Database cluster state: shut down
+  pg_control last modified: Tue Sep  8 10:20:35 2026
+  Latest checkpoint location: 0/5000028
+  Latest checkpoint's REDO location: 0/5000028
+  Latest checkpoint's REDO WAL file: 000000010000000000000005
+  Latest checkpoint's TimeLineID: 1
+  Latest checkpoint's PrevTimeLineID: 1
+        wal_log_hints: "on"
+        logging_collector: "on"
+        log_directory: pg_log
+        log_filename: postgresql-%Y-%m-%d_%H%M%S.log
+        log_statement: all
+        log_min_duration_statement: 0
+  initdb:
+    - encoding: UTF8
+    - data-checksums
+  pg_hba:
+    - host replication replicator 0.0.0.0/0 md5
+    - host all all 0.0.0.0/0 md5
+  users:
+    appuser:
+      password: appuser-ha-lab-2024
+      options:
+        - createrole
+        - createdb
+
+postgresql:
+  listen: 0.0.0.0:5432
+  connect_address: pg-node-2:5432
+  data_dir: /var/lib/postgresql/data/pgdata
+  authentication:
+    superuser:
+      username: postgres
+      password: postgres-ha-lab-2024
+    replication:
+      username: replicator
+      password: replicator-ha-lab-2024
+  parameters:
+    unix_socket_directories: /var/run/postgresql
+  create_replica_methods:
+    - basebackup
+  basebackup:
+    checkpoint: fast
+
+tags:
+  nofailover: false
+  noloadbalance: false
+  clonefrom: false
+  nosync: false
+=== Starting Patroni ===
+  Latest checkpoint's full_page_writes: on
+  Latest checkpoint's NextXID: 0:753
+  Latest checkpoint's NextOID: 24576
+  Latest checkpoint's NextMultiXactId: 1
+  Latest checkpoint's NextMultiOffset: 0
+  Latest checkpoint's oldestXID: 723
+  Latest checkpoint's oldestXID's DB: 1
+  Latest checkpoint's oldestActiveXID: 0
+  Latest checkpoint's oldestMultiXid: 1
+  Latest checkpoint's oldestMulti's DB: 1
+  Latest checkpoint's oldestCommitTsXid: 0
+  Latest checkpoint's newestCommitTsXid: 0
+  Time of latest checkpoint: Tue Sep  8 10:20:35 2026
+  Fake LSN counter for unlogged rels: 0/3E8
+  Minimum recovery ending location: 0/0
+  Min recovery ending loc's timeline: 0
+  Backup start location: 0/0
+  Backup end location: 0/0
+  End-of-backup record required: no
+  wal_level setting: replica
+  wal_log_hints setting: on
+  max_connections setting: 100
+  max_worker_processes setting: 8
+  max_wal_senders setting: 5
+  max_prepared_xacts setting: 0
+  max_locks_per_xact setting: 64
+  track_commit_timestamp setting: off
+  Maximum data alignment: 8
+  Database block size: 8192
+  Blocks per segment of large relation: 131072
+  WAL block size: 8192
+  Bytes per WAL segment: 16777216
+  Maximum length of identifiers: 64
+  Maximum columns in an index: 32
+  Maximum size of a TOAST chunk: 1996
+  Size of a large-object chunk: 2048
+  Date/time type storage: 64-bit integers
+  Float8 argument passing: by value
+  Data page checksum version: 1
+  Mock authentication nonce: 266ef46d0e8af2ee606feeb078525f453db9fa869f9cb0abf503f4aa8a6282db
+
+2026-09-08 10:20:35,587 INFO: Lock owner: pg-node-2; I am pg-node-2
+2026-09-08 10:20:35,589 INFO: starting as readonly because i had the session lock
+2026-09-08 10:20:36,219 INFO: postmaster pid=48
+2026-09-08 10:20:36.221 UTC [48] LOG:  redirecting log output to logging collector process
+2026-09-08 10:20:36.221 UTC [48] HINT:  Future log output will appear in directory "pg_log".
+2026-09-08 10:20:36,395 INFO: Lock owner: pg-node-2; I am pg-node-2
+localhost:5432 - accepting connections
+localhost:5432 - accepting connections
+server promoting
+2026-09-08 10:20:36,395 INFO: establishing a new patroni heartbeat connection to postgres
+2026-09-08 10:20:36,512 WARNING: Could not activate Linux watchdog device: Can't open watchdog device: [Errno 2] No such file or directory: '/dev/watchdog'
+2026-09-08 10:20:36,540 INFO: Dropped unknown replication slot 'pg_node_3'
+2026-09-08 10:20:36,552 INFO: Dropped unknown replication slot 'pg_node_1'
+2026-09-08 10:20:36,614 INFO: promoted self to leader because I had the session lock
+2026-09-08 10:20:37,640 INFO: Lock owner: pg-node-2; I am pg-node-2
+2026-09-08 10:20:37,762 INFO: Reaped pid=67, exit status=0
+2026-09-08 10:20:38,003 INFO: no action. I am (pg-node-2), the leader with the lock
+2026-09-08 10:20:39,480 INFO: establishing a new patroni restapi connection to postgres
+2026-09-08 10:20:47,787 INFO: no action. I am (pg-node-2), the leader with the lock
+2026-09-08 10:20:57,780 INFO: no action. I am (pg-node-2), the leader with the lock
+2026-09-08 10:21:07,690 INFO: no action. I am (pg-node-2), the leader with the lock
+2026-09-08 10:21:17,693 INFO: no action. I am (pg-node-2), the leader with the lock
+2026-09-08 10:21:27,686 INFO: no action. I am (pg-node-2), the leader with the lock
+2026-09-08 10:21:37,684 INFO: no action. I am (pg-node-2), the leader with the lock
+2026-09-08 10:21:47,696 INFO: no action. I am (pg-node-2), the leader with the lock
+2026-09-08 10:21:57,691 INFO: no action. I am (pg-node-2), the leader with the lock
+2026-09-08 10:22:07,690 INFO: no action. I am (pg-node-2), the leader with the lock
+2026-09-08 10:22:17,692 INFO: no action. I am (pg-node-2), the leader with the lock
+2026-09-08 10:22:27,698 INFO: no action. I am (pg-node-2), the leader with the lock
+2026-09-08 10:22:37,689 INFO: no action. I am (pg-node-2), the leader with the lock
+2026-09-08 10:22:47,693 INFO: no action. I am (pg-node-2), the leader with the lock
+2026-09-08 10:22:57,685 INFO: no action. I am (pg-node-2), the leader with the lock
+2026-09-08 10:23:07,692 INFO: no action. I am (pg-node-2), the leader with the lock
+2026-09-08 10:23:17,689 INFO: no action. I am (pg-node-2), the leader with the lock
+2026-09-08 10:23:27,693 INFO: no action. I am (pg-node-2), the leader with the lock
+2026-09-08 10:23:37,680 INFO: no action. I am (pg-node-2), the leader with the lock
+2026-09-08 10:23:47,783 INFO: no action. I am (pg-node-2), the leader with the lock
+2026-09-08 10:23:57,689 INFO: no action. I am (pg-node-2), the leader with the lock
+2026-09-08 10:24:07,685 INFO: no action. I am (pg-node-2), the leader with the lock
+2026-09-08 10:24:17,684 INFO: no action. I am (pg-node-2), the leader with the lock
+2026-09-08 10:24:27,684 INFO: no action. I am (pg-node-2), the leader with the lock
+2026-09-08 10:24:37,686 INFO: no action. I am (pg-node-2), the leader with the lock
+2026-09-08 10:24:47,698 INFO: no action. I am (pg-node-2), the leader with the lock
+2026-09-08 10:24:57,688 INFO: no action. I am (pg-node-2), the leader with the lock
+=== Rendered Patroni config for pg-node-2 ===
+2026-09-08 10:25:07,688 INFO: no action. I am (pg-node-2), the leader with the lock
+2026-09-08 10:25:17,687 INFO: no action. I am (pg-node-2), the leader with the lock
+2026-09-08 10:25:27,687 INFO: no action. I am (pg-node-2), the leader with the lock
+2026-09-08 10:25:37,740 INFO: no action. I am (pg-node-2), the leader with the lock
+2026-09-08 10:25:47,792 INFO: no action. I am (pg-node-2), the leader with the lock
+2026-09-08 10:25:57,778 INFO: no action. I am (pg-node-2), the leader with the lock
+2026-09-08 10:26:07,682 INFO: no action. I am (pg-node-2), the leader with the lock
+2026-09-08 10:26:17,694 INFO: no action. I am (pg-node-2), the leader with the lock
+2026-09-08 10:26:27,688 INFO: no action. I am (pg-node-2), the leader with the lock
+2026-09-08 10:28:06,452 INFO: Selected new etcd server http://etcd:2379
+2026-09-08 10:28:06,512 INFO: No PostgreSQL configuration items changed, nothing to reload.
+2026-09-08 10:28:06,516 INFO: Reaped pid=23, exit status=0
+2026-09-08 10:28:06,568 INFO: Reaped pid=26, exit status=0
+2026-09-08 10:28:06,568 WARNING: Postgresql is not running.
+# ============================================================
+# Patroni Configuration Template
+# ============================================================
+# Environment variables are substituted at container startup
+# by the entrypoint script. Patroni also reads PATRONI_*
+# environment variables directly for many settings.
+# ============================================================
+
+scope: pg-ha-cluster
+namespace: /service/
+name: pg-node-2
+
+restapi:
+  listen: 0.0.0.0:8008
+  connect_address: pg-node-2:8008
+
+etcd3:
+  hosts: etcd:2379
+
+# ---- Bootstrap Configuration ----
+# These settings apply ONLY during the initial cluster bootstrap.
+# After the cluster is initialized, changes here do not take effect
+# unless the cluster is reinitialized.
+bootstrap:
+  dcs:
+    ttl: 30
+    loop_wait: 10
+    retry_timeout: 10
+2026-09-08 10:28:06,568 INFO: Lock owner: pg-node-3; I am pg-node-2
+    maximum_lag_on_failover: 1048576
+    postgresql:
+      use_pg_rewind: true
+      use_slots: true
+2026-09-08 10:28:06,570 INFO: Reaped pid=27, exit status=0
+      parameters:
+2026-09-08 10:28:06,571 INFO: pg_controldata:
+        wal_level: replica
+  pg_control version number: 1300
+  Catalog version number: 202307071
+  Database system identifier: 7683096657686442020
+  Database cluster state: in production
+  pg_control last modified: Tue Sep  8 10:25:38 2026
+  Latest checkpoint location: 0/700F500
+  Latest checkpoint's REDO location: 0/700F4C8
+  Latest checkpoint's REDO WAL file: 000000020000000000000007
+  Latest checkpoint's TimeLineID: 2
+  Latest checkpoint's PrevTimeLineID: 2
+  Latest checkpoint's full_page_writes: on
+  Latest checkpoint's NextXID: 0:753
+  Latest checkpoint's NextOID: 24576
+  Latest checkpoint's NextMultiXactId: 1
+  Latest checkpoint's NextMultiOffset: 0
+  Latest checkpoint's oldestXID: 723
+  Latest checkpoint's oldestXID's DB: 1
+  Latest checkpoint's oldestActiveXID: 753
+  Latest checkpoint's oldestMultiXid: 1
+  Latest checkpoint's oldestMulti's DB: 1
+  Latest checkpoint's oldestCommitTsXid: 0
+  Latest checkpoint's newestCommitTsXid: 0
+  Time of latest checkpoint: Tue Sep  8 10:25:37 2026
+  Fake LSN counter for unlogged rels: 0/3E8
+  Minimum recovery ending location: 0/0
+  Min recovery ending loc's timeline: 0
+  Backup start location: 0/0
+  Backup end location: 0/0
+  End-of-backup record required: no
+  wal_level setting: replica
+  wal_log_hints setting: on
+  max_connections setting: 100
+  max_worker_processes setting: 8
+  max_wal_senders setting: 5
+  max_prepared_xacts setting: 0
+  max_locks_per_xact setting: 64
+  track_commit_timestamp setting: off
+  Maximum data alignment: 8
+  Database block size: 8192
+  Blocks per segment of large relation: 131072
+  WAL block size: 8192
+  Bytes per WAL segment: 16777216
+        hot_standby: "on"
+  Maximum length of identifiers: 64
+        max_connections: 100
+        max_worker_processes: 8
+  Maximum columns in an index: 32
+        max_wal_senders: 5
+  Maximum size of a TOAST chunk: 1996
+        max_replication_slots: 5
+        hot_standby_feedback: "on"
+  Size of a large-object chunk: 2048
+        wal_log_hints: "on"
+  Date/time type storage: 64-bit integers
+        logging_collector: "on"
+  Float8 argument passing: by value
+        log_directory: pg_log
+        log_filename: postgresql-%Y-%m-%d_%H%M%S.log
+  Data page checksum version: 1
+        log_statement: all
+        log_min_duration_statement: 0
+  initdb:
+    - encoding: UTF8
+    - data-checksums
+  pg_hba:
+    - host replication replicator 0.0.0.0/0 md5
+    - host all all 0.0.0.0/0 md5
+  users:
+    appuser:
+      password: appuser-ha-lab-2024
+      options:
+        - createrole
+        - createdb
+
+postgresql:
+  listen: 0.0.0.0:5432
+  connect_address: pg-node-2:5432
+  data_dir: /var/lib/postgresql/data/pgdata
+  authentication:
+    superuser:
+      username: postgres
+      password: postgres-ha-lab-2024
+    replication:
+      username: replicator
+      password: replicator-ha-lab-2024
+  parameters:
+    unix_socket_directories: /var/run/postgresql
+  create_replica_methods:
+    - basebackup
+  basebackup:
+    checkpoint: fast
+
+tags:
+  nofailover: false
+  noloadbalance: false
+  clonefrom: false
+  nosync: false
+=== Starting Patroni ===
+  Mock authentication nonce: 266ef46d0e8af2ee606feeb078525f453db9fa869f9cb0abf503f4aa8a6282db
+
+2026-09-08 10:28:06,583 INFO: Reaped pid=29, exit status=0
+2026-09-08 10:28:06,630 INFO: doing crash recovery in a single user mode
+2026-09-08 10:28:07,109 WARNING: Postgresql is not running.
+2026-09-08 10:28:07,109 INFO: Lock owner: pg-node-3; I am pg-node-2
+2026-09-08 10:28:07,111 INFO: Reaped pid=34, exit status=0
+2026-09-08 10:28:07,112 INFO: pg_controldata:
+  pg_control version number: 1300
+  Catalog version number: 202307071
+  Database system identifier: 7683096657686442020
+  Database cluster state: shut down
+  pg_control last modified: Tue Sep  8 10:28:07 2026
+  Latest checkpoint location: 0/8000028
+  Latest checkpoint's REDO location: 0/8000028
+  Latest checkpoint's REDO WAL file: 000000020000000000000008
+  Latest checkpoint's TimeLineID: 2
+  Latest checkpoint's PrevTimeLineID: 2
+  Latest checkpoint's full_page_writes: on
+  Latest checkpoint's NextXID: 0:754
+  Latest checkpoint's NextOID: 24576
+  Latest checkpoint's NextMultiXactId: 1
+  Latest checkpoint's NextMultiOffset: 0
+  Latest checkpoint's oldestXID: 723
+  Latest checkpoint's oldestXID's DB: 1
+  Latest checkpoint's oldestActiveXID: 0
+  Latest checkpoint's oldestMultiXid: 1
+  Latest checkpoint's oldestMulti's DB: 1
+  Latest checkpoint's oldestCommitTsXid: 0
+  Latest checkpoint's newestCommitTsXid: 0
+  Time of latest checkpoint: Tue Sep  8 10:28:07 2026
+  Fake LSN counter for unlogged rels: 0/3E8
+  Minimum recovery ending location: 0/0
+  Min recovery ending loc's timeline: 0
+  Backup start location: 0/0
+  Backup end location: 0/0
+  End-of-backup record required: no
+  wal_level setting: replica
+  wal_log_hints setting: on
+  max_connections setting: 100
+  max_worker_processes setting: 8
+  max_wal_senders setting: 5
+  max_prepared_xacts setting: 0
+  max_locks_per_xact setting: 64
+  track_commit_timestamp setting: off
+  Maximum data alignment: 8
+  Database block size: 8192
+  Blocks per segment of large relation: 131072
+  WAL block size: 8192
+  Bytes per WAL segment: 16777216
+  Maximum length of identifiers: 64
+  Maximum columns in an index: 32
+  Maximum size of a TOAST chunk: 1996
+  Size of a large-object chunk: 2048
+  Date/time type storage: 64-bit integers
+  Float8 argument passing: by value
+  Data page checksum version: 1
+  Mock authentication nonce: 266ef46d0e8af2ee606feeb078525f453db9fa869f9cb0abf503f4aa8a6282db
+
+2026-09-08 10:28:07,112 INFO: Lock owner: pg-node-3; I am pg-node-2
+2026-09-08 10:28:07,122 INFO: Reaped pid=36, exit status=0
+2026-09-08 10:28:07,125 INFO: Reaped pid=37, exit status=0
+2026-09-08 10:28:07,126 INFO: Local timeline=2 lsn=0/8000028
+2026-09-08 10:28:07,161 INFO: primary_timeline=3
+2026-09-08 10:28:07,162 INFO: primary: history=1	0/50000A0	no recovery target specified
+2	0/700FAF0	no recovery target specified
+2026-09-08 10:28:07,171 INFO: Reaped pid=39, exit status=0
+2026-09-08 10:28:07,174 INFO: Reaped pid=40, exit status=0
+2026-09-08 10:28:07,175 INFO: running pg_rewind from pg-node-3
+2026-09-08 10:28:07,218 INFO: running pg_rewind from dbname=postgres user=postgres host=pg-node-3 port=5432 target_session_attrs=read-write
+2026-09-08 10:28:07,860 WARNING: Exception happened during processing of request from 172.19.0.6:60666
+2026-09-08 10:28:07,862 WARNING: Exception happened during processing of request from 172.19.0.6:60662
+2026-09-08 10:28:07,867 WARNING: Traceback (most recent call last):
+  File "/usr/lib/python3.11/socketserver.py", line 691, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.11/socketserver.py", line 361, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 105, in __init__
+    super(RestApiHandler, self).__init__(request, client_address, server)
+  File "/usr/lib/python3.11/socketserver.py", line 755, in __init__
+    self.handle()
+  File "/usr/lib/python3.11/http/server.py", line 432, in handle
+    self.handle_one_request()
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 1348, in handle_one_request
+    BaseHTTPRequestHandler.handle_one_request(self)
+  File "/usr/lib/python3.11/http/server.py", line 420, in handle_one_request
+    method()
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 375, in do_GET
+    self._write_status_response(status_code, response)
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 221, in _write_status_response
+    self._write_json_response(status_code, response)
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 167, in _write_json_response
+    self.write_response(status_code, json.dumps(response, default=str), content_type='application/json')
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 157, in write_response
+    self.wfile.write(body.encode('utf-8'))
+  File "/usr/lib/python3.11/socketserver.py", line 834, in write
+    self._sock.sendall(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+
+2026-09-08 10:28:07,868 WARNING: Traceback (most recent call last):
+  File "/usr/lib/python3.11/socketserver.py", line 691, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.11/socketserver.py", line 361, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 105, in __init__
+    super(RestApiHandler, self).__init__(request, client_address, server)
+  File "/usr/lib/python3.11/socketserver.py", line 755, in __init__
+    self.handle()
+  File "/usr/lib/python3.11/http/server.py", line 432, in handle
+    self.handle_one_request()
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 1348, in handle_one_request
+    BaseHTTPRequestHandler.handle_one_request(self)
+  File "/usr/lib/python3.11/http/server.py", line 420, in handle_one_request
+    method()
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 375, in do_GET
+    self._write_status_response(status_code, response)
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 221, in _write_status_response
+    self._write_json_response(status_code, response)
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 167, in _write_json_response
+    self.write_response(status_code, json.dumps(response, default=str), content_type='application/json')
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 157, in write_response
+    self.wfile.write(body.encode('utf-8'))
+  File "/usr/lib/python3.11/socketserver.py", line 834, in write
+    self._sock.sendall(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+
+2026-09-08 10:28:09,073 INFO: Lock owner: pg-node-3; I am pg-node-2
+2026-09-08 10:28:09,073 INFO: running pg_rewind from pg-node-3 in progress
+2026-09-08 10:28:10,343 INFO: pg_rewind exit code=0
+2026-09-08 10:28:10,343 INFO:  stdout=
+2026-09-08 10:28:10,343 INFO:  stderr=pg_rewind: servers diverged at WAL location 0/700FAF0 on timeline 2
+pg_rewind: rewinding from last common checkpoint at 0/700F500 on timeline 2
+pg_rewind: Done!
+
+2026-09-08 10:28:10,344 WARNING: Postgresql is not running.
+2026-09-08 10:28:10,345 INFO: Lock owner: pg-node-3; I am pg-node-2
+2026-09-08 10:28:10,347 INFO: Reaped pid=48, exit status=0
+2026-09-08 10:28:10,347 INFO: pg_controldata:
+  pg_control version number: 1300
+  Catalog version number: 202307071
+  Database system identifier: 7683096657686442020
+  Database cluster state: in archive recovery
+  pg_control last modified: Tue Sep  8 10:28:09 2026
+  Latest checkpoint location: 0/700FB90
+  Latest checkpoint's REDO location: 0/700FB58
+  Latest checkpoint's REDO WAL file: 000000030000000000000007
+  Latest checkpoint's TimeLineID: 3
+  Latest checkpoint's PrevTimeLineID: 3
+  Latest checkpoint's full_page_writes: on
+  Latest checkpoint's NextXID: 0:754
+  Latest checkpoint's NextOID: 24576
+  Latest checkpoint's NextMultiXactId: 1
+  Latest checkpoint's NextMultiOffset: 0
+  Latest checkpoint's oldestXID: 723
+  Latest checkpoint's oldestXID's DB: 1
+  Latest checkpoint's oldestActiveXID: 754
+  Latest checkpoint's oldestMultiXid: 1
+  Latest checkpoint's oldestMulti's DB: 1
+  Latest checkpoint's oldestCommitTsXid: 0
+  Latest checkpoint's newestCommitTsXid: 0
+  Time of latest checkpoint: Tue Sep  8 10:27:08 2026
+  Fake LSN counter for unlogged rels: 0/3E8
+  Minimum recovery ending location: 0/7017050
+  Min recovery ending loc's timeline: 3
+  Backup start location: 0/0
+  Backup end location: 0/0
+  End-of-backup record required: no
+  wal_level setting: replica
+  wal_log_hints setting: on
+  max_connections setting: 100
+  max_worker_processes setting: 8
+  max_wal_senders setting: 5
+  max_prepared_xacts setting: 0
+  max_locks_per_xact setting: 64
+  track_commit_timestamp setting: off
+  Maximum data alignment: 8
+  Database block size: 8192
+  Blocks per segment of large relation: 131072
+  WAL block size: 8192
+  Bytes per WAL segment: 16777216
+  Maximum length of identifiers: 64
+  Maximum columns in an index: 32
+  Maximum size of a TOAST chunk: 1996
+  Size of a large-object chunk: 2048
+  Date/time type storage: 64-bit integers
+  Float8 argument passing: by value
+  Data page checksum version: 1
+  Mock authentication nonce: 266ef46d0e8af2ee606feeb078525f453db9fa869f9cb0abf503f4aa8a6282db
+
+2026-09-08 10:28:10,348 INFO: Lock owner: pg-node-3; I am pg-node-2
+2026-09-08 10:28:10,349 INFO: starting as a secondary
+2026-09-08 10:28:10,736 INFO: postmaster pid=53
+2026-09-08 10:28:10.750 UTC [53] LOG:  redirecting log output to logging collector process
+2026-09-08 10:28:10.750 UTC [53] HINT:  Future log output will appear in directory "pg_log".
+localhost:5432 - rejecting connections
+2026-09-08 10:28:10,865 INFO: establishing a new patroni heartbeat connection to postgres
+localhost:5432 - rejecting connections
+2026-09-08 10:28:10,878 INFO: establishing a new patroni heartbeat connection to postgres
+2026-09-08 10:28:10,879 WARNING: Exception happened during processing of request from 172.19.0.6:60668
+2026-09-08 10:28:10,880 WARNING: Traceback (most recent call last):
+  File "/usr/lib/python3.11/socketserver.py", line 691, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.11/socketserver.py", line 361, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 105, in __init__
+    super(RestApiHandler, self).__init__(request, client_address, server)
+  File "/usr/lib/python3.11/socketserver.py", line 755, in __init__
+    self.handle()
+  File "/usr/lib/python3.11/http/server.py", line 432, in handle
+    self.handle_one_request()
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 1348, in handle_one_request
+    BaseHTTPRequestHandler.handle_one_request(self)
+  File "/usr/lib/python3.11/http/server.py", line 420, in handle_one_request
+    method()
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 375, in do_GET
+    self._write_status_response(status_code, response)
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 221, in _write_status_response
+    self._write_json_response(status_code, response)
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 167, in _write_json_response
+    self.write_response(status_code, json.dumps(response, default=str), content_type='application/json')
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 157, in write_response
+    self.wfile.write(body.encode('utf-8'))
+  File "/usr/lib/python3.11/socketserver.py", line 834, in write
+localhost:5432 - accepting connections
+    self._sock.sendall(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+
+2026-09-08 10:28:11,053 INFO: establishing a new patroni heartbeat connection to postgres
+2026-09-08 10:28:11,916 INFO: Lock owner: pg-node-3; I am pg-node-2
+2026-09-08 10:28:11,916 INFO: establishing a new patroni heartbeat connection to postgres
+2026-09-08 10:28:11,982 INFO: no action. I am (pg-node-2), a secondary, and following a leader (pg-node-3)
+2026-09-08 10:28:13,886 INFO: establishing a new patroni restapi connection to postgres
+2026-09-08 10:28:22,467 INFO: no action. I am (pg-node-2), a secondary, and following a leader (pg-node-3)
+2026-09-08 10:28:32,420 INFO: no action. I am (pg-node-2), a secondary, and following a leader (pg-node-3)
+2026-09-08 10:28:34,982 WARNING: Exception happened during processing of request from 172.19.0.6:49502
+2026-09-08 10:28:34,986 WARNING: Traceback (most recent call last):
+  File "/usr/lib/python3.11/socketserver.py", line 691, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.11/socketserver.py", line 361, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 105, in __init__
+    super(RestApiHandler, self).__init__(request, client_address, server)
+  File "/usr/lib/python3.11/socketserver.py", line 755, in __init__
+    self.handle()
+  File "/usr/lib/python3.11/http/server.py", line 432, in handle
+    self.handle_one_request()
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 1348, in handle_one_request
+    BaseHTTPRequestHandler.handle_one_request(self)
+  File "/usr/lib/python3.11/http/server.py", line 420, in handle_one_request
+    method()
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 375, in do_GET
+    self._write_status_response(status_code, response)
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 221, in _write_status_response
+    self._write_json_response(status_code, response)
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 167, in _write_json_response
+    self.write_response(status_code, json.dumps(response, default=str), content_type='application/json')
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 157, in write_response
+    self.wfile.write(body.encode('utf-8'))
+  File "/usr/lib/python3.11/socketserver.py", line 834, in write
+    self._sock.sendall(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+
+2026-09-08 10:28:34,989 WARNING: Exception happened during processing of request from 172.19.0.6:49512
+2026-09-08 10:28:34,993 WARNING: Traceback (most recent call last):
+  File "/usr/lib/python3.11/socketserver.py", line 691, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.11/socketserver.py", line 361, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 105, in __init__
+    super(RestApiHandler, self).__init__(request, client_address, server)
+  File "/usr/lib/python3.11/socketserver.py", line 755, in __init__
+    self.handle()
+  File "/usr/lib/python3.11/http/server.py", line 432, in handle
+    self.handle_one_request()
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 1348, in handle_one_request
+    BaseHTTPRequestHandler.handle_one_request(self)
+  File "/usr/lib/python3.11/http/server.py", line 420, in handle_one_request
+    method()
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 375, in do_GET
+    self._write_status_response(status_code, response)
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 221, in _write_status_response
+    self._write_json_response(status_code, response)
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 167, in _write_json_response
+    self.write_response(status_code, json.dumps(response, default=str), content_type='application/json')
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 157, in write_response
+    self.wfile.write(body.encode('utf-8'))
+  File "/usr/lib/python3.11/socketserver.py", line 834, in write
+    self._sock.sendall(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+
+2026-09-08 10:28:42,464 INFO: no action. I am (pg-node-2), a secondary, and following a leader (pg-node-3)
+2026-09-08 10:28:52,418 INFO: no action. I am (pg-node-2), a secondary, and following a leader (pg-node-3)
+2026-09-08 10:29:02,464 INFO: no action. I am (pg-node-2), a secondary, and following a leader (pg-node-3)
+2026-09-08 10:29:05,065 WARNING: Exception happened during processing of request from 172.19.0.6:54216
+2026-09-08 10:29:05,066 WARNING: Traceback (most recent call last):
+  File "/usr/lib/python3.11/socketserver.py", line 691, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.11/socketserver.py", line 361, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 105, in __init__
+    super(RestApiHandler, self).__init__(request, client_address, server)
+  File "/usr/lib/python3.11/socketserver.py", line 755, in __init__
+    self.handle()
+  File "/usr/lib/python3.11/http/server.py", line 432, in handle
+    self.handle_one_request()
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 1348, in handle_one_request
+    BaseHTTPRequestHandler.handle_one_request(self)
+  File "/usr/lib/python3.11/http/server.py", line 420, in handle_one_request
+    method()
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 375, in do_GET
+    self._write_status_response(status_code, response)
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 221, in _write_status_response
+    self._write_json_response(status_code, response)
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 167, in _write_json_response
+    self.write_response(status_code, json.dumps(response, default=str), content_type='application/json')
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 157, in write_response
+    self.wfile.write(body.encode('utf-8'))
+  File "/usr/lib/python3.11/socketserver.py", line 834, in write
+    self._sock.sendall(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+
+2026-09-08 10:29:08,077 WARNING: Exception happened during processing of request from 172.19.0.6:47634
+2026-09-08 10:29:08,080 WARNING: Traceback (most recent call last):
+  File "/usr/lib/python3.11/socketserver.py", line 691, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.11/socketserver.py", line 361, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 105, in __init__
+    super(RestApiHandler, self).__init__(request, client_address, server)
+  File "/usr/lib/python3.11/socketserver.py", line 755, in __init__
+    self.handle()
+  File "/usr/lib/python3.11/http/server.py", line 432, in handle
+    self.handle_one_request()
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 1348, in handle_one_request
+    BaseHTTPRequestHandler.handle_one_request(self)
+  File "/usr/lib/python3.11/http/server.py", line 420, in handle_one_request
+    method()
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 375, in do_GET
+    self._write_status_response(status_code, response)
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 221, in _write_status_response
+    self._write_json_response(status_code, response)
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 167, in _write_json_response
+    self.write_response(status_code, json.dumps(response, default=str), content_type='application/json')
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 157, in write_response
+    self.wfile.write(body.encode('utf-8'))
+  File "/usr/lib/python3.11/socketserver.py", line 834, in write
+    self._sock.sendall(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+
+2026-09-08 10:29:08,083 WARNING: Exception happened during processing of request from 172.19.0.6:47620
+2026-09-08 10:29:08,087 WARNING: Traceback (most recent call last):
+  File "/usr/lib/python3.11/socketserver.py", line 691, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.11/socketserver.py", line 361, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 105, in __init__
+    super(RestApiHandler, self).__init__(request, client_address, server)
+  File "/usr/lib/python3.11/socketserver.py", line 755, in __init__
+    self.handle()
+  File "/usr/lib/python3.11/http/server.py", line 432, in handle
+    self.handle_one_request()
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 1348, in handle_one_request
+    BaseHTTPRequestHandler.handle_one_request(self)
+  File "/usr/lib/python3.11/http/server.py", line 420, in handle_one_request
+    method()
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 375, in do_GET
+    self._write_status_response(status_code, response)
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 221, in _write_status_response
+    self._write_json_response(status_code, response)
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 167, in _write_json_response
+    self.write_response(status_code, json.dumps(response, default=str), content_type='application/json')
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 157, in write_response
+    self.wfile.write(body.encode('utf-8'))
+  File "/usr/lib/python3.11/socketserver.py", line 834, in write
+    self._sock.sendall(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+
+2026-09-08 10:29:12,417 INFO: no action. I am (pg-node-2), a secondary, and following a leader (pg-node-3)
+2026-09-08 10:29:22,468 INFO: no action. I am (pg-node-2), a secondary, and following a leader (pg-node-3)
+2026-09-08 10:29:32,157 WARNING: Exception happened during processing of request from 172.19.0.6:50194
+2026-09-08 10:29:32,161 WARNING: Traceback (most recent call last):
+  File "/usr/lib/python3.11/socketserver.py", line 691, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.11/socketserver.py", line 361, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 105, in __init__
+    super(RestApiHandler, self).__init__(request, client_address, server)
+  File "/usr/lib/python3.11/socketserver.py", line 755, in __init__
+    self.handle()
+  File "/usr/lib/python3.11/http/server.py", line 432, in handle
+    self.handle_one_request()
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 1348, in handle_one_request
+    BaseHTTPRequestHandler.handle_one_request(self)
+  File "/usr/lib/python3.11/http/server.py", line 420, in handle_one_request
+    method()
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 375, in do_GET
+    self._write_status_response(status_code, response)
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 221, in _write_status_response
+    self._write_json_response(status_code, response)
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 167, in _write_json_response
+    self.write_response(status_code, json.dumps(response, default=str), content_type='application/json')
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 157, in write_response
+    self.wfile.write(body.encode('utf-8'))
+  File "/usr/lib/python3.11/socketserver.py", line 834, in write
+    self._sock.sendall(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+
+2026-09-08 10:29:32,419 INFO: no action. I am (pg-node-2), a secondary, and following a leader (pg-node-3)
+2026-09-08 10:29:38,178 WARNING: Exception happened during processing of request from 172.19.0.6:45608
+2026-09-08 10:29:38,185 WARNING: Traceback (most recent call last):
+  File "/usr/lib/python3.11/socketserver.py", line 691, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.11/socketserver.py", line 361, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 105, in __init__
+    super(RestApiHandler, self).__init__(request, client_address, server)
+  File "/usr/lib/python3.11/socketserver.py", line 755, in __init__
+    self.handle()
+  File "/usr/lib/python3.11/http/server.py", line 432, in handle
+    self.handle_one_request()
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 1348, in handle_one_request
+    BaseHTTPRequestHandler.handle_one_request(self)
+  File "/usr/lib/python3.11/http/server.py", line 420, in handle_one_request
+    method()
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 375, in do_GET
+    self._write_status_response(status_code, response)
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 221, in _write_status_response
+    self._write_json_response(status_code, response)
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 167, in _write_json_response
+    self.write_response(status_code, json.dumps(response, default=str), content_type='application/json')
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 157, in write_response
+    self.wfile.write(body.encode('utf-8'))
+  File "/usr/lib/python3.11/socketserver.py", line 834, in write
+    self._sock.sendall(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+
+2026-09-08 10:29:42,464 INFO: no action. I am (pg-node-2), a secondary, and following a leader (pg-node-3)
+2026-09-08 10:29:52,419 INFO: no action. I am (pg-node-2), a secondary, and following a leader (pg-node-3)
+2026-09-08 10:30:02,461 INFO: no action. I am (pg-node-2), a secondary, and following a leader (pg-node-3)
+2026-09-08 10:30:12,419 INFO: no action. I am (pg-node-2), a secondary, and following a leader (pg-node-3)
+2026-09-08 10:30:22,465 INFO: no action. I am (pg-node-2), a secondary, and following a leader (pg-node-3)
+2026-09-08 10:30:32,419 INFO: no action. I am (pg-node-2), a secondary, and following a leader (pg-node-3)
+2026-09-08 10:30:42,463 INFO: no action. I am (pg-node-2), a secondary, and following a leader (pg-node-3)
+2026-09-08 10:30:50,401 WARNING: Exception happened during processing of request from 172.19.0.6:47628
+2026-09-08 10:30:50,403 WARNING: Traceback (most recent call last):
+  File "/usr/lib/python3.11/socketserver.py", line 691, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.11/socketserver.py", line 361, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 105, in __init__
+    super(RestApiHandler, self).__init__(request, client_address, server)
+  File "/usr/lib/python3.11/socketserver.py", line 755, in __init__
+    self.handle()
+  File "/usr/lib/python3.11/http/server.py", line 432, in handle
+    self.handle_one_request()
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 1348, in handle_one_request
+    BaseHTTPRequestHandler.handle_one_request(self)
+  File "/usr/lib/python3.11/http/server.py", line 420, in handle_one_request
+    method()
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 375, in do_GET
+    self._write_status_response(status_code, response)
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 221, in _write_status_response
+    self._write_json_response(status_code, response)
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 167, in _write_json_response
+    self.write_response(status_code, json.dumps(response, default=str), content_type='application/json')
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 157, in write_response
+    self.wfile.write(body.encode('utf-8'))
+  File "/usr/lib/python3.11/socketserver.py", line 834, in write
+    self._sock.sendall(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+
+2026-09-08 10:30:50,405 WARNING: Exception happened during processing of request from 172.19.0.6:47636
+2026-09-08 10:30:50,407 WARNING: Traceback (most recent call last):
+  File "/usr/lib/python3.11/socketserver.py", line 691, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.11/socketserver.py", line 361, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 105, in __init__
+    super(RestApiHandler, self).__init__(request, client_address, server)
+  File "/usr/lib/python3.11/socketserver.py", line 755, in __init__
+    self.handle()
+  File "/usr/lib/python3.11/http/server.py", line 432, in handle
+    self.handle_one_request()
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 1348, in handle_one_request
+    BaseHTTPRequestHandler.handle_one_request(self)
+  File "/usr/lib/python3.11/http/server.py", line 420, in handle_one_request
+    method()
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 375, in do_GET
+    self._write_status_response(status_code, response)
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 221, in _write_status_response
+    self._write_json_response(status_code, response)
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 167, in _write_json_response
+    self.write_response(status_code, json.dumps(response, default=str), content_type='application/json')
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 157, in write_response
+    self.wfile.write(body.encode('utf-8'))
+  File "/usr/lib/python3.11/socketserver.py", line 834, in write
+    self._sock.sendall(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+
+2026-09-08 10:30:52,419 INFO: no action. I am (pg-node-2), a secondary, and following a leader (pg-node-3)
+2026-09-08 10:31:02,469 INFO: no action. I am (pg-node-2), a secondary, and following a leader (pg-node-3)
+2026-09-08 10:31:12,413 INFO: no action. I am (pg-node-2), a secondary, and following a leader (pg-node-3)
+2026-09-08 10:31:22,472 INFO: no action. I am (pg-node-2), a secondary, and following a leader (pg-node-3)
+2026-09-08 10:31:32,424 INFO: no action. I am (pg-node-2), a secondary, and following a leader (pg-node-3)
+2026-09-08 10:31:42,471 INFO: no action. I am (pg-node-2), a secondary, and following a leader (pg-node-3)
+2026-09-08 10:31:52,423 INFO: no action. I am (pg-node-2), a secondary, and following a leader (pg-node-3)
+2026-09-08 10:32:02,475 INFO: no action. I am (pg-node-2), a secondary, and following a leader (pg-node-3)
+2026-09-08 10:32:12,474 INFO: no action. I am (pg-node-2), a secondary, and following a leader (pg-node-3)
+2026-09-08 10:32:19,200 INFO: no action. I am (pg-node-2), a secondary, and following a leader (pg-node-3)
+2026-09-08 10:32:29,639 INFO: no action. I am (pg-node-2), a secondary, and following a leader (pg-node-3)
+2026-09-08 10:32:39,593 INFO: no action. I am (pg-node-2), a secondary, and following a leader (pg-node-3)
+2026-09-08 10:32:49,645 INFO: no action. I am (pg-node-2), a secondary, and following a leader (pg-node-3)
+2026-09-08 10:32:59,597 INFO: no action. I am (pg-node-2), a secondary, and following a leader (pg-node-3)
+2026-09-08 10:33:09,692 INFO: no action. I am (pg-node-2), a secondary, and following a leader (pg-node-3)
+2026-09-08 10:33:19,597 INFO: no action. I am (pg-node-2), a secondary, and following a leader (pg-node-3)
+2026-09-08 10:33:23,885 WARNING: Exception happened during processing of request from 172.19.0.6:37240
+2026-09-08 10:33:23,887 WARNING: Traceback (most recent call last):
+  File "/usr/lib/python3.11/socketserver.py", line 691, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.11/socketserver.py", line 361, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 105, in __init__
+    super(RestApiHandler, self).__init__(request, client_address, server)
+  File "/usr/lib/python3.11/socketserver.py", line 755, in __init__
+    self.handle()
+  File "/usr/lib/python3.11/http/server.py", line 432, in handle
+    self.handle_one_request()
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 1348, in handle_one_request
+    BaseHTTPRequestHandler.handle_one_request(self)
+  File "/usr/lib/python3.11/http/server.py", line 420, in handle_one_request
+    method()
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 375, in do_GET
+    self._write_status_response(status_code, response)
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 221, in _write_status_response
+    self._write_json_response(status_code, response)
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 167, in _write_json_response
+    self.write_response(status_code, json.dumps(response, default=str), content_type='application/json')
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 157, in write_response
+    self.wfile.write(body.encode('utf-8'))
+  File "/usr/lib/python3.11/socketserver.py", line 834, in write
+    self._sock.sendall(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+
+2026-09-08 10:33:23,888 WARNING: Exception happened during processing of request from 172.19.0.6:37246
+2026-09-08 10:33:23,889 WARNING: Traceback (most recent call last):
+  File "/usr/lib/python3.11/socketserver.py", line 691, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.11/socketserver.py", line 361, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 105, in __init__
+    super(RestApiHandler, self).__init__(request, client_address, server)
+  File "/usr/lib/python3.11/socketserver.py", line 755, in __init__
+    self.handle()
+  File "/usr/lib/python3.11/http/server.py", line 432, in handle
+    self.handle_one_request()
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 1348, in handle_one_request
+    BaseHTTPRequestHandler.handle_one_request(self)
+  File "/usr/lib/python3.11/http/server.py", line 420, in handle_one_request
+    method()
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 375, in do_GET
+    self._write_status_response(status_code, response)
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 221, in _write_status_response
+    self._write_json_response(status_code, response)
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 167, in _write_json_response
+    self.write_response(status_code, json.dumps(response, default=str), content_type='application/json')
+  File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 157, in write_response
+    self.wfile.write(body.encode('utf-8'))
+  File "/usr/lib/python3.11/socketserver.py", line 834, in write
+    self._sock.sendall(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+
