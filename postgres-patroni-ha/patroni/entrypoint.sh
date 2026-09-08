@@ -16,9 +16,9 @@ sed -i "s|PATRONI_REPL_USER_PLACEHOLDER|${PATRONI_REPLICATION_USERNAME}|g" /etc/
 sed -i "s|PATRONI_REPL_PASS_PLACEHOLDER|${PATRONI_REPLICATION_PASSWORD}|g" /etc/patroni/patroni.yml
 sed -i "s|APP_USER_PLACEHOLDER|${POSTGRES_APP_USER}|g" /etc/patroni/patroni.yml
 sed -i "s|APP_PASSWORD_PLACEHOLDER|${POSTGRES_APP_PASSWORD}|g" /etc/patroni/patroni.yml
+sed -i "s|NOFAILOVER_PLACEHOLDER|${PATRONI_NOFAILOVER:-false}|g" /etc/patroni/patroni.yml
 
-echo "=== Rendered Patroni config for ${PATRONI_NAME} ==="
-cat /etc/patroni/patroni.yml
+echo "=== Rendered Patroni config for ${PATRONI_NAME} (credentials not logged) ==="
 echo "=== Starting Patroni ==="
 
 exec patroni /etc/patroni/patroni.yml

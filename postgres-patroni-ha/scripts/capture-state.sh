@@ -48,7 +48,8 @@ curl -sf http://localhost:7000/\;csv > "$OUTDIR/haproxy-stats.csv" 2>/dev/null |
 
 # 5. PostgreSQL node roles
 echo "  [5/10] PostgreSQL node roles..."
-for n in pg-node-1 pg-node-2 pg-node-3; do
+PG_NODES=$(docker ps -a --filter "name=pg-node" --format '{{.Names}}' | sort)
+for n in $PG_NODES; do
     echo "=== $n ===" >> "$OUTDIR/pg-roles.txt"
     docker exec "$n" psql -U "$SU_USER" -d postgres -c "SELECT pg_is_in_recovery(), inet_server_addr(), current_setting('server_version');" >> "$OUTDIR/pg-roles.txt" 2>&1 || echo "$n: not reachable" >> "$OUTDIR/pg-roles.txt"
 done
@@ -69,6 +70,19 @@ UNION ALL SELECT 'orders', count(*) FROM orders
 UNION ALL SELECT 'ha_test', count(*) FROM ha_test;
 " > "$OUTDIR/row-counts.txt" 2>&1 || echo "Could not query database" > "$OUTDIR/row-counts.txt"
 
+# 7b. Per-node row counts (direct connection to each node, bypassing HAProxy)
+echo "  [7b/10] Per-node row counts..."
+: > "$OUTDIR/row-counts-per-node.txt"
+for n in $PG_NODES; do
+    echo "=== $n ===" >> "$OUTDIR/row-counts-per-node.txt"
+    docker exec -e PGPASSWORD="$APP_PASS" "$n" psql -U "$APP_USER" -d "$APP_DB" -c "
+    SELECT pg_is_in_recovery() AS is_replica,
+           (SELECT count(*) FROM customers) AS customers,
+           (SELECT count(*) FROM orders) AS orders,
+           (SELECT count(*) FROM ha_test) AS ha_test;
+    " >> "$OUTDIR/row-counts-per-node.txt" 2>&1 || echo "$n: not reachable" >> "$OUTDIR/row-counts-per-node.txt"
+done
+
 # 8. Sample records
 echo "  [8/10] Sample records..."
 PGPASSWORD="$APP_PASS" psql -h localhost -p 5000 -U "$APP_USER" -d "$APP_DB" -c "
@@ -84,7 +98,7 @@ SELECT inet_server_addr(), inet_server_port(), current_database(),
 
 # 10. Relevant logs (last 100 lines each)
 echo "  [10/10] Container logs..."
-for c in etcd pg-node-1 pg-node-2 pg-node-3 haproxy; do
+for c in etcd $PG_NODES haproxy; do
     docker logs --tail 100 "$c" > "$OUTDIR/logs-${c}.txt" 2>&1 || true
 done
 

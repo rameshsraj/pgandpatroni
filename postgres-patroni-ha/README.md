@@ -2,7 +2,13 @@
 
 A working three node PostgreSQL cluster that survives losing its primary, built with Docker Compose and tested by deliberately killing the primary.
 
+<<<<<<< Updated upstream
 Five containers: three PostgreSQL nodes managed by Patroni, one etcd holding the leader lock, and one HAProxy giving the application a single address that does not change when the primary does.
+=======
+See [the original guide](docs/POSTGRES_PATRONI_HA_COMPLETE_GUIDE.md) for the initial
+three-node experiment. Later phases expand the topology; their measured results and
+limitations take precedence over general claims in that historical guide.
+>>>>>>> Stashed changes
 
 This is a laboratory build. It is a good way to learn how automatic failover actually works and a bad way to run a production database. See [Known limitations](#known-limitations) before using any of it as a template.
 
@@ -28,6 +34,7 @@ Two details worth knowing, because both are widely misunderstood:
 
 ## Architecture
 
+<<<<<<< Updated upstream
 ```
 Application
     |
@@ -65,6 +72,44 @@ Each component has exactly one job:
 | 2379 | etcd | No | Client API, internal only |
 
 PostgreSQL and the Patroni API are deliberately not published to the host. All client access goes through HAProxy.
+=======
+- 4 permanent PostgreSQL nodes managed by Patroni (expanded from the original 3)
+- Optional `pg-node-5` elastic read replica, excluded from elections; data volume retained on scale-in
+- etcd as distributed configuration store (DCS)
+- HAProxy as stable client endpoint (port 5000 write, port 5001 read)
+>>>>>>> Stashed changes
+
+## Traffic-driven scaling demonstration (Phase 3)
+
+**Results and scenario coverage:** [Phase 3 lab report](docs/PHASE3_TRAFFIC_SCALING_LAB.md),
+including unsuccessful attempts, admission/drain fixes, sequential failovers, and
+the separate post-benchmark health-check correction.
+
+Run the VS Code task **Phase 3: traffic scaling and resiliency LAB**. It runs
+[scripts/phase3/run-lab.ps1](scripts/phase3/run-lab.ps1) using PowerShell 7 and Docker
+Desktop, with PostgreSQL's existing pgbench client—no host PostgreSQL install or WSL.
+
+**LAB ONLY:** the task adds a replica, hard-kills the dynamically identified primary,
+restarts it, and drains/stops the extra replica. It requires four healthy permanent
+nodes and the Phase 2 appdb/public fixtures. It never deletes database volumes or
+changes the Citus sharding lab. The dedicated phase3_lab schema holds test data.
+
+The finite controller demonstrates low traffic → high traffic → automatic scale-out
+→ automatic failover under reads and retrying writes → automatic rejoin → low traffic
+→ safe scale-in. Thresholds are deliberately low for demonstration, not production
+capacity recommendations. A new run keeps all previous evidence and generates new
+write tokens; repeat runs reuse the elastic volume and test catch-up rather than cloning.
+
+Each run captures SQL, Docker commands, outputs, errors, UTC operation timings,
+transaction latency, connection routing, logical row fingerprints, and acknowledged
+write-token checks. The task is not a permanent autoscaler or a production application.
+Use [scripts/phase3/summarize.ps1](scripts/phase3/summarize.ps1) to build a completed
+run's report and comparison CSVs. See [Phase 3 evidence](test-results/phase3/) and
+[the audited Phase 2 report](test-results/phase2/PHASE2_REPORT.md).
+
+Read scaling duplicates the full dataset; it does **not** redistribute shards or
+increase single-primary write capacity. All containers share one Docker host, so
+additional replicas may reduce measured throughput rather than improve it.
 
 ## Versions
 

@@ -1,2 +1,8 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# Bind-mounted Linux entrypoints must remain executable after Windows checkouts.
+*.sh text eol=lf
+
+# Preserve measured evidence bytes so SHA-256 manifests survive Git checkout.
+postgres-patroni-ha/test-results/phase3/** -text

@@ -76,7 +76,7 @@ postgresql:
     checkpoint: fast
 
 tags:
-  nofailover: false
+  nofailover: NOFAILOVER_PLACEHOLDER
   noloadbalance: false
   clonefrom: false
   nosync: false

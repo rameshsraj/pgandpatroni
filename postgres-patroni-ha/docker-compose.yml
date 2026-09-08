@@ -156,6 +156,92 @@ services:
       start_period: 30s
     restart: unless-stopped
 
+  # ---- PostgreSQL Node 4 (Patroni managed) — Phase 2 added node ----
+  pg-node-4:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: pg-node-4
+    hostname: pg-node-4
+    environment:
+      PATRONI_NAME: pg-node-4
+      PATRONI_SCOPE: pg-ha-cluster
+      PATRONI_ETCD3_HOSTS: etcd:2379
+      PATRONI_RESTAPI_LISTEN: 0.0.0.0:8008
+      PATRONI_RESTAPI_CONNECT_ADDRESS: pg-node-4:8008
+      PATRONI_POSTGRESQL_LISTEN: 0.0.0.0:5432
+      PATRONI_POSTGRESQL_CONNECT_ADDRESS: pg-node-4:5432
+      PATRONI_POSTGRESQL_DATA_DIR: /var/lib/postgresql/data/pgdata
+      PATRONI_SUPERUSER_USERNAME: ${POSTGRES_SUPERUSER}
+      PATRONI_SUPERUSER_PASSWORD: ${POSTGRES_SUPERUSER_PASSWORD}
+      PATRONI_REPLICATION_USERNAME: ${POSTGRES_REPLICATION_USER}
+      PATRONI_REPLICATION_PASSWORD: ${POSTGRES_REPLICATION_PASSWORD}
+      POSTGRES_APP_USER: ${POSTGRES_APP_USER}
+      POSTGRES_APP_PASSWORD: ${POSTGRES_APP_PASSWORD}
+      POSTGRES_APP_DATABASE: ${POSTGRES_APP_DATABASE}
+    volumes:
+      - pg-node-4-data:/var/lib/postgresql/data
+      - ./patroni/patroni-template.yml:/etc/patroni/patroni-template.yml:ro
+      - ./patroni/entrypoint.sh:/entrypoint.sh:ro
+    entrypoint: ["/bin/bash", "/entrypoint.sh"]
+    networks:
+      - patroni-net
+    depends_on:
+      etcd:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "curl -sf http://localhost:8008/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    restart: unless-stopped
+
+  # ---- Optional elastic read replica (Phase 3 LAB policy: 4..5 nodes) ----
+  # Excluded from elections so scale-in can never remove the primary.
+  pg-node-5:
+    profiles: [elastic]
+    # Patroni needs SIGTERM; the base postgres image defaults to SIGINT.
+    stop_signal: SIGTERM
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: pg-node-5
+    hostname: pg-node-5
+    environment:
+      PATRONI_NAME: pg-node-5
+      PATRONI_SCOPE: pg-ha-cluster
+      PATRONI_ETCD3_HOSTS: etcd:2379
+      PATRONI_RESTAPI_LISTEN: 0.0.0.0:8008
+      PATRONI_RESTAPI_CONNECT_ADDRESS: pg-node-5:8008
+      PATRONI_POSTGRESQL_LISTEN: 0.0.0.0:5432
+      PATRONI_POSTGRESQL_CONNECT_ADDRESS: pg-node-5:5432
+      PATRONI_POSTGRESQL_DATA_DIR: /var/lib/postgresql/data/pgdata
+      PATRONI_SUPERUSER_USERNAME: ${POSTGRES_SUPERUSER}
+      PATRONI_SUPERUSER_PASSWORD: ${POSTGRES_SUPERUSER_PASSWORD}
+      PATRONI_REPLICATION_USERNAME: ${POSTGRES_REPLICATION_USER}
+      PATRONI_REPLICATION_PASSWORD: ${POSTGRES_REPLICATION_PASSWORD}
+      POSTGRES_APP_USER: ${POSTGRES_APP_USER}
+      POSTGRES_APP_PASSWORD: ${POSTGRES_APP_PASSWORD}
+      POSTGRES_APP_DATABASE: ${POSTGRES_APP_DATABASE}
+      PATRONI_NOFAILOVER: "true"
+    volumes:
+      - pg-node-5-data:/var/lib/postgresql/data
+      - ./patroni/patroni-template.yml:/etc/patroni/patroni-template.yml:ro
+      - ./patroni/entrypoint.sh:/entrypoint.sh:ro
+    entrypoint: ["/bin/bash", "/entrypoint.sh"]
+    networks: [patroni-net]
+    depends_on:
+      etcd:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "curl -sf http://localhost:8008/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    restart: unless-stopped
+
   # ---- HAProxy (Client entry point) ----
   haproxy:
     image: haproxy:2.9-alpine
@@ -173,8 +259,11 @@ services:
       - pg-node-1
       - pg-node-2
       - pg-node-3
+      - pg-node-4
     healthcheck:
-      test: ["CMD-SHELL", "haproxy -c -f /usr/local/etc/haproxy/haproxy.cfg || exit 1"]
+      # Configuration validation can block on intentionally absent elastic DNS
+      # names. Check the running process here; validate config before deployment.
+      test: ["CMD-SHELL", "wget -q -O /dev/null http://127.0.0.1:7000/ || exit 1"]
       interval: 10s
       timeout: 5s
       retries: 3
@@ -185,6 +274,8 @@ volumes:
   pg-node-1-data:
   pg-node-2-data:
   pg-node-3-data:
+  pg-node-4-data:
+  pg-node-5-data:
 
 networks:
   patroni-net:
