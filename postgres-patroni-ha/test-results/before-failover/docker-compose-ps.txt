@@ -1,0 +1,6 @@
+NAME        IMAGE                           COMMAND                  SERVICE     CREATED         STATUS                   PORTS
+etcd        quay.io/coreos/etcd:v3.5.15     "/usr/local/bin/etcd"    etcd        2 minutes ago   Up 2 minutes (healthy)   2379-2380/tcp
+haproxy     haproxy:2.9-alpine              "docker-entrypoint.sΓÇª"   haproxy     2 minutes ago   Up 2 minutes (healthy)   0.0.0.0:5000-5001->5000-5001/tcp, [::]:5000-5001->5000-5001/tcp, 0.0.0.0:7000->7000/tcp, [::]:7000->7000/tcp
+pg-node-1   postgres-patroni-ha-pg-node-1   "/bin/bash /entrypoiΓÇª"   pg-node-1   2 minutes ago   Up 2 minutes (healthy)   5432/tcp, 8008/tcp
+pg-node-2   postgres-patroni-ha-pg-node-2   "/bin/bash /entrypoiΓÇª"   pg-node-2   2 minutes ago   Up 2 minutes (healthy)   5432/tcp, 8008/tcp
+pg-node-3   postgres-patroni-ha-pg-node-3   "/bin/bash /entrypoiΓÇª"   pg-node-3   2 minutes ago   Up 2 minutes (healthy)   5432/tcp, 8008/tcp

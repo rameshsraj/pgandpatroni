@@ -1,0 +1,8 @@
+ id |             message              |          created_at           
+----+----------------------------------+-------------------------------
+  1 | record-created-before-failover-1 | 2026-08-29 14:50:16.460916+00
+  2 | record-created-before-failover-2 | 2026-08-29 14:50:16.460916+00
+  3 | record-created-before-failover-3 | 2026-08-29 14:50:16.460916+00
+ 34 | record-created-AFTER-failover    | 2026-08-29 14:57:10.552122+00
+(4 rows)
+

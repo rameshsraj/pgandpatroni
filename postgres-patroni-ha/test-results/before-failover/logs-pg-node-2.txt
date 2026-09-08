@@ -1,0 +1,50 @@
+Data page checksums are enabled.
+
+creating directory /var/lib/postgresql/data/pgdata ... ok
+creating subdirectories ... ok
+selecting dynamic shared memory implementation ... posix
+selecting default max_connections ... 100
+selecting default shared_buffers ... 128MB
+selecting default time zone ... Etc/UTC
+creating configuration files ... ok
+running bootstrap script ... ok
+performing post-bootstrap initialization ... ok
+syncing data to disk ... ok
+
+
+Success. You can now start the database server using:
+
+    pg_ctl -D /var/lib/postgresql/data/pgdata -l logfile start
+
+initdb: warning: enabling "trust" authentication for local connections
+initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
+2026-08-29 14:49:12,488 INFO: establishing a new patroni heartbeat connection to postgres
+2026-08-29 14:49:12.781 UTC [44] LOG:  redirecting log output to logging collector process
+2026-08-29 14:49:12.781 UTC [44] HINT:  Future log output will appear in directory "pg_log".
+2026-08-29 14:49:12,798 INFO: postmaster pid=44
+localhost:5432 - accepting connections
+2026-08-29 14:49:12,932 INFO: establishing a new patroni heartbeat connection to postgres
+localhost:5432 - accepting connections
+2026-08-29 14:49:12,994 INFO: running post_bootstrap
+2026-08-29 14:49:13,051 WARNING: User creation via "bootstrap.users" will be removed in v4.0.0
+2026-08-29 14:49:13,067 WARNING: Could not activate Linux watchdog device: Can't open watchdog device: [Errno 2] No such file or directory: '/dev/watchdog'
+2026-08-29 14:49:13,070 INFO: Reaped pid=58, exit status=0
+2026-08-29 14:49:13,072 INFO: Reaped pid=59, exit status=0
+2026-08-29 14:49:13,279 INFO: initialized a new cluster
+2026-08-29 14:49:13,460 INFO: no action. I am (pg-node-2), the leader with the lock
+2026-08-29 14:49:13,995 INFO: establishing a new patroni restapi connection to postgres
+2026-08-29 14:49:23,422 INFO: no action. I am (pg-node-2), the leader with the lock
+2026-08-29 14:49:33,422 INFO: no action. I am (pg-node-2), the leader with the lock
+2026-08-29 14:49:43,326 INFO: no action. I am (pg-node-2), the leader with the lock
+2026-08-29 14:49:53,323 INFO: no action. I am (pg-node-2), the leader with the lock
+2026-08-29 14:50:03,420 INFO: no action. I am (pg-node-2), the leader with the lock
+2026-08-29 14:50:13,422 INFO: no action. I am (pg-node-2), the leader with the lock
+2026-08-29 14:50:23,416 INFO: no action. I am (pg-node-2), the leader with the lock
+2026-08-29 14:50:33,421 INFO: no action. I am (pg-node-2), the leader with the lock
+2026-08-29 14:50:43,326 INFO: no action. I am (pg-node-2), the leader with the lock
+2026-08-29 14:50:53,418 INFO: no action. I am (pg-node-2), the leader with the lock
+2026-08-29 14:51:03,327 INFO: no action. I am (pg-node-2), the leader with the lock
+2026-08-29 14:51:13,333 INFO: no action. I am (pg-node-2), the leader with the lock
+2026-08-29 14:51:23,417 INFO: no action. I am (pg-node-2), the leader with the lock
+2026-08-29 14:51:33,334 INFO: no action. I am (pg-node-2), the leader with the lock
+2026-08-29 14:51:43,327 INFO: no action. I am (pg-node-2), the leader with the lock
