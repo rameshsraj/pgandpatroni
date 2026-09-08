@@ -1,0 +1,25 @@
+graph LR
+    subgraph Types["Six kinds of context"]
+        direction TB
+        T1["Instructions"]
+        T2["Knowledge"]
+        T3["Memory"]
+        T4["Examples"]
+        T5["Tools"]
+        T6["Guardrails"]
+    end
+
+    S["<b>Always loaded</b><br/>Every single turn<br/><br/>System instructions<br/>Project rule files<br/>Long term memory<br/>Core guardrails<br/><br/><i>Reliable, and you pay<br/>for it on every call</i>"]
+    D["<b>Loaded when needed</b><br/>Only if the task matches<br/><br/>Skills that fire on demand<br/>Results returned by tools<br/>Documents fetched by search<br/><br/><i>Cheap per turn, but only<br/>there when triggered</i>"]
+
+    Types --> S
+    Types --> D
+
+    style T1 fill:#ECEFF1,color:#000
+    style T2 fill:#ECEFF1,color:#000
+    style T3 fill:#ECEFF1,color:#000
+    style T4 fill:#ECEFF1,color:#000
+    style T5 fill:#ECEFF1,color:#000
+    style T6 fill:#ECEFF1,color:#000
+    style S fill:#FF9800,color:#fff
+    style D fill:#2196F3,color:#fff

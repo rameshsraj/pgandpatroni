@@ -1,0 +1,16 @@
+flowchart TD
+    subgraph SG["One shard group, on one worker"]
+        C["customers_102008"]
+        O["orders_102020"]
+        I["order_items_102032"]
+    end
+
+    Note["A customer, their orders and<br/>their order items all hash to the<br/>same slice, so they share a worker.<br/>Joins between them never leave it."]
+
+    C --- O --- I
+    SG --> Note
+
+    style C fill:#4CAF50,color:#fff
+    style O fill:#2196F3,color:#fff
+    style I fill:#9C27B0,color:#fff
+    style Note fill:#ECEFF1,color:#000

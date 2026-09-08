@@ -1,0 +1,31 @@
+graph TD
+    subgraph OA["Option A: a proxy per worker group"]
+        direction TB
+        CA["Coordinator"]
+        PA["Load balancer<br/>address never changes"]
+        NA1["primary"]
+        NA2["replica"]
+        CA -->|"recorded address<br/>points at the proxy"| PA
+        PA --> NA1
+        PA -.-> NA2
+    end
+
+    subgraph OB["Option B: the manager writes the metadata"]
+        direction TB
+        CB["Coordinator"]
+        NB1["primary"]
+        NB2["replica"]
+        CB -->|"recorded address<br/>points at the real node"| NB1
+        NB1 -.-> NB2
+        MGR["Patroni promotes the replica<br/>and updates the coordinator"]
+        MGR -.->|"rewrites the address"| CB
+    end
+
+    style CA fill:#FF9800,color:#fff
+    style PA fill:#FFC107,color:#000
+    style NA1 fill:#4CAF50,color:#fff
+    style NA2 fill:#2196F3,color:#fff
+    style CB fill:#FF9800,color:#fff
+    style NB1 fill:#4CAF50,color:#fff
+    style NB2 fill:#2196F3,color:#fff
+    style MGR fill:#9C27B0,color:#fff

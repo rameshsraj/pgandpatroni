@@ -1,0 +1,21 @@
+graph TD
+    Root["/service/pg-citus-ha/"]
+    G0["0/  <i>coordinator group</i>"]
+    G1["1/  <i>worker group</i>"]
+    G2["2/  <i>worker group</i>"]
+
+    L0["leader<br/>members/coord-1<br/>members/coord-2"]
+    L1["leader<br/>members/work1-1<br/>members/work1-2"]
+    L2["leader<br/>members/work2-1<br/>members/work2-2"]
+
+    Root --> G0 --> L0
+    Root --> G1 --> L1
+    Root --> G2 --> L2
+
+    style Root fill:#9C27B0,color:#fff
+    style G0 fill:#FF9800,color:#fff
+    style G1 fill:#2196F3,color:#fff
+    style G2 fill:#2196F3,color:#fff
+    style L0 fill:#ECEFF1,color:#000
+    style L1 fill:#ECEFF1,color:#000
+    style L2 fill:#ECEFF1,color:#000

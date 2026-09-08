@@ -1,0 +1,22 @@
+flowchart TD
+    Start["Old primary container started"]
+    Ask["Patroni checks etcd:<br/>who holds the leader lock?"]
+    NotMe["Another node holds it,<br/>so this node must be a replica"]
+    Check["Inspect the local data directory<br/>and compare log positions"]
+    Q{"Did this node accept writes<br/>the new primary never got?"}
+    Clean["No divergence.<br/>Start as a secondary and<br/>follow the new timeline."]
+    Rewind["Diverged.<br/>Run pg_rewind back to the<br/>last common checkpoint."]
+    Replay["Replay the log<br/>from the new primary"]
+    Done["Healthy replica,<br/>zero lag"]
+
+    Start --> Ask --> NotMe --> Check --> Q
+    Q -->|"No, it shut down cleanly.<br/>This is what happened here."| Clean
+    Q -->|"Yes, it died mid write"| Rewind
+    Clean --> Replay
+    Rewind --> Replay
+    Replay --> Done
+
+    style Start fill:#FF9800,color:#fff
+    style Clean fill:#4CAF50,color:#fff
+    style Rewind fill:#F44336,color:#fff
+    style Done fill:#4CAF50,color:#fff

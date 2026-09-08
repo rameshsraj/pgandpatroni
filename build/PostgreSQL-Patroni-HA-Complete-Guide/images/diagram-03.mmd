@@ -1,0 +1,34 @@
+graph TD
+    Client["Client<br/>your machine"]
+
+    subgraph Docker network
+        HAProxy["HAProxy"]
+        Node1["pg-node-1<br/>PostgreSQL and Patroni"]
+        Node2["pg-node-2<br/>PostgreSQL and Patroni"]
+        Node3["pg-node-3<br/>PostgreSQL and Patroni"]
+        ETCD["etcd"]
+    end
+
+    Client -->|"TCP 5000<br/>host to container"| HAProxy
+    Client -->|"TCP 5001<br/>host to container"| HAProxy
+    Client -->|"HTTP 7000<br/>statistics page"| HAProxy
+
+    HAProxy -->|"HTTP 8008<br/>health check"| Node1
+    HAProxy -->|"HTTP 8008<br/>health check"| Node2
+    HAProxy -->|"HTTP 8008<br/>health check"| Node3
+
+    HAProxy -->|"TCP 5432<br/>forwarded connection"| Node1
+
+    Node1 -->|"HTTP 2379<br/>renew leader lock"| ETCD
+    Node2 -->|"HTTP 2379<br/>register member"| ETCD
+    Node3 -->|"HTTP 2379<br/>register member"| ETCD
+
+    Node2 -->|"TCP 5432<br/>streaming replication"| Node1
+    Node3 -->|"TCP 5432<br/>streaming replication"| Node1
+
+    style Client fill:#607D8B,color:#fff
+    style HAProxy fill:#FF9800,color:#fff
+    style Node1 fill:#4CAF50,color:#fff
+    style Node2 fill:#2196F3,color:#fff
+    style Node3 fill:#2196F3,color:#fff
+    style ETCD fill:#9C27B0,color:#fff

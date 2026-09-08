@@ -1,0 +1,55 @@
+graph TD
+    App["Application"]
+    HAP["HAProxy<br/>stable address for the coordinator"]
+
+    subgraph GC["Coordinator, replicated"]
+        C1["coordinator<br/><b>primary</b>"]
+        C2["replica"]
+        C3["replica"]
+    end
+
+    subgraph GW1["worker-1, replicated"]
+        W1["<b>primary</b><br/>4 shards"]
+        W1b["replica"]
+        W1c["replica"]
+    end
+
+    subgraph GW2["worker-2, replicated"]
+        W2["<b>primary</b><br/>4 shards"]
+        W2b["replica"]
+        W2c["replica"]
+    end
+
+    subgraph GW3["worker-3, replicated"]
+        W3["<b>primary</b><br/>4 shards"]
+        W3b["replica"]
+        W3c["replica"]
+    end
+
+    App --> HAP --> C1
+    C1 --> W1
+    C1 --> W2
+    C1 --> W3
+    C1 -.-> C2
+    C1 -.-> C3
+    W1 -.-> W1b
+    W1 -.-> W1c
+    W2 -.-> W2b
+    W2 -.-> W2c
+    W3 -.-> W3b
+    W3 -.-> W3c
+
+    style App fill:#607D8B,color:#fff
+    style HAP fill:#FF9800,color:#fff
+    style C1 fill:#4CAF50,color:#fff
+    style W1 fill:#4CAF50,color:#fff
+    style W2 fill:#4CAF50,color:#fff
+    style W3 fill:#4CAF50,color:#fff
+    style C2 fill:#2196F3,color:#fff
+    style C3 fill:#2196F3,color:#fff
+    style W1b fill:#2196F3,color:#fff
+    style W1c fill:#2196F3,color:#fff
+    style W2b fill:#2196F3,color:#fff
+    style W2c fill:#2196F3,color:#fff
+    style W3b fill:#2196F3,color:#fff
+    style W3c fill:#2196F3,color:#fff

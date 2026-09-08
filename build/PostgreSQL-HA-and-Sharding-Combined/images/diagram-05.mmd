@@ -1,0 +1,23 @@
+flowchart LR
+    A["Application"]
+    H["HAProxy<br/><i>which coordinator<br/>node is writable?</i>"]
+    C["Coordinator primary<br/><i>which worker holds<br/>this row?</i>"]
+    W1["Worker group 1"]
+    W2["Worker group 2"]
+    W3["Worker group 3"]
+
+    A --> H --> C
+    C --> W1
+    C --> W2
+    C --> W3
+    W1 -->|"partial result"| C
+    W2 --> C
+    W3 --> C
+    C --> H --> A
+
+    style A fill:#607D8B,color:#fff
+    style H fill:#FF9800,color:#fff
+    style C fill:#4CAF50,color:#fff
+    style W1 fill:#2196F3,color:#fff
+    style W2 fill:#2196F3,color:#fff
+    style W3 fill:#2196F3,color:#fff

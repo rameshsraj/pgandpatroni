@@ -47,6 +47,13 @@ build_one() {
     rm -rf "$work"
     mkdir -p "$imgdir"
 
+    # Charts are pre-rendered PNGs committed next to the markdown.
+    # Regenerate them with: build/venv/bin/python make-charts.py
+    if [ -d "$(dirname "$src")/charts" ]; then
+        cp -R "$(dirname "$src")/charts" "$work/charts"
+        echo "  copied $(ls "$work/charts" | wc -l | tr -d ' ') chart(s)"
+    fi
+
     # ---- Pass 1: extract mermaid blocks, render PNGs, rewrite markdown ----
     python3 - "$src" "$md" "$imgdir" <<'PYEOF'
 import re, sys, pathlib
@@ -96,7 +103,7 @@ def png_size(p):
 
 def fix(m):
     alt, rel = m.group(1), m.group(2)
-    png = imgdir / pathlib.Path(rel).name
+    png = (imgdir.parent / rel) if rel.startswith("charts/") else (imgdir / pathlib.Path(rel).name)
     if not png.exists():
         return m.group(0)
     w, h = png_size(png)
@@ -104,7 +111,7 @@ def fix(m):
     return f'![{alt}]({rel}){{width={w/96*scale:.2f}in height={h/96*scale:.2f}in}}'
 
 text = md_path.read_text(encoding="utf-8")
-text, n = re.subn(r"!\[([^\]]*)\]\((images/[^)]+)\)", fix, text)
+text, n = re.subn(r"!\[([^\]]*)\]\(((?:images|charts)/[^)]+)\)", fix, text)
 md_path.write_text(text, encoding="utf-8")
 print(f"  sized {n} image(s) to fit page")
 PYEOF
@@ -113,7 +120,7 @@ PYEOF
     ( cd "$work" && pandoc "$base.md" \
         -f gfm+attributes \
         -o "$ROOT/$base.docx" \
-        --resource-path=.:images \
+        --resource-path=.:images:charts \
         --toc --toc-depth=3 \
         --syntax-highlighting=tango \
         --metadata title="$title" \
@@ -139,6 +146,18 @@ build_one \
     "$ROOT/postgres-sharding-lab/docs/SHARDING_COMPLETE_GUIDE.md" \
     "PostgreSQL-Sharding-Citus-Complete-Guide" \
     "PostgreSQL Sharding with Citus"
+
+build_one \
+    "$ROOT/docs" \
+    "$ROOT/docs/POSTGRES_HA_AND_SHARDING_COMBINED.md" \
+    "PostgreSQL-HA-and-Sharding-Combined" \
+    "High Availability for a Sharded PostgreSQL Cluster"
+
+build_one \
+    "$ROOT/docs" \
+    "$ROOT/docs/THE_NEW_SDLC_REVIEW.md" \
+    "The-Bottleneck-Moved-New-SDLC-Review" \
+    "The Bottleneck Moved: a review of Google's New SDLC whitepaper"
 
 echo ""
 echo "=================================================="
