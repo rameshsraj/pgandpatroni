@@ -1,0 +1,7 @@
+      t      | count 
+-------------+-------
+ customers   |   500
+ order_items |  7500
+ orders      |  2500
+(3 rows)
+

@@ -1,0 +1,5 @@
+NAME                IMAGE                  COMMAND                  SERVICE       CREATED          STATUS                    PORTS
+citus-coordinator   citusdata/citus:12.1   "docker-entrypoint.sΓÇª"   coordinator   2 days ago       Up 2 days (healthy)       5432/tcp
+citus-worker-1      citusdata/citus:12.1   "docker-entrypoint.sΓÇª"   worker-1      2 days ago       Up 2 days (healthy)       5432/tcp
+citus-worker-2      citusdata/citus:12.1   "docker-entrypoint.sΓÇª"   worker-2      2 days ago       Up 2 days (healthy)       5432/tcp
+citus-worker-3      citusdata/citus:12.1   "docker-entrypoint.sΓÇª"   worker-3      43 minutes ago   Up 43 minutes (healthy)   5432/tcp

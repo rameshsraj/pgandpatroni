@@ -1,0 +1,8 @@
+ nodeid |  nodename   | nodeport | noderole | isactive 
+--------+-------------+----------+----------+----------
+      1 | coordinator |     5432 | primary  | t
+      2 | worker-1    |     5432 | primary  | t
+      3 | worker-2    |     5432 | primary  | t
+      4 | worker-3    |     5432 | primary  | t
+(4 rows)
+

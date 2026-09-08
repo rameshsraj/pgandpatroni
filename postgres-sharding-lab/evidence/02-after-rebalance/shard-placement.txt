@@ -1,0 +1,16 @@
+ shardid |    shard_name    | table_name | nodename 
+---------+------------------+------------+----------
+  102008 | customers_102008 | customers  | worker-3
+  102009 | customers_102009 | customers  | worker-2
+  102010 | customers_102010 | customers  | worker-1
+  102011 | customers_102011 | customers  | worker-3
+  102012 | customers_102012 | customers  | worker-3
+  102013 | customers_102013 | customers  | worker-3
+  102014 | customers_102014 | customers  | worker-1
+  102015 | customers_102015 | customers  | worker-2
+  102016 | customers_102016 | customers  | worker-1
+  102017 | customers_102017 | customers  | worker-2
+  102018 | customers_102018 | customers  | worker-1
+  102019 | customers_102019 | customers  | worker-2
+(12 rows)
+
