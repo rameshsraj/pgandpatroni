@@ -1,5 +1,9 @@
 # Phase 4: isolated dynamic replica scaler
 
+See the [scaling decisions and replication investigation](SCALING_REPLICATION_INVESTIGATION.md) for component responsibilities, exact decision timestamps/thresholds, dataflow, scale-in safety and the replication-slot evidence gap.
+
+For blog readers asking whether production needs the same scripts, see the [production FAQ and deployment alternatives](PRODUCTION_FAQ.md). A production controller is required for demand-based scaling, but it need not be this custom lab runner.
+
 This is a bounded demonstration, **not a production autoscaler**. It creates its own run-specific network, etcd, Patroni scope, primary, permanent replica and HAProxy. It does not use Compose or change the existing Phase 3 cluster. No host ports are published. All container/network/volume names start with `phase4-`.
 
 ## Run prerequisites and parameters
