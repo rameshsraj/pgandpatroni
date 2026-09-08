@@ -13,6 +13,21 @@
 			"isBackground": false,
 			"problemMatcher": [],
 			"group": "test"
+		},
+		{
+			"label": "Phase 4: isolated dynamic replica scaling LAB",
+			"type": "shell",
+			"command": "pwsh",
+			"args": [
+				"-NoProfile",
+				"-File",
+				"${workspaceFolder}/Phase4-scaler/run-lab.ps1",
+				"-TrafficDurationSeconds",
+				"900"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "test"
 		}
 	]
 }
