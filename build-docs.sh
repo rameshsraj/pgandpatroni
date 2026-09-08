@@ -159,6 +159,12 @@ build_one \
     "The-Bottleneck-Moved-New-SDLC-Review" \
     "The Bottleneck Moved: a review of Google's New SDLC whitepaper"
 
+build_one \
+    "$ROOT/docs" \
+    "$ROOT/docs/PHASE4_DYNAMIC_REPLICA_SCALER.md" \
+    "Phase4-Dynamic-Replica-Scaler" \
+    "Phase 4: A Replica Scaler That Only Believes What It Measures"
+
 echo ""
 echo "=================================================="
 echo "Done. Word documents:"

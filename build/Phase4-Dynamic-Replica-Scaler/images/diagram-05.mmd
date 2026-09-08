@@ -1,0 +1,34 @@
+flowchart TD
+    Bench["pgbench<br/>high traffic<br/>measured 56 to 64 TPS"]
+    Proxy["<b>HAProxy</b><br/>round robin across<br/>five read backends"]
+    Primary["<b>Primary</b><br/>still the leader<br/>role never changed"]
+    Base["<b>Permanent replica</b><br/>4,050 connections"]
+    E1["<b>elastic1</b><br/>2,581 connections<br/>nofailover"]
+    E2["<b>elastic2</b><br/>1,738 connections<br/>nofailover"]
+    E3["<b>elastic3</b><br/>1,074 connections<br/>nofailover"]
+    E4["<b>elastic4</b><br/>606 connections<br/>nofailover"]
+    DCS["etcd<br/>6 members registered<br/>1 leader, 5 replicas"]
+
+    Bench --> Proxy
+    Proxy --> Base
+    Proxy --> E1
+    Proxy --> E2
+    Proxy --> E3
+    Proxy --> E4
+    Proxy -->|"writes only"| Primary
+    Primary -->|"WAL streaming"| Base
+    Primary --> E1
+    Primary --> E2
+    Primary --> E3
+    Primary --> E4
+    Primary --- DCS
+
+    style Bench fill:#607D8B,color:#fff
+    style Proxy fill:#FF9800,color:#fff
+    style Primary fill:#4CAF50,color:#fff
+    style Base fill:#2196F3,color:#fff
+    style E1 fill:#00897B,color:#fff
+    style E2 fill:#00897B,color:#fff
+    style E3 fill:#00897B,color:#fff
+    style E4 fill:#00897B,color:#fff
+    style DCS fill:#9C27B0,color:#fff

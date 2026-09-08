@@ -1,0 +1,29 @@
+flowchart TD
+    subgraph HA["Availability decisions: built in, distributed"]
+        direction TB
+        A1["Patroni agents on every node"]
+        A2["Leader lock in etcd<br/>with a 30 second TTL"]
+        A3["Leader renews the lock every few seconds"]
+        A4{"Lock expired?"}
+        A5["Surviving replicas hold an election.<br/>One promotes itself."]
+        A1 --> A2 --> A3 --> A4
+        A4 -->|yes| A5
+    end
+
+    subgraph SC["Scaling decisions: external, single, hand written"]
+        direction TB
+        B1["One controller process"]
+        B2["Reads completed transaction counts<br/>from pgbench log files"]
+        B3["Applies thresholds, hysteresis, cooldown"]
+        B4{"Two samples past a threshold?"}
+        B5["Create or remove one replica"]
+        B1 --> B2 --> B3 --> B4
+        B4 -->|yes| B5
+    end
+
+    style A1 fill:#4CAF50,color:#fff
+    style A2 fill:#9C27B0,color:#fff
+    style A5 fill:#4CAF50,color:#fff
+    style B1 fill:#F44336,color:#fff
+    style B2 fill:#607D8B,color:#fff
+    style B5 fill:#FF9800,color:#fff

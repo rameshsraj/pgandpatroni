@@ -1,0 +1,36 @@
+graph TB
+    subgraph S3["3. Terminate and confirm"]
+        direction TB
+        I["Stop with SIGTERM,<br/>30 second grace"]
+        J{"Exited cleanly?<br/>not running, not OOM killed,<br/>exit code 0"}
+        K["Archive the Docker log and<br/>the PostgreSQL server logs"]
+        L["Remove the container,<br/>deliberately WITHOUT<br/>the volume flag"]
+        M["Confirm the container is gone"]
+        N["Confirm the named volume<br/>still exists"]
+        O["Snapshot again,<br/>requiring agreement"]
+        I --> J
+        J -->|clean| K --> L --> M --> N --> O
+    end
+
+    subgraph S2["2. Drain and recheck"]
+        direction TB
+        E["Set the slot draining"]
+        F["Wait for current sessions<br/>to reach zero, 30s bound"]
+        G["Set the slot to maintenance"]
+        H{"Recheck: baseline healthy<br/>and target still a replica?"}
+        E --> F --> G --> H
+    end
+
+    subgraph S1["1. Choose and prove safe"]
+        direction TB
+        A["Pick the most recently<br/>added replica"]
+        B["Confirm the permanent<br/>replica is healthy"]
+        C["Confirm the target is<br/>a healthy replica"]
+        D["Snapshot, requiring every node<br/>to agree on fixture hash<br/>and full token list"]
+        A --> B --> C --> D
+    end
+
+    style A fill:#607D8B,color:#fff
+    style D fill:#9C27B0,color:#fff
+    style L fill:#FF9800,color:#fff
+    style O fill:#4CAF50,color:#fff

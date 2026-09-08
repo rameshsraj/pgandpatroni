@@ -1,0 +1,30 @@
+flowchart TD
+    S["Container created by docker run<br/>own volume, nofailover set"]
+    G1{"1. Patroni on that node reports<br/>role = replica and state = running"}
+    G2{"2. Its tags include nofailover"}
+    G3{"3. The primary's own cluster view lists it<br/>exactly once, as replica and streaming"}
+    G4{"4. Reported lag is present, numeric<br/>and exactly zero bytes"}
+    G5{"5. SQL on that node: it is in recovery,<br/>holds 100,000 rows, and its content<br/>hash equals the primary's"}
+    IP["Inspect the container IP on this network<br/>and validate it is IPv4"]
+    R1["Runtime: set the slot address"]
+    R2["Runtime: set the slot ready"]
+    W["Wait for the proxy to report the slot UP"]
+    OK["Admitted. Snapshot taken<br/>requiring token agreement."]
+    NO["Not admitted. Keep waiting.<br/>No traffic sent."]
+
+    S --> G1
+    G1 -->|no| NO
+    G1 -->|yes| G2
+    G2 -->|no| NO
+    G2 -->|yes| G3
+    G3 -->|no| NO
+    G3 -->|yes| G4
+    G4 -->|no| NO
+    G4 -->|yes| G5
+    G5 -->|no| NO
+    G5 -->|yes| IP --> R1 --> R2 --> W --> OK
+
+    style S fill:#607D8B,color:#fff
+    style OK fill:#4CAF50,color:#fff
+    style NO fill:#F44336,color:#fff
+    style IP fill:#FFC107,color:#000

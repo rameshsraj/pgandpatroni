@@ -1,0 +1,45 @@
+flowchart TD
+    subgraph Clients["Load and audit"]
+        Bench["pgbench containers<br/>8 clients, reconnect per transaction"]
+        Probe["Controller write probes<br/>idempotent tokens"]
+    end
+
+    Proxy["<b>Isolated HAProxy</b><br/>:5001 round robin reads<br/>:5000 primary route writes"]
+
+    subgraph DB["Isolated database tier"]
+        Primary["<b>Primary</b><br/>PostgreSQL and Patroni"]
+        Base["Permanent replica"]
+        Elastic["0 to 4 elastic replicas<br/>created at runtime"]
+    end
+
+    DCS["Isolated etcd<br/>own scope and namespace"]
+
+    subgraph Control["Control and evidence"]
+        Ctl["Measured load controller"]
+        Ev["Commands, SQL, events,<br/>metrics, snapshots, logs, hashes"]
+    end
+
+    Bench -->|"reads, TCP 5001"| Proxy
+    Probe -->|"writes, TCP 5000"| Proxy
+    Proxy -->|"health checked route"| Primary
+    Proxy -->|"round robin"| Base
+    Proxy -->|"admitted slots only"| Elastic
+    Primary -->|"base backup,<br/>then WAL streaming"| Base
+    Primary -->|"base backup,<br/>then WAL streaming"| Elastic
+    Primary --- DCS
+    Base --- DCS
+    Elastic --- DCS
+    Bench -.->|"completed transaction logs"| Ctl
+    Ctl -->|"create, verify,<br/>drain, remove"| Elastic
+    Ctl -->|"runtime address and state"| Proxy
+    Ctl --> Ev
+
+    style Bench fill:#607D8B,color:#fff
+    style Probe fill:#795548,color:#fff
+    style Proxy fill:#FF9800,color:#fff
+    style Primary fill:#4CAF50,color:#fff
+    style Base fill:#2196F3,color:#fff
+    style Elastic fill:#00897B,color:#fff
+    style DCS fill:#9C27B0,color:#fff
+    style Ctl fill:#F44336,color:#fff
+    style Ev fill:#37474F,color:#fff
