@@ -1,0 +1,5 @@
+2026-09-08T17:35:29.465193623Z === Rendered Patroni config for phase4-20260908T173358240-1efd4a87-elastic2 (credentials not logged) ===
+2026-09-08T17:35:29.465311833Z === Starting Patroni ===
+2026-09-08T17:35:35.614246961Z localhost:5432 - rejecting connections
+2026-09-08T17:35:35.805971247Z localhost:5432 - rejecting connections
+2026-09-08T17:35:36.904459973Z localhost:5432 - accepting connections

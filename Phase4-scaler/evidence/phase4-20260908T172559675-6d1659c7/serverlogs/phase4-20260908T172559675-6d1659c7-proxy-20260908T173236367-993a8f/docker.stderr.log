@@ -1,0 +1,15 @@
+2026-09-08T17:26:27.029114321Z [NOTICE]   (1) : New worker (8) forked
+2026-09-08T17:26:27.029472283Z [NOTICE]   (1) : Loading success.
+2026-09-08T17:26:27.177533705Z [WARNING]  (8) : Server primary_route/base is DOWN, reason: Layer7 wrong status, code: 503, info: "Service Unavailable", check duration: 5ms. 1 active and 0 backup servers left. 0 sessions active, 0 requeued, 0 remaining in queue.
+2026-09-08T17:27:23.859577775Z [WARNING]  (8) : Server replicas/elastic1 is UP/READY (leaving forced maintenance).
+2026-09-08T17:27:56.355408641Z [WARNING]  (8) : Server replicas/elastic2 is UP/READY (leaving forced maintenance).
+2026-09-08T17:28:28.529134608Z [WARNING]  (8) : Server replicas/elastic3 is UP/READY (leaving forced maintenance).
+2026-09-08T17:29:02.323613623Z [WARNING]  (8) : Server replicas/elastic4 is UP/READY (leaving forced maintenance).
+2026-09-08T17:30:29.674948530Z [WARNING]  (8) : Server replicas/elastic4 enters drain state. 4 active and 0 backup servers online. 0 sessions requeued, 0 total in queue.
+2026-09-08T17:30:30.105811176Z [WARNING]  (8) : Server replicas/elastic4 is going DOWN for maintenance. 4 active and 0 backup servers left. 0 sessions active, 0 requeued, 0 remaining in queue.
+2026-09-08T17:31:01.187621866Z [WARNING]  (8) : Server replicas/elastic3 enters drain state. 3 active and 0 backup servers online. 0 sessions requeued, 0 total in queue.
+2026-09-08T17:31:01.617784095Z [WARNING]  (8) : Server replicas/elastic3 is going DOWN for maintenance. 3 active and 0 backup servers left. 0 sessions active, 0 requeued, 0 remaining in queue.
+2026-09-08T17:31:31.939465430Z [WARNING]  (8) : Server replicas/elastic2 enters drain state. 2 active and 0 backup servers online. 0 sessions requeued, 0 total in queue.
+2026-09-08T17:31:32.439278205Z [WARNING]  (8) : Server replicas/elastic2 is going DOWN for maintenance. 2 active and 0 backup servers left. 0 sessions active, 0 requeued, 0 remaining in queue.
+2026-09-08T17:32:02.307340139Z [WARNING]  (8) : Server replicas/elastic1 enters drain state. 1 active and 0 backup servers online. 0 sessions requeued, 0 total in queue.
+2026-09-08T17:32:02.713988725Z [WARNING]  (8) : Server replicas/elastic1 is going DOWN for maintenance. 1 active and 0 backup servers left. 0 sessions active, 0 requeued, 0 remaining in queue.

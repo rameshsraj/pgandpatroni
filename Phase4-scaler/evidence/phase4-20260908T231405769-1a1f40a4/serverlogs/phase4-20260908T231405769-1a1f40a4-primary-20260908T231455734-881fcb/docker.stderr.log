@@ -1,0 +1,25 @@
+2026-09-08T23:14:19.227476274Z 2026-09-08 23:14:19,226 INFO: Selected new etcd server http://etcd:2379
+2026-09-08T23:14:19.350444222Z 2026-09-08 23:14:19,349 INFO: No PostgreSQL configuration items changed, nothing to reload.
+2026-09-08T23:14:19.588041102Z 2026-09-08 23:14:19,442 INFO: Lock owner: None; I am phase4-20260908T231405769-1a1f40a4-primary
+2026-09-08T23:14:19.588619607Z 2026-09-08 23:14:19,584 INFO: trying to bootstrap a new cluster
+2026-09-08T23:14:24.391214047Z 2026-09-08 23:14:24,389 INFO: Lock owner: None; I am phase4-20260908T231405769-1a1f40a4-primary
+2026-09-08T23:14:24.391275554Z 2026-09-08 23:14:24,389 INFO: not healthy enough for leader race
+2026-09-08T23:14:24.504247134Z 2026-09-08 23:14:24,502 INFO: bootstrap in progress
+2026-09-08T23:14:25.986081746Z initdb: warning: enabling "trust" authentication for local connections
+2026-09-08T23:14:25.986126152Z initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
+2026-09-08T23:14:27.019430274Z 2026-09-08 23:14:27.019 UTC [81] db= user= app= client= session=6aa096d2.51 tx=0 LOG:  redirecting log output to logging collector process
+2026-09-08T23:14:27.019483880Z 2026-09-08 23:14:27.019 UTC [81] db= user= app= client= session=6aa096d2.51 tx=0 HINT:  Future log output will appear in directory "pg_log".
+2026-09-08T23:14:27.030800121Z 2026-09-08 23:14:27,028 INFO: postmaster pid=81
+2026-09-08T23:14:27.498415140Z 2026-09-08 23:14:27,496 INFO: establishing a new patroni heartbeat connection to postgres
+2026-09-08T23:14:27.564185112Z 2026-09-08 23:14:27,562 INFO: running post_bootstrap
+2026-09-08T23:14:27.610832649Z 2026-09-08 23:14:27,609 WARNING: User creation via "bootstrap.users" will be removed in v4.0.0
+2026-09-08T23:14:27.635954647Z 2026-09-08 23:14:27,635 WARNING: Could not activate Linux watchdog device: Can't open watchdog device: [Errno 2] No such file or directory: '/dev/watchdog'
+2026-09-08T23:14:27.640172484Z 2026-09-08 23:14:27,639 INFO: Reaped pid=95, exit status=0
+2026-09-08T23:14:27.644440327Z 2026-09-08 23:14:27,642 INFO: Reaped pid=96, exit status=0
+2026-09-08T23:14:27.835359628Z 2026-09-08 23:14:27,834 INFO: initialized a new cluster
+2026-09-08T23:14:28.003130982Z 2026-09-08 23:14:28,001 INFO: establishing a new patroni restapi connection to postgres
+2026-09-08T23:14:32.777416489Z 2026-09-08 23:14:32,776 INFO: no action. I am (phase4-20260908T231405769-1a1f40a4-primary), the leader with the lock
+2026-09-08T23:14:37.684637165Z 2026-09-08 23:14:37,683 INFO: no action. I am (phase4-20260908T231405769-1a1f40a4-primary), the leader with the lock
+2026-09-08T23:14:42.801397466Z 2026-09-08 23:14:42,800 INFO: no action. I am (phase4-20260908T231405769-1a1f40a4-primary), the leader with the lock
+2026-09-08T23:14:47.687341360Z 2026-09-08 23:14:47,686 INFO: no action. I am (phase4-20260908T231405769-1a1f40a4-primary), the leader with the lock
+2026-09-08T23:14:52.691631348Z 2026-09-08 23:14:52,690 INFO: no action. I am (phase4-20260908T231405769-1a1f40a4-primary), the leader with the lock

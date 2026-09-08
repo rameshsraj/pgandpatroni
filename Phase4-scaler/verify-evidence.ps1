@@ -1,6 +1,6 @@
 #Requires -Version 7.2
 [CmdletBinding()]
-param([Parameter(Mandatory)][string]$EvidencePath, [switch]$Live)
+param([Parameter(Mandatory)][string]$EvidencePath, [switch]$Live, [string]$ReportPath)
 Set-StrictMode -Version Latest
 $ErrorActionPreference='Stop'
 $EvidencePath=(Resolve-Path -LiteralPath $EvidencePath).Path
@@ -75,7 +75,14 @@ $clientErrors=@(foreach ($c in $commands | Where-Object { $_.args[0] -eq 'logs' 
     foreach ($match in [regex]::Matches(($c.stdout+$c.stderr),'(?im)^.*(?:error:|fatal:|client \d+ aborted|could not connect|connection to server.*failed).*$')) { $match.Value }
 })
 Assert ($clientErrors.Count -eq 0) 'Client error signatures found in archived logs'
+$slotVerification = [pscustomobject]@{status='unavailable/not verified (historical evidence)'; removed=$null; physicalDiskReclamationVerified=$false}
+if ($null -ne $result.PSObject.Properties['slotEvidenceVersion']) {
+    Assert ($result.slotEvidenceVersion -eq 1) 'Unknown slot evidence schema'
+    . (Join-Path $PSScriptRoot 'verify-slot-evidence.ps1')
+    $slotVerification = Verify-SlotEvidence $result (Read-JsonLines 'slot-samples') (Read-JsonLines 'sql') $commands $snapshots $events
+}
 $summary=[ordered]@{run=$result.run; verifiedUTC=[datetime]::UtcNow.ToString('o'); manifestFiles=$manifest.Count;
+    slotVerification=$slotVerification;
     clientErrorSignatures=$clientErrors.Count;
     evidenceBytes=($files | Measure-Object Length -Sum).Sum; admitted=4; removed=4; peakDatabaseNodes=6;
     finalDatabaseNodes=2; acknowledgedTokens=$result.tokens.Count; fixtureRows=100000; fixtureHash=$final.primary.hash;
@@ -116,5 +123,10 @@ if ($Live) {
 }
 $reportDir=Join-Path $PSScriptRoot 'reports'
 [void][IO.Directory]::CreateDirectory($reportDir)
-$summary | ConvertTo-Json -Depth 12 | Set-Content (Join-Path $reportDir "$($result.run).json") -Encoding utf8
+if (-not $ReportPath) {
+    # Never overwrite the original historical report when adding this explicitly unverified slot status.
+    $suffix = if ($null -eq $result.PSObject.Properties['slotEvidenceVersion']) { '-slot-audit' } else { '' }
+    $ReportPath = Join-Path $reportDir "$($result.run)$suffix.json"
+}
+$summary | ConvertTo-Json -Depth 12 | Set-Content -LiteralPath $ReportPath -Encoding utf8
 $summary | ConvertTo-Json -Depth 12

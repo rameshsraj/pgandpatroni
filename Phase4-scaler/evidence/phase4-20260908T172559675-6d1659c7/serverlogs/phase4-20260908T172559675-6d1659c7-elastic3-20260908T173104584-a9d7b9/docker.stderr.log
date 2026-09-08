@@ -1,0 +1,160 @@
+2026-09-08T17:28:20.944498948Z 2026-09-08 17:28:20,943 INFO: Selected new etcd server http://etcd:2379
+2026-09-08T17:28:21.009626584Z 2026-09-08 17:28:21,009 INFO: No PostgreSQL configuration items changed, nothing to reload.
+2026-09-08T17:28:21.148147511Z 2026-09-08 17:28:21,081 INFO: Lock owner: phase4-20260908T172559675-6d1659c7-primary; I am phase4-20260908T172559675-6d1659c7-elastic3
+2026-09-08T17:28:21.148924501Z 2026-09-08 17:28:21,140 INFO: trying to bootstrap from leader 'phase4-20260908T172559675-6d1659c7-primary'
+2026-09-08T17:28:23.281352847Z 2026-09-08 17:28:23,204 INFO: Lock owner: phase4-20260908T172559675-6d1659c7-primary; I am phase4-20260908T172559675-6d1659c7-elastic3
+2026-09-08T17:28:23.281415254Z 2026-09-08 17:28:23,276 INFO: bootstrap from leader 'phase4-20260908T172559675-6d1659c7-primary' in progress
+2026-09-08T17:28:24.235469365Z 2026-09-08 17:28:24,219 INFO: replica has been created using basebackup
+2026-09-08T17:28:24.235509969Z 2026-09-08 17:28:24,225 INFO: bootstrapped from leader 'phase4-20260908T172559675-6d1659c7-primary'
+2026-09-08T17:28:25.515904467Z 2026-09-08 17:28:25.515 UTC [32] db= user= app= client= session=6aa045b9.20 tx=0 LOG:  redirecting log output to logging collector process
+2026-09-08T17:28:25.515974075Z 2026-09-08 17:28:25.515 UTC [32] db= user= app= client= session=6aa045b9.20 tx=0 HINT:  Future log output will appear in directory "pg_log".
+2026-09-08T17:28:25.517999403Z 2026-09-08 17:28:25,515 INFO: postmaster pid=32
+2026-09-08T17:28:25.794838635Z 2026-09-08 17:28:25,793 INFO: establishing a new patroni heartbeat connection to postgres
+2026-09-08T17:28:26.838321957Z 2026-09-08 17:28:26,837 INFO: Reaped pid=46, exit status=0
+2026-09-08T17:28:26.839449184Z 2026-09-08 17:28:26,838 INFO: Lock owner: phase4-20260908T172559675-6d1659c7-primary; I am phase4-20260908T172559675-6d1659c7-elastic3
+2026-09-08T17:28:26.839464286Z 2026-09-08 17:28:26,838 INFO: establishing a new patroni heartbeat connection to postgres
+2026-09-08T17:28:26.947187039Z 2026-09-08 17:28:26,946 INFO: no action. I am (phase4-20260908T172559675-6d1659c7-elastic3), a secondary, and following a leader (phase4-20260908T172559675-6d1659c7-primary)
+2026-09-08T17:28:26.953866992Z 2026-09-08 17:28:26,952 INFO: establishing a new patroni restapi connection to postgres
+2026-09-08T17:28:28.124873601Z 2026-09-08 17:28:28,122 INFO: no action. I am (phase4-20260908T172559675-6d1659c7-elastic3), a secondary, and following a leader (phase4-20260908T172559675-6d1659c7-primary)
+2026-09-08T17:28:33.228066322Z 2026-09-08 17:28:33,226 INFO: no action. I am (phase4-20260908T172559675-6d1659c7-elastic3), a secondary, and following a leader (phase4-20260908T172559675-6d1659c7-primary)
+2026-09-08T17:28:38.206729168Z 2026-09-08 17:28:38,199 INFO: no action. I am (phase4-20260908T172559675-6d1659c7-elastic3), a secondary, and following a leader (phase4-20260908T172559675-6d1659c7-primary)
+2026-09-08T17:28:43.214491859Z 2026-09-08 17:28:43,209 INFO: no action. I am (phase4-20260908T172559675-6d1659c7-elastic3), a secondary, and following a leader (phase4-20260908T172559675-6d1659c7-primary)
+2026-09-08T17:28:48.189928261Z 2026-09-08 17:28:48,188 INFO: no action. I am (phase4-20260908T172559675-6d1659c7-elastic3), a secondary, and following a leader (phase4-20260908T172559675-6d1659c7-primary)
+2026-09-08T17:28:53.231630245Z 2026-09-08 17:28:53,229 INFO: no action. I am (phase4-20260908T172559675-6d1659c7-elastic3), a secondary, and following a leader (phase4-20260908T172559675-6d1659c7-primary)
+2026-09-08T17:28:55.961620102Z 2026-09-08 17:28:55,948 WARNING: Exception happened during processing of request from 172.22.0.5:53226
+2026-09-08T17:28:56.018190730Z 2026-09-08 17:28:56,016 WARNING: Traceback (most recent call last):
+2026-09-08T17:28:56.018252636Z   File "/usr/lib/python3.11/socketserver.py", line 691, in process_request_thread
+2026-09-08T17:28:56.018261737Z     self.finish_request(request, client_address)
+2026-09-08T17:28:56.018268337Z   File "/usr/lib/python3.11/socketserver.py", line 361, in finish_request
+2026-09-08T17:28:56.018274338Z     self.RequestHandlerClass(request, client_address, self)
+2026-09-08T17:28:56.018280938Z   File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 105, in __init__
+2026-09-08T17:28:56.018313742Z     super(RestApiHandler, self).__init__(request, client_address, server)
+2026-09-08T17:28:56.018321042Z   File "/usr/lib/python3.11/socketserver.py", line 755, in __init__
+2026-09-08T17:28:56.018327943Z     self.handle()
+2026-09-08T17:28:56.018334444Z   File "/usr/lib/python3.11/http/server.py", line 432, in handle
+2026-09-08T17:28:56.018340844Z     self.handle_one_request()
+2026-09-08T17:28:56.018347345Z   File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 1348, in handle_one_request
+2026-09-08T17:28:56.018353746Z     BaseHTTPRequestHandler.handle_one_request(self)
+2026-09-08T17:28:56.018360146Z   File "/usr/lib/python3.11/http/server.py", line 420, in handle_one_request
+2026-09-08T17:28:56.018366647Z     method()
+2026-09-08T17:28:56.018491559Z   File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 375, in do_GET
+2026-09-08T17:28:56.018506061Z     self._write_status_response(status_code, response)
+2026-09-08T17:28:56.018512962Z   File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 221, in _write_status_response
+2026-09-08T17:28:56.018519662Z     self._write_json_response(status_code, response)
+2026-09-08T17:28:56.018525963Z   File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 167, in _write_json_response
+2026-09-08T17:28:56.018532864Z     self.write_response(status_code, json.dumps(response, default=str), content_type='application/json')
+2026-09-08T17:28:56.018539464Z   File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 157, in write_response
+2026-09-08T17:28:56.018588969Z     self.wfile.write(body.encode('utf-8'))
+2026-09-08T17:28:56.018596470Z   File "/usr/lib/python3.11/socketserver.py", line 834, in write
+2026-09-08T17:28:56.018600670Z     self._sock.sendall(b)
+2026-09-08T17:28:56.018604571Z ConnectionResetError: [Errno 104] Connection reset by peer
+2026-09-08T17:28:56.018608571Z 
+2026-09-08T17:28:58.207477044Z 2026-09-08 17:28:58,205 INFO: no action. I am (phase4-20260908T172559675-6d1659c7-elastic3), a secondary, and following a leader (phase4-20260908T172559675-6d1659c7-primary)
+2026-09-08T17:29:03.222914159Z 2026-09-08 17:29:03,221 INFO: no action. I am (phase4-20260908T172559675-6d1659c7-elastic3), a secondary, and following a leader (phase4-20260908T172559675-6d1659c7-primary)
+2026-09-08T17:29:08.672873631Z 2026-09-08 17:29:08,672 INFO: no action. I am (phase4-20260908T172559675-6d1659c7-elastic3), a secondary, and following a leader (phase4-20260908T172559675-6d1659c7-primary)
+2026-09-08T17:29:13.196323504Z 2026-09-08 17:29:13,195 INFO: no action. I am (phase4-20260908T172559675-6d1659c7-elastic3), a secondary, and following a leader (phase4-20260908T172559675-6d1659c7-primary)
+2026-09-08T17:29:18.678065773Z 2026-09-08 17:29:18,677 INFO: no action. I am (phase4-20260908T172559675-6d1659c7-elastic3), a secondary, and following a leader (phase4-20260908T172559675-6d1659c7-primary)
+2026-09-08T17:29:23.633816866Z 2026-09-08 17:29:23,633 INFO: no action. I am (phase4-20260908T172559675-6d1659c7-elastic3), a secondary, and following a leader (phase4-20260908T172559675-6d1659c7-primary)
+2026-09-08T17:29:28.233491316Z 2026-09-08 17:29:28,232 INFO: no action. I am (phase4-20260908T172559675-6d1659c7-elastic3), a secondary, and following a leader (phase4-20260908T172559675-6d1659c7-primary)
+2026-09-08T17:29:33.196400986Z 2026-09-08 17:29:33,194 INFO: no action. I am (phase4-20260908T172559675-6d1659c7-elastic3), a secondary, and following a leader (phase4-20260908T172559675-6d1659c7-primary)
+2026-09-08T17:29:33.196456692Z 2026-09-08 17:29:33,194 WARNING: Exception happened during processing of request from 172.22.0.5:53416
+2026-09-08T17:29:33.199674003Z 2026-09-08 17:29:33,198 WARNING: Traceback (most recent call last):
+2026-09-08T17:29:33.199715507Z   File "/usr/lib/python3.11/socketserver.py", line 691, in process_request_thread
+2026-09-08T17:29:33.199724508Z     self.finish_request(request, client_address)
+2026-09-08T17:29:33.199731109Z   File "/usr/lib/python3.11/socketserver.py", line 361, in finish_request
+2026-09-08T17:29:33.199737409Z     self.RequestHandlerClass(request, client_address, self)
+2026-09-08T17:29:33.199743810Z   File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 105, in __init__
+2026-09-08T17:29:33.199751111Z     super(RestApiHandler, self).__init__(request, client_address, server)
+2026-09-08T17:29:33.199757011Z   File "/usr/lib/python3.11/socketserver.py", line 755, in __init__
+2026-09-08T17:29:33.199762312Z     self.handle()
+2026-09-08T17:29:33.199767812Z   File "/usr/lib/python3.11/http/server.py", line 432, in handle
+2026-09-08T17:29:33.199795015Z     self.handle_one_request()
+2026-09-08T17:29:33.199801215Z   File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 1348, in handle_one_request
+2026-09-08T17:29:33.199805416Z     BaseHTTPRequestHandler.handle_one_request(self)
+2026-09-08T17:29:33.199808316Z   File "/usr/lib/python3.11/http/server.py", line 420, in handle_one_request
+2026-09-08T17:29:33.199812116Z     method()
+2026-09-08T17:29:33.199815817Z   File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 375, in do_GET
+2026-09-08T17:29:33.199819717Z     self._write_status_response(status_code, response)
+2026-09-08T17:29:33.199823318Z   File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 221, in _write_status_response
+2026-09-08T17:29:33.199827218Z     self._write_json_response(status_code, response)
+2026-09-08T17:29:33.199830618Z   File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 167, in _write_json_response
+2026-09-08T17:29:33.199834219Z     self.write_response(status_code, json.dumps(response, default=str), content_type='application/json')
+2026-09-08T17:29:33.199838019Z   File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 157, in write_response
+2026-09-08T17:29:33.199841719Z     self.wfile.write(body.encode('utf-8'))
+2026-09-08T17:29:33.199881423Z   File "/usr/lib/python3.11/socketserver.py", line 834, in write
+2026-09-08T17:29:33.199889224Z     self._sock.sendall(b)
+2026-09-08T17:29:33.199893324Z ConnectionResetError: [Errno 104] Connection reset by peer
+2026-09-08T17:29:33.199896725Z 
+2026-09-08T17:29:37.219930553Z 2026-09-08 17:29:37,218 WARNING: Exception happened during processing of request from 172.22.0.5:53456
+2026-09-08T17:29:37.221154471Z 2026-09-08 17:29:37,220 WARNING: Traceback (most recent call last):
+2026-09-08T17:29:37.221191375Z   File "/usr/lib/python3.11/socketserver.py", line 691, in process_request_thread
+2026-09-08T17:29:37.221201976Z     self.finish_request(request, client_address)
+2026-09-08T17:29:37.221209176Z   File "/usr/lib/python3.11/socketserver.py", line 361, in finish_request
+2026-09-08T17:29:37.221215377Z     self.RequestHandlerClass(request, client_address, self)
+2026-09-08T17:29:37.221220877Z   File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 105, in __init__
+2026-09-08T17:29:37.221226378Z     super(RestApiHandler, self).__init__(request, client_address, server)
+2026-09-08T17:29:37.221231578Z   File "/usr/lib/python3.11/socketserver.py", line 755, in __init__
+2026-09-08T17:29:37.221237579Z     self.handle()
+2026-09-08T17:29:37.221243580Z   File "/usr/lib/python3.11/http/server.py", line 432, in handle
+2026-09-08T17:29:37.221250180Z     self.handle_one_request()
+2026-09-08T17:29:37.221256481Z   File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 1348, in handle_one_request
+2026-09-08T17:29:37.221263281Z     BaseHTTPRequestHandler.handle_one_request(self)
+2026-09-08T17:29:37.221291384Z   File "/usr/lib/python3.11/http/server.py", line 420, in handle_one_request
+2026-09-08T17:29:37.221297185Z     method()
+2026-09-08T17:29:37.221301185Z   File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 375, in do_GET
+2026-09-08T17:29:37.221305286Z     self._write_status_response(status_code, response)
+2026-09-08T17:29:37.221308986Z   File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 221, in _write_status_response
+2026-09-08T17:29:37.221312386Z     self._write_json_response(status_code, response)
+2026-09-08T17:29:37.221315887Z   File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 167, in _write_json_response
+2026-09-08T17:29:37.221319987Z     self.write_response(status_code, json.dumps(response, default=str), content_type='application/json')
+2026-09-08T17:29:37.221323787Z   File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 157, in write_response
+2026-09-08T17:29:37.221327988Z     self.wfile.write(body.encode('utf-8'))
+2026-09-08T17:29:37.221331288Z   File "/usr/lib/python3.11/socketserver.py", line 834, in write
+2026-09-08T17:29:37.221334688Z     self._sock.sendall(b)
+2026-09-08T17:29:37.221338589Z ConnectionResetError: [Errno 104] Connection reset by peer
+2026-09-08T17:29:37.221342489Z 
+2026-09-08T17:29:38.673968020Z 2026-09-08 17:29:38,672 INFO: no action. I am (phase4-20260908T172559675-6d1659c7-elastic3), a secondary, and following a leader (phase4-20260908T172559675-6d1659c7-primary)
+2026-09-08T17:29:43.178977052Z 2026-09-08 17:29:43,178 INFO: no action. I am (phase4-20260908T172559675-6d1659c7-elastic3), a secondary, and following a leader (phase4-20260908T172559675-6d1659c7-primary)
+2026-09-08T17:29:48.241788904Z 2026-09-08 17:29:48,240 INFO: no action. I am (phase4-20260908T172559675-6d1659c7-elastic3), a secondary, and following a leader (phase4-20260908T172559675-6d1659c7-primary)
+2026-09-08T17:29:53.189818249Z 2026-09-08 17:29:53,189 INFO: no action. I am (phase4-20260908T172559675-6d1659c7-elastic3), a secondary, and following a leader (phase4-20260908T172559675-6d1659c7-primary)
+2026-09-08T17:29:58.672015129Z 2026-09-08 17:29:58,671 INFO: no action. I am (phase4-20260908T172559675-6d1659c7-elastic3), a secondary, and following a leader (phase4-20260908T172559675-6d1659c7-primary)
+2026-09-08T17:30:03.627310615Z 2026-09-08 17:30:03,626 INFO: no action. I am (phase4-20260908T172559675-6d1659c7-elastic3), a secondary, and following a leader (phase4-20260908T172559675-6d1659c7-primary)
+2026-09-08T17:30:08.669623279Z 2026-09-08 17:30:08,668 INFO: no action. I am (phase4-20260908T172559675-6d1659c7-elastic3), a secondary, and following a leader (phase4-20260908T172559675-6d1659c7-primary)
+2026-09-08T17:30:13.629753164Z 2026-09-08 17:30:13,628 INFO: no action. I am (phase4-20260908T172559675-6d1659c7-elastic3), a secondary, and following a leader (phase4-20260908T172559675-6d1659c7-primary)
+2026-09-08T17:30:18.237126458Z 2026-09-08 17:30:18,230 INFO: no action. I am (phase4-20260908T172559675-6d1659c7-elastic3), a secondary, and following a leader (phase4-20260908T172559675-6d1659c7-primary)
+2026-09-08T17:30:23.176127710Z 2026-09-08 17:30:23,175 INFO: no action. I am (phase4-20260908T172559675-6d1659c7-elastic3), a secondary, and following a leader (phase4-20260908T172559675-6d1659c7-primary)
+2026-09-08T17:30:28.668929327Z 2026-09-08 17:30:28,668 INFO: no action. I am (phase4-20260908T172559675-6d1659c7-elastic3), a secondary, and following a leader (phase4-20260908T172559675-6d1659c7-primary)
+2026-09-08T17:30:33.626228303Z 2026-09-08 17:30:33,625 INFO: no action. I am (phase4-20260908T172559675-6d1659c7-elastic3), a secondary, and following a leader (phase4-20260908T172559675-6d1659c7-primary)
+2026-09-08T17:30:36.569840906Z 2026-09-08 17:30:36,567 WARNING: Exception happened during processing of request from 172.22.0.5:40370
+2026-09-08T17:30:36.575479839Z 2026-09-08 17:30:36,572 WARNING: Traceback (most recent call last):
+2026-09-08T17:30:36.575522743Z   File "/usr/lib/python3.11/socketserver.py", line 691, in process_request_thread
+2026-09-08T17:30:36.575531643Z     self.finish_request(request, client_address)
+2026-09-08T17:30:36.575538644Z   File "/usr/lib/python3.11/socketserver.py", line 361, in finish_request
+2026-09-08T17:30:36.575546044Z     self.RequestHandlerClass(request, client_address, self)
+2026-09-08T17:30:36.575552445Z   File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 105, in __init__
+2026-09-08T17:30:36.575558845Z     super(RestApiHandler, self).__init__(request, client_address, server)
+2026-09-08T17:30:36.575565046Z   File "/usr/lib/python3.11/socketserver.py", line 755, in __init__
+2026-09-08T17:30:36.575571246Z     self.handle()
+2026-09-08T17:30:36.575576947Z   File "/usr/lib/python3.11/http/server.py", line 432, in handle
+2026-09-08T17:30:36.575583147Z     self.handle_one_request()
+2026-09-08T17:30:36.575589148Z   File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 1348, in handle_one_request
+2026-09-08T17:30:36.575595748Z     BaseHTTPRequestHandler.handle_one_request(self)
+2026-09-08T17:30:36.575602149Z   File "/usr/lib/python3.11/http/server.py", line 420, in handle_one_request
+2026-09-08T17:30:36.575608349Z     method()
+2026-09-08T17:30:36.575614250Z   File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 375, in do_GET
+2026-09-08T17:30:36.575621050Z     self._write_status_response(status_code, response)
+2026-09-08T17:30:36.575627151Z   File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 221, in _write_status_response
+2026-09-08T17:30:36.575633651Z     self._write_json_response(status_code, response)
+2026-09-08T17:30:36.575639552Z   File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 167, in _write_json_response
+2026-09-08T17:30:36.575645952Z     self.write_response(status_code, json.dumps(response, default=str), content_type='application/json')
+2026-09-08T17:30:36.575652453Z   File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 157, in write_response
+2026-09-08T17:30:36.575658853Z     self.wfile.write(body.encode('utf-8'))
+2026-09-08T17:30:36.575687455Z   File "/usr/lib/python3.11/socketserver.py", line 834, in write
+2026-09-08T17:30:36.575692556Z     self._sock.sendall(b)
+2026-09-08T17:30:36.575696656Z ConnectionResetError: [Errno 104] Connection reset by peer
+2026-09-08T17:30:36.575700756Z 
+2026-09-08T17:30:38.666369515Z 2026-09-08 17:30:38,665 INFO: no action. I am (phase4-20260908T172559675-6d1659c7-elastic3), a secondary, and following a leader (phase4-20260908T172559675-6d1659c7-primary)
+2026-09-08T17:30:43.168244562Z 2026-09-08 17:30:43,167 INFO: no action. I am (phase4-20260908T172559675-6d1659c7-elastic3), a secondary, and following a leader (phase4-20260908T172559675-6d1659c7-primary)
+2026-09-08T17:30:48.235188656Z 2026-09-08 17:30:48,234 INFO: no action. I am (phase4-20260908T172559675-6d1659c7-elastic3), a secondary, and following a leader (phase4-20260908T172559675-6d1659c7-primary)
+2026-09-08T17:30:53.169802202Z 2026-09-08 17:30:53,168 INFO: no action. I am (phase4-20260908T172559675-6d1659c7-elastic3), a secondary, and following a leader (phase4-20260908T172559675-6d1659c7-primary)
+2026-09-08T17:30:58.220255333Z 2026-09-08 17:30:58,219 INFO: no action. I am (phase4-20260908T172559675-6d1659c7-elastic3), a secondary, and following a leader (phase4-20260908T172559675-6d1659c7-primary)

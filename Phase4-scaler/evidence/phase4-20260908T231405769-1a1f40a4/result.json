@@ -1,0 +1,20 @@
+{
+  "failure": "Exception: C:\\GitHub\\pgandpatroni\\Phase4-scaler\\slot-observation.ps1:28:13\r\nLine |\r\n  28 |              throw \"Slot/sender/receiver/membership correlation failed …\r\n     |              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\r\n     |\r\n     | Slot/sender/receiver/membership correlation failed: phase4-20260908T231405769-1a1f40a4-base\r\n\r\n",
+  "slotEvidenceVersion": 1,
+  "network": "phase4-20260908T231405769-1a1f40a4-net",
+  "baseline": [
+    "phase4-20260908T231405769-1a1f40a4-primary",
+    "phase4-20260908T231405769-1a1f40a4-base",
+    "phase4-20260908T231405769-1a1f40a4-etcd",
+    "phase4-20260908T231405769-1a1f40a4-proxy"
+  ],
+  "cleanupErrors": [],
+  "run": "phase4-20260908T231405769-1a1f40a4",
+  "tokens": [],
+  "slotOutcomes": [],
+  "credentials": "Random credentials held only in this process and Docker metadata; not persisted in evidence. Local trust permits later docker exec psql as postgres.",
+  "slotMappings": {},
+  "preservation": "Baseline remains running on success; elastic containers removed without -v; volumes and stopped traffic containers retained. On failure DB resources remain in their last state, including drained/maintenance slots.",
+  "success": false,
+  "finalElasticCount": 0
+}

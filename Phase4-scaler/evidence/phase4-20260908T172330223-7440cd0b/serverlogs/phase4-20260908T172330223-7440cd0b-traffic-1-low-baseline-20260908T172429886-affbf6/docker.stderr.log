@@ -1,0 +1,422 @@
+2026-09-08T17:24:03.528774641Z pgbench: setting random seed to 42
+2026-09-08T17:24:03.572703803Z pgbench: pghost: proxy pgport: 5001 nclients: 8 duration: 900 dbName: postgres
+2026-09-08T17:24:03.577828820Z pgbench: client 4 executing script "/work/read.sql"
+2026-09-08T17:24:03.577857725Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T17:24:03.577861126Z pgbench: client 5 executing script "/work/read.sql"
+2026-09-08T17:24:03.577863126Z pgbench: client 6 executing script "/work/read.sql"
+2026-09-08T17:24:03.577865126Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T17:24:03.577866927Z pgbench: client 2 executing script "/work/read.sql"
+2026-09-08T17:24:03.577868727Z pgbench: client 7 executing script "/work/read.sql"
+2026-09-08T17:24:03.577870627Z pgbench: client 3 executing script "/work/read.sql"
+2026-09-08T17:24:05.578040888Z progress: 2.0 s, 0.0 tps, lat 0.000 ms stddev 0.000, 0 failed, lag 0.000 ms
+2026-09-08T17:24:05.614911887Z pgbench: client 4 executing \set first
+2026-09-08T17:24:05.615005704Z pgbench: client 4 sending SELECT inet_server_addr() AS server, pg_is_in_recovery() AS replica,
+2026-09-08T17:24:05.615019106Z        count(*), sum(id), sum(length(payload))
+2026-09-08T17:24:05.615023407Z FROM phase4_lab.items WHERE id BETWEEN 13852 AND 13852 + 99;
+2026-09-08T17:24:05.615026507Z pgbench: client 4 receiving
+2026-09-08T17:24:05.618234581Z pgbench: client 4 receiving
+2026-09-08T17:24:05.620484084Z pgbench: client 4 executing script "/work/read.sql"
+2026-09-08T17:24:05.892992454Z pgbench: client 0 executing \set first
+2026-09-08T17:24:05.893028860Z pgbench: client 0 sending SELECT inet_server_addr() AS server, pg_is_in_recovery() AS replica,
+2026-09-08T17:24:05.893034661Z        count(*), sum(id), sum(length(payload))
+2026-09-08T17:24:05.893038362Z FROM phase4_lab.items WHERE id BETWEEN 83532 AND 83532 + 99;
+2026-09-08T17:24:05.893041862Z pgbench: client 0 receiving
+2026-09-08T17:24:05.895036019Z pgbench: client 0 receiving
+2026-09-08T17:24:05.895618924Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T17:24:06.094890986Z pgbench: client 5 executing \set first
+2026-09-08T17:24:06.094920092Z pgbench: client 5 sending SELECT inet_server_addr() AS server, pg_is_in_recovery() AS replica,
+2026-09-08T17:24:06.094923492Z        count(*), sum(id), sum(length(payload))
+2026-09-08T17:24:06.094925493Z FROM phase4_lab.items WHERE id BETWEEN 12488 AND 12488 + 99;
+2026-09-08T17:24:06.094927393Z pgbench: client 5 receiving
+2026-09-08T17:24:06.096589690Z pgbench: client 5 receiving
+2026-09-08T17:24:06.096700410Z pgbench: client 5 executing script "/work/read.sql"
+2026-09-08T17:24:06.120489568Z pgbench: client 6 executing \set first
+2026-09-08T17:24:06.120527174Z pgbench: client 6 sending SELECT inet_server_addr() AS server, pg_is_in_recovery() AS replica,
+2026-09-08T17:24:06.120532375Z        count(*), sum(id), sum(length(payload))
+2026-09-08T17:24:06.120536176Z FROM phase4_lab.items WHERE id BETWEEN 48501 AND 48501 + 99;
+2026-09-08T17:24:06.120773718Z pgbench: client 6 receiving
+2026-09-08T17:24:06.122709565Z pgbench: client 6 receiving
+2026-09-08T17:24:06.122778377Z pgbench: client 6 executing script "/work/read.sql"
+2026-09-08T17:24:06.188945719Z pgbench: client 7 executing \set first
+2026-09-08T17:24:06.188990627Z pgbench: client 7 sending SELECT inet_server_addr() AS server, pg_is_in_recovery() AS replica,
+2026-09-08T17:24:06.188996928Z        count(*), sum(id), sum(length(payload))
+2026-09-08T17:24:06.189000229Z FROM phase4_lab.items WHERE id BETWEEN 70588 AND 70588 + 99;
+2026-09-08T17:24:06.189003329Z pgbench: client 7 receiving
+2026-09-08T17:24:06.191319444Z pgbench: client 7 receiving
+2026-09-08T17:24:06.191354050Z pgbench: client 7 executing script "/work/read.sql"
+2026-09-08T17:24:06.713099124Z pgbench: client 1 executing \set first
+2026-09-08T17:24:06.713126029Z pgbench: client 1 sending SELECT inet_server_addr() AS server, pg_is_in_recovery() AS replica,
+2026-09-08T17:24:06.713128929Z        count(*), sum(id), sum(length(payload))
+2026-09-08T17:24:06.713130830Z FROM phase4_lab.items WHERE id BETWEEN 81172 AND 81172 + 99;
+2026-09-08T17:24:06.713132630Z pgbench: client 1 receiving
+2026-09-08T17:24:06.714596592Z pgbench: client 1 receiving
+2026-09-08T17:24:06.714715013Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T17:24:06.747904053Z pgbench: client 2 executing \set first
+2026-09-08T17:24:06.747934658Z pgbench: client 2 sending SELECT inet_server_addr() AS server, pg_is_in_recovery() AS replica,
+2026-09-08T17:24:06.747938059Z        count(*), sum(id), sum(length(payload))
+2026-09-08T17:24:06.747940059Z FROM phase4_lab.items WHERE id BETWEEN 18350 AND 18350 + 99;
+2026-09-08T17:24:06.747941860Z pgbench: client 2 receiving
+2026-09-08T17:24:06.749357013Z pgbench: client 2 receiving
+2026-09-08T17:24:06.749366815Z pgbench: client 2 executing script "/work/read.sql"
+2026-09-08T17:24:07.249110752Z pgbench: client 4 executing \set first
+2026-09-08T17:24:07.249139057Z pgbench: client 4 sending SELECT inet_server_addr() AS server, pg_is_in_recovery() AS replica,
+2026-09-08T17:24:07.249143757Z        count(*), sum(id), sum(length(payload))
+2026-09-08T17:24:07.249146758Z FROM phase4_lab.items WHERE id BETWEEN 47295 AND 47295 + 99;
+2026-09-08T17:24:07.249149558Z pgbench: client 4 receiving
+2026-09-08T17:24:07.250711738Z pgbench: client 4 receiving
+2026-09-08T17:24:07.250736943Z pgbench: client 4 executing script "/work/read.sql"
+2026-09-08T17:24:07.456187211Z pgbench: client 5 executing \set first
+2026-09-08T17:24:07.456222617Z pgbench: client 5 sending SELECT inet_server_addr() AS server, pg_is_in_recovery() AS replica,
+2026-09-08T17:24:07.456228018Z        count(*), sum(id), sum(length(payload))
+2026-09-08T17:24:07.456231119Z FROM phase4_lab.items WHERE id BETWEEN 45932 AND 45932 + 99;
+2026-09-08T17:24:07.456234119Z pgbench: client 5 receiving
+2026-09-08T17:24:07.458471920Z pgbench: client 5 receiving
+2026-09-08T17:24:07.458536631Z pgbench: client 5 executing script "/work/read.sql"
+2026-09-08T17:24:07.591553237Z pgbench: client 3 executing \set first
+2026-09-08T17:24:07.591589043Z pgbench: client 3 sending SELECT inet_server_addr() AS server, pg_is_in_recovery() AS replica,
+2026-09-08T17:24:07.591593444Z        count(*), sum(id), sum(length(payload))
+2026-09-08T17:24:07.591596244Z FROM phase4_lab.items WHERE id BETWEEN 61450 AND 61450 + 99;
+2026-09-08T17:24:07.591599045Z pgbench: client 3 receiving
+2026-09-08T17:24:07.591601645Z progress: 4.0 s, 4.5 tps, lat 27.054 ms stddev 15.111, 0 failed, lag 24.748 ms
+2026-09-08T17:24:07.593924061Z pgbench: client 3 receiving
+2026-09-08T17:24:07.593944565Z pgbench: client 3 executing script "/work/read.sql"
+2026-09-08T17:24:07.745650115Z pgbench: client 0 executing \set first
+2026-09-08T17:24:07.745681720Z pgbench: client 0 sending SELECT inet_server_addr() AS server, pg_is_in_recovery() AS replica,
+2026-09-08T17:24:07.745686521Z        count(*), sum(id), sum(length(payload))
+2026-09-08T17:24:07.745689322Z FROM phase4_lab.items WHERE id BETWEEN 83233 AND 83233 + 99;
+2026-09-08T17:24:07.745691922Z pgbench: client 0 receiving
+2026-09-08T17:24:07.747226097Z pgbench: client 0 receiving
+2026-09-08T17:24:07.747285407Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T17:24:08.823576017Z pgbench: client 6 executing \set first
+2026-09-08T17:24:08.823600921Z pgbench: client 6 sending SELECT inet_server_addr() AS server, pg_is_in_recovery() AS replica,
+2026-09-08T17:24:08.823603421Z        count(*), sum(id), sum(length(payload))
+2026-09-08T17:24:08.823604921Z FROM phase4_lab.items WHERE id BETWEEN 76045 AND 76045 + 99;
+2026-09-08T17:24:08.823606321Z pgbench: client 6 receiving
+2026-09-08T17:24:08.825720364Z pgbench: client 6 receiving
+2026-09-08T17:24:08.825739467Z pgbench: client 6 executing script "/work/read.sql"
+2026-09-08T17:24:09.077063009Z pgbench: client 7 executing \set first
+2026-09-08T17:24:09.077098315Z pgbench: client 7 sending SELECT inet_server_addr() AS server, pg_is_in_recovery() AS replica,
+2026-09-08T17:24:09.077103116Z        count(*), sum(id), sum(length(payload))
+2026-09-08T17:24:09.077118218Z FROM phase4_lab.items WHERE id BETWEEN 73487 AND 73487 + 99;
+2026-09-08T17:24:09.077121219Z pgbench: client 7 receiving
+2026-09-08T17:24:09.079012725Z pgbench: client 7 receiving
+2026-09-08T17:24:09.079190454Z pgbench: client 7 executing script "/work/read.sql"
+2026-09-08T17:24:09.139830284Z pgbench: client 1 executing \set first
+2026-09-08T17:24:09.139863690Z pgbench: client 1 sending SELECT inet_server_addr() AS server, pg_is_in_recovery() AS replica,
+2026-09-08T17:24:09.139868090Z        count(*), sum(id), sum(length(payload))
+2026-09-08T17:24:09.139870691Z FROM phase4_lab.items WHERE id BETWEEN 73184 AND 73184 + 99;
+2026-09-08T17:24:09.139872991Z pgbench: client 1 receiving
+2026-09-08T17:24:09.141601471Z pgbench: client 1 receiving
+2026-09-08T17:24:09.141689186Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T17:24:09.271592344Z pgbench: client 4 executing \set first
+2026-09-08T17:24:09.271625350Z pgbench: client 4 sending SELECT inet_server_addr() AS server, pg_is_in_recovery() AS replica,
+2026-09-08T17:24:09.271629350Z        count(*), sum(id), sum(length(payload))
+2026-09-08T17:24:09.271630950Z FROM phase4_lab.items WHERE id BETWEEN 35701 AND 35701 + 99;
+2026-09-08T17:24:09.271632451Z pgbench: client 4 receiving
+2026-09-08T17:24:09.273039979Z pgbench: client 4 receiving
+2026-09-08T17:24:09.273057382Z pgbench: client 4 executing script "/work/read.sql"
+2026-09-08T17:24:09.394795216Z pgbench: client 5 executing \set first
+2026-09-08T17:24:09.394856126Z pgbench: client 5 sending SELECT inet_server_addr() AS server, pg_is_in_recovery() AS replica,
+2026-09-08T17:24:09.394859827Z        count(*), sum(id), sum(length(payload))
+2026-09-08T17:24:09.394862327Z FROM phase4_lab.items WHERE id BETWEEN 48600 AND 48600 + 99;
+2026-09-08T17:24:09.394864928Z pgbench: client 5 receiving
+2026-09-08T17:24:09.396642316Z pgbench: client 5 receiving
+2026-09-08T17:24:09.396825646Z pgbench: client 5 executing script "/work/read.sql"
+2026-09-08T17:24:09.573305455Z progress: 6.0 s, 3.5 tps, lat 19.903 ms stddev 4.690, 0 failed, lag 17.922 ms
+2026-09-08T17:24:09.832786419Z pgbench: client 2 executing \set first
+2026-09-08T17:24:09.832830426Z pgbench: client 2 sending SELECT inet_server_addr() AS server, pg_is_in_recovery() AS replica,
+2026-09-08T17:24:09.832836027Z        count(*), sum(id), sum(length(payload))
+2026-09-08T17:24:09.832839428Z FROM phase4_lab.items WHERE id BETWEEN 86960 AND 86960 + 99;
+2026-09-08T17:24:09.832842728Z pgbench: client 2 receiving
+2026-09-08T17:24:09.835914126Z pgbench: client 2 receiving
+2026-09-08T17:24:09.836023844Z pgbench: client 2 executing script "/work/read.sql"
+2026-09-08T17:24:09.920915105Z pgbench: client 6 executing \set first
+2026-09-08T17:24:09.920942310Z pgbench: client 6 sending SELECT inet_server_addr() AS server, pg_is_in_recovery() AS replica,
+2026-09-08T17:24:09.920959013Z        count(*), sum(id), sum(length(payload))
+2026-09-08T17:24:09.920961213Z FROM phase4_lab.items WHERE id BETWEEN 41181 AND 41181 + 99;
+2026-09-08T17:24:09.920963013Z pgbench: client 6 receiving
+2026-09-08T17:24:09.922464557Z pgbench: client 6 receiving
+2026-09-08T17:24:09.922485160Z pgbench: client 6 executing script "/work/read.sql"
+2026-09-08T17:24:10.233173325Z pgbench: client 7 executing \set first
+2026-09-08T17:24:10.233216032Z pgbench: client 7 sending SELECT inet_server_addr() AS server, pg_is_in_recovery() AS replica,
+2026-09-08T17:24:10.233222033Z        count(*), sum(id), sum(length(payload))
+2026-09-08T17:24:10.233225634Z FROM phase4_lab.items WHERE id BETWEEN 93450 AND 93450 + 99;
+2026-09-08T17:24:10.233229334Z pgbench: client 7 receiving
+2026-09-08T17:24:10.236762807Z pgbench: client 7 receiving
+2026-09-08T17:24:10.236799813Z pgbench: client 7 executing script "/work/read.sql"
+2026-09-08T17:24:10.637813021Z pgbench: client 4 executing \set first
+2026-09-08T17:24:10.637856928Z pgbench: client 4 sending SELECT inet_server_addr() AS server, pg_is_in_recovery() AS replica,
+2026-09-08T17:24:10.637861429Z        count(*), sum(id), sum(length(payload))
+2026-09-08T17:24:10.637863629Z FROM phase4_lab.items WHERE id BETWEEN 93221 AND 93221 + 99;
+2026-09-08T17:24:10.638097967Z pgbench: client 4 receiving
+2026-09-08T17:24:10.641007239Z pgbench: client 4 receiving
+2026-09-08T17:24:10.641074450Z pgbench: client 4 executing script "/work/read.sql"
+2026-09-08T17:24:10.819854932Z pgbench: client 5 executing \set first
+2026-09-08T17:24:10.819946047Z pgbench: client 5 sending SELECT inet_server_addr() AS server, pg_is_in_recovery() AS replica,
+2026-09-08T17:24:10.819950647Z        count(*), sum(id), sum(length(payload))
+2026-09-08T17:24:10.819953748Z FROM phase4_lab.items WHERE id BETWEEN 74411 AND 74411 + 99;
+2026-09-08T17:24:10.819956748Z pgbench: client 5 receiving
+2026-09-08T17:24:10.822633482Z pgbench: client 5 receiving
+2026-09-08T17:24:10.822680490Z pgbench: client 5 executing script "/work/read.sql"
+2026-09-08T17:24:11.572879204Z progress: 8.0 s, 2.5 tps, lat 30.921 ms stddev 12.292, 0 failed, lag 27.965 ms
+2026-09-08T17:24:11.763152349Z pgbench: client 6 executing \set first
+2026-09-08T17:24:11.763184655Z pgbench: client 6 sending SELECT inet_server_addr() AS server, pg_is_in_recovery() AS replica,
+2026-09-08T17:24:11.763189955Z        count(*), sum(id), sum(length(payload))
+2026-09-08T17:24:11.763193056Z FROM phase4_lab.items WHERE id BETWEEN 58937 AND 58937 + 99;
+2026-09-08T17:24:11.763196056Z pgbench: client 6 receiving
+2026-09-08T17:24:11.764771112Z pgbench: client 6 receiving
+2026-09-08T17:24:11.765962605Z pgbench: client 6 executing script "/work/read.sql"
+2026-09-08T17:24:11.993980769Z pgbench: client 3 executing \set first
+2026-09-08T17:24:11.994018175Z pgbench: client 3 sending SELECT inet_server_addr() AS server, pg_is_in_recovery() AS replica,
+2026-09-08T17:24:11.994023376Z        count(*), sum(id), sum(length(payload))
+2026-09-08T17:24:11.994026476Z FROM phase4_lab.items WHERE id BETWEEN 55100 AND 55100 + 99;
+2026-09-08T17:24:11.994029277Z pgbench: client 3 receiving
+2026-09-08T17:24:11.996045503Z pgbench: client 3 receiving
+2026-09-08T17:24:11.996104413Z pgbench: client 3 executing script "/work/read.sql"
+2026-09-08T17:24:13.029467731Z pgbench: client 0 executing \set first
+2026-09-08T17:24:13.029505137Z pgbench: client 0 sending SELECT inet_server_addr() AS server, pg_is_in_recovery() AS replica,
+2026-09-08T17:24:13.029511538Z        count(*), sum(id), sum(length(payload))
+2026-09-08T17:24:13.029517239Z FROM phase4_lab.items WHERE id BETWEEN 7682 AND 7682 + 99;
+2026-09-08T17:24:13.029521740Z pgbench: client 0 receiving
+2026-09-08T17:24:13.031748000Z pgbench: client 0 receiving
+2026-09-08T17:24:13.031771904Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T17:24:13.033989664Z pgbench: client 7 executing \set first
+2026-09-08T17:24:13.034008767Z pgbench: client 7 sending SELECT inet_server_addr() AS server, pg_is_in_recovery() AS replica,
+2026-09-08T17:24:13.034014668Z        count(*), sum(id), sum(length(payload))
+2026-09-08T17:24:13.034018969Z FROM phase4_lab.items WHERE id BETWEEN 57205 AND 57205 + 99;
+2026-09-08T17:24:13.034023169Z pgbench: client 7 receiving
+2026-09-08T17:24:13.036331844Z pgbench: client 7 receiving
+2026-09-08T17:24:13.036875432Z pgbench: client 7 executing script "/work/read.sql"
+2026-09-08T17:24:13.151503614Z pgbench: client 4 executing \set first
+2026-09-08T17:24:13.151568024Z pgbench: client 4 sending SELECT inet_server_addr() AS server, pg_is_in_recovery() AS replica,
+2026-09-08T17:24:13.151577826Z        count(*), sum(id), sum(length(payload))
+2026-09-08T17:24:13.151584227Z FROM phase4_lab.items WHERE id BETWEEN 98700 AND 98700 + 99;
+2026-09-08T17:24:13.151589928Z pgbench: client 4 receiving
+2026-09-08T17:24:13.159586824Z pgbench: client 4 receiving
+2026-09-08T17:24:13.159646834Z pgbench: client 4 executing script "/work/read.sql"
+2026-09-08T17:24:13.574424573Z progress: 10.0 s, 2.5 tps, lat 42.628 ms stddev 18.504, 0 failed, lag 39.277 ms
+2026-09-08T17:24:13.664725712Z pgbench: client 1 executing \set first
+2026-09-08T17:24:13.664760618Z pgbench: client 1 sending SELECT inet_server_addr() AS server, pg_is_in_recovery() AS replica,
+2026-09-08T17:24:13.664765819Z        count(*), sum(id), sum(length(payload))
+2026-09-08T17:24:13.664772120Z FROM phase4_lab.items WHERE id BETWEEN 37222 AND 37222 + 99;
+2026-09-08T17:24:13.664790423Z pgbench: client 1 receiving
+2026-09-08T17:24:13.666658925Z pgbench: client 1 receiving
+2026-09-08T17:24:13.666686230Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T17:24:13.891735412Z pgbench: client 2 executing \set first
+2026-09-08T17:24:13.891809324Z pgbench: client 2 sending SELECT inet_server_addr() AS server, pg_is_in_recovery() AS replica,
+2026-09-08T17:24:13.891812925Z        count(*), sum(id), sum(length(payload))
+2026-09-08T17:24:13.891814225Z FROM phase4_lab.items WHERE id BETWEEN 74681 AND 74681 + 99;
+2026-09-08T17:24:13.891815525Z pgbench: client 2 receiving
+2026-09-08T17:24:13.893292465Z pgbench: client 2 receiving
+2026-09-08T17:24:13.893523102Z pgbench: client 2 executing script "/work/read.sql"
+2026-09-08T17:24:14.113093297Z pgbench: client 5 executing \set first
+2026-09-08T17:24:14.113127802Z pgbench: client 5 sending SELECT inet_server_addr() AS server, pg_is_in_recovery() AS replica,
+2026-09-08T17:24:14.113131903Z        count(*), sum(id), sum(length(payload))
+2026-09-08T17:24:14.113134403Z FROM phase4_lab.items WHERE id BETWEEN 71162 AND 71162 + 99;
+2026-09-08T17:24:14.113136604Z pgbench: client 5 receiving
+2026-09-08T17:24:14.114997505Z pgbench: client 5 receiving
+2026-09-08T17:24:14.115040512Z pgbench: client 5 executing script "/work/read.sql"
+2026-09-08T17:24:14.320460813Z pgbench: client 3 executing \set first
+2026-09-08T17:24:14.320524823Z pgbench: client 3 sending SELECT inet_server_addr() AS server, pg_is_in_recovery() AS replica,
+2026-09-08T17:24:14.320531024Z        count(*), sum(id), sum(length(payload))
+2026-09-08T17:24:14.320536325Z FROM phase4_lab.items WHERE id BETWEEN 14755 AND 14755 + 99;
+2026-09-08T17:24:14.320538525Z pgbench: client 3 receiving
+2026-09-08T17:24:14.323021228Z pgbench: client 3 receiving
+2026-09-08T17:24:14.323472301Z pgbench: client 3 executing script "/work/read.sql"
+2026-09-08T17:24:14.702293811Z pgbench: client 0 executing \set first
+2026-09-08T17:24:14.702321016Z pgbench: client 0 sending SELECT inet_server_addr() AS server, pg_is_in_recovery() AS replica,
+2026-09-08T17:24:14.702324516Z        count(*), sum(id), sum(length(payload))
+2026-09-08T17:24:14.702326817Z FROM phase4_lab.items WHERE id BETWEEN 38645 AND 38645 + 99;
+2026-09-08T17:24:14.702328917Z pgbench: client 0 receiving
+2026-09-08T17:24:14.703626127Z pgbench: client 0 receiving
+2026-09-08T17:24:14.703635929Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T17:24:15.459212015Z pgbench: client 6 executing \set first
+2026-09-08T17:24:15.459259523Z pgbench: client 6 sending SELECT inet_server_addr() AS server, pg_is_in_recovery() AS replica,
+2026-09-08T17:24:15.459267724Z        count(*), sum(id), sum(length(payload))
+2026-09-08T17:24:15.459300929Z FROM phase4_lab.items WHERE id BETWEEN 11516 AND 11516 + 99;
+2026-09-08T17:24:15.459309131Z pgbench: client 6 receiving
+2026-09-08T17:24:15.463019632Z pgbench: client 6 receiving
+2026-09-08T17:24:15.463101245Z pgbench: client 6 executing script "/work/read.sql"
+2026-09-08T17:24:15.488620482Z pgbench: client 1 executing \set first
+2026-09-08T17:24:15.488667090Z pgbench: client 1 sending SELECT inet_server_addr() AS server, pg_is_in_recovery() AS replica,
+2026-09-08T17:24:15.488672391Z        count(*), sum(id), sum(length(payload))
+2026-09-08T17:24:15.488676091Z FROM phase4_lab.items WHERE id BETWEEN 24146 AND 24146 + 99;
+2026-09-08T17:24:15.488679492Z pgbench: client 1 receiving
+2026-09-08T17:24:15.492406096Z pgbench: client 1 receiving
+2026-09-08T17:24:15.492444302Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T17:24:15.573801491Z progress: 12.0 s, 3.5 tps, lat 23.316 ms stddev 7.245, 0 failed, lag 20.827 ms
+2026-09-08T17:24:15.839634285Z pgbench: client 2 executing \set first
+2026-09-08T17:24:15.839675792Z pgbench: client 2 sending SELECT inet_server_addr() AS server, pg_is_in_recovery() AS replica,
+2026-09-08T17:24:15.839683293Z        count(*), sum(id), sum(length(payload))
+2026-09-08T17:24:15.839687794Z FROM phase4_lab.items WHERE id BETWEEN 70943 AND 70943 + 99;
+2026-09-08T17:24:15.840061454Z pgbench: client 2 receiving
+2026-09-08T17:24:15.842921518Z pgbench: client 2 receiving
+2026-09-08T17:24:15.843947084Z pgbench: client 2 executing script "/work/read.sql"
+2026-09-08T17:24:16.131224154Z pgbench: client 3 executing \set first
+2026-09-08T17:24:16.131257760Z pgbench: client 3 sending SELECT inet_server_addr() AS server, pg_is_in_recovery() AS replica,
+2026-09-08T17:24:16.131261360Z        count(*), sum(id), sum(length(payload))
+2026-09-08T17:24:16.131263661Z FROM phase4_lab.items WHERE id BETWEEN 9618 AND 9618 + 99;
+2026-09-08T17:24:16.131265761Z pgbench: client 3 receiving
+2026-09-08T17:24:16.133570735Z pgbench: client 3 receiving
+2026-09-08T17:24:16.133589538Z pgbench: client 3 executing script "/work/read.sql"
+2026-09-08T17:24:16.200607802Z pgbench: client 7 executing \set first
+2026-09-08T17:24:16.200650209Z pgbench: client 7 sending SELECT inet_server_addr() AS server, pg_is_in_recovery() AS replica,
+2026-09-08T17:24:16.200654610Z        count(*), sum(id), sum(length(payload))
+2026-09-08T17:24:16.200657310Z FROM phase4_lab.items WHERE id BETWEEN 6584 AND 6584 + 99;
+2026-09-08T17:24:16.200659711Z pgbench: client 7 receiving
+2026-09-08T17:24:16.203066701Z pgbench: client 7 receiving
+2026-09-08T17:24:16.203116309Z pgbench: client 7 executing script "/work/read.sql"
+2026-09-08T17:24:17.203631895Z pgbench: client 4 executing \set first
+2026-09-08T17:24:17.203681504Z pgbench: client 4 sending SELECT inet_server_addr() AS server, pg_is_in_recovery() AS replica,
+2026-09-08T17:24:17.203686505Z        count(*), sum(id), sum(length(payload))
+2026-09-08T17:24:17.203689005Z FROM phase4_lab.items WHERE id BETWEEN 71274 AND 71274 + 99;
+2026-09-08T17:24:17.203691306Z pgbench: client 4 receiving
+2026-09-08T17:24:17.205087358Z pgbench: client 4 receiving
+2026-09-08T17:24:17.205233384Z pgbench: client 4 executing script "/work/read.sql"
+2026-09-08T17:24:17.573325333Z progress: 14.0 s, 2.0 tps, lat 30.290 ms stddev 15.747, 0 failed, lag 27.851 ms
+2026-09-08T17:24:17.914337993Z pgbench: client 0 executing \set first
+2026-09-08T17:24:17.914386102Z pgbench: client 0 sending SELECT inet_server_addr() AS server, pg_is_in_recovery() AS replica,
+2026-09-08T17:24:17.914393403Z        count(*), sum(id), sum(length(payload))
+2026-09-08T17:24:17.914398404Z FROM phase4_lab.items WHERE id BETWEEN 86390 AND 86390 + 99;
+2026-09-08T17:24:17.914403005Z pgbench: client 0 receiving
+2026-09-08T17:24:17.917028779Z pgbench: client 0 receiving
+2026-09-08T17:24:17.917051983Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T17:24:18.564811118Z pgbench: client 5 executing \set first
+2026-09-08T17:24:18.564848125Z pgbench: client 5 sending SELECT inet_server_addr() AS server, pg_is_in_recovery() AS replica,
+2026-09-08T17:24:18.564852625Z        count(*), sum(id), sum(length(payload))
+2026-09-08T17:24:18.564855826Z FROM phase4_lab.items WHERE id BETWEEN 81927 AND 81927 + 99;
+2026-09-08T17:24:18.564859827Z pgbench: client 5 receiving
+2026-09-08T17:24:18.567602722Z pgbench: client 5 receiving
+2026-09-08T17:24:18.567733445Z pgbench: client 5 executing script "/work/read.sql"
+2026-09-08T17:24:18.634847261Z pgbench: client 6 executing \set first
+2026-09-08T17:24:18.634877766Z pgbench: client 6 sending SELECT inet_server_addr() AS server, pg_is_in_recovery() AS replica,
+2026-09-08T17:24:18.634883568Z        count(*), sum(id), sum(length(payload))
+2026-09-08T17:24:18.634886068Z FROM phase4_lab.items WHERE id BETWEEN 87956 AND 87956 + 99;
+2026-09-08T17:24:18.634888368Z pgbench: client 6 receiving
+2026-09-08T17:24:18.636140394Z pgbench: client 6 receiving
+2026-09-08T17:24:18.636154397Z pgbench: client 6 executing script "/work/read.sql"
+2026-09-08T17:24:19.086000404Z pgbench: client 1 executing \set first
+2026-09-08T17:24:19.086017107Z pgbench: client 1 sending SELECT inet_server_addr() AS server, pg_is_in_recovery() AS replica,
+2026-09-08T17:24:19.086021808Z        count(*), sum(id), sum(length(payload))
+2026-09-08T17:24:19.086025409Z FROM phase4_lab.items WHERE id BETWEEN 6060 AND 6060 + 99;
+2026-09-08T17:24:19.086028409Z pgbench: client 1 receiving
+2026-09-08T17:24:19.087776225Z pgbench: client 1 receiving
+2026-09-08T17:24:19.087848238Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T17:24:19.572982815Z progress: 16.0 s, 2.0 tps, lat 21.496 ms stddev 9.139, 0 failed, lag 19.242 ms
+2026-09-08T17:24:19.966669684Z pgbench: client 2 executing \set first
+2026-09-08T17:24:19.966704090Z pgbench: client 2 sending SELECT inet_server_addr() AS server, pg_is_in_recovery() AS replica,
+2026-09-08T17:24:19.966708591Z        count(*), sum(id), sum(length(payload))
+2026-09-08T17:24:19.966711592Z FROM phase4_lab.items WHERE id BETWEEN 19933 AND 19933 + 99;
+2026-09-08T17:24:19.966714492Z pgbench: client 2 receiving
+2026-09-08T17:24:19.969127128Z pgbench: client 2 receiving
+2026-09-08T17:24:19.969179237Z pgbench: client 2 executing script "/work/read.sql"
+2026-09-08T17:24:21.573380031Z progress: 18.0 s, 0.5 tps, lat 46.260 ms stddev 0.000, 0 failed, lag 43.712 ms
+2026-09-08T17:24:21.895153418Z pgbench: client 7 executing \set first
+2026-09-08T17:24:21.895200327Z pgbench: client 7 sending SELECT inet_server_addr() AS server, pg_is_in_recovery() AS replica,
+2026-09-08T17:24:21.895205728Z        count(*), sum(id), sum(length(payload))
+2026-09-08T17:24:21.895208228Z FROM phase4_lab.items WHERE id BETWEEN 46606 AND 46606 + 99;
+2026-09-08T17:24:21.895210428Z pgbench: client 7 receiving
+2026-09-08T17:24:21.896867728Z pgbench: client 7 receiving
+2026-09-08T17:24:21.896893732Z pgbench: client 7 executing script "/work/read.sql"
+2026-09-08T17:24:22.363975251Z pgbench: client 4 executing \set first
+2026-09-08T17:24:22.364035162Z pgbench: client 4 sending SELECT inet_server_addr() AS server, pg_is_in_recovery() AS replica,
+2026-09-08T17:24:22.364044063Z        count(*), sum(id), sum(length(payload))
+2026-09-08T17:24:22.364049664Z FROM phase4_lab.items WHERE id BETWEEN 66921 AND 66921 + 99;
+2026-09-08T17:24:22.364054665Z pgbench: client 4 receiving
+2026-09-08T17:24:22.368224718Z pgbench: client 4 receiving
+2026-09-08T17:24:22.368264425Z pgbench: client 4 executing script "/work/read.sql"
+2026-09-08T17:24:22.428804754Z pgbench: client 5 executing \set first
+2026-09-08T17:24:22.428834359Z pgbench: client 5 sending SELECT inet_server_addr() AS server, pg_is_in_recovery() AS replica,
+2026-09-08T17:24:22.428837060Z        count(*), sum(id), sum(length(payload))
+2026-09-08T17:24:22.428838560Z FROM phase4_lab.items WHERE id BETWEEN 69855 AND 69855 + 99;
+2026-09-08T17:24:22.428839760Z pgbench: client 5 receiving
+2026-09-08T17:24:22.430039377Z pgbench: client 5 receiving
+2026-09-08T17:24:22.430048578Z pgbench: client 5 executing script "/work/read.sql"
+2026-09-08T17:24:22.655218527Z pgbench: client 6 executing \set first
+2026-09-08T17:24:22.655252033Z pgbench: client 6 sending SELECT inet_server_addr() AS server, pg_is_in_recovery() AS replica,
+2026-09-08T17:24:22.655274337Z        count(*), sum(id), sum(length(payload))
+2026-09-08T17:24:22.655277637Z FROM phase4_lab.items WHERE id BETWEEN 77793 AND 77793 + 99;
+2026-09-08T17:24:22.655280238Z pgbench: client 6 receiving
+2026-09-08T17:24:22.657597656Z pgbench: client 6 receiving
+2026-09-08T17:24:22.657616559Z pgbench: client 6 executing script "/work/read.sql"
+2026-09-08T17:24:23.573845959Z progress: 20.0 s, 2.0 tps, lat 29.134 ms stddev 16.502, 0 failed, lag 26.648 ms
+2026-09-08T17:24:23.849316988Z pgbench: client 7 executing \set first
+2026-09-08T17:24:23.849358095Z pgbench: client 7 sending SELECT inet_server_addr() AS server, pg_is_in_recovery() AS replica,
+2026-09-08T17:24:23.849363496Z        count(*), sum(id), sum(length(payload))
+2026-09-08T17:24:23.849366697Z FROM phase4_lab.items WHERE id BETWEEN 22431 AND 22431 + 99;
+2026-09-08T17:24:23.849369697Z pgbench: client 7 receiving
+2026-09-08T17:24:23.853547751Z pgbench: client 7 receiving
+2026-09-08T17:24:23.853584658Z pgbench: client 7 executing script "/work/read.sql"
+2026-09-08T17:24:24.403101958Z pgbench: client 4 executing \set first
+2026-09-08T17:24:24.403142165Z pgbench: client 4 sending SELECT inet_server_addr() AS server, pg_is_in_recovery() AS replica,
+2026-09-08T17:24:24.403148766Z        count(*), sum(id), sum(length(payload))
+2026-09-08T17:24:24.403152667Z FROM phase4_lab.items WHERE id BETWEEN 16606 AND 16606 + 99;
+2026-09-08T17:24:24.403156368Z pgbench: client 4 receiving
+2026-09-08T17:24:24.404977697Z pgbench: client 4 receiving
+2026-09-08T17:24:24.407000762Z pgbench: client 4 executing script "/work/read.sql"
+2026-09-08T17:24:25.122207823Z pgbench: client 3 executing \set first
+2026-09-08T17:24:25.122262833Z pgbench: client 3 sending SELECT inet_server_addr() AS server, pg_is_in_recovery() AS replica,
+2026-09-08T17:24:25.122272734Z        count(*), sum(id), sum(length(payload))
+2026-09-08T17:24:25.122278235Z FROM phase4_lab.items WHERE id BETWEEN 66577 AND 66577 + 99;
+2026-09-08T17:24:25.122283336Z pgbench: client 3 receiving
+2026-09-08T17:24:25.125627432Z pgbench: client 3 receiving
+2026-09-08T17:24:25.125650236Z pgbench: client 3 executing script "/work/read.sql"
+2026-09-08T17:24:25.450432623Z pgbench: client 0 executing \set first
+2026-09-08T17:24:25.450467929Z pgbench: client 0 sending SELECT inet_server_addr() AS server, pg_is_in_recovery() AS replica,
+2026-09-08T17:24:25.450472030Z        count(*), sum(id), sum(length(payload))
+2026-09-08T17:24:25.450474331Z FROM phase4_lab.items WHERE id BETWEEN 36679 AND 36679 + 99;
+2026-09-08T17:24:25.450476731Z pgbench: client 0 receiving
+2026-09-08T17:24:25.452985578Z pgbench: client 0 receiving
+2026-09-08T17:24:25.453006782Z pgbench: client 0 executing script "/work/read.sql"
+2026-09-08T17:24:25.573065680Z progress: 22.0 s, 2.0 tps, lat 36.308 ms stddev 14.467, 0 failed, lag 33.133 ms
+2026-09-08T17:24:25.604280144Z pgbench: client 5 executing \set first
+2026-09-08T17:24:25.604317650Z pgbench: client 5 sending SELECT inet_server_addr() AS server, pg_is_in_recovery() AS replica,
+2026-09-08T17:24:25.604321051Z        count(*), sum(id), sum(length(payload))
+2026-09-08T17:24:25.604322751Z FROM phase4_lab.items WHERE id BETWEEN 63936 AND 63936 + 99;
+2026-09-08T17:24:25.604324252Z pgbench: client 5 receiving
+2026-09-08T17:24:25.605868027Z pgbench: client 5 receiving
+2026-09-08T17:24:25.605879829Z pgbench: client 5 executing script "/work/read.sql"
+2026-09-08T17:24:26.739530782Z pgbench: client 1 executing \set first
+2026-09-08T17:24:26.739574490Z pgbench: client 1 sending SELECT inet_server_addr() AS server, pg_is_in_recovery() AS replica,
+2026-09-08T17:24:26.739582591Z        count(*), sum(id), sum(length(payload))
+2026-09-08T17:24:26.739587092Z FROM phase4_lab.items WHERE id BETWEEN 28419 AND 28419 + 99;
+2026-09-08T17:24:26.739591093Z pgbench: client 1 receiving
+2026-09-08T17:24:26.742420397Z pgbench: client 1 receiving
+2026-09-08T17:24:26.742582126Z pgbench: client 1 executing script "/work/read.sql"
+2026-09-08T17:24:26.779577520Z pgbench: client 2 executing \set first
+2026-09-08T17:24:26.779603224Z pgbench: client 2 sending SELECT inet_server_addr() AS server, pg_is_in_recovery() AS replica,
+2026-09-08T17:24:26.779605625Z        count(*), sum(id), sum(length(payload))
+2026-09-08T17:24:26.779607125Z FROM phase4_lab.items WHERE id BETWEEN 23729 AND 23729 + 99;
+2026-09-08T17:24:26.779608725Z pgbench: client 2 receiving
+2026-09-08T17:24:26.780907457Z pgbench: client 2 receiving
+2026-09-08T17:24:26.780919459Z pgbench: client 2 executing script "/work/read.sql"
+2026-09-08T17:24:27.369690497Z pgbench: client 6 executing \set first
+2026-09-08T17:24:27.369760409Z pgbench: client 6 sending SELECT inet_server_addr() AS server, pg_is_in_recovery() AS replica,
+2026-09-08T17:24:27.369771311Z        count(*), sum(id), sum(length(payload))
+2026-09-08T17:24:27.369778213Z FROM phase4_lab.items WHERE id BETWEEN 69356 AND 69356 + 99;
+2026-09-08T17:24:27.369784414Z pgbench: client 6 receiving
+2026-09-08T17:24:27.374300519Z pgbench: client 6 receiving
+2026-09-08T17:24:27.375061854Z pgbench: client 6 executing script "/work/read.sql"
+2026-09-08T17:24:27.572972428Z progress: 24.0 s, 2.0 tps, lat 30.534 ms stddev 14.412, 0 failed, lag 27.785 ms
+2026-09-08T17:24:27.901241337Z pgbench: client 7 executing \set first
+2026-09-08T17:24:27.901267041Z pgbench: client 7 sending SELECT inet_server_addr() AS server, pg_is_in_recovery() AS replica,
+2026-09-08T17:24:27.901269642Z        count(*), sum(id), sum(length(payload))
+2026-09-08T17:24:27.901283044Z FROM phase4_lab.items WHERE id BETWEEN 82070 AND 82070 + 99;
+2026-09-08T17:24:27.901284944Z pgbench: client 7 receiving
+2026-09-08T17:24:27.902661090Z pgbench: client 7 receiving
+2026-09-08T17:24:27.902674692Z pgbench: client 7 executing script "/work/read.sql"
+2026-09-08T17:24:28.975812160Z pgbench: client 3 executing \set first
+2026-09-08T17:24:28.975856068Z pgbench: client 3 sending SELECT inet_server_addr() AS server, pg_is_in_recovery() AS replica,
+2026-09-08T17:24:28.975862969Z        count(*), sum(id), sum(length(payload))
+2026-09-08T17:24:28.975867570Z FROM phase4_lab.items WHERE id BETWEEN 97740 AND 97740 + 99;
+2026-09-08T17:24:28.975869970Z pgbench: client 3 receiving
+2026-09-08T17:24:28.977964743Z pgbench: client 3 receiving
+2026-09-08T17:24:28.977983347Z pgbench: client 3 executing script "/work/read.sql"
+2026-09-08T17:24:28.991357130Z pgbench: client 4 executing \set first
+2026-09-08T17:24:28.991397938Z pgbench: client 4 sending SELECT inet_server_addr() AS server, pg_is_in_recovery() AS replica,
+2026-09-08T17:24:28.991403739Z        count(*), sum(id), sum(length(payload))
+2026-09-08T17:24:28.991407339Z FROM phase4_lab.items WHERE id BETWEEN 20858 AND 20858 + 99;
+2026-09-08T17:24:28.991410640Z pgbench: client 4 receiving
+2026-09-08T17:24:28.993757158Z pgbench: client 4 receiving
+2026-09-08T17:24:28.993771861Z pgbench: client 4 executing script "/work/read.sql"
+2026-09-08T17:24:29.574038583Z progress: 26.0 s, 1.5 tps, lat 20.446 ms stddev 2.537, 0 failed, lag 18.323 ms

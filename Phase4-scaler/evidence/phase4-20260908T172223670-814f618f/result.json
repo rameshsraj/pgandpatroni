@@ -1,0 +1,17 @@
+{
+  "failure": "Exception: C:\\GitHub\\pgandpatroni\\Phase4-scaler\\run-lab.ps1:126:9\r\nLine |\r\n 126 |          throw (Redact \"Docker command $id failed (exit=$code timeout= …\r\n     |          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\r\n     | Docker command 39 failed (exit=1\r\n     | timeout=False): [NOTICE]   (1) : haproxy\r\n     | version is 2.9.15-e872a3f [ALERT]    (1)\r\n     | : config : parsing\r\n     | [/usr/local/etc/haproxy/haproxy.cfg:33]:\r\n     | Missing LF on last line, file might have\r\n     | been truncated at position 60. [ALERT]   \r\n     | (1) : config : Error(s) found in\r\n     | configuration file :\r\n     | /usr/local/etc/haproxy/haproxy.cfg\r\n     | [ALERT]    (1) : config : Fatal errors\r\n     | found in configuration.\r\n\r\n",
+  "cleanupErrors": [],
+  "credentials": "Random credentials held only in this process and Docker metadata; not persisted in evidence. Local trust permits later docker exec psql as postgres.",
+  "finalElasticCount": 0,
+  "network": "phase4-20260908T172223670-814f618f-net",
+  "tokens": [],
+  "baseline": [
+    "phase4-20260908T172223670-814f618f-primary",
+    "phase4-20260908T172223670-814f618f-base",
+    "phase4-20260908T172223670-814f618f-etcd",
+    "phase4-20260908T172223670-814f618f-proxy"
+  ],
+  "run": "phase4-20260908T172223670-814f618f",
+  "success": false,
+  "preservation": "Baseline remains running on success; elastic containers removed without -v; volumes and stopped traffic containers retained. On failure DB resources remain in their last state, including drained/maintenance slots."
+}

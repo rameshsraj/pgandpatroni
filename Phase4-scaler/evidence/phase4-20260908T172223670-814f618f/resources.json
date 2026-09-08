@@ -1,0 +1,40 @@
+{
+  "network": "phase4-20260908T172223670-814f618f-net",
+  "volumes": [
+    {
+      "name": "phase4-20260908T172223670-814f618f-etcd-data",
+      "result": "phase4-20260908T172223670-814f618f-etcd-data /var/lib/docker/volumes/phase4-20260908T172223670-814f618f-etcd-data/_data\n",
+      "exit": 0
+    },
+    {
+      "name": "phase4-20260908T172223670-814f618f-primary-data",
+      "result": "phase4-20260908T172223670-814f618f-primary-data /var/lib/docker/volumes/phase4-20260908T172223670-814f618f-primary-data/_data\n",
+      "exit": 0
+    },
+    {
+      "name": "phase4-20260908T172223670-814f618f-base-data",
+      "result": "phase4-20260908T172223670-814f618f-base-data /var/lib/docker/volumes/phase4-20260908T172223670-814f618f-base-data/_data\n",
+      "exit": 0
+    }
+  ],
+  "containers": [
+    {
+      "state": "/phase4-20260908T172223670-814f618f-etcd {\"Status\":\"running\",\"Running\":true,\"Paused\":false,\"Restarting\":false,\"OOMKilled\":false,\"Dead\":false,\"Pid\":609043,\"ExitCode\":0,\"Error\":\"\",\"StartedAt\":\"2026-09-08T17:22:25.456584499Z\",\"FinishedAt\":\"0001-01-01T00:00:00Z\"}\n",
+      "name": "phase4-20260908T172223670-814f618f-etcd",
+      "stderr": "",
+      "exit": 0
+    },
+    {
+      "state": "/phase4-20260908T172223670-814f618f-primary {\"Status\":\"running\",\"Running\":true,\"Paused\":false,\"Restarting\":false,\"OOMKilled\":false,\"Dead\":false,\"Pid\":609119,\"ExitCode\":0,\"Error\":\"\",\"StartedAt\":\"2026-09-08T17:22:26.813197188Z\",\"FinishedAt\":\"0001-01-01T00:00:00Z\"}\n",
+      "name": "phase4-20260908T172223670-814f618f-primary",
+      "stderr": "",
+      "exit": 0
+    },
+    {
+      "state": "/phase4-20260908T172223670-814f618f-base {\"Status\":\"running\",\"Running\":true,\"Paused\":false,\"Restarting\":false,\"OOMKilled\":false,\"Dead\":false,\"Pid\":609608,\"ExitCode\":0,\"Error\":\"\",\"StartedAt\":\"2026-09-08T17:22:38.85504476Z\",\"FinishedAt\":\"0001-01-01T00:00:00Z\"}\n",
+      "name": "phase4-20260908T172223670-814f618f-base",
+      "stderr": "",
+      "exit": 0
+    }
+  ]
+}

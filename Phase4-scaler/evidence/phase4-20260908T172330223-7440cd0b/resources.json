@@ -1,0 +1,69 @@
+{
+  "containers": [
+    {
+      "name": "phase4-20260908T172330223-7440cd0b-etcd",
+      "stderr": "",
+      "exit": 0,
+      "state": "/phase4-20260908T172330223-7440cd0b-etcd {\"Status\":\"running\",\"Running\":true,\"Paused\":false,\"Restarting\":false,\"OOMKilled\":false,\"Dead\":false,\"Pid\":611121,\"ExitCode\":0,\"Error\":\"\",\"StartedAt\":\"2026-09-08T17:23:31.776949474Z\",\"FinishedAt\":\"0001-01-01T00:00:00Z\"}\n"
+    },
+    {
+      "name": "phase4-20260908T172330223-7440cd0b-primary",
+      "stderr": "",
+      "exit": 0,
+      "state": "/phase4-20260908T172330223-7440cd0b-primary {\"Status\":\"running\",\"Running\":true,\"Paused\":false,\"Restarting\":false,\"OOMKilled\":false,\"Dead\":false,\"Pid\":611187,\"ExitCode\":0,\"Error\":\"\",\"StartedAt\":\"2026-09-08T17:23:33.025879786Z\",\"FinishedAt\":\"0001-01-01T00:00:00Z\"}\n"
+    },
+    {
+      "name": "phase4-20260908T172330223-7440cd0b-base",
+      "stderr": "",
+      "exit": 0,
+      "state": "/phase4-20260908T172330223-7440cd0b-base {\"Status\":\"running\",\"Running\":true,\"Paused\":false,\"Restarting\":false,\"OOMKilled\":false,\"Dead\":false,\"Pid\":611633,\"ExitCode\":0,\"Error\":\"\",\"StartedAt\":\"2026-09-08T17:23:42.395156466Z\",\"FinishedAt\":\"0001-01-01T00:00:00Z\"}\n"
+    },
+    {
+      "name": "phase4-20260908T172330223-7440cd0b-proxy",
+      "stderr": "",
+      "exit": 0,
+      "state": "/phase4-20260908T172330223-7440cd0b-proxy {\"Status\":\"running\",\"Running\":true,\"Paused\":false,\"Restarting\":false,\"OOMKilled\":false,\"Dead\":false,\"Pid\":612321,\"ExitCode\":0,\"Error\":\"\",\"StartedAt\":\"2026-09-08T17:23:57.749781354Z\",\"FinishedAt\":\"0001-01-01T00:00:00Z\"}\n"
+    },
+    {
+      "name": "phase4-20260908T172330223-7440cd0b-traffic-1-low-baseline",
+      "stderr": "",
+      "exit": 0,
+      "state": "/phase4-20260908T172330223-7440cd0b-traffic-1-low-baseline {\"Status\":\"exited\",\"Running\":false,\"Paused\":false,\"Restarting\":false,\"OOMKilled\":false,\"Dead\":false,\"Pid\":0,\"ExitCode\":137,\"Error\":\"\",\"StartedAt\":\"2026-09-08T17:24:02.751771685Z\",\"FinishedAt\":\"2026-09-08T17:24:29.647433264Z\"}\n"
+    },
+    {
+      "name": "phase4-20260908T172330223-7440cd0b-traffic-2-high",
+      "stderr": "",
+      "exit": 0,
+      "state": "/phase4-20260908T172330223-7440cd0b-traffic-2-high {\"Status\":\"exited\",\"Running\":false,\"Paused\":false,\"Restarting\":false,\"OOMKilled\":false,\"Dead\":false,\"Pid\":0,\"ExitCode\":137,\"Error\":\"\",\"StartedAt\":\"2026-09-08T17:24:30.259535761Z\",\"FinishedAt\":\"2026-09-08T17:25:05.828784023Z\"}\n"
+    },
+    {
+      "name": "phase4-20260908T172330223-7440cd0b-elastic1",
+      "stderr": "",
+      "exit": 0,
+      "state": "/phase4-20260908T172330223-7440cd0b-elastic1 {\"Status\":\"running\",\"Running\":true,\"Paused\":false,\"Restarting\":false,\"OOMKilled\":false,\"Dead\":false,\"Pid\":615459,\"ExitCode\":0,\"Error\":\"\",\"StartedAt\":\"2026-09-08T17:24:42.764337947Z\",\"FinishedAt\":\"0001-01-01T00:00:00Z\"}\n"
+    }
+  ],
+  "volumes": [
+    {
+      "name": "phase4-20260908T172330223-7440cd0b-etcd-data",
+      "exit": 0,
+      "result": "phase4-20260908T172330223-7440cd0b-etcd-data /var/lib/docker/volumes/phase4-20260908T172330223-7440cd0b-etcd-data/_data\n"
+    },
+    {
+      "name": "phase4-20260908T172330223-7440cd0b-primary-data",
+      "exit": 0,
+      "result": "phase4-20260908T172330223-7440cd0b-primary-data /var/lib/docker/volumes/phase4-20260908T172330223-7440cd0b-primary-data/_data\n"
+    },
+    {
+      "name": "phase4-20260908T172330223-7440cd0b-base-data",
+      "exit": 0,
+      "result": "phase4-20260908T172330223-7440cd0b-base-data /var/lib/docker/volumes/phase4-20260908T172330223-7440cd0b-base-data/_data\n"
+    },
+    {
+      "name": "phase4-20260908T172330223-7440cd0b-elastic1-data",
+      "exit": 0,
+      "result": "phase4-20260908T172330223-7440cd0b-elastic1-data /var/lib/docker/volumes/phase4-20260908T172330223-7440cd0b-elastic1-data/_data\n"
+    }
+  ],
+  "network": "phase4-20260908T172330223-7440cd0b-net"
+}

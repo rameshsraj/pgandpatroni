@@ -1,0 +1,28 @@
+2026-09-08T17:26:02.916710596Z === Rendered Patroni config for phase4-20260908T172559675-6d1659c7-primary (credentials not logged) ===
+2026-09-08T17:26:02.916807413Z === Starting Patroni ===
+2026-09-08T17:26:04.175585983Z The files belonging to this database system will be owned by user "postgres".
+2026-09-08T17:26:04.175613688Z This user must also own the server process.
+2026-09-08T17:26:04.175616688Z 
+2026-09-08T17:26:04.180260187Z The database cluster will be initialized with locale "en_US.utf8".
+2026-09-08T17:26:04.180287891Z The default text search configuration will be set to "english".
+2026-09-08T17:26:04.180292492Z 
+2026-09-08T17:26:04.180295393Z Data page checksums are enabled.
+2026-09-08T17:26:04.180297993Z 
+2026-09-08T17:26:04.180860290Z creating directory /var/lib/postgresql/data/pgdata ... ok
+2026-09-08T17:26:04.202217463Z creating subdirectories ... ok
+2026-09-08T17:26:04.202676942Z selecting dynamic shared memory implementation ... posix
+2026-09-08T17:26:04.299776440Z selecting default max_connections ... 100
+2026-09-08T17:26:04.434601925Z selecting default shared_buffers ... 128MB
+2026-09-08T17:26:04.482825218Z selecting default time zone ... Etc/UTC
+2026-09-08T17:26:04.482909733Z creating configuration files ... ok
+2026-09-08T17:26:05.230141633Z running bootstrap script ... ok
+2026-09-08T17:26:06.693919957Z performing post-bootstrap initialization ... ok
+2026-09-08T17:26:07.161202415Z syncing data to disk ... ok
+2026-09-08T17:26:07.161232320Z 
+2026-09-08T17:26:07.161239521Z 
+2026-09-08T17:26:07.161242121Z Success. You can now start the database server using:
+2026-09-08T17:26:07.161244222Z 
+2026-09-08T17:26:07.161246022Z     pg_ctl -D /var/lib/postgresql/data/pgdata -l logfile start
+2026-09-08T17:26:07.161247922Z 
+2026-09-08T17:26:07.672675972Z localhost:5432 - accepting connections
+2026-09-08T17:26:07.718681683Z localhost:5432 - accepting connections

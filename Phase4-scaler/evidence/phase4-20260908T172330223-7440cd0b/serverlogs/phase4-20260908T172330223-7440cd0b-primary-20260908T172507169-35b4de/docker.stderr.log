@@ -1,0 +1,62 @@
+2026-09-08T17:23:35.108587853Z 2026-09-08 17:23:35,107 INFO: Selected new etcd server http://etcd:2379
+2026-09-08T17:23:35.174711367Z 2026-09-08 17:23:35,173 INFO: No PostgreSQL configuration items changed, nothing to reload.
+2026-09-08T17:23:35.329089851Z 2026-09-08 17:23:35,231 INFO: Lock owner: None; I am phase4-20260908T172330223-7440cd0b-primary
+2026-09-08T17:23:35.329129558Z 2026-09-08 17:23:35,328 INFO: trying to bootstrap a new cluster
+2026-09-08T17:23:38.286501729Z initdb: warning: enabling "trust" authentication for local connections
+2026-09-08T17:23:38.286548636Z initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
+2026-09-08T17:23:38.719620725Z 2026-09-08 17:23:38,718 INFO: postmaster pid=64
+2026-09-08T17:23:38.726212379Z 2026-09-08 17:23:38.725 UTC [64] db= user= app= client= session=6aa0449a.40 tx=0 LOG:  redirecting log output to logging collector process
+2026-09-08T17:23:38.726240683Z 2026-09-08 17:23:38.725 UTC [64] db= user= app= client= session=6aa0449a.40 tx=0 HINT:  Future log output will appear in directory "pg_log".
+2026-09-08T17:23:38.845528550Z 2026-09-08 17:23:38,844 INFO: establishing a new patroni heartbeat connection to postgres
+2026-09-08T17:23:38.905546838Z 2026-09-08 17:23:38,904 INFO: running post_bootstrap
+2026-09-08T17:23:38.933745520Z 2026-09-08 17:23:38,933 WARNING: User creation via "bootstrap.users" will be removed in v4.0.0
+2026-09-08T17:23:38.948758693Z 2026-09-08 17:23:38,948 WARNING: Could not activate Linux watchdog device: Can't open watchdog device: [Errno 2] No such file or directory: '/dev/watchdog'
+2026-09-08T17:23:38.952740069Z 2026-09-08 17:23:38,951 INFO: Reaped pid=78, exit status=0
+2026-09-08T17:23:38.955297439Z 2026-09-08 17:23:38,954 INFO: Reaped pid=79, exit status=0
+2026-09-08T17:23:39.146536622Z 2026-09-08 17:23:39,145 INFO: initialized a new cluster
+2026-09-08T17:23:39.550562205Z 2026-09-08 17:23:39,549 INFO: establishing a new patroni restapi connection to postgres
+2026-09-08T17:23:44.135858537Z 2026-09-08 17:23:44,135 INFO: no action. I am (phase4-20260908T172330223-7440cd0b-primary), the leader with the lock
+2026-09-08T17:23:49.129970886Z 2026-09-08 17:23:49,129 INFO: no action. I am (phase4-20260908T172330223-7440cd0b-primary), the leader with the lock
+2026-09-08T17:23:53.993496920Z 2026-09-08 17:23:53,993 INFO: no action. I am (phase4-20260908T172330223-7440cd0b-primary), the leader with the lock
+2026-09-08T17:23:59.087539240Z 2026-09-08 17:23:59,086 INFO: no action. I am (phase4-20260908T172330223-7440cd0b-primary), the leader with the lock
+2026-09-08T17:24:04.095361040Z 2026-09-08 17:24:04,094 INFO: no action. I am (phase4-20260908T172330223-7440cd0b-primary), the leader with the lock
+2026-09-08T17:24:09.089784871Z 2026-09-08 17:24:09,089 INFO: no action. I am (phase4-20260908T172330223-7440cd0b-primary), the leader with the lock
+2026-09-08T17:24:14.107152334Z 2026-09-08 17:24:14,106 INFO: no action. I am (phase4-20260908T172330223-7440cd0b-primary), the leader with the lock
+2026-09-08T17:24:19.085940193Z 2026-09-08 17:24:19,085 INFO: no action. I am (phase4-20260908T172330223-7440cd0b-primary), the leader with the lock
+2026-09-08T17:24:24.007644369Z 2026-09-08 17:24:24,005 INFO: no action. I am (phase4-20260908T172330223-7440cd0b-primary), the leader with the lock
+2026-09-08T17:24:28.992885803Z 2026-09-08 17:24:28,992 INFO: no action. I am (phase4-20260908T172330223-7440cd0b-primary), the leader with the lock
+2026-09-08T17:24:34.141280821Z 2026-09-08 17:24:34,140 INFO: no action. I am (phase4-20260908T172330223-7440cd0b-primary), the leader with the lock
+2026-09-08T17:24:39.086685904Z 2026-09-08 17:24:39,085 INFO: no action. I am (phase4-20260908T172330223-7440cd0b-primary), the leader with the lock
+2026-09-08T17:24:44.097778189Z 2026-09-08 17:24:44,097 INFO: no action. I am (phase4-20260908T172330223-7440cd0b-primary), the leader with the lock
+2026-09-08T17:24:47.921563507Z 2026-09-08 17:24:47,918 WARNING: Exception happened during processing of request from 172.21.0.5:47888
+2026-09-08T17:24:47.931210074Z 2026-09-08 17:24:47,930 WARNING: Traceback (most recent call last):
+2026-09-08T17:24:47.932897366Z   File "/usr/lib/python3.11/socketserver.py", line 691, in process_request_thread
+2026-09-08T17:24:47.932904467Z     self.finish_request(request, client_address)
+2026-09-08T17:24:47.932908168Z   File "/usr/lib/python3.11/socketserver.py", line 361, in finish_request
+2026-09-08T17:24:47.932911768Z     self.RequestHandlerClass(request, client_address, self)
+2026-09-08T17:24:47.932915269Z   File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 105, in __init__
+2026-09-08T17:24:47.932919069Z     super(RestApiHandler, self).__init__(request, client_address, server)
+2026-09-08T17:24:47.932922470Z   File "/usr/lib/python3.11/socketserver.py", line 755, in __init__
+2026-09-08T17:24:47.932926171Z     self.handle()
+2026-09-08T17:24:47.932929471Z   File "/usr/lib/python3.11/http/server.py", line 432, in handle
+2026-09-08T17:24:47.932933172Z     self.handle_one_request()
+2026-09-08T17:24:47.932936672Z   File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 1348, in handle_one_request
+2026-09-08T17:24:47.932940873Z     BaseHTTPRequestHandler.handle_one_request(self)
+2026-09-08T17:24:47.932945574Z   File "/usr/lib/python3.11/http/server.py", line 420, in handle_one_request
+2026-09-08T17:24:47.932949075Z     method()
+2026-09-08T17:24:47.932952875Z   File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 375, in do_GET
+2026-09-08T17:24:47.932956976Z     self._write_status_response(status_code, response)
+2026-09-08T17:24:47.932961477Z   File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 221, in _write_status_response
+2026-09-08T17:24:47.932965077Z     self._write_json_response(status_code, response)
+2026-09-08T17:24:47.932969478Z   File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 167, in _write_json_response
+2026-09-08T17:24:47.932974879Z     self.write_response(status_code, json.dumps(response, default=str), content_type='application/json')
+2026-09-08T17:24:47.932979280Z   File "/usr/local/lib/python3.11/dist-packages/patroni/api.py", line 157, in write_response
+2026-09-08T17:24:47.932983281Z     self.wfile.write(body.encode('utf-8'))
+2026-09-08T17:24:47.932986581Z   File "/usr/lib/python3.11/socketserver.py", line 834, in write
+2026-09-08T17:24:47.932990182Z     self._sock.sendall(b)
+2026-09-08T17:24:47.932993482Z ConnectionResetError: [Errno 104] Connection reset by peer
+2026-09-08T17:24:47.932996983Z 
+2026-09-08T17:24:49.113014714Z 2026-09-08 17:24:49,112 INFO: no action. I am (phase4-20260908T172330223-7440cd0b-primary), the leader with the lock
+2026-09-08T17:24:54.101581908Z 2026-09-08 17:24:54,100 INFO: no action. I am (phase4-20260908T172330223-7440cd0b-primary), the leader with the lock
+2026-09-08T17:24:59.115623707Z 2026-09-08 17:24:59,114 INFO: no action. I am (phase4-20260908T172330223-7440cd0b-primary), the leader with the lock
+2026-09-08T17:25:03.995819286Z 2026-09-08 17:25:03,995 INFO: no action. I am (phase4-20260908T172330223-7440cd0b-primary), the leader with the lock

@@ -1,0 +1,16 @@
+2026-09-08T23:14:37.689708170Z 2026-09-08 23:14:37,687 INFO: Selected new etcd server http://etcd:2379
+2026-09-08T23:14:37.756956581Z 2026-09-08 23:14:37,756 INFO: No PostgreSQL configuration items changed, nothing to reload.
+2026-09-08T23:14:37.873003606Z 2026-09-08 23:14:37,821 INFO: Lock owner: phase4-20260908T231405769-1a1f40a4-primary; I am phase4-20260908T231405769-1a1f40a4-base
+2026-09-08T23:14:37.873401977Z 2026-09-08 23:14:37,869 INFO: trying to bootstrap from leader 'phase4-20260908T231405769-1a1f40a4-primary'
+2026-09-08T23:14:41.188484550Z 2026-09-08 23:14:41,187 INFO: replica has been created using basebackup
+2026-09-08T23:14:41.191231371Z 2026-09-08 23:14:41,189 INFO: bootstrapped from leader 'phase4-20260908T231405769-1a1f40a4-primary'
+2026-09-08T23:14:41.879551387Z 2026-09-08 23:14:41,878 INFO: postmaster pid=33
+2026-09-08T23:14:41.887592104Z 2026-09-08 23:14:41.887 UTC [33] db= user= app= client= session=6aa096e1.21 tx=0 LOG:  redirecting log output to logging collector process
+2026-09-08T23:14:41.887630313Z 2026-09-08 23:14:41.887 UTC [33] db= user= app= client= session=6aa096e1.21 tx=0 HINT:  Future log output will appear in directory "pg_log".
+2026-09-08T23:14:42.455288667Z 2026-09-08 23:14:42,454 INFO: establishing a new patroni heartbeat connection to postgres
+2026-09-08T23:14:42.495321412Z 2026-09-08 23:14:42,494 INFO: establishing a new patroni restapi connection to postgres
+2026-09-08T23:14:42.821359476Z 2026-09-08 23:14:42,729 INFO: Lock owner: phase4-20260908T231405769-1a1f40a4-primary; I am phase4-20260908T231405769-1a1f40a4-base
+2026-09-08T23:14:42.821724759Z 2026-09-08 23:14:42,820 INFO: bootstrap from leader 'phase4-20260908T231405769-1a1f40a4-primary' in progress
+2026-09-08T23:14:43.161049724Z 2026-09-08 23:14:43,160 INFO: no action. I am (phase4-20260908T231405769-1a1f40a4-base), a secondary, and following a leader (phase4-20260908T231405769-1a1f40a4-primary)
+2026-09-08T23:14:48.698638848Z 2026-09-08 23:14:48,697 INFO: no action. I am (phase4-20260908T231405769-1a1f40a4-base), a secondary, and following a leader (phase4-20260908T231405769-1a1f40a4-primary)
+2026-09-08T23:14:53.654514075Z 2026-09-08 23:14:53,652 INFO: no action. I am (phase4-20260908T231405769-1a1f40a4-base), a secondary, and following a leader (phase4-20260908T231405769-1a1f40a4-primary)

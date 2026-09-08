@@ -1,0 +1,177 @@
+[
+  {
+    "bytes": 359071,
+    "sha256": "44D2790BC21EB5A27963209B11FD2E30C9785E473D33A89C0AB7C1E4F5D956D5",
+    "path": "commands.jsonl"
+  },
+  {
+    "bytes": 3481,
+    "sha256": "F961FC499E70D369890B65ABC7162A43C32F501DAD72BEBE11CEA6EE34406B69",
+    "path": "events.jsonl"
+  },
+  {
+    "bytes": 2099,
+    "sha256": "02F42F7EA23A59CA9B5F705522F072BF7D8DBB1D3B77B06D816213A81C06CA19",
+    "path": "resources.json"
+  },
+  {
+    "bytes": 4013,
+    "sha256": "B7F3A5C00100FCF5215F3EF985C1CBDB0B7B21F24A51EE5FC6CC69460CAC5C5E",
+    "path": "resources.jsonl"
+  },
+  {
+    "bytes": 1288,
+    "sha256": "D19E72C4B79FCF06ABC316365CE4B38EDF40098057EAC3DFBEEB13DCDBA43A30",
+    "path": "result.json"
+  },
+  {
+    "bytes": 3824,
+    "sha256": "39594495154DFAB3E01762821D636A0CB2E2EE4CFA3E84CA47B647C9187EE61C",
+    "path": "slot-samples.jsonl"
+  },
+  {
+    "bytes": 5286,
+    "sha256": "34C4761FBF190D6394B0F2460501D80881C82DF94810A1E1F0CEFE634A5BB53D",
+    "path": "sql.jsonl"
+  },
+  {
+    "bytes": 2326,
+    "sha256": "D6330636B073D49F8C35B0F235CAE97CC7E3C8CFD367FA373D8254289E82AAF1",
+    "path": "serverlogs/phase4-20260908T231405769-1a1f40a4-base-20260908T231456290-5717e9/docker.stderr.log"
+  },
+  {
+    "bytes": 398,
+    "sha256": "05FE577D24851A76E453E98388D49E3A2783454A09E18D539E414FE7B313CB65",
+    "path": "serverlogs/phase4-20260908T231405769-1a1f40a4-base-20260908T231456290-5717e9/docker.stdout.log"
+  },
+  {
+    "bytes": 17301,
+    "sha256": "8359C2B7C3BAC14C2D6CA69C1322C8BF69493ECB197F68FFE782A12C212A728F",
+    "path": "serverlogs/phase4-20260908T231405769-1a1f40a4-base-20260908T231456290-5717e9/pg_log/postgresql-2026-09-08_231427.csv"
+  },
+  {
+    "bytes": 14734,
+    "sha256": "C7355E51744CB5B6A2C43409B9FEFB1AAFB2B810F7E12BBAD5C570052983AD1C",
+    "path": "serverlogs/phase4-20260908T231405769-1a1f40a4-base-20260908T231456290-5717e9/pg_log/postgresql-2026-09-08_231427.log"
+  },
+  {
+    "bytes": 16731,
+    "sha256": "C4233FB492F90DA636A8CBF7DE6925B483DAE64D313E271905A15D1D23C5A160",
+    "path": "serverlogs/phase4-20260908T231405769-1a1f40a4-base-20260908T231456290-5717e9/pg_log/postgresql-2026-09-08_231441.csv"
+  },
+  {
+    "bytes": 15155,
+    "sha256": "40216E3A53385DBC17CC856898AD45CAC7D8E4F0501A39D6BA9E3E634FB3B7C0",
+    "path": "serverlogs/phase4-20260908T231405769-1a1f40a4-base-20260908T231456290-5717e9/pg_log/postgresql-2026-09-08_231441.log"
+  },
+  {
+    "bytes": 11134,
+    "sha256": "849EADBCC80F4D248A07C59863B835B244E0E658F13D49A03859CE609C9A8235",
+    "path": "serverlogs/phase4-20260908T231405769-1a1f40a4-etcd-20260908T231455468-fdc314/docker.stderr.log"
+  },
+  {
+    "bytes": 0,
+    "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+    "path": "serverlogs/phase4-20260908T231405769-1a1f40a4-etcd-20260908T231455468-fdc314/docker.stdout.log"
+  },
+  {
+    "bytes": 3096,
+    "sha256": "78F64538E893FA8EA6BC41695EC3D55B7F0F213672818373C2D14E6FBCFE197B",
+    "path": "serverlogs/phase4-20260908T231405769-1a1f40a4-primary-20260908T231455734-881fcb/docker.stderr.log"
+  },
+  {
+    "bytes": 1900,
+    "sha256": "E05F966288172AD74F1EDDAFB6DB7FF01B459E5A2BE37BAD9D9E74C4F6C7AD7E",
+    "path": "serverlogs/phase4-20260908T231405769-1a1f40a4-primary-20260908T231455734-881fcb/docker.stdout.log"
+  },
+  {
+    "bytes": 27043,
+    "sha256": "73C4B422C7591CDED3839E625D11DF6CFC087BDBDD6764A0A75F4E9152ADF4EA",
+    "path": "serverlogs/phase4-20260908T231405769-1a1f40a4-primary-20260908T231455734-881fcb/pg_log/postgresql-2026-09-08_231427.csv"
+  },
+  {
+    "bytes": 23956,
+    "sha256": "ECD8E8A31BC59C8AE7877ACAEDCFFD6EAED7B374CC36A139989C39B4079080F3",
+    "path": "serverlogs/phase4-20260908T231405769-1a1f40a4-primary-20260908T231455734-881fcb/pg_log/postgresql-2026-09-08_231427.log"
+  },
+  {
+    "bytes": 1344,
+    "sha256": "FBA00ACFA3357022AB10917DCCA5C231B692E4E1678144DB6ABB496BCAD10F4A",
+    "path": "source/entrypoint.sh"
+  },
+  {
+    "bytes": 929,
+    "sha256": "EC8FAC8A74C3B9DA4491041859D017303D18C55591E6CA55C0C0E633366204E3",
+    "path": "source/haproxy.cfg"
+  },
+  {
+    "bytes": 82274,
+    "sha256": "142930E5BFC2039D14D8E928CC63AD1E88F9EDD9C835B955E0B08EBC63D5FC06",
+    "path": "source/patroni-dcs-__init__.py"
+  },
+  {
+    "bytes": 111816,
+    "sha256": "975C390B3BBDC42294AC494BD2818777FBFC2E4F13EB9A88ECCD335895D1B2FD",
+    "path": "source/patroni-ha.py"
+  },
+  {
+    "bytes": 37640,
+    "sha256": "4047AF7E459CEBC188BC516AA3A0917CF22ED296E0B90B2700146D640AE898A5",
+    "path": "source/patroni-postgresql-slots.py"
+  },
+  {
+    "bytes": 1991,
+    "sha256": "8370788C7783A606C083C65E1A6A688FF5ECFE5324A40D0F2B60981CFE69DCD9",
+    "path": "source/patroni-template.yml"
+  },
+  {
+    "bytes": 207,
+    "sha256": "9C5148614B6AF87FB8289181B87535B112E4410C70B6173A9B7A94C6B4147E54",
+    "path": "source/read.sql"
+  },
+  {
+    "bytes": 13064,
+    "sha256": "12A020FA88A8E74B8B642453E7A7245F2F3819D65E23931785B71AAC26C572F0",
+    "path": "source/README.md"
+  },
+  {
+    "bytes": 34866,
+    "sha256": "20F287050A195781CE88D874CF2979F52AF84F188E391E577E80B815D4BFEB7C",
+    "path": "source/run-lab.ps1"
+  },
+  {
+    "bytes": 388,
+    "sha256": "A8E46A2F6E4A434DBF49A860E2FC1F90394240C901648D328E6530BB85A40582",
+    "path": "source/seed.sql"
+  },
+  {
+    "bytes": 7224,
+    "sha256": "CEADA3623D75D1BC473CE58E35F73063E7420DAC6F110BE9E8B62C08191AF739",
+    "path": "source/slot-observation.ps1"
+  },
+  {
+    "bytes": 7184,
+    "sha256": "EAC2E445C50F5353426AB960A7F5299632614CC7BCA3C206C3FE2CC39FC742DC",
+    "path": "source/test-slot-observation.ps1"
+  },
+  {
+    "bytes": 1215,
+    "sha256": "040622E3F45178E5A9081D2F40DBF3125B6B2BC650EBB062F00517A984703256",
+    "path": "source/traffic.sh"
+  },
+  {
+    "bytes": 7426,
+    "sha256": "D9439C51BB3074B3BBA36F610838F9BB9B1ACD8DE2B5D6CAE6E9C671A59118EA",
+    "path": "source/validate-static.ps1"
+  },
+  {
+    "bytes": 9735,
+    "sha256": "956B84B5435A5EFCB31673F0D354509A097D7A22ECBB09FD3645BF92BDC42B7C",
+    "path": "source/verify-evidence.ps1"
+  },
+  {
+    "bytes": 16692,
+    "sha256": "086D5C7D2498AC9E49E4926B46756B7BBF4BF46BA84C0934DC5E9EA0690377D1",
+    "path": "source/verify-slot-evidence.ps1"
+  }
+]

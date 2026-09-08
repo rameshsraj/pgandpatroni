@@ -95,7 +95,8 @@ try {
     $commandLog = [IO.File]::ReadAllText((Join-Path $evidence 'commands.jsonl'))
     Assert (-not $commandLog.Contains($secrets[0]) -and $commandLog.Contains('[REDACTED]')) 'Evidence contains plaintext test secret'
     # No sleep: this child prints once and computes until the wrapper enforces its deadline.
-    $r = Cmd -Argv @('-NoProfile','-Command','[Console]::Out.WriteLine("partial-evidence"); [Console]::Out.Flush(); while ($true) { $n = 1 + 1 }') -TimeoutSeconds 2 -AllowFailure
+    # Leave enough time for cold pwsh startup on the shared host before checking retained output.
+    $r = Cmd -Argv @('-NoProfile','-Command','[Console]::Out.WriteLine("partial-evidence"); [Console]::Out.Flush(); while ($true) { $n = 1 + 1 }') -TimeoutSeconds 5 -AllowFailure
     Assert ($r.timeout -and $r.stdout.Contains('partial-evidence')) 'Timeout did not retain partial stdout'
     . ([scriptblock]::Create(($functions | Where-Object Name -EQ 'Runtime').Extent.Text))
     $proxy='test-proxy'
@@ -111,3 +112,4 @@ try {
     # Only this test-generated temporary directory is removed.
     Remove-Item -LiteralPath $evidence -Recurse -Force
 }
+& (Join-Path $PSScriptRoot 'test-slot-observation.ps1')

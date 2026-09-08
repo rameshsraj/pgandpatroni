@@ -4,11 +4,12 @@ param(
     [string]$NodeImage = 'postgres-patroni-ha-pg-node-1:latest',
     [string]$EtcdImage = 'quay.io/coreos/etcd:v3.5.15',
     [string]$ProxyImage = 'haproxy:2.9-alpine',
-    [ValidateRange(120,1800)][int]$TrafficDurationSeconds = 360,
+    [ValidateRange(120,1800)][int]$TrafficDurationSeconds = 1200,
+    [ValidateRange(30,600)][int]$SlotAbsenceTimeoutSeconds = 120,
     [ValidateRange(30,600)][int]$ReadyTimeoutSeconds = 180,
     [ValidateRange(10,120)][int]$CommandTimeoutSeconds = 60,
     [ValidateRange(15,120)][int]$CooldownSeconds = 15,
-    [ValidateRange(300,3600)][int]$LabTimeoutSeconds = 1200,
+    [ValidateRange(300,3600)][int]$LabTimeoutSeconds = 1800,
     [ValidateRange(256,1024)][int]$NodeMemoryMB = 512
 )
 Set-StrictMode -Version Latest
@@ -53,6 +54,11 @@ $success = $false
 $failure = $null
 $cleanupErrors = [Collections.Generic.List[string]]::new()
 $labDeadline = [DateTime]::UtcNow.AddSeconds($LabTimeoutSeconds)
+$script:slotMappings = [ordered]@{}
+$script:slotPrimaryIdentity = $null
+$script:slotSequence = 0
+$slotOutcomes = [Collections.Generic.List[object]]::new()
+. (Join-Path $root 'slot-observation.ps1')
 
 function Redact([string]$Text) {
     if ($null -eq $Text) { return '' }
@@ -292,6 +298,7 @@ function Add-Elastic {
     Event 'decision' @{action='out'; slot=$alias; highSamples=$script:highSamples; basis='completed transaction TPS only'}
     New-Node $alias $true
     Await "replica-$alias" { Replica-Ready $alias $true } -Probe
+    $null = Slot-Snapshot 'admission-ready' $alias (@('base') + @($active) + @($alias))
     $name = "$runId-$alias"
     $ip = (Cmd -Argv @('inspect','--format',"{{(index .NetworkSettings.Networks `"$network`").IPAddress}}",$name)).stdout.Trim()
     $parsed = $null
@@ -313,6 +320,15 @@ function Remove-Elastic {
     Await 'baseline-ready-before-drain' { Replica-Ready 'base' }
     Await "elastic-safe-before-drain-$alias" { Replica-Ready $alias $true }
     Snapshot "before-remove-$alias" -RequireAgreement
+    $pre = Slot-Snapshot 'pre-drain' $alias (@('base') + @($active))
+    $outcome = [ordered]@{alias=$alias; member=$name; slotName=$script:slotMappings[$alias];
+        containerRemoved=$false; dataAgreementVerified=$false; slotAbsentVerified=$false;
+        preconditionsVerified=$true; preDrainSample=$pre.id; preStopSample=$null; postStopSample=$null;
+        sampleIds=[Collections.Generic.List[int]]::new(); lastPresentSample=$pre.id; firstAbsentSample=$null;
+        stopStartedUTC=$null; stopCompletedUTC=$null; removeStartedUTC=$null; removeCompletedUTC=$null;
+        firstAbsentObservedUTC=$null; firstAbsentCompletedUTC=$null; secondsFromStopCompletion=$null;
+        secondsFromRemovalCompletion=$null; timeoutSeconds=$SlotAbsenceTimeoutSeconds; error=$null}
+    $slotOutcomes.Add($outcome)
     $null = Runtime "set server replicas/$alias state drain"
     Await "drained-$alias" {
         $row = @(Proxy-Stats | Where-Object { $_.pxname -eq 'replicas' -and $_.svname -eq $alias })
@@ -321,17 +337,29 @@ function Remove-Elastic {
     $null = Runtime "set server replicas/$alias state maint"
     # Revalidate after drain, immediately before termination, never remove a promoted member.
     if (-not (Replica-Ready 'base') -or -not (Replica-Ready $alias $true)) { throw 'Scale-in safety recheck failed' }
+    $pre = Slot-Snapshot 'pre-stop' $alias (@('base') + @($active))
+    $outcome.preStopSample = $pre.id; $outcome.lastPresentSample = $pre.id
+    $outcome.stopStartedUTC = [datetime]::UtcNow.ToString('o')
     $null = Cmd -Argv @('stop','--signal','SIGTERM','--time','30',$name)
+    $outcome.stopCompletedUTC = [datetime]::UtcNow.ToString('o')
     $state = (Cmd -Argv @('inspect','--format','{{json .State}}',$name)).stdout | ConvertFrom-Json
     if ($state.Running -or $state.OOMKilled -or $state.ExitCode -ne 0) { throw 'Replica shutdown was not graceful; preserving container' }
+    $post = Slot-Snapshot 'post-stop' $alias
+    $outcome.postStopSample = $post.id
     Archive $name -PostgresLogs
+    $outcome.removeStartedUTC = [datetime]::UtcNow.ToString('o')
     $null = Cmd -Argv @('rm',$name) # Deliberately NO -v; unique named volume survives.
+    $outcome.removeCompletedUTC = [datetime]::UtcNow.ToString('o')
     $absent = Cmd -Argv @('inspect','--format','{{.Name}}',$name) -AllowFailure
     if ($absent.exit -ne 1 -or $absent.stderr -notmatch 'No such (object|container)') { throw 'Container removal was not confirmed' }
     $null = Cmd -Argv @('volume','inspect','--format','{{.Name}} {{.Mountpoint}}',"$name-data")
+    $outcome.containerRemoved = $true
     [void]$active.Remove($alias)
-    Event 'elastic-removed' @{slot=$alias; retainedVolume="$name-data"; active=$active.Count}
+    Event 'container-removed' @{slot=$alias; retainedVolume="$name-data"; active=$active.Count}
+    try { Observe-SlotAbsence $outcome } catch { $outcome.error=$_.Exception.Message; throw }
     Snapshot "removed-$alias" -RequireAgreement
+    $outcome.dataAgreementVerified = $true
+    Event 'elastic-removed' @{slot=$alias; retainedVolume="$name-data"; active=$active.Count; slotAbsentVerified=$true}
 }
 function Stop-Traffic {
     if ($null -eq $script:traffic) { return }
@@ -442,15 +470,19 @@ function Traffic-Driver {
 
 try {
     # Capture immutable, LF-normalized source copies (including the EXISTING entrypoint), never env/config renders.
-    foreach ($file in @('run-lab.ps1','traffic.sh','read.sql','seed.sql','haproxy.cfg','patroni-template.yml','README.md')) {
+    foreach ($file in @('run-lab.ps1','slot-observation.ps1','verify-evidence.ps1','verify-slot-evidence.ps1','validate-static.ps1','test-slot-observation.ps1','traffic.sh','read.sql','seed.sql','haproxy.cfg','patroni-template.yml','README.md')) {
         Save-Text (Join-Path $source $file) ([IO.File]::ReadAllText((Join-Path $root $file)).Replace("`r`n","`n").TrimEnd("`n") + "`n")
     }
     $entrypoint = Join-Path (Split-Path $root -Parent) 'postgres-patroni-ha/patroni/entrypoint.sh'
     Save-Text (Join-Path $source 'entrypoint.sh') ([IO.File]::ReadAllText($entrypoint).Replace("`r`n","`n"))
     Event 'run-start' @{run=$runId; network=$network; parameters=$PSBoundParameters; defaults=@{
         trafficDuration=$TrafficDurationSeconds; readyTimeout=$ReadyTimeoutSeconds; commandTimeout=$CommandTimeoutSeconds;
-        cooldown=$CooldownSeconds; labTimeout=$LabTimeoutSeconds; nodeMemoryMB=$NodeMemoryMB}; credentialPersistence='none'}
+        cooldown=$CooldownSeconds; labTimeout=$LabTimeoutSeconds; nodeMemoryMB=$NodeMemoryMB;
+        slotAbsenceTimeout=$SlotAbsenceTimeoutSeconds}; credentialPersistence='none'}
     $null = Cmd -Argv @('version','--format','{{json .}}')
+    $null = Cmd -Argv @('info','--format','{{json .}}')
+    $null = Cmd -Argv @('ps','--format','{{json .}}')
+    $null = Cmd -Argv @('stats','--no-stream','--format','{{json .}}')
     foreach ($image in @($NodeImage,$EtcdImage,$ProxyImage)) {
         $null = Cmd -Argv @('image','inspect','--format','{{.Id}} {{json .RepoTags}}',$image)
     }
@@ -475,8 +507,15 @@ try {
     $fixture = Fixture 'primary'
     if ($fixture.count -ne 100000 -or $fixture.replica) { throw 'Invalid primary fixture' }
     $script:fixtureHash=$fixture.hash
+    # Archive installed code ownership, without executing host Python or changing DCS/slots.
+    foreach ($part in @('postgresql/slots.py','dcs/__init__.py','ha.py')) {
+        $r = Cmd -Argv @('exec',$primary,'cat',"/usr/local/lib/python3.11/dist-packages/patroni/$part")
+        Save-Text (Join-Path $source ('patroni-' + $part.Replace('/','-'))) $r.stdout
+    }
+    $null = Cmd -Argv @('exec',$primary,'sh','-c','cat /proc/meminfo; df -k /var/lib/postgresql/data; patroni --version')
     New-Node 'base' $false
     Await 'baseline-replica' { Replica-Ready 'base' }
+    $null = Slot-Snapshot 'baseline'
     # Validate using the same pinned image, with a run-specific transient container, no host tools.
     $null = Cmd -Argv @('run','--rm','--pull','never','--name',"$runId-proxy-check",'--network',$network,
         '--mount',"type=bind,source=$source/haproxy.cfg,target=/usr/local/etc/haproxy/haproxy.cfg,readonly",
@@ -506,6 +545,11 @@ try {
     Write-Probe
     Await 'final-base-readiness' { Replica-Ready 'base' }
     Snapshot 'final-all-tokens-and-fixture-agree' -RequireAgreement
+    $null = Slot-Snapshot 'final'
+    if ($slotOutcomes.Count -ne 4 -or @($slotOutcomes | Where-Object {
+        -not $_.containerRemoved -or -not $_.slotAbsentVerified -or -not $_.dataAgreementVerified }).Count -ne 0) {
+        throw 'Four independently observable removal outcomes are required'
+    }
     $success=$true
     Event 'experiment-complete' @{active=0; tokens=$tokens.Count}
 } catch {
@@ -535,6 +579,7 @@ try {
     } catch { $cleanupErrors.Add((Redact $_.Exception.Message)) }
     if ($cleanupErrors.Count -gt 0) { $success=$false }
     Save-Text (Join-Path $evidence 'result.json') (@{run=$runId; success=$success; failure=$failure;
+        slotEvidenceVersion=1; slotOutcomes=$slotOutcomes.ToArray(); slotMappings=$script:slotMappings;
         cleanupErrors=@($cleanupErrors); finalElasticCount=$active.Count; tokens=@($tokens);
         baseline=@($primary,"$runId-base","$runId-etcd",$proxy); network=$network;
         preservation='Baseline remains running on success; elastic containers removed without -v; volumes and stopped traffic containers retained. On failure DB resources remain in their last state, including drained/maintenance slots.';

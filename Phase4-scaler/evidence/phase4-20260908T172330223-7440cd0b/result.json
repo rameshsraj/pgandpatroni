@@ -1,0 +1,32 @@
+{
+  "tokens": [
+    "7f9106ecdb234581ba68680a091fa0c2",
+    "f09f1f3074894b8b8a805728149924fa",
+    "4b153cee72884e188233af867b0d818a",
+    "44893e327d9049b4b50cf069c77a3cb7",
+    "7ff0a4314c614f908ba43e90c4ff1388",
+    "9a19205830e44cd8af60d109284830fc",
+    "5ee49f662c7141a2b382d598026f76ac",
+    "ba5984ae0bdc4b0a85b09c4c641ad8a4",
+    "b547954f27e54ca6aae52a38e308f8bc",
+    "cdb8d3e135bd4d69919c3e47ac2735a9",
+    "8ef5ef7a15384ddb89843923060f04cc",
+    "77b1e5f143744ae3a304317499641657",
+    "ce0e3e7e39e84541b0d8998b67fccaad",
+    "9afaa09e4baa434baa17688c0d5c2aac"
+  ],
+  "failure": "Exception: C:\\GitHub\\pgandpatroni\\Phase4-scaler\\run-lab.ps1:169:9\r\nLine |\r\n 169 |          throw \"HAProxy rejected runtime operation: $($r.stdout)\"\r\n     |          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\r\n     | HAProxy rejected runtime operation: IP\r\n     | changed from '127.0.0.1' to '172.21.0.7',\r\n     | no need to change the port by 'stats\r\n     | socket command'\r\n\r\n",
+  "preservation": "Baseline remains running on success; elastic containers removed without -v; volumes and stopped traffic containers retained. On failure DB resources remain in their last state, including drained/maintenance slots.",
+  "network": "phase4-20260908T172330223-7440cd0b-net",
+  "baseline": [
+    "phase4-20260908T172330223-7440cd0b-primary",
+    "phase4-20260908T172330223-7440cd0b-base",
+    "phase4-20260908T172330223-7440cd0b-etcd",
+    "phase4-20260908T172330223-7440cd0b-proxy"
+  ],
+  "credentials": "Random credentials held only in this process and Docker metadata; not persisted in evidence. Local trust permits later docker exec psql as postgres.",
+  "run": "phase4-20260908T172330223-7440cd0b",
+  "cleanupErrors": [],
+  "success": false,
+  "finalElasticCount": 0
+}

@@ -1,0 +1,21 @@
+2026-09-08T17:24:44.847744897Z 2026-09-08 17:24:44,847 INFO: Selected new etcd server http://etcd:2379
+2026-09-08T17:24:44.915886573Z 2026-09-08 17:24:44,915 INFO: No PostgreSQL configuration items changed, nothing to reload.
+2026-09-08T17:24:45.053956834Z 2026-09-08 17:24:44,983 INFO: Lock owner: phase4-20260908T172330223-7440cd0b-primary; I am phase4-20260908T172330223-7440cd0b-elastic1
+2026-09-08T17:24:45.053971436Z 2026-09-08 17:24:45,042 INFO: trying to bootstrap from leader 'phase4-20260908T172330223-7440cd0b-primary'
+2026-09-08T17:24:46.979299367Z 2026-09-08 17:24:46,978 INFO: replica has been created using basebackup
+2026-09-08T17:24:46.985473434Z 2026-09-08 17:24:46,979 INFO: bootstrapped from leader 'phase4-20260908T172330223-7440cd0b-primary'
+2026-09-08T17:24:47.982918410Z 2026-09-08 17:24:47.982 UTC [32] db= user= app= client= session=6aa044df.20 tx=0 LOG:  redirecting log output to logging collector process
+2026-09-08T17:24:47.986469924Z 2026-09-08 17:24:47.982 UTC [32] db= user= app= client= session=6aa044df.20 tx=0 HINT:  Future log output will appear in directory "pg_log".
+2026-09-08T17:24:48.004780488Z 2026-09-08 17:24:48,003 INFO: postmaster pid=32
+2026-09-08T17:24:48.264775920Z 2026-09-08 17:24:48,262 INFO: establishing a new patroni heartbeat connection to postgres
+2026-09-08T17:24:49.092813796Z 2026-09-08 17:24:49,040 INFO: Lock owner: phase4-20260908T172330223-7440cd0b-primary; I am phase4-20260908T172330223-7440cd0b-elastic1
+2026-09-08T17:24:49.093205566Z 2026-09-08 17:24:49,091 INFO: bootstrap from leader 'phase4-20260908T172330223-7440cd0b-primary' in progress
+2026-09-08T17:24:49.312615169Z 2026-09-08 17:24:49,311 INFO: Reaped pid=47, exit status=0
+2026-09-08T17:24:49.313953508Z 2026-09-08 17:24:49,312 INFO: Lock owner: phase4-20260908T172330223-7440cd0b-primary; I am phase4-20260908T172330223-7440cd0b-elastic1
+2026-09-08T17:24:49.313984214Z 2026-09-08 17:24:49,313 INFO: establishing a new patroni heartbeat connection to postgres
+2026-09-08T17:24:49.388735204Z 2026-09-08 17:24:49,388 INFO: no action. I am (phase4-20260908T172330223-7440cd0b-elastic1), a secondary, and following a leader (phase4-20260908T172330223-7440cd0b-primary)
+2026-09-08T17:24:50.034701915Z 2026-09-08 17:24:50,034 INFO: establishing a new patroni restapi connection to postgres
+2026-09-08T17:24:54.144765243Z 2026-09-08 17:24:54,143 INFO: no action. I am (phase4-20260908T172330223-7440cd0b-elastic1), a secondary, and following a leader (phase4-20260908T172330223-7440cd0b-primary)
+2026-09-08T17:24:59.106773134Z 2026-09-08 17:24:59,105 INFO: no action. I am (phase4-20260908T172330223-7440cd0b-elastic1), a secondary, and following a leader (phase4-20260908T172330223-7440cd0b-primary)
+2026-09-08T17:25:04.607259435Z 2026-09-08 17:25:04,606 INFO: no action. I am (phase4-20260908T172330223-7440cd0b-elastic1), a secondary, and following a leader (phase4-20260908T172330223-7440cd0b-primary)
+2026-09-08T17:25:09.099503015Z 2026-09-08 17:25:09,099 INFO: no action. I am (phase4-20260908T172330223-7440cd0b-elastic1), a secondary, and following a leader (phase4-20260908T172330223-7440cd0b-primary)
