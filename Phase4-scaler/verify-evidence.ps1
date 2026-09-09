@@ -1,6 +1,6 @@
 #Requires -Version 7.2
 [CmdletBinding()]
-param([Parameter(Mandatory)][string]$EvidencePath, [switch]$Live, [string]$ReportPath)
+param([Parameter(Mandatory)][string]$EvidencePath, [switch]$Live, [string]$ReportPath, [switch]$IntegrityOnly)
 Set-StrictMode -Version Latest
 $ErrorActionPreference='Stop'
 $EvidencePath=(Resolve-Path -LiteralPath $EvidencePath).Path
@@ -10,8 +10,11 @@ function Read-JsonLines([string]$Name) {
 function Assert([bool]$Test,[string]$Message) { if (-not $Test) { throw $Message } }
 $result=Get-Content -Raw (Join-Path $EvidencePath 'result.json') | ConvertFrom-Json
 $manifest=@(Get-Content -Raw (Join-Path $EvidencePath 'manifest.json') | ConvertFrom-Json)
+Assert (@($manifest.path | Select-Object -Unique).Count -eq $manifest.Count) 'Duplicate manifest paths'
 foreach ($entry in $manifest) {
     $path=Join-Path $EvidencePath $entry.path
+    $full=[IO.Path]::GetFullPath($path)
+    Assert ($full.StartsWith($EvidencePath.TrimEnd('\','/') + [IO.Path]::DirectorySeparatorChar,[StringComparison]::OrdinalIgnoreCase)) 'Manifest path escapes evidence root'
     Assert (Test-Path -LiteralPath $path -PathType Leaf) "Missing artifact: $($entry.path)"
     Assert ((Get-Item -LiteralPath $path).Length -eq $entry.bytes) "Length mismatch: $($entry.path)"
     Assert ((Get-FileHash -LiteralPath $path -Algorithm SHA256).Hash -eq $entry.sha256) "Hash mismatch: $($entry.path)"
@@ -20,6 +23,13 @@ foreach ($entry in $manifest) {
 }
 $files=@(Get-ChildItem -LiteralPath $EvidencePath -File -Recurse | Where-Object Name -NE 'manifest.json')
 Assert ($files.Count -eq $manifest.Count) 'Unmanifested evidence files'
+if ($IntegrityOnly) {
+    [pscustomobject]@{run=$result.run; manifestFiles=$manifest.Count; evidenceBytes=($files | Measure-Object Length -Sum).Sum;
+        manifestSHA256=(Get-FileHash (Join-Path $EvidencePath 'manifest.json')).Hash;
+        artifactIntegrityVerified=$true; runnerSuccess=$result.success; lifecycleVerified=$false;
+        slotStatus='Not evaluated in integrity-only mode'} | ConvertTo-Json
+    return
+}
 Assert $result.success 'Run reported failure; manifest verified but scaling is not successful'
 $events=Read-JsonLines 'events'
 $metrics=Read-JsonLines 'metrics'
@@ -83,6 +93,9 @@ if ($null -ne $result.PSObject.Properties['slotEvidenceVersion']) {
 }
 $summary=[ordered]@{run=$result.run; verifiedUTC=[datetime]::UtcNow.ToString('o'); manifestFiles=$manifest.Count;
     slotVerification=$slotVerification;
+    verifierSourceHashes=@(foreach ($file in @('verify-evidence.ps1','verify-slot-evidence.ps1')) {
+        @{file=$file; sha256=(Get-FileHash (Join-Path $PSScriptRoot $file) -Algorithm SHA256).Hash}
+    });
     clientErrorSignatures=$clientErrors.Count;
     evidenceBytes=($files | Measure-Object Length -Sum).Sum; admitted=4; removed=4; peakDatabaseNodes=6;
     finalDatabaseNodes=2; acknowledgedTokens=$result.tokens.Count; fixtureRows=100000; fixtureHash=$final.primary.hash;
@@ -119,6 +132,23 @@ if ($Live) {
         $state=(Docker-Check @('inspect','--format','{{json .State}}',$client.Names)) | ConvertFrom-Json
         Assert (-not $state.Running -and $state.ExitCode -eq 0 -and -not $state.OOMKilled) 'Traffic did not finish cleanly'
     }
+    if ($null -ne $result.PSObject.Properties['slotEvidenceVersion']) {
+        $q="SELECT json_build_object('slots',(SELECT json_agg(s) FROM (SELECT slot_name,slot_type,active,active_pid FROM pg_replication_slots) s),'senders',(SELECT json_agg(r) FROM (SELECT pid,application_name,state FROM pg_stat_replication) r));"
+        $liveSlots=(Docker-Check @('exec',"$($result.run)-primary",'psql','-X','-A','-t','-v','ON_ERROR_STOP=1','-U','postgres','-d','postgres','-c',$q)) | ConvertFrom-Json
+        Assert ($liveSlots.slots.Count -eq 1 -and $liveSlots.slots[0].slot_name -ceq $slotVerification.baselineSlot -and
+            $liveSlots.slots[0].active -ceq $true -and $liveSlots.slots[0].slot_type -eq 'physical') 'Live inventory not active baseline slot only'
+        $sender=@($liveSlots.senders | Where-Object { $_.pid -eq $liveSlots.slots[0].active_pid -and
+            $_.application_name -ceq "$($result.run)-base" -and $_.state -eq 'streaming' })
+        Assert ($sender.Count -eq 1) 'Live baseline slot has no matching sender'
+        $initial=@($commands | Where-Object { $_.args[0] -eq 'ps' -and $_.exit -eq 0 })[0]
+        $initialContainers=@($initial.stdout -split "`n" | Where-Object { $_.Trim() } | ForEach-Object { $_ | ConvertFrom-Json })
+        $now=@((Docker-Check @('ps','--format','{{json .}}')) -split "`n" | Where-Object { $_.Trim() } | ForEach-Object { $_ | ConvertFrom-Json })
+        foreach ($existing in $initialContainers) {
+            $same=@($now | Where-Object { $_.Names -ceq $existing.Names -and $_.ID -eq $existing.ID })
+            Assert ($same.Count -eq 1) "Previously running container missing/recreated: $($existing.Names)"
+        }
+        $summary.preexistingRunningContainersUnchanged=$initialContainers.Count
+    }
     $summary.liveCommands=$liveCommands.ToArray()
 }
 $reportDir=Join-Path $PSScriptRoot 'reports'
@@ -128,5 +158,6 @@ if (-not $ReportPath) {
     $suffix = if ($null -eq $result.PSObject.Properties['slotEvidenceVersion']) { '-slot-audit' } else { '' }
     $ReportPath = Join-Path $reportDir "$($result.run)$suffix.json"
 }
+Assert (-not [IO.Path]::GetFullPath($ReportPath).StartsWith($EvidencePath.TrimEnd('\','/') + [IO.Path]::DirectorySeparatorChar,[StringComparison]::OrdinalIgnoreCase)) 'Reports must not modify immutable evidence'
 $summary | ConvertTo-Json -Depth 12 | Set-Content -LiteralPath $ReportPath -Encoding utf8
 $summary | ConvertTo-Json -Depth 12

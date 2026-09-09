@@ -1,0 +1,108 @@
+{
+  "containers": [
+    {
+      "stderr": "",
+      "state": "/phase4-20260908T231619712-a9cb57ed-etcd {\"Status\":\"running\",\"Running\":true,\"Paused\":false,\"Restarting\":false,\"OOMKilled\":false,\"Dead\":false,\"Pid\":1176771,\"ExitCode\":0,\"Error\":\"\",\"StartedAt\":\"2026-09-08T23:16:36.195205375Z\",\"FinishedAt\":\"0001-01-01T00:00:00Z\"}\n",
+      "exit": 0,
+      "name": "phase4-20260908T231619712-a9cb57ed-etcd"
+    },
+    {
+      "stderr": "",
+      "state": "/phase4-20260908T231619712-a9cb57ed-primary {\"Status\":\"running\",\"Running\":true,\"Paused\":false,\"Restarting\":false,\"OOMKilled\":false,\"Dead\":false,\"Pid\":1176878,\"ExitCode\":0,\"Error\":\"\",\"StartedAt\":\"2026-09-08T23:16:40.108466746Z\",\"FinishedAt\":\"0001-01-01T00:00:00Z\"}\n",
+      "exit": 0,
+      "name": "phase4-20260908T231619712-a9cb57ed-primary"
+    },
+    {
+      "stderr": "",
+      "state": "/phase4-20260908T231619712-a9cb57ed-base {\"Status\":\"running\",\"Running\":true,\"Paused\":false,\"Restarting\":false,\"OOMKilled\":false,\"Dead\":false,\"Pid\":1178406,\"ExitCode\":0,\"Error\":\"\",\"StartedAt\":\"2026-09-08T23:17:18.731507752Z\",\"FinishedAt\":\"0001-01-01T00:00:00Z\"}\n",
+      "exit": 0,
+      "name": "phase4-20260908T231619712-a9cb57ed-base"
+    },
+    {
+      "stderr": "",
+      "state": "/phase4-20260908T231619712-a9cb57ed-proxy {\"Status\":\"running\",\"Running\":true,\"Paused\":false,\"Restarting\":false,\"OOMKilled\":false,\"Dead\":false,\"Pid\":1179738,\"ExitCode\":0,\"Error\":\"\",\"StartedAt\":\"2026-09-08T23:17:50.665263944Z\",\"FinishedAt\":\"0001-01-01T00:00:00Z\"}\n",
+      "exit": 0,
+      "name": "phase4-20260908T231619712-a9cb57ed-proxy"
+    },
+    {
+      "stderr": "",
+      "state": "/phase4-20260908T231619712-a9cb57ed-traffic-1-low-baseline {\"Status\":\"exited\",\"Running\":false,\"Paused\":false,\"Restarting\":false,\"OOMKilled\":false,\"Dead\":false,\"Pid\":0,\"ExitCode\":0,\"Error\":\"\",\"StartedAt\":\"2026-09-08T23:17:59.698964213Z\",\"FinishedAt\":\"2026-09-08T23:18:23.081352374Z\"}\n",
+      "exit": 0,
+      "name": "phase4-20260908T231619712-a9cb57ed-traffic-1-low-baseline"
+    },
+    {
+      "stderr": "",
+      "state": "/phase4-20260908T231619712-a9cb57ed-traffic-2-high {\"Status\":\"exited\",\"Running\":false,\"Paused\":false,\"Restarting\":false,\"OOMKilled\":false,\"Dead\":false,\"Pid\":0,\"ExitCode\":0,\"Error\":\"\",\"StartedAt\":\"2026-09-08T23:18:25.856950394Z\",\"FinishedAt\":\"2026-09-08T23:28:09.986672483Z\"}\n",
+      "exit": 0,
+      "name": "phase4-20260908T231619712-a9cb57ed-traffic-2-high"
+    },
+    {
+      "stderr": "error: no such object: phase4-20260908T231619712-a9cb57ed-elastic1\n",
+      "state": "\n",
+      "exit": 1,
+      "name": "phase4-20260908T231619712-a9cb57ed-elastic1"
+    },
+    {
+      "stderr": "error: no such object: phase4-20260908T231619712-a9cb57ed-elastic2\n",
+      "state": "\n",
+      "exit": 1,
+      "name": "phase4-20260908T231619712-a9cb57ed-elastic2"
+    },
+    {
+      "stderr": "error: no such object: phase4-20260908T231619712-a9cb57ed-elastic3\n",
+      "state": "\n",
+      "exit": 1,
+      "name": "phase4-20260908T231619712-a9cb57ed-elastic3"
+    },
+    {
+      "stderr": "error: no such object: phase4-20260908T231619712-a9cb57ed-elastic4\n",
+      "state": "\n",
+      "exit": 1,
+      "name": "phase4-20260908T231619712-a9cb57ed-elastic4"
+    },
+    {
+      "stderr": "",
+      "state": "/phase4-20260908T231619712-a9cb57ed-traffic-3-low-final {\"Status\":\"exited\",\"Running\":false,\"Paused\":false,\"Restarting\":false,\"OOMKilled\":false,\"Dead\":false,\"Pid\":0,\"ExitCode\":0,\"Error\":\"\",\"StartedAt\":\"2026-09-08T23:28:28.416664116Z\",\"FinishedAt\":\"2026-09-08T23:34:54.851897253Z\"}\n",
+      "exit": 0,
+      "name": "phase4-20260908T231619712-a9cb57ed-traffic-3-low-final"
+    }
+  ],
+  "volumes": [
+    {
+      "result": "phase4-20260908T231619712-a9cb57ed-etcd-data /var/lib/docker/volumes/phase4-20260908T231619712-a9cb57ed-etcd-data/_data\n",
+      "exit": 0,
+      "name": "phase4-20260908T231619712-a9cb57ed-etcd-data"
+    },
+    {
+      "result": "phase4-20260908T231619712-a9cb57ed-primary-data /var/lib/docker/volumes/phase4-20260908T231619712-a9cb57ed-primary-data/_data\n",
+      "exit": 0,
+      "name": "phase4-20260908T231619712-a9cb57ed-primary-data"
+    },
+    {
+      "result": "phase4-20260908T231619712-a9cb57ed-base-data /var/lib/docker/volumes/phase4-20260908T231619712-a9cb57ed-base-data/_data\n",
+      "exit": 0,
+      "name": "phase4-20260908T231619712-a9cb57ed-base-data"
+    },
+    {
+      "result": "phase4-20260908T231619712-a9cb57ed-elastic1-data /var/lib/docker/volumes/phase4-20260908T231619712-a9cb57ed-elastic1-data/_data\n",
+      "exit": 0,
+      "name": "phase4-20260908T231619712-a9cb57ed-elastic1-data"
+    },
+    {
+      "result": "phase4-20260908T231619712-a9cb57ed-elastic2-data /var/lib/docker/volumes/phase4-20260908T231619712-a9cb57ed-elastic2-data/_data\n",
+      "exit": 0,
+      "name": "phase4-20260908T231619712-a9cb57ed-elastic2-data"
+    },
+    {
+      "result": "phase4-20260908T231619712-a9cb57ed-elastic3-data /var/lib/docker/volumes/phase4-20260908T231619712-a9cb57ed-elastic3-data/_data\n",
+      "exit": 0,
+      "name": "phase4-20260908T231619712-a9cb57ed-elastic3-data"
+    },
+    {
+      "result": "phase4-20260908T231619712-a9cb57ed-elastic4-data /var/lib/docker/volumes/phase4-20260908T231619712-a9cb57ed-elastic4-data/_data\n",
+      "exit": 0,
+      "name": "phase4-20260908T231619712-a9cb57ed-elastic4-data"
+    }
+  ],
+  "network": "phase4-20260908T231619712-a9cb57ed-net"
+}

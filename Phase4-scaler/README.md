@@ -2,6 +2,8 @@
 
 See the [scaling decisions and replication investigation](SCALING_REPLICATION_INVESTIGATION.md) for component responsibilities, exact decision timestamps/thresholds, dataflow, scale-in safety and the replication-slot evidence gap.
 
+**New verification completed:** [returned-row slot results](SLOT_VERIFICATION_RESULTS.md) document run `phase4-20260908T231619712-a9cb57ed`: four actual slot absences verified, 41 replication samples, primary logs retained through elastic1 cleanup and 23 passing slot/mutation tests. This closes the gap **for the new run only**; the original historical run remains slot unavailable/not verified. No physical disk reclamation is claimed.
+
 For blog readers asking whether production needs the same scripts, see the [production FAQ and deployment alternatives](PRODUCTION_FAQ.md). A production controller is required for demand-based scaling, but it need not be this custom lab runner.
 
 This is a bounded demonstration, **not a production autoscaler**. It creates its own run-specific network, etcd, Patroni scope, primary, permanent replica and HAProxy. It does not use Compose or change the existing Phase 3 cluster. No host ports are published. All container/network/volume names start with `phase4-`.
@@ -60,7 +62,7 @@ The fixture and token-event schema are separate from all existing lab databases.
 
 ## Evidence and retention
 
-Each invocation exclusively creates `evidence/<run-id>/`, ignored by Git:
+Each invocation exclusively creates a new run directory under the evidence folder. Tracking follows [.gitignore](.gitignore); this experiment does not change that policy:
 
 - LF-normalized source copies, including the existing entrypoint and the new template; never a rendered password-bearing Patroni config or environment file.
 - `commands.jsonl`: timestamp, exact redacted argv/stdin, exit, stdout, stderr, timeout and duration. Concurrent output reads avoid pipe deadlocks. Timeout kills the local CLI process tree; the remote action might already have happened, so inspect retained resource state.
@@ -76,7 +78,7 @@ Random alphanumeric lab passwords exist only in process memory and Docker contai
 
 ## Limitations / validation status
 
-- Docker execution and independent verification results, including failed attempts, are documented in [RESULTS.md](RESULTS.md). Raw evidence remains local and Git-ignored; reports alone are not a substitute for those artifacts.
+- Original Docker execution results are in [RESULTS.md](RESULTS.md); the new slot-verified run and its preserved failed attempt are in [SLOT_VERIFICATION_RESULTS.md](SLOT_VERIFICATION_RESULTS.md). Reports alone are not a substitute for retained raw artifacts.
 - Samples use a trailing 10-second transaction-timestamp window ending two seconds in the past. Windows readers allow `ReadWrite | Delete`. Native pgbench buffering can undercount recent/low-rate completions; overlapping windows and debug I/O mean this is demonstrative rather than an unbiased capacity metric. No offered-rate fallback exists. A stopped driver fails the run instead of inducing scale-in.
 - Observation polling uses blocking `docker stats --no-stream`, not sleeps. Actions and evidence collection are synchronous; sample cadence is variable and controller decisions pause during base backups/archives. The driver is a separate function, not a production concurrent service.
 - Primary/base can technically fail over, but this experiment expects the original primary to remain writable and aborts on role changes. It injects no failures and does not demonstrate HA of the single etcd/proxy, durable HAProxy runtime state, CPU-based scaling, latency SLOs or production pooling.

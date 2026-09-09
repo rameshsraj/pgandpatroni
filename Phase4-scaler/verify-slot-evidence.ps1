@@ -14,8 +14,10 @@ function Verify-SlotEvidence($Result, $Samples, $Sql, $Commands, $Snapshots, $Ev
         Check ((Json ($q[0].stdout | ConvertFrom-Json)) -ceq (Json $Rows)) "Returned rows differ from sample $CommandId"
         Check ([datetime]$q[0].utc -ge [datetime]$Sample.startedUTC -and
             ([datetime]$q[0].utc).AddMilliseconds($q[0].durationMs) -le [datetime]$Sample.completedUTC) "SQL outside sample interval $CommandId"
-        Check ([datetime]$Rows.observedUTC -ge ([datetime]$q[0].utc).AddSeconds(-2) -and
-            [datetime]$Rows.observedUTC -le ([datetime]$Sample.completedUTC).AddSeconds(2)) 'Server/host observation clock inconsistency'
+        # ConvertFrom-Json can materialize offset dates as Local and Z dates as Utc.
+        # DateTime comparisons otherwise compare wall-clock ticks, not the same instant.
+        Check (([datetime]$Rows.observedUTC).ToUniversalTime() -ge ([datetime]$q[0].utc).ToUniversalTime().AddSeconds(-2) -and
+            ([datetime]$Rows.observedUTC).ToUniversalTime() -le ([datetime]$Sample.completedUTC).ToUniversalTime().AddSeconds(2)) 'Server/host observation clock inconsistency'
     }
     function RestReturned($Rows, $Sample) {
         $hits = @($Commands | Where-Object { $_.exit -eq 0 -and -not $_.timeout -and $_.args -contains 'curl' -and
@@ -141,6 +143,11 @@ function Verify-SlotEvidence($Result, $Samples, $Sql, $Commands, $Snapshots, $Ev
         Check ($null -ne $before.replicas.PSObject.Properties[$alias]) 'Target absent from pre-removal agreement'
         $after = Agreement "removed-$alias"
         Check ($null -eq $after.replicas.PSObject.Properties[$alias]) 'Removed target still in data snapshot'
+        Check ($o.preDrainSample -eq $stages['pre-drain'].id -and $o.preStopSample -eq $stages['pre-stop'].id -and
+            $o.postStopSample -eq $stages['post-stop'].id) 'Outcome lifecycle sample references disagree'
+        Check ([datetime]$ready[0].completedUTC -le [datetime]$stages['pre-drain'].startedUTC -and
+            [datetime]$before.utc -le [datetime]$stages['pre-drain'].startedUTC -and
+            [datetime]$stages['pre-drain'].completedUTC -le [datetime]$stages['pre-stop'].startedUTC) 'Readiness/agreement/pre-drain order'
         Check ([datetime]$stages['pre-stop'].completedUTC -le [datetime]$o.stopStartedUTC -and
             [datetime]$o.stopStartedUTC -le [datetime]$o.stopCompletedUTC -and
             [datetime]$o.stopCompletedUTC -le [datetime]$stages['post-stop'].startedUTC -and
@@ -169,6 +176,9 @@ function Verify-SlotEvidence($Result, $Samples, $Sql, $Commands, $Snapshots, $Ev
         $delay = ([datetime]$first.completedUTC - [datetime]$o.removeCompletedUTC).TotalSeconds
         Check ($o.firstAbsentSample -eq $first.id -and [datetime]$o.firstAbsentCompletedUTC -eq [datetime]$first.completedUTC -and
             [math]::Abs($o.secondsFromRemovalCompletion - $delay) -lt 0.001) 'First absence timestamp/delay not derived from samples'
+        Check (([datetime]$o.firstAbsentObservedUTC).ToUniversalTime() -eq ([datetime]$first.primary.observedUTC).ToUniversalTime() -and
+            [math]::Abs($o.secondsFromStopCompletion - ([datetime]$first.completedUTC-[datetime]$o.stopCompletedUTC).TotalSeconds) -lt 0.001 -and
+            [datetime]$after.utc -ge [datetime]$first.completedUTC) 'Absence/stop delay/data agreement interval mismatch'
         Check (($o.sampleIds -join ',') -eq ($observations.id -join ',')) 'Observation IDs omit samples'
         Check ($o.containerRemoved -and $o.dataAgreementVerified -and $o.slotAbsentVerified -and $o.preconditionsVerified -and $null -eq $o.error) 'Outcome not fully verified'
         $later = @($Samples | Where-Object { [datetime]$_.startedUTC -ge [datetime]$first.completedUTC })
@@ -179,7 +189,8 @@ function Verify-SlotEvidence($Result, $Samples, $Sql, $Commands, $Snapshots, $Ev
             @($_.primary.slots | Where-Object slot_name -CEQ $slotName).Count -eq 0 })[0]
         [pscustomobject]@{alias=$alias; slotName=$slotName; containerRemoved=$true; dataAgreementVerified=$true; slotAbsentVerified=$true;
             stopStartedUTC=$o.stopStartedUTC; stopCompletedUTC=$o.stopCompletedUTC; removeCompletedUTC=$o.removeCompletedUTC;
-            lastPresentObservedUTC=$present.primary.observedUTC; firstAbsentObservedUTC=$afterStopAbsent.primary.observedUTC;
+            lastPresentObservedUTC=([datetime]$present.primary.observedUTC).ToUniversalTime().ToString('o');
+            firstAbsentObservedUTC=([datetime]$afterStopAbsent.primary.observedUTC).ToUniversalTime().ToString('o');
             firstAbsentAfterRemovalCompletedUTC=$first.completedUTC; secondsStopToFirstAbsence=([datetime]$afterStopAbsent.completedUTC-[datetime]$o.stopCompletedUTC).TotalSeconds;
             secondsRemovalToFirstAbsence=$delay; observationIntervalSeconds=([datetime]$afterStopAbsent.primary.observedUTC-[datetime]$present.primary.observedUTC).TotalSeconds;
             preStopRetainedWalBytes=(@($stages['pre-stop'].primary.slots | Where-Object slot_name -CEQ $slotName)[0]).retained_wal_bytes;
@@ -192,6 +203,12 @@ function Verify-SlotEvidence($Result, $Samples, $Sql, $Commands, $Snapshots, $Ev
     $archives = @($Events | Where-Object { $_.kind -eq 'logs-archived' -and $_.data.name -eq "$($Result.run)-primary" -and
         $_.data.postgres -and [datetime]$_.utc -gt [datetime]$final[0].completedUTC })
     Check ($archives.Count -gt 0) 'Primary archive predates final cleanup observation'
+    foreach ($op in @('logs','cp')) {
+        $copied=@($Commands | Where-Object { $_.args[0] -eq $op -and $_.exit -eq 0 -and -not $_.timeout -and
+            [datetime]$_.utc -ge [datetime]$final[0].completedUTC -and
+            ($_.args -contains "$($Result.run)-primary" -or $_.args -contains "$($Result.run)-primary`:/var/lib/postgresql/data/pgdata/pg_log") })
+        Check ($copied.Count -gt 0) 'Final primary log archive has no successful command evidence'
+    }
     return [pscustomobject]@{status='verified'; removed=4; baselineSlot=$baseSlot; primaryIdentity=$identity; samples=$Samples.Count;
         sqlErrorsDuringObservation=$failedSql.Count; physicalDiskReclamationVerified=$false; outcomes=$rows}
 }

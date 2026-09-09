@@ -1,0 +1,494 @@
+{
+  "run": "phase4-20260908T231619712-a9cb57ed",
+  "verifiedUTC": "2026-09-08T23:36:05.6018478Z",
+  "manifestFiles": 291,
+  "slotVerification": {
+    "status": "verified",
+    "removed": 4,
+    "baselineSlot": "phase4_20260908t231619712_a9cb57ed_base",
+    "primaryIdentity": "phase4-20260908T231619712-a9cb57ed-primary|7683307404063899704|172.25.0.3|1|09/09/2026 04:46:59",
+    "samples": 41,
+    "sqlErrorsDuringObservation": 0,
+    "physicalDiskReclamationVerified": false,
+    "outcomes": [
+      {
+        "alias": "elastic4",
+        "slotName": "phase4_20260908t231619712_a9cb57ed_elastic4",
+        "containerRemoved": true,
+        "dataAgreementVerified": true,
+        "slotAbsentVerified": true,
+        "stopStartedUTC": "2026-09-08T23:29:21.1213345Z",
+        "stopCompletedUTC": "2026-09-08T23:29:28.3445287Z",
+        "removeCompletedUTC": "2026-09-08T23:29:36.5618559Z",
+        "lastPresentObservedUTC": "2026-09-08T23:29:52.6219840Z",
+        "firstAbsentObservedUTC": "2026-09-08T23:30:00.2331300Z",
+        "firstAbsentAfterRemovalCompletedUTC": "2026-09-08T23:30:02.2973056Z",
+        "secondsStopToFirstAbsence": 33.9527769,
+        "secondsRemovalToFirstAbsence": 25.7354497,
+        "observationIntervalSeconds": 7.611146,
+        "preStopRetainedWalBytes": 0,
+        "postStopRetainedWalBytes": 0,
+        "sampleIds": [
+          9,
+          10,
+          11,
+          12
+        ]
+      },
+      {
+        "alias": "elastic3",
+        "slotName": "phase4_20260908t231619712_a9cb57ed_elastic3",
+        "containerRemoved": true,
+        "dataAgreementVerified": true,
+        "slotAbsentVerified": true,
+        "stopStartedUTC": "2026-09-08T23:30:58.8370805Z",
+        "stopCompletedUTC": "2026-09-08T23:31:02.3063674Z",
+        "removeCompletedUTC": "2026-09-08T23:31:09.5770948Z",
+        "lastPresentObservedUTC": "2026-09-08T23:31:30.1840590Z",
+        "firstAbsentObservedUTC": "2026-09-08T23:31:33.8700740Z",
+        "firstAbsentAfterRemovalCompletedUTC": "2026-09-08T23:31:35.1807913Z",
+        "secondsStopToFirstAbsence": 32.8744239,
+        "secondsRemovalToFirstAbsence": 25.6036965,
+        "observationIntervalSeconds": 3.686015,
+        "preStopRetainedWalBytes": 0,
+        "postStopRetainedWalBytes": 56,
+        "sampleIds": [
+          16,
+          17,
+          18,
+          19,
+          20
+        ]
+      },
+      {
+        "alias": "elastic2",
+        "slotName": "phase4_20260908t231619712_a9cb57ed_elastic2",
+        "containerRemoved": true,
+        "dataAgreementVerified": true,
+        "slotAbsentVerified": true,
+        "stopStartedUTC": "2026-09-08T23:32:42.2082587Z",
+        "stopCompletedUTC": "2026-09-08T23:32:46.2551548Z",
+        "removeCompletedUTC": "2026-09-08T23:32:54.7337186Z",
+        "lastPresentObservedUTC": "2026-09-08T23:33:15.9188660Z",
+        "firstAbsentObservedUTC": "2026-09-08T23:33:19.6434490Z",
+        "firstAbsentAfterRemovalCompletedUTC": "2026-09-08T23:33:21.2901407Z",
+        "secondsStopToFirstAbsence": 35.0349859,
+        "secondsRemovalToFirstAbsence": 26.5564221,
+        "observationIntervalSeconds": 3.724583,
+        "preStopRetainedWalBytes": 0,
+        "postStopRetainedWalBytes": 0,
+        "sampleIds": [
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30
+        ]
+      },
+      {
+        "alias": "elastic1",
+        "slotName": "phase4_20260908t231619712_a9cb57ed_elastic1",
+        "containerRemoved": true,
+        "dataAgreementVerified": true,
+        "slotAbsentVerified": true,
+        "stopStartedUTC": "2026-09-08T23:34:00.3215638Z",
+        "stopCompletedUTC": "2026-09-08T23:34:03.0868403Z",
+        "removeCompletedUTC": "2026-09-08T23:34:07.5369345Z",
+        "lastPresentObservedUTC": "2026-09-08T23:34:30.7393570Z",
+        "firstAbsentObservedUTC": "2026-09-08T23:34:34.9024510Z",
+        "firstAbsentAfterRemovalCompletedUTC": "2026-09-08T23:34:36.1983933Z",
+        "secondsStopToFirstAbsence": 33.111553,
+        "secondsRemovalToFirstAbsence": 28.6614588,
+        "observationIntervalSeconds": 4.163094,
+        "preStopRetainedWalBytes": 0,
+        "postStopRetainedWalBytes": 0,
+        "sampleIds": [
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40
+        ]
+      }
+    ]
+  },
+  "verifierSourceHashes": [
+    {
+      "sha256": "8E850538605A540C6C55AF32105C42E51E035E3949DA4D3DC1E1BAA5B92B2FD1",
+      "file": "verify-evidence.ps1"
+    },
+    {
+      "sha256": "B2BA76BF347337174B1C3DAB31D92E3DC5AA9C0D89185C44A3FEA781075B9C80",
+      "file": "verify-slot-evidence.ps1"
+    }
+  ],
+  "clientErrorSignatures": 0,
+  "evidenceBytes": 86851253.0,
+  "admitted": 4,
+  "removed": 4,
+  "peakDatabaseNodes": 6,
+  "finalDatabaseNodes": 2,
+  "acknowledgedTokens": 59,
+  "fixtureRows": 100000,
+  "fixtureHash": "0f42f18a2baad7f892d29c774a09d284",
+  "actions": [
+    {
+      "action": "out",
+      "slot": "elastic1",
+      "decisionUTC": "2026-09-08T23:18:59.8025419Z",
+      "completedUTC": "2026-09-08T23:20:05.8948279Z",
+      "measuredTPS": 23.7,
+      "seconds": 66.092
+    },
+    {
+      "action": "out",
+      "slot": "elastic2",
+      "decisionUTC": "2026-09-08T23:21:17.292152Z",
+      "completedUTC": "2026-09-08T23:21:55.2996496Z",
+      "measuredTPS": 27.0,
+      "seconds": 38.007
+    },
+    {
+      "action": "out",
+      "slot": "elastic3",
+      "decisionUTC": "2026-09-08T23:22:24.725642Z",
+      "completedUTC": "2026-09-08T23:23:00.0976748Z",
+      "measuredTPS": 33.4,
+      "seconds": 35.372
+    },
+    {
+      "action": "out",
+      "slot": "elastic4",
+      "decisionUTC": "2026-09-08T23:25:49.1153868Z",
+      "completedUTC": "2026-09-08T23:26:42.7841715Z",
+      "measuredTPS": 28.8,
+      "seconds": 53.669
+    },
+    {
+      "action": "in",
+      "slot": "elastic4",
+      "decisionUTC": "2026-09-08T23:28:47.4783749Z",
+      "completedUTC": "2026-09-08T23:30:18.9176579Z",
+      "measuredTPS": 2.6,
+      "seconds": 91.439
+    },
+    {
+      "action": "in",
+      "slot": "elastic3",
+      "decisionUTC": "2026-09-08T23:30:34.1531608Z",
+      "completedUTC": "2026-09-08T23:31:43.7274086Z",
+      "measuredTPS": 1.5,
+      "seconds": 69.574
+    },
+    {
+      "action": "in",
+      "slot": "elastic2",
+      "decisionUTC": "2026-09-08T23:32:04.1640107Z",
+      "completedUTC": "2026-09-08T23:33:28.6986617Z",
+      "measuredTPS": 1.9,
+      "seconds": 84.535
+    },
+    {
+      "action": "in",
+      "slot": "elastic1",
+      "decisionUTC": "2026-09-08T23:33:47.5333539Z",
+      "completedUTC": "2026-09-08T23:34:39.0286743Z",
+      "measuredTPS": 1.5,
+      "seconds": 51.495
+    }
+  ],
+  "traffic": [
+    {
+      "stage": "1-low-baseline",
+      "transactions": 52,
+      "invalid": 0,
+      "observedSpanSeconds": 17.384,
+      "meanLatencyMs": 70.604
+    },
+    {
+      "stage": "2-high",
+      "transactions": 13762,
+      "invalid": 0,
+      "observedSpanSeconds": 581.258,
+      "meanLatencyMs": 3829.611
+    },
+    {
+      "stage": "3-low-final",
+      "transactions": 1014,
+      "invalid": 0,
+      "observedSpanSeconds": 382.312,
+      "meanLatencyMs": 78.191
+    }
+  ],
+  "peakRouting": [
+    {
+      "svname": "base",
+      "status": "UP",
+      "stot": "5530",
+      "econ": "0",
+      "eresp": "0"
+    },
+    {
+      "svname": "elastic1",
+      "status": "UP",
+      "stot": "3627",
+      "econ": "0",
+      "eresp": "0"
+    },
+    {
+      "svname": "elastic2",
+      "status": "UP",
+      "stot": "2344",
+      "econ": "0",
+      "eresp": "0"
+    },
+    {
+      "svname": "elastic3",
+      "status": "UP",
+      "stot": "1717",
+      "econ": "0",
+      "eresp": "0"
+    },
+    {
+      "svname": "elastic4",
+      "status": "UP",
+      "stot": "512",
+      "econ": "0",
+      "eresp": "0"
+    }
+  ],
+  "recordedCommands": 1197,
+  "nonzeroCommands": 20,
+  "commandTimeouts": 0,
+  "durationSeconds": 1121.437,
+  "preexistingRunningContainersUnchanged": 26,
+  "liveCommands": [
+    {
+      "exit": 0,
+      "utc": "2026-09-08T23:36:05.6426221Z",
+      "args": [
+        "ps",
+        "-a",
+        "--filter",
+        "label=phase4.run=phase4-20260908T231619712-a9cb57ed",
+        "--format",
+        "{{json .}}"
+      ],
+      "durationMs": 284,
+      "output": "{\"Command\":\"\\\"/bin/bash /work/traΓÇª\\\"\",\"CreatedAt\":\"2026-09-09 04:58:27 +0530 IST\",\"HealthStatus\":\"none\",\"ID\":\"229f3ea0256e\",\"Image\":\"postgres-patroni-ha-pg-node-1:latest\",\"Labels\":\"com.docker.compose.project=postgres-patroni-ha,com.docker.compose.service=pg-node-1,com.docker.compose.version=5.1.4,desktop.docker.io/mounts/0/Source=C:\\\\GitHub\\\\pgandpatroni\\\\Phase4-scaler\\\\evidence\\\\phase4-20260908T231619712-a9cb57ed\\\\source,desktop.docker.io/mounts/0/SourceKind=hostFile,desktop.docker.io/mounts/0/Target=/work,desktop.docker.io/mounts/1/Source=C:\\\\GitHub\\\\pgandpatroni\\\\Phase4-scaler\\\\evidence\\\\phase4-20260908T231619712-a9cb57ed\\\\traffic\\\\3-low-final,desktop.docker.io/mounts/1/SourceKind=hostFile,desktop.docker.io/mounts/1/Target=/evidence,desktop.docker.io/ports.scheme=v2,phase4.run=phase4-20260908T231619712-a9cb57ed\",\"LocalVolumes\":\"1\",\"Mounts\":\"/run/desktop/mΓÇª,a405f1bb3e4eb3ΓÇª,/run/desktop/mΓÇª\",\"Names\":\"phase4-20260908T231619712-a9cb57ed-traffic-3-low-final\",\"Networks\":\"phase4-20260908T231619712-a9cb57ed-net\",\"Platform\":{\"architecture\":\"amd64\",\"os\":\"linux\"},\"Ports\":\"\",\"RunningFor\":\"7 minutes ago\",\"Size\":\"12.3kB (virtual 549MB)\",\"State\":\"exited\",\"Status\":\"Exited (0) About a minute ago\"}\r\n{\"Command\":\"\\\"/bin/bash /work/traΓÇª\\\"\",\"CreatedAt\":\"2026-09-09 04:48:25 +0530 IST\",\"HealthStatus\":\"none\",\"ID\":\"7028ff46d687\",\"Image\":\"postgres-patroni-ha-pg-node-1:latest\",\"Labels\":\"com.docker.compose.project=postgres-patroni-ha,com.docker.compose.service=pg-node-1,com.docker.compose.version=5.1.4,desktop.docker.io/mounts/0/Source=C:\\\\GitHub\\\\pgandpatroni\\\\Phase4-scaler\\\\evidence\\\\phase4-20260908T231619712-a9cb57ed\\\\source,desktop.docker.io/mounts/0/SourceKind=hostFile,desktop.docker.io/mounts/0/Target=/work,desktop.docker.io/mounts/1/Source=C:\\\\GitHub\\\\pgandpatroni\\\\Phase4-scaler\\\\evidence\\\\phase4-20260908T231619712-a9cb57ed\\\\traffic\\\\2-high,desktop.docker.io/mounts/1/SourceKind=hostFile,desktop.docker.io/mounts/1/Target=/evidence,desktop.docker.io/ports.scheme=v2,phase4.run=phase4-20260908T231619712-a9cb57ed\",\"LocalVolumes\":\"1\",\"Mounts\":\"/run/desktop/mΓÇª,ba695f159b70e9ΓÇª,/run/desktop/mΓÇª\",\"Names\":\"phase4-20260908T231619712-a9cb57ed-traffic-2-high\",\"Networks\":\"phase4-20260908T231619712-a9cb57ed-net\",\"Platform\":{\"architecture\":\"amd64\",\"os\":\"linux\"},\"Ports\":\"\",\"RunningFor\":\"17 minutes ago\",\"Size\":\"12.3kB (virtual 549MB)\",\"State\":\"exited\",\"Status\":\"Exited (0) 7 minutes ago\"}\r\n{\"Command\":\"\\\"/bin/bash /work/traΓÇª\\\"\",\"CreatedAt\":\"2026-09-09 04:47:58 +0530 IST\",\"HealthStatus\":\"none\",\"ID\":\"83d10c7eb0a3\",\"Image\":\"postgres-patroni-ha-pg-node-1:latest\",\"Labels\":\"com.docker.compose.project=postgres-patroni-ha,com.docker.compose.service=pg-node-1,com.docker.compose.version=5.1.4,desktop.docker.io/mounts/0/Source=C:\\\\GitHub\\\\pgandpatroni\\\\Phase4-scaler\\\\evidence\\\\phase4-20260908T231619712-a9cb57ed\\\\source,desktop.docker.io/mounts/0/SourceKind=hostFile,desktop.docker.io/mounts/0/Target=/work,desktop.docker.io/mounts/1/Source=C:\\\\GitHub\\\\pgandpatroni\\\\Phase4-scaler\\\\evidence\\\\phase4-20260908T231619712-a9cb57ed\\\\traffic\\\\1-low-baseline,desktop.docker.io/mounts/1/SourceKind=hostFile,desktop.docker.io/mounts/1/Target=/evidence,desktop.docker.io/ports.scheme=v2,phase4.run=phase4-20260908T231619712-a9cb57ed\",\"LocalVolumes\":\"1\",\"Mounts\":\"/run/desktop/mΓÇª,7a836f80ef432eΓÇª,/run/desktop/mΓÇª\",\"Names\":\"phase4-20260908T231619712-a9cb57ed-traffic-1-low-baseline\",\"Networks\":\"phase4-20260908T231619712-a9cb57ed-net\",\"Platform\":{\"architecture\":\"amd64\",\"os\":\"linux\"},\"Ports\":\"\",\"RunningFor\":\"18 minutes ago\",\"Size\":\"12.3kB (virtual 549MB)\",\"State\":\"exited\",\"Status\":\"Exited (0) 17 minutes ago\"}\r\n{\"Command\":\"\\\"docker-entrypoint.sΓÇª\\\"\",\"CreatedAt\":\"2026-09-09 04:47:50 +0530 IST\",\"HealthStatus\":\"none\",\"ID\":\"38e9d3a822ef\",\"Image\":\"haproxy:2.9-alpine\",\"Labels\":\"desktop.docker.io/mounts/0/Source=C:\\\\GitHub\\\\pgandpatroni\\\\Phase4-scaler\\\\evidence\\\\phase4-20260908T231619712-a9cb57ed\\\\source/haproxy.cfg,desktop.docker.io/mounts/0/SourceKind=hostFile,desktop.docker.io/mounts/0/Target=/usr/local/etc/haproxy/haproxy.cfg,desktop.docker.io/ports.scheme=v2,phase4.run=phase4-20260908T231619712-a9cb57ed\",\"LocalVolumes\":\"0\",\"Mounts\":\"/run/desktop/mΓÇª\",\"Names\":\"phase4-20260908T231619712-a9cb57ed-proxy\",\"Networks\":\"phase4-20260908T231619712-a9cb57ed-net\",\"Platform\":{\"architecture\":\"amd64\",\"os\":\"linux\"},\"Ports\":\"\",\"RunningFor\":\"18 minutes ago\",\"Size\":\"32.8kB (virtual 28.6MB)\",\"State\":\"running\",\"Status\":\"Up 18 minutes\"}\r\n{\"Command\":\"\\\"/bin/bash /entrypoiΓÇª\\\"\",\"CreatedAt\":\"2026-09-09 04:47:18 +0530 IST\",\"HealthStatus\":\"none\",\"ID\":\"e8bf2f28219c\",\"Image\":\"postgres-patroni-ha-pg-node-1:latest\",\"Labels\":\"com.docker.compose.project=postgres-patroni-ha,com.docker.compose.service=pg-node-1,com.docker.compose.version=5.1.4,desktop.docker.io/mounts/1/Source=C:\\\\GitHub\\\\pgandpatroni\\\\Phase4-scaler\\\\evidence\\\\phase4-20260908T231619712-a9cb57ed\\\\source/entrypoint.sh,desktop.docker.io/mounts/1/SourceKind=hostFile,desktop.docker.io/mounts/1/Target=/entrypoint.sh,desktop.docker.io/mounts/2/Source=C:\\\\GitHub\\\\pgandpatroni\\\\Phase4-scaler\\\\evidence\\\\phase4-20260908T231619712-a9cb57ed\\\\source/patroni-template.yml,desktop.docker.io/mounts/2/SourceKind=hostFile,desktop.docker.io/mounts/2/Target=/etc/patroni/patroni-template.yml,desktop.docker.io/ports.scheme=v2,phase4.run=phase4-20260908T231619712-a9cb57ed\",\"LocalVolumes\":\"1\",\"Mounts\":\"/run/desktop/mΓÇª,/run/desktop/mΓÇª,phase4-2026090ΓÇª\",\"Names\":\"phase4-20260908T231619712-a9cb57ed-base\",\"Networks\":\"phase4-20260908T231619712-a9cb57ed-net\",\"Platform\":{\"architecture\":\"amd64\",\"os\":\"linux\"},\"Ports\":\"5432/tcp, 8008/tcp\",\"RunningFor\":\"18 minutes ago\",\"Size\":\"61.4kB (virtual 549MB)\",\"State\":\"running\",\"Status\":\"Up 18 minutes\"}\r\n{\"Command\":\"\\\"/bin/bash /entrypoiΓÇª\\\"\",\"CreatedAt\":\"2026-09-09 04:46:38 +0530 IST\",\"HealthStatus\":\"none\",\"ID\":\"f92ccd7795d2\",\"Image\":\"postgres-patroni-ha-pg-node-1:latest\",\"Labels\":\"com.docker.compose.project=postgres-patroni-ha,com.docker.compose.service=pg-node-1,com.docker.compose.version=5.1.4,desktop.docker.io/mounts/1/Source=C:\\\\GitHub\\\\pgandpatroni\\\\Phase4-scaler\\\\evidence\\\\phase4-20260908T231619712-a9cb57ed\\\\source/entrypoint.sh,desktop.docker.io/mounts/1/SourceKind=hostFile,desktop.docker.io/mounts/1/Target=/entrypoint.sh,desktop.docker.io/mounts/2/Source=C:\\\\GitHub\\\\pgandpatroni\\\\Phase4-scaler\\\\evidence\\\\phase4-20260908T231619712-a9cb57ed\\\\source/patroni-template.yml,desktop.docker.io/mounts/2/SourceKind=hostFile,desktop.docker.io/mounts/2/Target=/etc/patroni/patroni-template.yml,desktop.docker.io/ports.scheme=v2,phase4.run=phase4-20260908T231619712-a9cb57ed\",\"LocalVolumes\":\"1\",\"Mounts\":\"/run/desktop/mΓÇª,/run/desktop/mΓÇª,phase4-2026090ΓÇª\",\"Names\":\"phase4-20260908T231619712-a9cb57ed-primary\",\"Networks\":\"phase4-20260908T231619712-a9cb57ed-net\",\"Platform\":{\"architecture\":\"amd64\",\"os\":\"linux\"},\"Ports\":\"5432/tcp, 8008/tcp\",\"RunningFor\":\"19 minutes ago\",\"Size\":\"61.4kB (virtual 549MB)\",\"State\":\"running\",\"Status\":\"Up 19 minutes\"}\r\n{\"Command\":\"\\\"/usr/local/bin/etcdΓÇª\\\"\",\"CreatedAt\":\"2026-09-09 04:46:35 +0530 IST\",\"HealthStatus\":\"none\",\"ID\":\"24c8ba479462\",\"Image\":\"quay.io/coreos/etcd:v3.5.15\",\"Labels\":\"desktop.docker.io/ports.scheme=v2,phase4.run=phase4-20260908T231619712-a9cb57ed\",\"LocalVolumes\":\"1\",\"Mounts\":\"phase4-2026090ΓÇª\",\"Names\":\"phase4-20260908T231619712-a9cb57ed-etcd\",\"Networks\":\"phase4-20260908T231619712-a9cb57ed-net\",\"Platform\":{\"architecture\":\"amd64\",\"os\":\"linux\"},\"Ports\":\"2379-2380/tcp\",\"RunningFor\":\"19 minutes ago\",\"Size\":\"8.19kB (virtual 62.7MB)\",\"State\":\"running\",\"Status\":\"Up 19 minutes\"}\r\n"
+    },
+    {
+      "exit": 0,
+      "utc": "2026-09-08T23:36:05.9600114Z",
+      "args": [
+        "inspect",
+        "--format",
+        "{{json .State}}",
+        "phase4-20260908T231619712-a9cb57ed-primary"
+      ],
+      "durationMs": 99,
+      "output": "{\"Status\":\"running\",\"Running\":true,\"Paused\":false,\"Restarting\":false,\"OOMKilled\":false,\"Dead\":false,\"Pid\":1176878,\"ExitCode\":0,\"Error\":\"\",\"StartedAt\":\"2026-09-08T23:16:40.108466746Z\",\"FinishedAt\":\"0001-01-01T00:00:00Z\"}\r\n"
+    },
+    {
+      "exit": 0,
+      "utc": "2026-09-08T23:36:06.0624421Z",
+      "args": [
+        "inspect",
+        "--format",
+        "{{json .State}}",
+        "phase4-20260908T231619712-a9cb57ed-base"
+      ],
+      "durationMs": 97,
+      "output": "{\"Status\":\"running\",\"Running\":true,\"Paused\":false,\"Restarting\":false,\"OOMKilled\":false,\"Dead\":false,\"Pid\":1178406,\"ExitCode\":0,\"Error\":\"\",\"StartedAt\":\"2026-09-08T23:17:18.731507752Z\",\"FinishedAt\":\"0001-01-01T00:00:00Z\"}\r\n"
+    },
+    {
+      "exit": 0,
+      "utc": "2026-09-08T23:36:06.1604220Z",
+      "args": [
+        "inspect",
+        "--format",
+        "{{json .State}}",
+        "phase4-20260908T231619712-a9cb57ed-etcd"
+      ],
+      "durationMs": 120,
+      "output": "{\"Status\":\"running\",\"Running\":true,\"Paused\":false,\"Restarting\":false,\"OOMKilled\":false,\"Dead\":false,\"Pid\":1176771,\"ExitCode\":0,\"Error\":\"\",\"StartedAt\":\"2026-09-08T23:16:36.195205375Z\",\"FinishedAt\":\"0001-01-01T00:00:00Z\"}\r\n"
+    },
+    {
+      "exit": 0,
+      "utc": "2026-09-08T23:36:06.2818437Z",
+      "args": [
+        "inspect",
+        "--format",
+        "{{json .State}}",
+        "phase4-20260908T231619712-a9cb57ed-proxy"
+      ],
+      "durationMs": 115,
+      "output": "{\"Status\":\"running\",\"Running\":true,\"Paused\":false,\"Restarting\":false,\"OOMKilled\":false,\"Dead\":false,\"Pid\":1179738,\"ExitCode\":0,\"Error\":\"\",\"StartedAt\":\"2026-09-08T23:17:50.665263944Z\",\"FinishedAt\":\"0001-01-01T00:00:00Z\"}\r\n"
+    },
+    {
+      "exit": 0,
+      "utc": "2026-09-08T23:36:06.3981486Z",
+      "args": [
+        "volume",
+        "inspect",
+        "--format",
+        "{{.Name}}",
+        "phase4-20260908T231619712-a9cb57ed-elastic1-data"
+      ],
+      "durationMs": 92,
+      "output": "phase4-20260908T231619712-a9cb57ed-elastic1-data\r\n"
+    },
+    {
+      "exit": 0,
+      "utc": "2026-09-08T23:36:06.4908304Z",
+      "args": [
+        "volume",
+        "inspect",
+        "--format",
+        "{{.Name}}",
+        "phase4-20260908T231619712-a9cb57ed-elastic2-data"
+      ],
+      "durationMs": 114,
+      "output": "phase4-20260908T231619712-a9cb57ed-elastic2-data\r\n"
+    },
+    {
+      "exit": 0,
+      "utc": "2026-09-08T23:36:06.6059794Z",
+      "args": [
+        "volume",
+        "inspect",
+        "--format",
+        "{{.Name}}",
+        "phase4-20260908T231619712-a9cb57ed-elastic3-data"
+      ],
+      "durationMs": 107,
+      "output": "phase4-20260908T231619712-a9cb57ed-elastic3-data\r\n"
+    },
+    {
+      "exit": 0,
+      "utc": "2026-09-08T23:36:06.7132764Z",
+      "args": [
+        "volume",
+        "inspect",
+        "--format",
+        "{{.Name}}",
+        "phase4-20260908T231619712-a9cb57ed-elastic4-data"
+      ],
+      "durationMs": 108,
+      "output": "phase4-20260908T231619712-a9cb57ed-elastic4-data\r\n"
+    },
+    {
+      "exit": 0,
+      "utc": "2026-09-08T23:36:06.8222388Z",
+      "args": [
+        "exec",
+        "phase4-20260908T231619712-a9cb57ed-primary",
+        "psql",
+        "-X",
+        "-A",
+        "-t",
+        "-U",
+        "postgres",
+        "-d",
+        "postgres",
+        "-c",
+        "SELECT json_build_object('replica',pg_is_in_recovery(),'rows',(SELECT count(*) FROM phase4_lab.items),'events',(SELECT count(*) FROM phase4_lab.events));"
+      ],
+      "durationMs": 461,
+      "output": "{\"replica\" : false, \"rows\" : 100000, \"events\" : 59}\r\n"
+    },
+    {
+      "exit": 0,
+      "utc": "2026-09-08T23:36:07.2871764Z",
+      "args": [
+        "exec",
+        "phase4-20260908T231619712-a9cb57ed-base",
+        "psql",
+        "-X",
+        "-A",
+        "-t",
+        "-U",
+        "postgres",
+        "-d",
+        "postgres",
+        "-c",
+        "SELECT json_build_object('replica',pg_is_in_recovery(),'rows',(SELECT count(*) FROM phase4_lab.items),'events',(SELECT count(*) FROM phase4_lab.events));"
+      ],
+      "durationMs": 529,
+      "output": "{\"replica\" : true, \"rows\" : 100000, \"events\" : 59}\r\n"
+    },
+    {
+      "exit": 0,
+      "utc": "2026-09-08T23:36:07.8170338Z",
+      "args": [
+        "inspect",
+        "--format",
+        "{{json .State}}",
+        "phase4-20260908T231619712-a9cb57ed-traffic-3-low-final"
+      ],
+      "durationMs": 108,
+      "output": "{\"Status\":\"exited\",\"Running\":false,\"Paused\":false,\"Restarting\":false,\"OOMKilled\":false,\"Dead\":false,\"Pid\":0,\"ExitCode\":0,\"Error\":\"\",\"StartedAt\":\"2026-09-08T23:28:28.416664116Z\",\"FinishedAt\":\"2026-09-08T23:34:54.851897253Z\"}\r\n"
+    },
+    {
+      "exit": 0,
+      "utc": "2026-09-08T23:36:07.9273942Z",
+      "args": [
+        "inspect",
+        "--format",
+        "{{json .State}}",
+        "phase4-20260908T231619712-a9cb57ed-traffic-2-high"
+      ],
+      "durationMs": 104,
+      "output": "{\"Status\":\"exited\",\"Running\":false,\"Paused\":false,\"Restarting\":false,\"OOMKilled\":false,\"Dead\":false,\"Pid\":0,\"ExitCode\":0,\"Error\":\"\",\"StartedAt\":\"2026-09-08T23:18:25.856950394Z\",\"FinishedAt\":\"2026-09-08T23:28:09.986672483Z\"}\r\n"
+    },
+    {
+      "exit": 0,
+      "utc": "2026-09-08T23:36:08.0324719Z",
+      "args": [
+        "inspect",
+        "--format",
+        "{{json .State}}",
+        "phase4-20260908T231619712-a9cb57ed-traffic-1-low-baseline"
+      ],
+      "durationMs": 105,
+      "output": "{\"Status\":\"exited\",\"Running\":false,\"Paused\":false,\"Restarting\":false,\"OOMKilled\":false,\"Dead\":false,\"Pid\":0,\"ExitCode\":0,\"Error\":\"\",\"StartedAt\":\"2026-09-08T23:17:59.698964213Z\",\"FinishedAt\":\"2026-09-08T23:18:23.081352374Z\"}\r\n"
+    },
+    {
+      "exit": 0,
+      "utc": "2026-09-08T23:36:08.1386469Z",
+      "args": [
+        "exec",
+        "phase4-20260908T231619712-a9cb57ed-primary",
+        "psql",
+        "-X",
+        "-A",
+        "-t",
+        "-v",
+        "ON_ERROR_STOP=1",
+        "-U",
+        "postgres",
+        "-d",
+        "postgres",
+        "-c",
+        "SELECT json_build_object('slots',(SELECT json_agg(s) FROM (SELECT slot_name,slot_type,active,active_pid FROM pg_replication_slots) s),'senders',(SELECT json_agg(r) FROM (SELECT pid,application_name,state FROM pg_stat_replication) r));"
+      ],
+      "durationMs": 303,
+      "output": "{\"slots\" : [{\"slot_name\":\"phase4_20260908t231619712_a9cb57ed_base\",\"slot_type\":\"physical\",\"active\":true,\"active_pid\":208}], \"senders\" : [{\"pid\":208,\"application_name\":\"phase4-20260908T231619712-a9cb57ed-base\",\"state\":\"streaming\"}]}\r\n"
+    },
+    {
+      "exit": 0,
+      "utc": "2026-09-08T23:36:08.5143835Z",
+      "args": [
+        "ps",
+        "--format",
+        "{{json .}}"
+      ],
+      "durationMs": 689,
+      "output": "{\"Command\":\"\\\"docker-entrypoint.sΓÇª\\\"\",\"CreatedAt\":\"2026-09-09 04:47:50 +0530 IST\",\"HealthStatus\":\"none\",\"ID\":\"38e9d3a822ef\",\"Image\":\"haproxy:2.9-alpine\",\"Labels\":\"desktop.docker.io/mounts/0/Source=C:\\\\GitHub\\\\pgandpatroni\\\\Phase4-scaler\\\\evidence\\\\phase4-20260908T231619712-a9cb57ed\\\\source/haproxy.cfg,desktop.docker.io/mounts/0/SourceKind=hostFile,desktop.docker.io/mounts/0/Target=/usr/local/etc/haproxy/haproxy.cfg,desktop.docker.io/ports.scheme=v2,phase4.run=phase4-20260908T231619712-a9cb57ed\",\"LocalVolumes\":\"0\",\"Mounts\":\"/run/desktop/mΓÇª\",\"Names\":\"phase4-20260908T231619712-a9cb57ed-proxy\",\"Networks\":\"phase4-20260908T231619712-a9cb57ed-net\",\"Platform\":{\"architecture\":\"amd64\",\"os\":\"linux\"},\"Ports\":\"\",\"RunningFor\":\"18 minutes ago\",\"Size\":\"32.8kB (virtual 28.6MB)\",\"State\":\"running\",\"Status\":\"Up 18 minutes\"}\r\n{\"Command\":\"\\\"/bin/bash /entrypoiΓÇª\\\"\",\"CreatedAt\":\"2026-09-09 04:47:18 +0530 IST\",\"HealthStatus\":\"none\",\"ID\":\"e8bf2f28219c\",\"Image\":\"postgres-patroni-ha-pg-node-1:latest\",\"Labels\":\"com.docker.compose.project=postgres-patroni-ha,com.docker.compose.service=pg-node-1,com.docker.compose.version=5.1.4,desktop.docker.io/mounts/1/Source=C:\\\\GitHub\\\\pgandpatroni\\\\Phase4-scaler\\\\evidence\\\\phase4-20260908T231619712-a9cb57ed\\\\source/entrypoint.sh,desktop.docker.io/mounts/1/SourceKind=hostFile,desktop.docker.io/mounts/1/Target=/entrypoint.sh,desktop.docker.io/mounts/2/Source=C:\\\\GitHub\\\\pgandpatroni\\\\Phase4-scaler\\\\evidence\\\\phase4-20260908T231619712-a9cb57ed\\\\source/patroni-template.yml,desktop.docker.io/mounts/2/SourceKind=hostFile,desktop.docker.io/mounts/2/Target=/etc/patroni/patroni-template.yml,desktop.docker.io/ports.scheme=v2,phase4.run=phase4-20260908T231619712-a9cb57ed\",\"LocalVolumes\":\"1\",\"Mounts\":\"/run/desktop/mΓÇª,phase4-2026090ΓÇª,/run/desktop/mΓÇª\",\"Names\":\"phase4-20260908T231619712-a9cb57ed-base\",\"Networks\":\"phase4-20260908T231619712-a9cb57ed-net\",\"Platform\":{\"architecture\":\"amd64\",\"os\":\"linux\"},\"Ports\":\"5432/tcp, 8008/tcp\",\"RunningFor\":\"18 minutes ago\",\"Size\":\"61.4kB (virtual 549MB)\",\"State\":\"running\",\"Status\":\"Up 18 minutes\"}\r\n{\"Command\":\"\\\"/bin/bash /entrypoiΓÇª\\\"\",\"CreatedAt\":\"2026-09-09 04:46:38 +0530 IST\",\"HealthStatus\":\"none\",\"ID\":\"f92ccd7795d2\",\"Image\":\"postgres-patroni-ha-pg-node-1:latest\",\"Labels\":\"com.docker.compose.project=postgres-patroni-ha,com.docker.compose.service=pg-node-1,com.docker.compose.version=5.1.4,desktop.docker.io/mounts/1/Source=C:\\\\GitHub\\\\pgandpatroni\\\\Phase4-scaler\\\\evidence\\\\phase4-20260908T231619712-a9cb57ed\\\\source/entrypoint.sh,desktop.docker.io/mounts/1/SourceKind=hostFile,desktop.docker.io/mounts/1/Target=/entrypoint.sh,desktop.docker.io/mounts/2/Source=C:\\\\GitHub\\\\pgandpatroni\\\\Phase4-scaler\\\\evidence\\\\phase4-20260908T231619712-a9cb57ed\\\\source/patroni-template.yml,desktop.docker.io/mounts/2/SourceKind=hostFile,desktop.docker.io/mounts/2/Target=/etc/patroni/patroni-template.yml,desktop.docker.io/ports.scheme=v2,phase4.run=phase4-20260908T231619712-a9cb57ed\",\"LocalVolumes\":\"1\",\"Mounts\":\"/run/desktop/mΓÇª,/run/desktop/mΓÇª,phase4-2026090ΓÇª\",\"Names\":\"phase4-20260908T231619712-a9cb57ed-primary\",\"Networks\":\"phase4-20260908T231619712-a9cb57ed-net\",\"Platform\":{\"architecture\":\"amd64\",\"os\":\"linux\"},\"Ports\":\"5432/tcp, 8008/tcp\",\"RunningFor\":\"19 minutes ago\",\"Size\":\"61.4kB (virtual 549MB)\",\"State\":\"running\",\"Status\":\"Up 19 minutes\"}\r\n{\"Command\":\"\\\"/usr/local/bin/etcdΓÇª\\\"\",\"CreatedAt\":\"2026-09-09 04:46:35 +0530 IST\",\"HealthStatus\":\"none\",\"ID\":\"24c8ba479462\",\"Image\":\"quay.io/coreos/etcd:v3.5.15\",\"Labels\":\"desktop.docker.io/ports.scheme=v2,phase4.run=phase4-20260908T231619712-a9cb57ed\",\"LocalVolumes\":\"1\",\"Mounts\":\"phase4-2026090ΓÇª\",\"Names\":\"phase4-20260908T231619712-a9cb57ed-etcd\",\"Networks\":\"phase4-20260908T231619712-a9cb57ed-net\",\"Platform\":{\"architecture\":\"amd64\",\"os\":\"linux\"},\"Ports\":\"2379-2380/tcp\",\"RunningFor\":\"19 minutes ago\",\"Size\":\"8.19kB (virtual 62.7MB)\",\"State\":\"running\",\"Status\":\"Up 19 minutes\"}\r\n{\"Command\":\"\\\"/bin/bash /entrypoiΓÇª\\\"\",\"CreatedAt\":\"2026-09-09 04:44:34 +0530 IST\",\"HealthStatus\":\"none\",\"ID\":\"7c99358d4678\",\"Image\":\"postgres-patroni-ha-pg-node-1:latest\",\"Labels\":\"com.docker.compose.project=postgres-patroni-ha,com.docker.compose.service=pg-node-1,com.docker.compose.version=5.1.4,desktop.docker.io/mounts/1/Source=C:\\\\GitHub\\\\pgandpatroni\\\\Phase4-scaler\\\\evidence\\\\phase4-20260908T231405769-1a1f40a4\\\\source/entrypoint.sh,desktop.docker.io/mounts/1/SourceKind=hostFile,desktop.docker.io/mounts/1/Target=/entrypoint.sh,desktop.docker.io/mounts/2/Source=C:\\\\GitHub\\\\pgandpatroni\\\\Phase4-scaler\\\\evidence\\\\phase4-20260908T231405769-1a1f40a4\\\\source/patroni-template.yml,desktop.docker.io/mounts/2/SourceKind=hostFile,desktop.docker.io/mounts/2/Target=/etc/patroni/patroni-template.yml,desktop.docker.io/ports.scheme=v2,phase4.run=phase4-20260908T231405769-1a1f40a4\",\"LocalVolumes\":\"1\",\"Mounts\":\"/run/desktop/mΓÇª,/run/desktop/mΓÇª,phase4-2026090ΓÇª\",\"Names\":\"phase4-20260908T231405769-1a1f40a4-base\",\"Networks\":\"phase4-20260908T231405769-1a1f40a4-net\",\"Platform\":{\"architecture\":\"amd64\",\"os\":\"linux\"},\"Ports\":\"5432/tcp, 8008/tcp\",\"RunningFor\":\"21 minutes ago\",\"Size\":\"61.4kB (virtual 549MB)\",\"State\":\"running\",\"Status\":\"Up 21 minutes\"}\r\n{\"Command\":\"\\\"/bin/bash /entrypoiΓÇª\\\"\",\"CreatedAt\":\"2026-09-09 04:44:14 +0530 IST\",\"HealthStatus\":\"none\",\"ID\":\"c79f275c5cef\",\"Image\":\"postgres-patroni-ha-pg-node-1:latest\",\"Labels\":\"com.docker.compose.project=postgres-patroni-ha,com.docker.compose.service=pg-node-1,com.docker.compose.version=5.1.4,desktop.docker.io/mounts/1/Source=C:\\\\GitHub\\\\pgandpatroni\\\\Phase4-scaler\\\\evidence\\\\phase4-20260908T231405769-1a1f40a4\\\\source/entrypoint.sh,desktop.docker.io/mounts/1/SourceKind=hostFile,desktop.docker.io/mounts/1/Target=/entrypoint.sh,desktop.docker.io/mounts/2/Source=C:\\\\GitHub\\\\pgandpatroni\\\\Phase4-scaler\\\\evidence\\\\phase4-20260908T231405769-1a1f40a4\\\\source/patroni-template.yml,desktop.docker.io/mounts/2/SourceKind=hostFile,desktop.docker.io/mounts/2/Target=/etc/patroni/patroni-template.yml,desktop.docker.io/ports.scheme=v2,phase4.run=phase4-20260908T231405769-1a1f40a4\",\"LocalVolumes\":\"1\",\"Mounts\":\"/run/desktop/mΓÇª,/run/desktop/mΓÇª,phase4-2026090ΓÇª\",\"Names\":\"phase4-20260908T231405769-1a1f40a4-primary\",\"Networks\":\"phase4-20260908T231405769-1a1f40a4-net\",\"Platform\":{\"architecture\":\"amd64\",\"os\":\"linux\"},\"Ports\":\"5432/tcp, 8008/tcp\",\"RunningFor\":\"21 minutes ago\",\"Size\":\"61.4kB (virtual 549MB)\",\"State\":\"running\",\"Status\":\"Up 21 minutes\"}\r\n{\"Command\":\"\\\"/usr/local/bin/etcdΓÇª\\\"\",\"CreatedAt\":\"2026-09-09 04:44:12 +0530 IST\",\"HealthStatus\":\"none\",\"ID\":\"613128790ded\",\"Image\":\"quay.io/coreos/etcd:v3.5.15\",\"Labels\":\"desktop.docker.io/ports.scheme=v2,phase4.run=phase4-20260908T231405769-1a1f40a4\",\"LocalVolumes\":\"1\",\"Mounts\":\"phase4-2026090ΓÇª\",\"Names\":\"phase4-20260908T231405769-1a1f40a4-etcd\",\"Networks\":\"phase4-20260908T231405769-1a1f40a4-net\",\"Platform\":{\"architecture\":\"amd64\",\"os\":\"linux\"},\"Ports\":\"2379-2380/tcp\",\"RunningFor\":\"21 minutes ago\",\"Size\":\"8.19kB (virtual 62.7MB)\",\"State\":\"running\",\"Status\":\"Up 21 minutes\"}\r\n{\"Command\":\"\\\"docker-entrypoint.sΓÇª\\\"\",\"CreatedAt\":\"2026-09-08 23:04:20 +0530 IST\",\"HealthStatus\":\"none\",\"ID\":\"21b628003f5b\",\"Image\":\"haproxy:2.9-alpine\",\"Labels\":\"desktop.docker.io/mounts/0/Source=C:\\\\GitHub\\\\pgandpatroni\\\\Phase4-scaler\\\\evidence\\\\phase4-20260908T173358240-1efd4a87\\\\source/haproxy.cfg,desktop.docker.io/mounts/0/SourceKind=hostFile,desktop.docker.io/mounts/0/Target=/usr/local/etc/haproxy/haproxy.cfg,desktop.docker.io/ports.scheme=v2,phase4.run=phase4-20260908T173358240-1efd4a87\",\"LocalVolumes\":\"0\",\"Mounts\":\"/run/desktop/mΓÇª\",\"Names\":\"phase4-20260908T173358240-1efd4a87-proxy\",\"Networks\":\"phase4-20260908T173358240-1efd4a87-net\",\"Platform\":{\"architecture\":\"amd64\",\"os\":\"linux\"},\"Ports\":\"\",\"RunningFor\":\"6 hours ago\",\"Size\":\"32.8kB (virtual 28.6MB)\",\"State\":\"running\",\"Status\":\"Up 6 hours\"}\r\n{\"Command\":\"\\\"/bin/bash /entrypoiΓÇª\\\"\",\"CreatedAt\":\"2026-09-08 23:04:11 +0530 IST\",\"HealthStatus\":\"none\",\"ID\":\"6e096a16c9aa\",\"Image\":\"postgres-patroni-ha-pg-node-1:latest\",\"Labels\":\"com.docker.compose.project=postgres-patroni-ha,com.docker.compose.service=pg-node-1,com.docker.compose.version=5.1.4,desktop.docker.io/mounts/1/Source=C:\\\\GitHub\\\\pgandpatroni\\\\Phase4-scaler\\\\evidence\\\\phase4-20260908T173358240-1efd4a87\\\\source/entrypoint.sh,desktop.docker.io/mounts/1/SourceKind=hostFile,desktop.docker.io/mounts/1/Target=/entrypoint.sh,desktop.docker.io/mounts/2/Source=C:\\\\GitHub\\\\pgandpatroni\\\\Phase4-scaler\\\\evidence\\\\phase4-20260908T173358240-1efd4a87\\\\source/patroni-template.yml,desktop.docker.io/mounts/2/SourceKind=hostFile,desktop.docker.io/mounts/2/Target=/etc/patroni/patroni-template.yml,desktop.docker.io/ports.scheme=v2,phase4.run=phase4-20260908T173358240-1efd4a87\",\"LocalVolumes\":\"1\",\"Mounts\":\"/run/desktop/mΓÇª,/run/desktop/mΓÇª,phase4-2026090ΓÇª\",\"Names\":\"phase4-20260908T173358240-1efd4a87-base\",\"Networks\":\"phase4-20260908T173358240-1efd4a87-net\",\"Platform\":{\"architecture\":\"amd64\",\"os\":\"linux\"},\"Ports\":\"5432/tcp, 8008/tcp\",\"RunningFor\":\"6 hours ago\",\"Size\":\"61.4kB (virtual 549MB)\",\"State\":\"running\",\"Status\":\"Up 6 hours\"}\r\n{\"Command\":\"\\\"/bin/bash /entrypoiΓÇª\\\"\",\"CreatedAt\":\"2026-09-08 23:04:01 +0530 IST\",\"HealthStatus\":\"none\",\"ID\":\"b91fe8cdc390\",\"Image\":\"postgres-patroni-ha-pg-node-1:latest\",\"Labels\":\"com.docker.compose.project=postgres-patroni-ha,com.docker.compose.service=pg-node-1,com.docker.compose.version=5.1.4,desktop.docker.io/mounts/1/Source=C:\\\\GitHub\\\\pgandpatroni\\\\Phase4-scaler\\\\evidence\\\\phase4-20260908T173358240-1efd4a87\\\\source/entrypoint.sh,desktop.docker.io/mounts/1/SourceKind=hostFile,desktop.docker.io/mounts/1/Target=/entrypoint.sh,desktop.docker.io/mounts/2/Source=C:\\\\GitHub\\\\pgandpatroni\\\\Phase4-scaler\\\\evidence\\\\phase4-20260908T173358240-1efd4a87\\\\source/patroni-template.yml,desktop.docker.io/mounts/2/SourceKind=hostFile,desktop.docker.io/mounts/2/Target=/etc/patroni/patroni-template.yml,desktop.docker.io/ports.scheme=v2,phase4.run=phase4-20260908T173358240-1efd4a87\",\"LocalVolumes\":\"1\",\"Mounts\":\"/run/desktop/mΓÇª,/run/desktop/mΓÇª,phase4-2026090ΓÇª\",\"Names\":\"phase4-20260908T173358240-1efd4a87-primary\",\"Networks\":\"phase4-20260908T173358240-1efd4a87-net\",\"Platform\":{\"architecture\":\"amd64\",\"os\":\"linux\"},\"Ports\":\"5432/tcp, 8008/tcp\",\"RunningFor\":\"6 hours ago\",\"Size\":\"61.4kB (virtual 549MB)\",\"State\":\"running\",\"Status\":\"Up 6 hours\"}\r\n{\"Command\":\"\\\"/usr/local/bin/etcdΓÇª\\\"\",\"CreatedAt\":\"2026-09-08 23:03:59 +0530 IST\",\"HealthStatus\":\"none\",\"ID\":\"c33ed247a21a\",\"Image\":\"quay.io/coreos/etcd:v3.5.15\",\"Labels\":\"desktop.docker.io/ports.scheme=v2,phase4.run=phase4-20260908T173358240-1efd4a87\",\"LocalVolumes\":\"1\",\"Mounts\":\"phase4-2026090ΓÇª\",\"Names\":\"phase4-20260908T173358240-1efd4a87-etcd\",\"Networks\":\"phase4-20260908T173358240-1efd4a87-net\",\"Platform\":{\"architecture\":\"amd64\",\"os\":\"linux\"},\"Ports\":\"2379-2380/tcp\",\"RunningFor\":\"6 hours ago\",\"Size\":\"8.19kB (virtual 62.7MB)\",\"State\":\"running\",\"Status\":\"Up 6 hours\"}\r\n{\"Command\":\"\\\"docker-entrypoint.sΓÇª\\\"\",\"CreatedAt\":\"2026-09-08 22:56:25 +0530 IST\",\"HealthStatus\":\"none\",\"ID\":\"88c8d4553506\",\"Image\":\"haproxy:2.9-alpine\",\"Labels\":\"desktop.docker.io/mounts/0/Source=C:\\\\GitHub\\\\pgandpatroni\\\\Phase4-scaler\\\\evidence\\\\phase4-20260908T172559675-6d1659c7\\\\source/haproxy.cfg,desktop.docker.io/mounts/0/SourceKind=hostFile,desktop.docker.io/mounts/0/Target=/usr/local/etc/haproxy/haproxy.cfg,desktop.docker.io/ports.scheme=v2,phase4.run=phase4-20260908T172559675-6d1659c7\",\"LocalVolumes\":\"0\",\"Mounts\":\"/run/desktop/mΓÇª\",\"Names\":\"phase4-20260908T172559675-6d1659c7-proxy\",\"Networks\":\"phase4-20260908T172559675-6d1659c7-net\",\"Platform\":{\"architecture\":\"amd64\",\"os\":\"linux\"},\"Ports\":\"\",\"RunningFor\":\"6 hours ago\",\"Size\":\"32.8kB (virtual 28.6MB)\",\"State\":\"running\",\"Status\":\"Up 6 hours\"}\r\n{\"Command\":\"\\\"/bin/bash /entrypoiΓÇª\\\"\",\"CreatedAt\":\"2026-09-08 22:56:13 +0530 IST\",\"HealthStatus\":\"none\",\"ID\":\"08e939cdf9cd\",\"Image\":\"postgres-patroni-ha-pg-node-1:latest\",\"Labels\":\"com.docker.compose.project=postgres-patroni-ha,com.docker.compose.service=pg-node-1,com.docker.compose.version=5.1.4,desktop.docker.io/mounts/1/Source=C:\\\\GitHub\\\\pgandpatroni\\\\Phase4-scaler\\\\evidence\\\\phase4-20260908T172559675-6d1659c7\\\\source/entrypoint.sh,desktop.docker.io/mounts/1/SourceKind=hostFile,desktop.docker.io/mounts/1/Target=/entrypoint.sh,desktop.docker.io/mounts/2/Source=C:\\\\GitHub\\\\pgandpatroni\\\\Phase4-scaler\\\\evidence\\\\phase4-20260908T172559675-6d1659c7\\\\source/patroni-template.yml,desktop.docker.io/mounts/2/SourceKind=hostFile,desktop.docker.io/mounts/2/Target=/etc/patroni/patroni-template.yml,desktop.docker.io/ports.scheme=v2,phase4.run=phase4-20260908T172559675-6d1659c7\",\"LocalVolumes\":\"1\",\"Mounts\":\"phase4-2026090ΓÇª,/run/desktop/mΓÇª,/run/desktop/mΓÇª\",\"Names\":\"phase4-20260908T172559675-6d1659c7-base\",\"Networks\":\"phase4-20260908T172559675-6d1659c7-net\",\"Platform\":{\"architecture\":\"amd64\",\"os\":\"linux\"},\"Ports\":\"5432/tcp, 8008/tcp\",\"RunningFor\":\"6 hours ago\",\"Size\":\"61.4kB (virtual 549MB)\",\"State\":\"running\",\"Status\":\"Up 6 hours\"}\r\n{\"Command\":\"\\\"/bin/bash /entrypoiΓÇª\\\"\",\"CreatedAt\":\"2026-09-08 22:56:02 +0530 IST\",\"HealthStatus\":\"none\",\"ID\":\"4fa1fcde0d70\",\"Image\":\"postgres-patroni-ha-pg-node-1:latest\",\"Labels\":\"com.docker.compose.project=postgres-patroni-ha,com.docker.compose.service=pg-node-1,com.docker.compose.version=5.1.4,desktop.docker.io/mounts/1/Source=C:\\\\GitHub\\\\pgandpatroni\\\\Phase4-scaler\\\\evidence\\\\phase4-20260908T172559675-6d1659c7\\\\source/entrypoint.sh,desktop.docker.io/mounts/1/SourceKind=hostFile,desktop.docker.io/mounts/1/Target=/entrypoint.sh,desktop.docker.io/mounts/2/Source=C:\\\\GitHub\\\\pgandpatroni\\\\Phase4-scaler\\\\evidence\\\\phase4-20260908T172559675-6d1659c7\\\\source/patroni-template.yml,desktop.docker.io/mounts/2/SourceKind=hostFile,desktop.docker.io/mounts/2/Target=/etc/patroni/patroni-template.yml,desktop.docker.io/ports.scheme=v2,phase4.run=phase4-20260908T172559675-6d1659c7\",\"LocalVolumes\":\"1\",\"Mounts\":\"/run/desktop/mΓÇª,/run/desktop/mΓÇª,phase4-2026090ΓÇª\",\"Names\":\"phase4-20260908T172559675-6d1659c7-primary\",\"Networks\":\"phase4-20260908T172559675-6d1659c7-net\",\"Platform\":{\"architecture\":\"amd64\",\"os\":\"linux\"},\"Ports\":\"5432/tcp, 8008/tcp\",\"RunningFor\":\"6 hours ago\",\"Size\":\"61.4kB (virtual 549MB)\",\"State\":\"running\",\"Status\":\"Up 6 hours\"}\r\n{\"Command\":\"\\\"/usr/local/bin/etcdΓÇª\\\"\",\"CreatedAt\":\"2026-09-08 22:56:01 +0530 IST\",\"HealthStatus\":\"none\",\"ID\":\"351e5ed3b8a6\",\"Image\":\"quay.io/coreos/etcd:v3.5.15\",\"Labels\":\"desktop.docker.io/ports.scheme=v2,phase4.run=phase4-20260908T172559675-6d1659c7\",\"LocalVolumes\":\"1\",\"Mounts\":\"phase4-2026090ΓÇª\",\"Names\":\"phase4-20260908T172559675-6d1659c7-etcd\",\"Networks\":\"phase4-20260908T172559675-6d1659c7-net\",\"Platform\":{\"architecture\":\"amd64\",\"os\":\"linux\"},\"Ports\":\"2379-2380/tcp\",\"RunningFor\":\"6 hours ago\",\"Size\":\"8.19kB (virtual 62.7MB)\",\"State\":\"running\",\"Status\":\"Up 6 hours\"}\r\n{\"Command\":\"\\\"/bin/bash /entrypoiΓÇª\\\"\",\"CreatedAt\":\"2026-09-08 22:54:42 +0530 IST\",\"HealthStatus\":\"none\",\"ID\":\"17f7e3f0e2f4\",\"Image\":\"postgres-patroni-ha-pg-node-1:latest\",\"Labels\":\"com.docker.compose.project=postgres-patroni-ha,com.docker.compose.service=pg-node-1,com.docker.compose.version=5.1.4,desktop.docker.io/mounts/1/Source=C:\\\\GitHub\\\\pgandpatroni\\\\Phase4-scaler\\\\evidence\\\\phase4-20260908T172330223-7440cd0b\\\\source/entrypoint.sh,desktop.docker.io/mounts/1/SourceKind=hostFile,desktop.docker.io/mounts/1/Target=/entrypoint.sh,desktop.docker.io/mounts/2/Source=C:\\\\GitHub\\\\pgandpatroni\\\\Phase4-scaler\\\\evidence\\\\phase4-20260908T172330223-7440cd0b\\\\source/patroni-template.yml,desktop.docker.io/mounts/2/SourceKind=hostFile,desktop.docker.io/mounts/2/Target=/etc/patroni/patroni-template.yml,desktop.docker.io/ports.scheme=v2,phase4.run=phase4-20260908T172330223-7440cd0b\",\"LocalVolumes\":\"1\",\"Mounts\":\"/run/desktop/mΓÇª,phase4-2026090ΓÇª,/run/desktop/mΓÇª\",\"Names\":\"phase4-20260908T172330223-7440cd0b-elastic1\",\"Networks\":\"phase4-20260908T172330223-7440cd0b-net\",\"Platform\":{\"architecture\":\"amd64\",\"os\":\"linux\"},\"Ports\":\"5432/tcp, 8008/tcp\",\"RunningFor\":\"6 hours ago\",\"Size\":\"61.4kB (virtual 549MB)\",\"State\":\"running\",\"Status\":\"Up 6 hours\"}\r\n{\"Command\":\"\\\"docker-entrypoint.sΓÇª\\\"\",\"CreatedAt\":\"2026-09-08 22:53:57 +0530 IST\",\"HealthStatus\":\"none\",\"ID\":\"d01c41468063\",\"Image\":\"haproxy:2.9-alpine\",\"Labels\":\"desktop.docker.io/mounts/0/Source=C:\\\\GitHub\\\\pgandpatroni\\\\Phase4-scaler\\\\evidence\\\\phase4-20260908T172330223-7440cd0b\\\\source/haproxy.cfg,desktop.docker.io/mounts/0/SourceKind=hostFile,desktop.docker.io/mounts/0/Target=/usr/local/etc/haproxy/haproxy.cfg,desktop.docker.io/ports.scheme=v2,phase4.run=phase4-20260908T172330223-7440cd0b\",\"LocalVolumes\":\"0\",\"Mounts\":\"/run/desktop/mΓÇª\",\"Names\":\"phase4-20260908T172330223-7440cd0b-proxy\",\"Networks\":\"phase4-20260908T172330223-7440cd0b-net\",\"Platform\":{\"architecture\":\"amd64\",\"os\":\"linux\"},\"Ports\":\"\",\"RunningFor\":\"6 hours ago\",\"Size\":\"32.8kB (virtual 28.6MB)\",\"State\":\"running\",\"Status\":\"Up 6 hours\"}\r\n{\"Command\":\"\\\"/bin/bash /entrypoiΓÇª\\\"\",\"CreatedAt\":\"2026-09-08 22:53:42 +0530 IST\",\"HealthStatus\":\"none\",\"ID\":\"71d581563f1a\",\"Image\":\"postgres-patroni-ha-pg-node-1:latest\",\"Labels\":\"com.docker.compose.project=postgres-patroni-ha,com.docker.compose.service=pg-node-1,com.docker.compose.version=5.1.4,desktop.docker.io/mounts/1/Source=C:\\\\GitHub\\\\pgandpatroni\\\\Phase4-scaler\\\\evidence\\\\phase4-20260908T172330223-7440cd0b\\\\source/entrypoint.sh,desktop.docker.io/mounts/1/SourceKind=hostFile,desktop.docker.io/mounts/1/Target=/entrypoint.sh,desktop.docker.io/mounts/2/Source=C:\\\\GitHub\\\\pgandpatroni\\\\Phase4-scaler\\\\evidence\\\\phase4-20260908T172330223-7440cd0b\\\\source/patroni-template.yml,desktop.docker.io/mounts/2/SourceKind=hostFile,desktop.docker.io/mounts/2/Target=/etc/patroni/patroni-template.yml,desktop.docker.io/ports.scheme=v2,phase4.run=phase4-20260908T172330223-7440cd0b\",\"LocalVolumes\":\"1\",\"Mounts\":\"/run/desktop/mΓÇª,/run/desktop/mΓÇª,phase4-2026090ΓÇª\",\"Names\":\"phase4-20260908T172330223-7440cd0b-base\",\"Networks\":\"phase4-20260908T172330223-7440cd0b-net\",\"Platform\":{\"architecture\":\"amd64\",\"os\":\"linux\"},\"Ports\":\"5432/tcp, 8008/tcp\",\"RunningFor\":\"6 hours ago\",\"Size\":\"61.4kB (virtual 549MB)\",\"State\":\"running\",\"Status\":\"Up 6 hours\"}\r\n{\"Command\":\"\\\"/bin/bash /entrypoiΓÇª\\\"\",\"CreatedAt\":\"2026-09-08 22:53:32 +0530 IST\",\"HealthStatus\":\"none\",\"ID\":\"b8f623e540d4\",\"Image\":\"postgres-patroni-ha-pg-node-1:latest\",\"Labels\":\"com.docker.compose.project=postgres-patroni-ha,com.docker.compose.service=pg-node-1,com.docker.compose.version=5.1.4,desktop.docker.io/mounts/1/Source=C:\\\\GitHub\\\\pgandpatroni\\\\Phase4-scaler\\\\evidence\\\\phase4-20260908T172330223-7440cd0b\\\\source/entrypoint.sh,desktop.docker.io/mounts/1/SourceKind=hostFile,desktop.docker.io/mounts/1/Target=/entrypoint.sh,desktop.docker.io/mounts/2/Source=C:\\\\GitHub\\\\pgandpatroni\\\\Phase4-scaler\\\\evidence\\\\phase4-20260908T172330223-7440cd0b\\\\source/patroni-template.yml,desktop.docker.io/mounts/2/SourceKind=hostFile,desktop.docker.io/mounts/2/Target=/etc/patroni/patroni-template.yml,desktop.docker.io/ports.scheme=v2,phase4.run=phase4-20260908T172330223-7440cd0b\",\"LocalVolumes\":\"1\",\"Mounts\":\"/run/desktop/mΓÇª,phase4-2026090ΓÇª,/run/desktop/mΓÇª\",\"Names\":\"phase4-20260908T172330223-7440cd0b-primary\",\"Networks\":\"phase4-20260908T172330223-7440cd0b-net\",\"Platform\":{\"architecture\":\"amd64\",\"os\":\"linux\"},\"Ports\":\"5432/tcp, 8008/tcp\",\"RunningFor\":\"6 hours ago\",\"Size\":\"61.4kB (virtual 549MB)\",\"State\":\"running\",\"Status\":\"Up 6 hours\"}\r\n{\"Command\":\"\\\"/usr/local/bin/etcdΓÇª\\\"\",\"CreatedAt\":\"2026-09-08 22:53:31 +0530 IST\",\"HealthStatus\":\"none\",\"ID\":\"0ce77e5949eb\",\"Image\":\"quay.io/coreos/etcd:v3.5.15\",\"Labels\":\"desktop.docker.io/ports.scheme=v2,phase4.run=phase4-20260908T172330223-7440cd0b\",\"LocalVolumes\":\"1\",\"Mounts\":\"phase4-2026090ΓÇª\",\"Names\":\"phase4-20260908T172330223-7440cd0b-etcd\",\"Networks\":\"phase4-20260908T172330223-7440cd0b-net\",\"Platform\":{\"architecture\":\"amd64\",\"os\":\"linux\"},\"Ports\":\"2379-2380/tcp\",\"RunningFor\":\"6 hours ago\",\"Size\":\"8.19kB (virtual 62.7MB)\",\"State\":\"running\",\"Status\":\"Up 6 hours\"}\r\n{\"Command\":\"\\\"/bin/bash /entrypoiΓÇª\\\"\",\"CreatedAt\":\"2026-09-08 22:52:38 +0530 IST\",\"HealthStatus\":\"none\",\"ID\":\"565df275178a\",\"Image\":\"postgres-patroni-ha-pg-node-1:latest\",\"Labels\":\"com.docker.compose.project=postgres-patroni-ha,com.docker.compose.service=pg-node-1,com.docker.compose.version=5.1.4,desktop.docker.io/mounts/1/Source=C:\\\\GitHub\\\\pgandpatroni\\\\Phase4-scaler\\\\evidence\\\\phase4-20260908T172223670-814f618f\\\\source/entrypoint.sh,desktop.docker.io/mounts/1/SourceKind=hostFile,desktop.docker.io/mounts/1/Target=/entrypoint.sh,desktop.docker.io/mounts/2/Source=C:\\\\GitHub\\\\pgandpatroni\\\\Phase4-scaler\\\\evidence\\\\phase4-20260908T172223670-814f618f\\\\source/patroni-template.yml,desktop.docker.io/mounts/2/SourceKind=hostFile,desktop.docker.io/mounts/2/Target=/etc/patroni/patroni-template.yml,desktop.docker.io/ports.scheme=v2,phase4.run=phase4-20260908T172223670-814f618f\",\"LocalVolumes\":\"1\",\"Mounts\":\"/run/desktop/mΓÇª,phase4-2026090ΓÇª,/run/desktop/mΓÇª\",\"Names\":\"phase4-20260908T172223670-814f618f-base\",\"Networks\":\"phase4-20260908T172223670-814f618f-net\",\"Platform\":{\"architecture\":\"amd64\",\"os\":\"linux\"},\"Ports\":\"5432/tcp, 8008/tcp\",\"RunningFor\":\"6 hours ago\",\"Size\":\"61.4kB (virtual 549MB)\",\"State\":\"running\",\"Status\":\"Up 6 hours\"}\r\n{\"Command\":\"\\\"/bin/bash /entrypoiΓÇª\\\"\",\"CreatedAt\":\"2026-09-08 22:52:26 +0530 IST\",\"HealthStatus\":\"none\",\"ID\":\"d61f5d559174\",\"Image\":\"postgres-patroni-ha-pg-node-1:latest\",\"Labels\":\"com.docker.compose.project=postgres-patroni-ha,com.docker.compose.service=pg-node-1,com.docker.compose.version=5.1.4,desktop.docker.io/mounts/1/Source=C:\\\\GitHub\\\\pgandpatroni\\\\Phase4-scaler\\\\evidence\\\\phase4-20260908T172223670-814f618f\\\\source/entrypoint.sh,desktop.docker.io/mounts/1/SourceKind=hostFile,desktop.docker.io/mounts/1/Target=/entrypoint.sh,desktop.docker.io/mounts/2/Source=C:\\\\GitHub\\\\pgandpatroni\\\\Phase4-scaler\\\\evidence\\\\phase4-20260908T172223670-814f618f\\\\source/patroni-template.yml,desktop.docker.io/mounts/2/SourceKind=hostFile,desktop.docker.io/mounts/2/Target=/etc/patroni/patroni-template.yml,desktop.docker.io/ports.scheme=v2,phase4.run=phase4-20260908T172223670-814f618f\",\"LocalVolumes\":\"1\",\"Mounts\":\"/run/desktop/mΓÇª,/run/desktop/mΓÇª,phase4-2026090ΓÇª\",\"Names\":\"phase4-20260908T172223670-814f618f-primary\",\"Networks\":\"phase4-20260908T172223670-814f618f-net\",\"Platform\":{\"architecture\":\"amd64\",\"os\":\"linux\"},\"Ports\":\"5432/tcp, 8008/tcp\",\"RunningFor\":\"6 hours ago\",\"Size\":\"61.4kB (virtual 549MB)\",\"State\":\"running\",\"Status\":\"Up 6 hours\"}\r\n{\"Command\":\"\\\"/usr/local/bin/etcdΓÇª\\\"\",\"CreatedAt\":\"2026-09-08 22:52:25 +0530 IST\",\"HealthStatus\":\"none\",\"ID\":\"c34aaea02ede\",\"Image\":\"quay.io/coreos/etcd:v3.5.15\",\"Labels\":\"desktop.docker.io/ports.scheme=v2,phase4.run=phase4-20260908T172223670-814f618f\",\"LocalVolumes\":\"1\",\"Mounts\":\"phase4-2026090ΓÇª\",\"Names\":\"phase4-20260908T172223670-814f618f-etcd\",\"Networks\":\"phase4-20260908T172223670-814f618f-net\",\"Platform\":{\"architecture\":\"amd64\",\"os\":\"linux\"},\"Ports\":\"2379-2380/tcp\",\"RunningFor\":\"6 hours ago\",\"Size\":\"8.19kB (virtual 62.7MB)\",\"State\":\"running\",\"Status\":\"Up 6 hours\"}\r\n{\"Command\":\"\\\"docker-entrypoint.sΓÇª\\\"\",\"CreatedAt\":\"2026-09-08 17:16:57 +0530 IST\",\"HealthStatus\":\"healthy\",\"ID\":\"4270d8001e35\",\"Image\":\"haproxy:2.9-alpine\",\"Labels\":\"com.docker.compose.config-hash=842bd623fe585603e477961c93e9c65b51a0e5d2c7ae91329adc4edc9c3816c7,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.image=sha256:3e29449a6beed63262e36104adf531b4e41b359f61937303f5ea8607987b3748,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=C:\\\\GitHub\\\\pgandpatroni\\\\postgres-patroni-ha\\\\docker-compose.yml,com.docker.compose.project.working_dir=C:\\\\GitHub\\\\pgandpatroni\\\\postgres-patroni-ha,com.docker.compose.project=postgres-patroni-ha,com.docker.compose.replace=haproxy,com.docker.compose.service=haproxy,com.docker.compose.version=5.1.4,desktop.docker.io/binds/0/Source=C:\\\\GitHub\\\\pgandpatroni\\\\postgres-patroni-ha\\\\haproxy\\\\haproxy.cfg,desktop.docker.io/binds/0/SourceKind=hostFile,desktop.docker.io/binds/0/Target=/usr/local/etc/haproxy/haproxy.cfg,desktop.docker.io/ports.scheme=v2,desktop.docker.io/ports/5000/tcp=:5000,desktop.docker.io/ports/5001/tcp=:5001,desktop.docker.io/ports/7000/tcp=:7000\",\"LocalVolumes\":\"0\",\"Mounts\":\"/run/desktop/mΓÇª\",\"Names\":\"haproxy\",\"Networks\":\"postgres-patroni-ha_patroni-net\",\"Platform\":{\"architecture\":\"amd64\",\"os\":\"linux\"},\"Ports\":\"0.0.0.0:5000-5001-\\u003e5000-5001/tcp, [::]:5000-5001-\\u003e5000-5001/tcp, 0.0.0.0:7000-\\u003e7000/tcp, [::]:7000-\\u003e7000/tcp\",\"RunningFor\":\"12 hours ago\",\"Size\":\"32.8kB (virtual 28.6MB)\",\"State\":\"running\",\"Status\":\"Up 12 hours (healthy)\"}\r\n{\"Command\":\"\\\"/bin/bash /entrypoiΓÇª\\\"\",\"CreatedAt\":\"2026-09-08 15:50:23 +0530 IST\",\"HealthStatus\":\"healthy\",\"ID\":\"5a28ba627c9d\",\"Image\":\"postgres-patroni-ha-pg-node-3\",\"Labels\":\"com.docker.compose.config-hash=68352fda94ef4f01a1adb5b16d05f43eb307380c7163e5fd79460f4418358c95,com.docker.compose.container-number=1,com.docker.compose.depends_on=etcd:service_healthy:false,com.docker.compose.image=sha256:e8685d0630a1fca4a27499ad17039df9280ba733ff2c9dea2943d246568b9be4,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=C:\\\\GitHub\\\\pgandpatroni\\\\postgres-patroni-ha\\\\docker-compose.yml,com.docker.compose.project.working_dir=C:\\\\GitHub\\\\pgandpatroni\\\\postgres-patroni-ha,com.docker.compose.project=postgres-patroni-ha,com.docker.compose.replace=pg-node-3,com.docker.compose.service=pg-node-3,com.docker.compose.version=5.1.4,desktop.docker.io/binds/1/Source=C:\\\\GitHub\\\\pgandpatroni\\\\postgres-patroni-ha\\\\patroni\\\\patroni-template.yml,desktop.docker.io/binds/1/SourceKind=hostFile,desktop.docker.io/binds/1/Target=/etc/patroni/patroni-template.yml,desktop.docker.io/binds/2/Source=C:\\\\GitHub\\\\pgandpatroni\\\\postgres-patroni-ha\\\\patroni\\\\entrypoint.sh,desktop.docker.io/binds/2/SourceKind=hostFile,desktop.docker.io/binds/2/Target=/entrypoint.sh,desktop.docker.io/ports.scheme=v2\",\"LocalVolumes\":\"1\",\"Mounts\":\"/run/desktop/mΓÇª,/run/desktop/mΓÇª,postgres-patroΓÇª\",\"Names\":\"pg-node-3\",\"Networks\":\"postgres-patroni-ha_patroni-net\",\"Platform\":{\"architecture\":\"amd64\",\"os\":\"linux\"},\"Ports\":\"5432/tcp, 8008/tcp\",\"RunningFor\":\"13 hours ago\",\"Size\":\"61.4kB (virtual 549MB)\",\"State\":\"running\",\"Status\":\"Up 12 hours (healthy)\"}\r\n{\"Command\":\"\\\"/bin/bash /entrypoiΓÇª\\\"\",\"CreatedAt\":\"2026-09-08 15:50:23 +0530 IST\",\"HealthStatus\":\"healthy\",\"ID\":\"3dbab6223db5\",\"Image\":\"postgres-patroni-ha-pg-node-2\",\"Labels\":\"com.docker.compose.config-hash=8c5561a806fbefaf1d87814312ce96b2d11f6e71380e1681d6bc26374dae3d73,com.docker.compose.container-number=1,com.docker.compose.depends_on=etcd:service_healthy:false,com.docker.compose.image=sha256:37b01b7c312ed57b41c95a02ee3517424ed88a47da40ea84f0a46b12cf17ea95,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=C:\\\\GitHub\\\\pgandpatroni\\\\postgres-patroni-ha\\\\docker-compose.yml,com.docker.compose.project.working_dir=C:\\\\GitHub\\\\pgandpatroni\\\\postgres-patroni-ha,com.docker.compose.project=postgres-patroni-ha,com.docker.compose.replace=pg-node-2,com.docker.compose.service=pg-node-2,com.docker.compose.version=5.1.4,desktop.docker.io/binds/1/Source=C:\\\\GitHub\\\\pgandpatroni\\\\postgres-patroni-ha\\\\patroni\\\\patroni-template.yml,desktop.docker.io/binds/1/SourceKind=hostFile,desktop.docker.io/binds/1/Target=/etc/patroni/patroni-template.yml,desktop.docker.io/binds/2/Source=C:\\\\GitHub\\\\pgandpatroni\\\\postgres-patroni-ha\\\\patroni\\\\entrypoint.sh,desktop.docker.io/binds/2/SourceKind=hostFile,desktop.docker.io/binds/2/Target=/entrypoint.sh,desktop.docker.io/ports.scheme=v2\",\"LocalVolumes\":\"1\",\"Mounts\":\"/run/desktop/mΓÇª,/run/desktop/mΓÇª,postgres-patroΓÇª\",\"Names\":\"pg-node-2\",\"Networks\":\"postgres-patroni-ha_patroni-net\",\"Platform\":{\"architecture\":\"amd64\",\"os\":\"linux\"},\"Ports\":\"5432/tcp, 8008/tcp\",\"RunningFor\":\"13 hours ago\",\"Size\":\"61.4kB (virtual 549MB)\",\"State\":\"running\",\"Status\":\"Up 12 hours (healthy)\"}\r\n{\"Command\":\"\\\"/bin/bash /entrypoiΓÇª\\\"\",\"CreatedAt\":\"2026-09-08 15:50:23 +0530 IST\",\"HealthStatus\":\"healthy\",\"ID\":\"1305b23c35fa\",\"Image\":\"postgres-patroni-ha-pg-node-1\",\"Labels\":\"com.docker.compose.config-hash=aef092e84d0a70b94ad697772b5f070db1597d9a73ac1457c79e3401e3dcf168,com.docker.compose.container-number=1,com.docker.compose.depends_on=etcd:service_healthy:false,com.docker.compose.image=sha256:db72c0d677a3c6688e960cee809f409080df997bea47058fc1da945249cd4e48,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=C:\\\\GitHub\\\\pgandpatroni\\\\postgres-patroni-ha\\\\docker-compose.yml,com.docker.compose.project.working_dir=C:\\\\GitHub\\\\pgandpatroni\\\\postgres-patroni-ha,com.docker.compose.project=postgres-patroni-ha,com.docker.compose.replace=pg-node-1,com.docker.compose.service=pg-node-1,com.docker.compose.version=5.1.4,desktop.docker.io/binds/1/Source=C:\\\\GitHub\\\\pgandpatroni\\\\postgres-patroni-ha\\\\patroni\\\\patroni-template.yml,desktop.docker.io/binds/1/SourceKind=hostFile,desktop.docker.io/binds/1/Target=/etc/patroni/patroni-template.yml,desktop.docker.io/binds/2/Source=C:\\\\GitHub\\\\pgandpatroni\\\\postgres-patroni-ha\\\\patroni\\\\entrypoint.sh,desktop.docker.io/binds/2/SourceKind=hostFile,desktop.docker.io/binds/2/Target=/entrypoint.sh,desktop.docker.io/ports.scheme=v2\",\"LocalVolumes\":\"1\",\"Mounts\":\"/run/desktop/mΓÇª,/run/desktop/mΓÇª,postgres-patroΓÇª\",\"Names\":\"pg-node-1\",\"Networks\":\"postgres-patroni-ha_patroni-net\",\"Platform\":{\"architecture\":\"amd64\",\"os\":\"linux\"},\"Ports\":\"5432/tcp, 8008/tcp\",\"RunningFor\":\"13 hours ago\",\"Size\":\"61.4kB (virtual 549MB)\",\"State\":\"running\",\"Status\":\"Up 13 hours (healthy)\"}\r\n{\"Command\":\"\\\"/bin/bash /entrypoiΓÇª\\\"\",\"CreatedAt\":\"2026-09-08 15:50:22 +0530 IST\",\"HealthStatus\":\"healthy\",\"ID\":\"475a72423795\",\"Image\":\"postgres-patroni-ha-pg-node-4\",\"Labels\":\"com.docker.compose.config-hash=40d961f59ce80a6beeebabe85fd289a21c951d5cb32ef1d73d05f7ee8d80f5bd,com.docker.compose.container-number=1,com.docker.compose.depends_on=etcd:service_healthy:false,com.docker.compose.image=sha256:8cd8ec7a2e71d8ac21bd1785619e6198ce4537a96c88b6e38fb5b9ee98574c4c,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=C:\\\\GitHub\\\\pgandpatroni\\\\postgres-patroni-ha\\\\docker-compose.yml,com.docker.compose.project.working_dir=C:\\\\GitHub\\\\pgandpatroni\\\\postgres-patroni-ha,com.docker.compose.project=postgres-patroni-ha,com.docker.compose.service=pg-node-4,com.docker.compose.version=5.1.4,desktop.docker.io/binds/1/Source=C:\\\\GitHub\\\\pgandpatroni\\\\postgres-patroni-ha\\\\patroni\\\\patroni-template.yml,desktop.docker.io/binds/1/SourceKind=hostFile,desktop.docker.io/binds/1/Target=/etc/patroni/patroni-template.yml,desktop.docker.io/binds/2/Source=C:\\\\GitHub\\\\pgandpatroni\\\\postgres-patroni-ha\\\\patroni\\\\entrypoint.sh,desktop.docker.io/binds/2/SourceKind=hostFile,desktop.docker.io/binds/2/Target=/entrypoint.sh,desktop.docker.io/ports.scheme=v2\",\"LocalVolumes\":\"1\",\"Mounts\":\"/run/desktop/mΓÇª,/run/desktop/mΓÇª,postgres-patroΓÇª\",\"Names\":\"pg-node-4\",\"Networks\":\"postgres-patroni-ha_patroni-net\",\"Platform\":{\"architecture\":\"amd64\",\"os\":\"linux\"},\"Ports\":\"5432/tcp, 8008/tcp\",\"RunningFor\":\"13 hours ago\",\"Size\":\"61.4kB (virtual 549MB)\",\"State\":\"running\",\"Status\":\"Up 13 hours (healthy)\"}\r\n{\"Command\":\"\\\"/usr/local/bin/etcd\\\"\",\"CreatedAt\":\"2026-09-08 15:08:44 +0530 IST\",\"HealthStatus\":\"healthy\",\"ID\":\"19e1bd5076ae\",\"Image\":\"quay.io/coreos/etcd:v3.5.15\",\"Labels\":\"com.docker.compose.config-hash=64c25a358dcc9e13e9af52b4aaee764c9801f25aa667a64311d110eaa2172a21,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.image=sha256:0934690612905554eb61ddefb9faaaecb47c2f6931dbb453e694358092ee8990,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=C:\\\\GitHub\\\\pgandpatroni\\\\postgres-patroni-ha\\\\docker-compose.yml,com.docker.compose.project.working_dir=C:\\\\GitHub\\\\pgandpatroni\\\\postgres-patroni-ha,com.docker.compose.project=postgres-patroni-ha,com.docker.compose.service=etcd,com.docker.compose.version=5.1.4,desktop.docker.io/ports.scheme=v2\",\"LocalVolumes\":\"1\",\"Mounts\":\"postgres-patroΓÇª\",\"Names\":\"etcd\",\"Networks\":\"postgres-patroni-ha_patroni-net\",\"Platform\":{\"architecture\":\"amd64\",\"os\":\"linux\"},\"Ports\":\"2379-2380/tcp\",\"RunningFor\":\"14 hours ago\",\"Size\":\"8.19kB (virtual 62.7MB)\",\"State\":\"running\",\"Status\":\"Up 14 hours (healthy)\"}\r\n{\"Command\":\"\\\"docker-entrypoint.sΓÇª\\\"\",\"CreatedAt\":\"2026-09-04 19:59:10 +0530 IST\",\"HealthStatus\":\"healthy\",\"ID\":\"ffa0de4177a9\",\"Image\":\"timescale/timescaledb:latest-pg15\",\"Labels\":\"com.docker.compose.config-hash=15566bb8af5a558a596455f65ebc3f0ba022dad3967b810db5f976a1431ec200,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.image=sha256:6343bdc87ca132c6b53acb26113a6bad1821d188fa39975a745f32ddd9757634,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=C:\\\\GitHub\\\\InfraScope\\\\docker-compose.yml,com.docker.compose.project.working_dir=C:\\\\GitHub\\\\InfraScope,com.docker.compose.project=infrascope,com.docker.compose.service=postgres,com.docker.compose.version=5.1.4,desktop.docker.io/ports.scheme=v2,desktop.docker.io/ports/5432/tcp=:5432,maintainer=Timescale https://www.timescale.com\",\"LocalVolumes\":\"1\",\"Mounts\":\"infrascope_pgdΓÇª\",\"Names\":\"infrascope-postgres\",\"Networks\":\"infrascope_default\",\"Platform\":{\"architecture\":\"amd64\",\"os\":\"linux\"},\"Ports\":\"5432/tcp\",\"RunningFor\":\"4 days ago\",\"Size\":\"61.4kB (virtual 1.8GB)\",\"State\":\"running\",\"Status\":\"Up 14 hours (healthy)\"}\r\n"
+    }
+  ]
+}

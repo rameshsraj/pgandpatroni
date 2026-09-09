@@ -2,13 +2,15 @@
 
 Analysis date: **9 September 2026**. Historical run: **phase4-20260908T173358240-1efd4a87**, executed **8 September 2026**. All times below are **UTC** (add 05:30 for IST). This analysis uses retained artifacts; no workload was replayed and no current database state is substituted for historical observations.
 
+**Separate follow-up completed:** the [new slot-verification experiment](SLOT_VERIFICATION_RESULTS.md), run `phase4-20260908T231619712-a9cb57ed`, captured 41 actual replication-state samples and independently verified all four target slots active before stop and absent afterward. Its primary archive includes elastic1's successful cleanup. That closes the gap **only for the new isolated run**; all historical artifacts and the original report remain unchanged. The sections below continue to describe the historical experiment, not retroactively inferred outcomes.
+
 ## 1. Which component makes each decision?
 
 | Component | Responsibility | Does NOT do |
 |---|---|---|
-| PowerShell `Controller()` in [runner](run-lab.ps1#L392-L405) | Evaluates measured completed TPS, consecutive-sample counters, cooldown and replica bounds; calls `Add-Elastic()` or `Remove-Elastic()`. | Does not delegate load-based scaling to Patroni, Docker or HAProxy. |
+| PowerShell `Controller()` in [historical runner](evidence/phase4-20260908T173358240-1efd4a87/source/run-lab.ps1#L392-L405) | Evaluates measured completed TPS, consecutive-sample counters, cooldown and replica bounds; calls `Add-Elastic()` or `Remove-Elastic()`. | Does not delegate load-based scaling to Patroni, Docker or HAProxy. |
 | `Traffic-Driver()` and [traffic generator](traffic.sh) | Produces low/high/low synthetic demand; pgbench writes native transaction logs and expanded SQL debug traces. | Offered TPS and experiment stage are not inputs to `Controller()`. |
-| `Measured-TPS()` in [runner](run-lab.ps1#L365-L391) | Counts completed transaction records in a timestamp window. | Does not use CPU, RAM, query latency or connection count as scaling triggers. |
+| `Measured-TPS()` in [historical runner](evidence/phase4-20260908T173358240-1efd4a87/source/run-lab.ps1#L365-L391) | Counts completed transaction records in a timestamp window. | Does not use CPU, RAM, query latency or connection count as scaling triggers. |
 | Docker Engine, invoked by the runner | Creates unique replica containers and named volumes from the existing image; stops/removes containers when instructed. | Does not independently autoscale or create additional physical hosts. |
 | Patroni + etcd | Manage cluster membership/leadership and replication configuration; Patroni reconciles physical replication slots on PostgreSQL. etcd stores distributed coordination state, not application rows. | Do not decide how many read replicas to create from traffic measurements. |
 | PostgreSQL | Takes/receives base backups, streams and replays WAL, serves primary writes and replica reads, implements replication slots. | Does not turn replicas into independent writable shards. |
@@ -71,15 +73,15 @@ flowchart TD
 
 1. The controller creates a real container with a unique Patroni name, private-network identity and named persistent volume. Elastic members have `nofailover=true`.
 2. Patroni bootstraps a replica with PostgreSQL base backup, then configures streaming replication. The primary generates WAL; replicas receive/replay changes. [Captured configuration](evidence/phase4-20260908T173358240-1efd4a87/source/patroni-template.yml) enables `use_slots`, 16 WAL senders and 16 replication slots, with a 5-second Patroni loop and 30-second TTL.
-3. [Readiness checks](run-lab.ps1#L216-L230) require Patroni role `replica`, state `running`, cluster membership `streaming`, a known **zero-byte** reported lag, SQL recovery role, and 100,000 fixture rows with the expected hash. Unknown lag is not treated as zero.
-4. Only then does [admission](run-lab.ps1#L290-L307) assign the inspected container IP to a predeclared disabled HAProxy slot, mark it ready, and wait for `UP`. This is dynamic container creation with bounded/preallocated proxy slots, not arbitrary unlimited backend discovery.
+3. [Historical readiness checks](evidence/phase4-20260908T173358240-1efd4a87/source/run-lab.ps1#L216-L230) require Patroni role `replica`, state `running`, cluster membership `streaming`, a known **zero-byte** reported lag, SQL recovery role, and 100,000 fixture rows with the expected hash. Unknown lag is not treated as zero.
+4. Only then does [historical admission](evidence/phase4-20260908T173358240-1efd4a87/source/run-lab.ps1#L290-L307) assign the inspected container IP to a predeclared disabled HAProxy slot, mark it ready, and wait for `UP`. This is dynamic container creation with bounded/preallocated proxy slots, not arbitrary unlimited backend discovery.
 5. Snapshots check token agreement. The driver separately verifies all replicas actually served proxy connections. At peak all five replica backends were `UP`; connection counters are recorded in the [results](RESULTS.md#measured-scaling-actions).
 
 All client writes still go to the primary. Elastic replicas receive the resulting changes through WAL, **not direct client write connections**. The configuration does not enable Patroni synchronous mode; point-in-time zero lag and token agreement are not a guarantee of synchronous commits, zero RPO under failure, or immediate read-after-write consistency on every replica. HAProxy's replica health/lag check complements admission but cannot guarantee zero lag forever.
 
 ## 4. Replication safety during scale-in
 
-[Removal logic](run-lab.ps1#L309-L335) acts in this order:
+[Historical removal logic](evidence/phase4-20260908T173358240-1efd4a87/source/run-lab.ps1#L309-L335) acts in this order:
 
 1. Select the last active elastic replica; verify the permanent replica and target are ready.
 2. Require primary/replica fixture and token agreement in a **before-removal snapshot**.
@@ -91,7 +93,7 @@ All client writes still go to the primary. Elastic replicas receive the resultin
 
 **A Docker volume, a HAProxy backend slot and a PostgreSQL replication slot are three different resources.** The first is retained data storage; the second remains a disabled routing entry; the third can retain WAL on the primary until PostgreSQL/Patroni releases it. Removing a container does not itself demonstrate that its replication slot was removed.
 
-The runner does not explicitly call `pg_drop_replication_slot()` in this sequence and does not wait for slot absence. Patroni's separate reconciliation handles managed slots. If an abandoned slot remains, retained WAL can consume primary disk space. Graceful shutdown proves neither slot deletion nor WAL reclamation, so both deserve explicit post-removal measurement.
+The historical runner did not explicitly call `pg_drop_replication_slot()` in this sequence and did not wait for slot absence. Patroni's separate reconciliation handles managed slots. The new [read-only observer](slot-observation.ps1) now waits for captured absence without forcing a drop or deleting DCS membership. If an abandoned slot remains, retained WAL can consume primary disk space. Graceful shutdown alone proves neither slot deletion nor WAL reclamation.
 
 ## 5. What the historical slot logs actually captured
 
@@ -124,9 +126,11 @@ The three statements occur approximately **29–33 seconds after** their contain
 
 The logged cleanup SQL selects the named slot and its `active` flag, invokes `pg_drop_replication_slot(slot_name)` **only for `WHERE NOT active`**, then selects `active` and a `dropped` flag. The duration record indicates statement completion, but a conditional query can complete without deleting anything. No returned `(active, dropped)` row was captured. Therefore **do not report `active=false, dropped=true`, three proven deletions, or all slots absent** from these records.
 
-**Conclusion:** the gap is narrowed, not closed. There is direct evidence of Patroni issuing conditional cleanup for three elastic slots, including elastic2 in a rotated log. There is still **no captured before/after slot inventory proving successful cleanup for all four removals**. Successful container removal, replication agreement and artifact verification in the original report remain valid; they are not slot-cleanup verification.
+**Historical conclusion:** the gap is narrowed, not closed for this historical run. There is direct evidence of Patroni issuing conditional cleanup for three elastic slots, including elastic2 in a rotated log. There is still **no captured before/after slot inventory proving successful cleanup for all four historical removals**. Successful container removal, replication agreement and artifact verification in the original report remain valid; they are not slot-cleanup verification. The new run has its own independently verified returned rows, not reconstructed historical rows.
 
-## 6. First additions for a future run (not executed in this investigation)
+## 6. Follow-up measurements — now implemented in a separate run
+
+The following recommendations were implemented and tested in the [new experiment](SLOT_VERIFICATION_RESULTS.md). Its first completed absence samples arrived 25.735, 25.604, 26.556 and 28.661 seconds after container removal (elastic4 → elastic1). These are observed delays, not exact deletion times or a proven fixed timer. Installed Patroni HA-loop/slot-handler source and successful cleanup logs explain ownership of reconciliation; slot disappearance still does not prove physical disk reclamation.
 
 1. Capture timestamped **returned rows**, not only SQL text, from the current primary before admission, after streaming readiness, before drain, after stop and after removal. Include `pg_replication_slots` fields `slot_name`, `slot_type`, `active`, `active_pid`, `restart_lsn`, `wal_status`, `safe_wal_size`, and retained-WAL bytes computed with `pg_wal_lsn_diff(pg_current_wal_lsn(), restart_lsn)`. Preserve null values rather than treating them as zero.
 2. Capture `pg_stat_replication` sender states, application names, `sync_state`, sent/write/flush/replay LSNs; capture `pg_stat_wal_receiver` on each available replica. Correlate slot `active_pid` with sender PID and Patroni member name; record the primary identity and timeline at every sample.

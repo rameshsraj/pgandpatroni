@@ -78,6 +78,27 @@ $script:mode='error'; $o=Outcome
 Reject { Observe-SlotAbsence $o } 'SQL error'
 Assert (-not $o.slotAbsentVerified) 'SQL error falsely verified absence'
 
+# A tiny synthetic artifact set tests integrity rejection without copying or editing any real evidence.
+$temp=Join-Path ([IO.Path]::GetTempPath()) ('phase4-slot-integrity-' + [guid]::NewGuid().ToString('N'))
+[void][IO.Directory]::CreateDirectory($temp)
+try {
+    $resultPath=Join-Path $temp 'result.json'
+    $artifact=Join-Path $temp 'sample.txt'
+    [IO.File]::WriteAllText($resultPath,'{"run":"synthetic","success":false}')
+    [IO.File]::WriteAllText($artifact,'actual-rows')
+    $manifest=@(Get-ChildItem $temp -File | ForEach-Object {
+        @{path=$_.Name;bytes=$_.Length;sha256=(Get-FileHash $_.FullName).Hash}
+    })
+    [IO.File]::WriteAllText((Join-Path $temp 'manifest.json'),($manifest | ConvertTo-Json))
+    $null=& (Join-Path $PSScriptRoot 'verify-evidence.ps1') -EvidencePath $temp -IntegrityOnly
+    $script:tests++
+    [IO.File]::WriteAllText($artifact,'forged-rows') # Same length: detects SHA mismatch, not only length.
+    Reject { $null=& (Join-Path $PSScriptRoot 'verify-evidence.ps1') -EvidencePath $temp -IntegrityOnly } 'Hash mismatch'
+    [IO.File]::WriteAllText($artifact,'actual-rows')
+    [IO.File]::WriteAllText((Join-Path $temp 'extra.txt'),'unmanifested')
+    Reject { $null=& (Join-Path $PSScriptRoot 'verify-evidence.ps1') -EvidencePath $temp -IntegrityOnly } 'Unmanifested'
+} finally { Remove-Item -LiteralPath $temp -Recurse -Force }
+
 if ($EvidencePath) {
     # Mutation tests are entirely in memory; no historical or new raw artifacts are edited.
     . (Join-Path $PSScriptRoot 'verify-slot-evidence.ps1')

@@ -1,0 +1,665 @@
+2026-09-08T23:28:30.106465354Z traffic start UTC=2026-09-08T23:28:30Z duration=900 offered_tps=2 clients=8
+2026-09-08T23:28:30.112355125Z batch start UTC=2026-09-08T23:28:30Z batch=1 seconds=10
+2026-09-08T23:28:30.445004039Z pgbench (16.4 (Debian 16.4-1.pgdg120+2))
+2026-09-08T23:28:40.006549173Z transaction type: /work/read.sql
+2026-09-08T23:28:40.006594098Z scaling factor: 1
+2026-09-08T23:28:40.006653632Z query mode: simple
+2026-09-08T23:28:40.006662036Z number of clients: 8
+2026-09-08T23:28:40.006666439Z number of threads: 2
+2026-09-08T23:28:40.006804116Z maximum number of tries: 1
+2026-09-08T23:28:40.006813621Z duration: 10 s
+2026-09-08T23:28:40.006817623Z number of transactions actually processed: 26
+2026-09-08T23:28:40.006821025Z number of failed transactions: 0 (0.000%)
+2026-09-08T23:28:40.006824427Z latency average = 65.602 ms
+2026-09-08T23:28:40.006827929Z latency stddev = 55.999 ms
+2026-09-08T23:28:40.006831531Z rate limit schedule lag: avg 46.874 (max 150.111) ms
+2026-09-08T23:28:40.006835633Z average connection time = 41.888 ms
+2026-09-08T23:28:40.006839635Z tps = 2.717208 (including reconnection times)
+2026-09-08T23:28:40.012021125Z batch complete UTC=2026-09-08T23:28:40Z batch=1 exit=0
+2026-09-08T23:28:40.014915540Z batch start UTC=2026-09-08T23:28:40Z batch=2 seconds=10
+2026-09-08T23:28:40.166753328Z pgbench (16.4 (Debian 16.4-1.pgdg120+2))
+2026-09-08T23:28:49.995601867Z transaction type: /work/read.sql
+2026-09-08T23:28:49.995670009Z scaling factor: 1
+2026-09-08T23:28:49.995679715Z query mode: simple
+2026-09-08T23:28:49.995684819Z number of clients: 8
+2026-09-08T23:28:49.995689522Z number of threads: 2
+2026-09-08T23:28:49.995693524Z maximum number of tries: 1
+2026-09-08T23:28:49.995697827Z duration: 10 s
+2026-09-08T23:28:49.995702029Z number of transactions actually processed: 26
+2026-09-08T23:28:49.995706532Z number of failed transactions: 0 (0.000%)
+2026-09-08T23:28:49.995710134Z latency average = 74.261 ms
+2026-09-08T23:28:49.995714437Z latency stddev = 84.863 ms
+2026-09-08T23:28:49.995718740Z rate limit schedule lag: avg 62.842 (max 254.051) ms
+2026-09-08T23:28:49.995723042Z average connection time = 58.207 ms
+2026-09-08T23:28:49.995726945Z tps = 2.650026 (including reconnection times)
+2026-09-08T23:28:50.080239090Z batch complete UTC=2026-09-08T23:28:50Z batch=2 exit=0
+2026-09-08T23:28:50.122661915Z batch start UTC=2026-09-08T23:28:50Z batch=3 seconds=10
+2026-09-08T23:28:50.448718881Z pgbench (16.4 (Debian 16.4-1.pgdg120+2))
+2026-09-08T23:29:00.032295401Z transaction type: /work/read.sql
+2026-09-08T23:29:00.032339128Z scaling factor: 1
+2026-09-08T23:29:00.032345432Z query mode: simple
+2026-09-08T23:29:00.032349935Z number of clients: 8
+2026-09-08T23:29:00.032354137Z number of threads: 2
+2026-09-08T23:29:00.032358240Z maximum number of tries: 1
+2026-09-08T23:29:00.032362743Z duration: 10 s
+2026-09-08T23:29:00.032366645Z number of transactions actually processed: 26
+2026-09-08T23:29:00.032370948Z number of failed transactions: 0 (0.000%)
+2026-09-08T23:29:00.032374750Z latency average = 71.506 ms
+2026-09-08T23:29:00.032378452Z latency stddev = 60.949 ms
+2026-09-08T23:29:00.032382255Z rate limit schedule lag: avg 55.234 (max 201.040) ms
+2026-09-08T23:29:00.032386457Z average connection time = 48.210 ms
+2026-09-08T23:29:00.032390560Z tps = 2.719631 (including reconnection times)
+2026-09-08T23:29:00.037207543Z batch complete UTC=2026-09-08T23:29:00Z batch=3 exit=0
+2026-09-08T23:29:00.040690701Z batch start UTC=2026-09-08T23:29:00Z batch=4 seconds=10
+2026-09-08T23:29:00.197325714Z pgbench (16.4 (Debian 16.4-1.pgdg120+2))
+2026-09-08T23:29:09.810706397Z transaction type: /work/read.sql
+2026-09-08T23:29:09.810750823Z scaling factor: 1
+2026-09-08T23:29:09.810758927Z query mode: simple
+2026-09-08T23:29:09.810763830Z number of clients: 8
+2026-09-08T23:29:09.810768132Z number of threads: 2
+2026-09-08T23:29:09.810772135Z maximum number of tries: 1
+2026-09-08T23:29:09.810776237Z duration: 10 s
+2026-09-08T23:29:09.810780740Z number of transactions actually processed: 26
+2026-09-08T23:29:09.810785042Z number of failed transactions: 0 (0.000%)
+2026-09-08T23:29:09.810789345Z latency average = 57.822 ms
+2026-09-08T23:29:09.810793447Z latency stddev = 49.114 ms
+2026-09-08T23:29:09.810797849Z rate limit schedule lag: avg 52.201 (max 267.942) ms
+2026-09-08T23:29:09.810802252Z average connection time = 54.151 ms
+2026-09-08T23:29:09.810806855Z tps = 2.707879 (including reconnection times)
+2026-09-08T23:29:09.810811857Z batch complete UTC=2026-09-08T23:29:09Z batch=4 exit=0
+2026-09-08T23:29:09.829871555Z batch start UTC=2026-09-08T23:29:09Z batch=5 seconds=10
+2026-09-08T23:29:10.157760719Z pgbench (16.4 (Debian 16.4-1.pgdg120+2))
+2026-09-08T23:29:19.802068486Z transaction type: /work/read.sql
+2026-09-08T23:29:19.802120415Z scaling factor: 1
+2026-09-08T23:29:19.802128520Z query mode: simple
+2026-09-08T23:29:19.802133022Z number of clients: 8
+2026-09-08T23:29:19.802136925Z number of threads: 2
+2026-09-08T23:29:19.802140527Z maximum number of tries: 1
+2026-09-08T23:29:19.802144529Z duration: 10 s
+2026-09-08T23:29:19.802148531Z number of transactions actually processed: 26
+2026-09-08T23:29:19.802152534Z number of failed transactions: 0 (0.000%)
+2026-09-08T23:29:19.802186053Z latency average = 64.978 ms
+2026-09-08T23:29:19.802191656Z latency stddev = 41.575 ms
+2026-09-08T23:29:19.802196058Z rate limit schedule lag: avg 50.508 (max 109.638) ms
+2026-09-08T23:29:19.802200061Z average connection time = 46.843 ms
+2026-09-08T23:29:19.802203963Z tps = 2.703066 (including reconnection times)
+2026-09-08T23:29:19.813265055Z batch complete UTC=2026-09-08T23:29:19Z batch=5 exit=0
+2026-09-08T23:29:19.817116947Z batch start UTC=2026-09-08T23:29:19Z batch=6 seconds=10
+2026-09-08T23:29:20.142534872Z pgbench (16.4 (Debian 16.4-1.pgdg120+2))
+2026-09-08T23:29:30.151547180Z transaction type: /work/read.sql
+2026-09-08T23:29:30.151590900Z scaling factor: 1
+2026-09-08T23:29:30.151599404Z query mode: simple
+2026-09-08T23:29:30.151604707Z number of clients: 8
+2026-09-08T23:29:30.151608909Z number of threads: 2
+2026-09-08T23:29:30.151613311Z maximum number of tries: 1
+2026-09-08T23:29:30.151617813Z duration: 10 s
+2026-09-08T23:29:30.151622015Z number of transactions actually processed: 26
+2026-09-08T23:29:30.151626316Z number of failed transactions: 0 (0.000%)
+2026-09-08T23:29:30.151630618Z latency average = 182.833 ms
+2026-09-08T23:29:30.151634720Z latency stddev = 170.994 ms
+2026-09-08T23:29:30.151648026Z rate limit schedule lag: avg 135.882 (max 439.381) ms
+2026-09-08T23:29:30.151652428Z average connection time = 101.999 ms
+2026-09-08T23:29:30.151656630Z tps = 2.609610 (including reconnection times)
+2026-09-08T23:29:30.161429707Z batch complete UTC=2026-09-08T23:29:30Z batch=6 exit=0
+2026-09-08T23:29:30.184256063Z batch start UTC=2026-09-08T23:29:30Z batch=7 seconds=10
+2026-09-08T23:29:30.637842340Z pgbench (16.4 (Debian 16.4-1.pgdg120+2))
+2026-09-08T23:29:40.477761133Z transaction type: /work/read.sql
+2026-09-08T23:29:40.477823441Z scaling factor: 1
+2026-09-08T23:29:40.477829642Z query mode: simple
+2026-09-08T23:29:40.477834342Z number of clients: 8
+2026-09-08T23:29:40.477838743Z number of threads: 2
+2026-09-08T23:29:40.477843043Z maximum number of tries: 1
+2026-09-08T23:29:40.477847444Z duration: 10 s
+2026-09-08T23:29:40.477851744Z number of transactions actually processed: 26
+2026-09-08T23:29:40.477856345Z number of failed transactions: 0 (0.000%)
+2026-09-08T23:29:40.477860845Z latency average = 93.828 ms
+2026-09-08T23:29:40.477865146Z latency stddev = 54.629 ms
+2026-09-08T23:29:40.477869246Z rate limit schedule lag: avg 71.052 (max 152.745) ms
+2026-09-08T23:29:40.477873347Z average connection time = 65.888 ms
+2026-09-08T23:29:40.477877847Z tps = 2.695870 (including reconnection times)
+2026-09-08T23:29:40.483194992Z batch complete UTC=2026-09-08T23:29:40Z batch=7 exit=0
+2026-09-08T23:29:40.486793228Z batch start UTC=2026-09-08T23:29:40Z batch=8 seconds=10
+2026-09-08T23:29:40.814648558Z pgbench (16.4 (Debian 16.4-1.pgdg120+2))
+2026-09-08T23:29:50.461427848Z transaction type: /work/read.sql
+2026-09-08T23:29:50.461571663Z scaling factor: 1
+2026-09-08T23:29:50.461584173Z query mode: simple
+2026-09-08T23:29:50.461589478Z number of clients: 8
+2026-09-08T23:29:50.461685155Z number of threads: 2
+2026-09-08T23:29:50.461693361Z maximum number of tries: 1
+2026-09-08T23:29:50.461697865Z duration: 10 s
+2026-09-08T23:29:50.461701868Z number of transactions actually processed: 26
+2026-09-08T23:29:50.461705971Z number of failed transactions: 0 (0.000%)
+2026-09-08T23:29:50.461710475Z latency average = 109.851 ms
+2026-09-08T23:29:50.461714778Z latency stddev = 63.108 ms
+2026-09-08T23:29:50.461719182Z rate limit schedule lag: avg 70.958 (max 124.087) ms
+2026-09-08T23:29:50.461723686Z average connection time = 64.687 ms
+2026-09-08T23:29:50.461727789Z tps = 2.713636 (including reconnection times)
+2026-09-08T23:29:50.466436373Z batch complete UTC=2026-09-08T23:29:50Z batch=8 exit=0
+2026-09-08T23:29:50.470003039Z batch start UTC=2026-09-08T23:29:50Z batch=9 seconds=10
+2026-09-08T23:29:50.622376186Z pgbench (16.4 (Debian 16.4-1.pgdg120+2))
+2026-09-08T23:30:00.241920382Z transaction type: /work/read.sql
+2026-09-08T23:30:00.241975616Z scaling factor: 1
+2026-09-08T23:30:00.241983021Z query mode: simple
+2026-09-08T23:30:00.241988124Z number of clients: 8
+2026-09-08T23:30:00.241992927Z number of threads: 2
+2026-09-08T23:30:00.241997029Z maximum number of tries: 1
+2026-09-08T23:30:00.242001332Z duration: 10 s
+2026-09-08T23:30:00.242005034Z number of transactions actually processed: 26
+2026-09-08T23:30:00.242009437Z number of failed transactions: 0 (0.000%)
+2026-09-08T23:30:00.242013540Z latency average = 243.292 ms
+2026-09-08T23:30:00.242017242Z latency stddev = 278.743 ms
+2026-09-08T23:30:00.242021444Z rate limit schedule lag: avg 200.538 (max 1030.112) ms
+2026-09-08T23:30:00.242058467Z average connection time = 81.749 ms
+2026-09-08T23:30:00.242064972Z tps = 2.705493 (including reconnection times)
+2026-09-08T23:30:00.284848597Z batch complete UTC=2026-09-08T23:30:00Z batch=9 exit=0
+2026-09-08T23:30:00.297858393Z batch start UTC=2026-09-08T23:30:00Z batch=10 seconds=10
+2026-09-08T23:30:00.504524708Z pgbench (16.4 (Debian 16.4-1.pgdg120+2))
+2026-09-08T23:30:10.243943885Z transaction type: /work/read.sql
+2026-09-08T23:30:10.243998318Z scaling factor: 1
+2026-09-08T23:30:10.244005422Z query mode: simple
+2026-09-08T23:30:10.244040444Z number of clients: 8
+2026-09-08T23:30:10.244047048Z number of threads: 2
+2026-09-08T23:30:10.244051550Z maximum number of tries: 1
+2026-09-08T23:30:10.244056153Z duration: 10 s
+2026-09-08T23:30:10.244060356Z number of transactions actually processed: 26
+2026-09-08T23:30:10.244064758Z number of failed transactions: 0 (0.000%)
+2026-09-08T23:30:10.244069061Z latency average = 111.177 ms
+2026-09-08T23:30:10.244072964Z latency stddev = 59.770 ms
+2026-09-08T23:30:10.244076866Z rate limit schedule lag: avg 80.493 (max 171.146) ms
+2026-09-08T23:30:10.244080968Z average connection time = 72.594 ms
+2026-09-08T23:30:10.244085271Z tps = 2.670193 (including reconnection times)
+2026-09-08T23:30:10.265549992Z batch complete UTC=2026-09-08T23:30:10Z batch=10 exit=0
+2026-09-08T23:30:10.273150539Z batch start UTC=2026-09-08T23:30:10Z batch=11 seconds=10
+2026-09-08T23:30:10.574215579Z pgbench (16.4 (Debian 16.4-1.pgdg120+2))
+2026-09-08T23:30:20.174848101Z transaction type: /work/read.sql
+2026-09-08T23:30:20.174898933Z scaling factor: 1
+2026-09-08T23:30:20.174905437Z query mode: simple
+2026-09-08T23:30:20.174909540Z number of clients: 8
+2026-09-08T23:30:20.174913442Z number of threads: 2
+2026-09-08T23:30:20.174917145Z maximum number of tries: 1
+2026-09-08T23:30:20.174921547Z duration: 10 s
+2026-09-08T23:30:20.174925650Z number of transactions actually processed: 26
+2026-09-08T23:30:20.174929552Z number of failed transactions: 0 (0.000%)
+2026-09-08T23:30:20.174940759Z latency average = 102.970 ms
+2026-09-08T23:30:20.174944662Z latency stddev = 129.304 ms
+2026-09-08T23:30:20.174948364Z rate limit schedule lag: avg 85.309 (max 399.025) ms
+2026-09-08T23:30:20.174952066Z average connection time = 54.939 ms
+2026-09-08T23:30:20.174955769Z tps = 2.721530 (including reconnection times)
+2026-09-08T23:30:20.180745194Z batch complete UTC=2026-09-08T23:30:20Z batch=11 exit=0
+2026-09-08T23:30:20.184322834Z batch start UTC=2026-09-08T23:30:20Z batch=12 seconds=10
+2026-09-08T23:30:20.324676410Z pgbench (16.4 (Debian 16.4-1.pgdg120+2))
+2026-09-08T23:30:30.036204470Z transaction type: /work/read.sql
+2026-09-08T23:30:30.036257199Z scaling factor: 1
+2026-09-08T23:30:30.036265903Z query mode: simple
+2026-09-08T23:30:30.036271006Z number of clients: 8
+2026-09-08T23:30:30.036275509Z number of threads: 2
+2026-09-08T23:30:30.036288316Z maximum number of tries: 1
+2026-09-08T23:30:30.036293418Z duration: 10 s
+2026-09-08T23:30:30.036298321Z number of transactions actually processed: 26
+2026-09-08T23:30:30.036303424Z number of failed transactions: 0 (0.000%)
+2026-09-08T23:30:30.036308026Z latency average = 78.531 ms
+2026-09-08T23:30:30.036312329Z latency stddev = 44.535 ms
+2026-09-08T23:30:30.036316331Z rate limit schedule lag: avg 59.138 (max 122.498) ms
+2026-09-08T23:30:30.036320833Z average connection time = 57.991 ms
+2026-09-08T23:30:30.036325836Z tps = 2.684427 (including reconnection times)
+2026-09-08T23:30:30.045219850Z batch complete UTC=2026-09-08T23:30:30Z batch=12 exit=0
+2026-09-08T23:30:30.057113187Z batch start UTC=2026-09-08T23:30:30Z batch=13 seconds=10
+2026-09-08T23:30:30.435161612Z pgbench (16.4 (Debian 16.4-1.pgdg120+2))
+2026-09-08T23:30:40.049854027Z transaction type: /work/read.sql
+2026-09-08T23:30:40.049908658Z scaling factor: 1
+2026-09-08T23:30:40.049916063Z query mode: simple
+2026-09-08T23:30:40.049921166Z number of clients: 8
+2026-09-08T23:30:40.049926268Z number of threads: 2
+2026-09-08T23:30:40.049930371Z maximum number of tries: 1
+2026-09-08T23:30:40.049935074Z duration: 10 s
+2026-09-08T23:30:40.049939176Z number of transactions actually processed: 26
+2026-09-08T23:30:40.049943378Z number of failed transactions: 0 (0.000%)
+2026-09-08T23:30:40.049947381Z latency average = 75.230 ms
+2026-09-08T23:30:40.049951183Z latency stddev = 40.847 ms
+2026-09-08T23:30:40.049954985Z rate limit schedule lag: avg 61.497 (max 116.897) ms
+2026-09-08T23:30:40.049959087Z average connection time = 58.743 ms
+2026-09-08T23:30:40.049963089Z tps = 2.705519 (including reconnection times)
+2026-09-08T23:30:40.056313004Z batch complete UTC=2026-09-08T23:30:40Z batch=13 exit=0
+2026-09-08T23:30:40.062295710Z batch start UTC=2026-09-08T23:30:40Z batch=14 seconds=10
+2026-09-08T23:30:40.230912999Z pgbench (16.4 (Debian 16.4-1.pgdg120+2))
+2026-09-08T23:30:49.792703862Z transaction type: /work/read.sql
+2026-09-08T23:30:49.792749688Z scaling factor: 1
+2026-09-08T23:30:49.792757093Z query mode: simple
+2026-09-08T23:30:49.792761195Z number of clients: 8
+2026-09-08T23:30:49.792764797Z number of threads: 2
+2026-09-08T23:30:49.792768099Z maximum number of tries: 1
+2026-09-08T23:30:49.792771701Z duration: 10 s
+2026-09-08T23:30:49.792801918Z number of transactions actually processed: 26
+2026-09-08T23:30:49.792806821Z number of failed transactions: 0 (0.000%)
+2026-09-08T23:30:49.792810823Z latency average = 43.519 ms
+2026-09-08T23:30:49.792814726Z latency stddev = 18.216 ms
+2026-09-08T23:30:49.792819328Z rate limit schedule lag: avg 36.581 (max 67.192) ms
+2026-09-08T23:30:49.792823531Z average connection time = 35.726 ms
+2026-09-08T23:30:49.792827433Z tps = 2.723082 (including reconnection times)
+2026-09-08T23:30:49.797662288Z batch complete UTC=2026-09-08T23:30:49Z batch=14 exit=0
+2026-09-08T23:30:49.801350590Z batch start UTC=2026-09-08T23:30:49Z batch=15 seconds=10
+2026-09-08T23:30:49.926308605Z pgbench (16.4 (Debian 16.4-1.pgdg120+2))
+2026-09-08T23:30:59.520036974Z transaction type: /work/read.sql
+2026-09-08T23:30:59.520095603Z scaling factor: 1
+2026-09-08T23:30:59.520108209Z query mode: simple
+2026-09-08T23:30:59.520113312Z number of clients: 8
+2026-09-08T23:30:59.520117414Z number of threads: 2
+2026-09-08T23:30:59.520121416Z maximum number of tries: 1
+2026-09-08T23:30:59.520125818Z duration: 10 s
+2026-09-08T23:30:59.520130020Z number of transactions actually processed: 26
+2026-09-08T23:30:59.520134522Z number of failed transactions: 0 (0.000%)
+2026-09-08T23:30:59.520139125Z latency average = 58.085 ms
+2026-09-08T23:30:59.520143027Z latency stddev = 26.152 ms
+2026-09-08T23:30:59.520147129Z rate limit schedule lag: avg 46.609 (max 84.904) ms
+2026-09-08T23:30:59.520151631Z average connection time = 46.127 ms
+2026-09-08T23:30:59.520156133Z tps = 2.714374 (including reconnection times)
+2026-09-08T23:30:59.532042759Z batch complete UTC=2026-09-08T23:30:59Z batch=15 exit=0
+2026-09-08T23:30:59.539938696Z batch start UTC=2026-09-08T23:30:59Z batch=16 seconds=10
+2026-09-08T23:30:59.812282271Z pgbench (16.4 (Debian 16.4-1.pgdg120+2))
+2026-09-08T23:31:09.420890061Z transaction type: /work/read.sql
+2026-09-08T23:31:09.420942077Z scaling factor: 1
+2026-09-08T23:31:09.420949979Z query mode: simple
+2026-09-08T23:31:09.420955181Z number of clients: 8
+2026-09-08T23:31:09.420959982Z number of threads: 2
+2026-09-08T23:31:09.420964784Z maximum number of tries: 1
+2026-09-08T23:31:09.420969585Z duration: 10 s
+2026-09-08T23:31:09.420974687Z number of transactions actually processed: 26
+2026-09-08T23:31:09.420979488Z number of failed transactions: 0 (0.000%)
+2026-09-08T23:31:09.420984390Z latency average = 92.173 ms
+2026-09-08T23:31:09.420989391Z latency stddev = 65.901 ms
+2026-09-08T23:31:09.420994293Z rate limit schedule lag: avg 70.701 (max 205.711) ms
+2026-09-08T23:31:09.420999094Z average connection time = 62.830 ms
+2026-09-08T23:31:09.421004096Z tps = 2.711079 (including reconnection times)
+2026-09-08T23:31:09.437349280Z batch complete UTC=2026-09-08T23:31:09Z batch=16 exit=0
+2026-09-08T23:31:09.439384300Z batch start UTC=2026-09-08T23:31:09Z batch=17 seconds=10
+2026-09-08T23:31:09.710476839Z pgbench (16.4 (Debian 16.4-1.pgdg120+2))
+2026-09-08T23:31:19.299295724Z transaction type: /work/read.sql
+2026-09-08T23:31:19.299324442Z scaling factor: 1
+2026-09-08T23:31:19.299329845Z query mode: simple
+2026-09-08T23:31:19.299333047Z number of clients: 8
+2026-09-08T23:31:19.299336149Z number of threads: 2
+2026-09-08T23:31:19.299339451Z maximum number of tries: 1
+2026-09-08T23:31:19.299342653Z duration: 10 s
+2026-09-08T23:31:19.299345855Z number of transactions actually processed: 26
+2026-09-08T23:31:19.299349257Z number of failed transactions: 0 (0.000%)
+2026-09-08T23:31:19.299352559Z latency average = 149.689 ms
+2026-09-08T23:31:19.299355962Z latency stddev = 200.409 ms
+2026-09-08T23:31:19.299360164Z rate limit schedule lag: avg 126.348 (max 769.481) ms
+2026-09-08T23:31:19.299365067Z average connection time = 102.195 ms
+2026-09-08T23:31:19.299368169Z tps = 2.719430 (including reconnection times)
+2026-09-08T23:31:19.304605068Z batch complete UTC=2026-09-08T23:31:19Z batch=17 exit=0
+2026-09-08T23:31:19.308147899Z batch start UTC=2026-09-08T23:31:19Z batch=18 seconds=10
+2026-09-08T23:31:19.416574286Z pgbench (16.4 (Debian 16.4-1.pgdg120+2))
+2026-09-08T23:31:28.988675522Z transaction type: /work/read.sql
+2026-09-08T23:31:28.988717847Z scaling factor: 1
+2026-09-08T23:31:28.988724951Z query mode: simple
+2026-09-08T23:31:28.988729453Z number of clients: 8
+2026-09-08T23:31:28.988733355Z number of threads: 2
+2026-09-08T23:31:28.988737158Z maximum number of tries: 1
+2026-09-08T23:31:28.988741160Z duration: 10 s
+2026-09-08T23:31:28.988745362Z number of transactions actually processed: 26
+2026-09-08T23:31:28.988749565Z number of failed transactions: 0 (0.000%)
+2026-09-08T23:31:28.988753867Z latency average = 110.911 ms
+2026-09-08T23:31:28.988757869Z latency stddev = 69.710 ms
+2026-09-08T23:31:28.988761972Z rate limit schedule lag: avg 86.154 (max 208.286) ms
+2026-09-08T23:31:28.988786686Z average connection time = 77.942 ms
+2026-09-08T23:31:28.988792089Z tps = 2.718147 (including reconnection times)
+2026-09-08T23:31:29.006486125Z batch complete UTC=2026-09-08T23:31:29Z batch=18 exit=0
+2026-09-08T23:31:29.013321141Z batch start UTC=2026-09-08T23:31:29Z batch=19 seconds=10
+2026-09-08T23:31:29.190491633Z pgbench (16.4 (Debian 16.4-1.pgdg120+2))
+2026-09-08T23:31:38.742470747Z transaction type: /work/read.sql
+2026-09-08T23:31:38.742513959Z scaling factor: 1
+2026-09-08T23:31:38.742547768Z query mode: simple
+2026-09-08T23:31:38.742554570Z number of clients: 8
+2026-09-08T23:31:38.742559271Z number of threads: 2
+2026-09-08T23:31:38.742563272Z maximum number of tries: 1
+2026-09-08T23:31:38.742567574Z duration: 10 s
+2026-09-08T23:31:38.742571575Z number of transactions actually processed: 26
+2026-09-08T23:31:38.742575576Z number of failed transactions: 0 (0.000%)
+2026-09-08T23:31:38.742579677Z latency average = 43.745 ms
+2026-09-08T23:31:38.742583978Z latency stddev = 19.954 ms
+2026-09-08T23:31:38.742587879Z rate limit schedule lag: avg 37.108 (max 98.299) ms
+2026-09-08T23:31:38.742592180Z average connection time = 37.270 ms
+2026-09-08T23:31:38.742596081Z tps = 2.721570 (including reconnection times)
+2026-09-08T23:31:38.749749123Z batch complete UTC=2026-09-08T23:31:38Z batch=19 exit=0
+2026-09-08T23:31:38.751522204Z batch start UTC=2026-09-08T23:31:38Z batch=20 seconds=10
+2026-09-08T23:31:38.878253199Z pgbench (16.4 (Debian 16.4-1.pgdg120+2))
+2026-09-08T23:31:48.434143469Z transaction type: /work/read.sql
+2026-09-08T23:31:48.434173186Z scaling factor: 1
+2026-09-08T23:31:48.434178590Z query mode: simple
+2026-09-08T23:31:48.434182692Z number of clients: 8
+2026-09-08T23:31:48.434186694Z number of threads: 2
+2026-09-08T23:31:48.434190697Z maximum number of tries: 1
+2026-09-08T23:31:48.434194699Z duration: 10 s
+2026-09-08T23:31:48.434198801Z number of transactions actually processed: 26
+2026-09-08T23:31:48.434202704Z number of failed transactions: 0 (0.000%)
+2026-09-08T23:31:48.434206606Z latency average = 76.865 ms
+2026-09-08T23:31:48.434210408Z latency stddev = 46.752 ms
+2026-09-08T23:31:48.434219814Z rate limit schedule lag: avg 62.118 (max 183.273) ms
+2026-09-08T23:31:48.434223916Z average connection time = 59.128 ms
+2026-09-08T23:31:48.434227919Z tps = 2.722990 (including reconnection times)
+2026-09-08T23:31:48.438293515Z batch complete UTC=2026-09-08T23:31:48Z batch=20 exit=0
+2026-09-08T23:31:48.441276073Z batch start UTC=2026-09-08T23:31:48Z batch=21 seconds=10
+2026-09-08T23:31:48.543696642Z pgbench (16.4 (Debian 16.4-1.pgdg120+2))
+2026-09-08T23:31:58.146502258Z transaction type: /work/read.sql
+2026-09-08T23:31:58.146534775Z scaling factor: 1
+2026-09-08T23:31:58.146541179Z query mode: simple
+2026-09-08T23:31:58.146545881Z number of clients: 8
+2026-09-08T23:31:58.146549783Z number of threads: 2
+2026-09-08T23:31:58.146553785Z maximum number of tries: 1
+2026-09-08T23:31:58.146558088Z duration: 10 s
+2026-09-08T23:31:58.146562390Z number of transactions actually processed: 26
+2026-09-08T23:31:58.146566992Z number of failed transactions: 0 (0.000%)
+2026-09-08T23:31:58.146570994Z latency average = 47.115 ms
+2026-09-08T23:31:58.146574896Z latency stddev = 20.029 ms
+2026-09-08T23:31:58.146578698Z rate limit schedule lag: avg 41.893 (max 113.331) ms
+2026-09-08T23:31:58.146582400Z average connection time = 41.905 ms
+2026-09-08T23:31:58.146586302Z tps = 2.710222 (including reconnection times)
+2026-09-08T23:31:58.158425645Z batch complete UTC=2026-09-08T23:31:58Z batch=21 exit=0
+2026-09-08T23:31:58.162258466Z batch start UTC=2026-09-08T23:31:58Z batch=22 seconds=10
+2026-09-08T23:31:58.358519781Z pgbench (16.4 (Debian 16.4-1.pgdg120+2))
+2026-09-08T23:32:07.954249752Z transaction type: /work/read.sql
+2026-09-08T23:32:07.954296478Z scaling factor: 1
+2026-09-08T23:32:07.954303182Z query mode: simple
+2026-09-08T23:32:07.954307784Z number of clients: 8
+2026-09-08T23:32:07.954312187Z number of threads: 2
+2026-09-08T23:32:07.954315989Z maximum number of tries: 1
+2026-09-08T23:32:07.954319891Z duration: 10 s
+2026-09-08T23:32:07.954324193Z number of transactions actually processed: 26
+2026-09-08T23:32:07.954328296Z number of failed transactions: 0 (0.000%)
+2026-09-08T23:32:07.954332298Z latency average = 70.729 ms
+2026-09-08T23:32:07.954336700Z latency stddev = 21.910 ms
+2026-09-08T23:32:07.954341103Z rate limit schedule lag: avg 61.671 (max 113.660) ms
+2026-09-08T23:32:07.954345805Z average connection time = 60.698 ms
+2026-09-08T23:32:07.954350208Z tps = 2.711671 (including reconnection times)
+2026-09-08T23:32:07.959873780Z batch complete UTC=2026-09-08T23:32:07Z batch=22 exit=0
+2026-09-08T23:32:07.963659785Z batch start UTC=2026-09-08T23:32:07Z batch=23 seconds=10
+2026-09-08T23:32:08.159940345Z pgbench (16.4 (Debian 16.4-1.pgdg120+2))
+2026-09-08T23:32:17.810717766Z transaction type: /work/read.sql
+2026-09-08T23:32:17.810762991Z scaling factor: 1
+2026-09-08T23:32:17.810770095Z query mode: simple
+2026-09-08T23:32:17.810775098Z number of clients: 8
+2026-09-08T23:32:17.810779700Z number of threads: 2
+2026-09-08T23:32:17.810784203Z maximum number of tries: 1
+2026-09-08T23:32:17.810788405Z duration: 10 s
+2026-09-08T23:32:17.810820023Z number of transactions actually processed: 26
+2026-09-08T23:32:17.810826827Z number of failed transactions: 0 (0.000%)
+2026-09-08T23:32:17.810831229Z latency average = 112.290 ms
+2026-09-08T23:32:17.810835531Z latency stddev = 120.282 ms
+2026-09-08T23:32:17.810839834Z rate limit schedule lag: avg 93.816 (max 481.914) ms
+2026-09-08T23:32:17.810844236Z average connection time = 74.913 ms
+2026-09-08T23:32:17.810849039Z tps = 2.698754 (including reconnection times)
+2026-09-08T23:32:17.826467138Z batch complete UTC=2026-09-08T23:32:17Z batch=23 exit=0
+2026-09-08T23:32:17.826516866Z batch start UTC=2026-09-08T23:32:17Z batch=24 seconds=10
+2026-09-08T23:32:18.113730736Z pgbench (16.4 (Debian 16.4-1.pgdg120+2))
+2026-09-08T23:32:27.833463105Z transaction type: /work/read.sql
+2026-09-08T23:32:27.833512232Z scaling factor: 1
+2026-09-08T23:32:27.833520337Z query mode: simple
+2026-09-08T23:32:27.833525940Z number of clients: 8
+2026-09-08T23:32:27.833531043Z number of threads: 2
+2026-09-08T23:32:27.833535646Z maximum number of tries: 1
+2026-09-08T23:32:27.833539948Z duration: 10 s
+2026-09-08T23:32:27.833596280Z number of transactions actually processed: 26
+2026-09-08T23:32:27.833609387Z number of failed transactions: 0 (0.000%)
+2026-09-08T23:32:27.833615490Z latency average = 200.690 ms
+2026-09-08T23:32:27.833620293Z latency stddev = 162.448 ms
+2026-09-08T23:32:27.833624696Z rate limit schedule lag: avg 158.850 (max 706.782) ms
+2026-09-08T23:32:27.833628998Z average connection time = 128.191 ms
+2026-09-08T23:32:27.833633601Z tps = 2.687788 (including reconnection times)
+2026-09-08T23:32:27.847554707Z batch complete UTC=2026-09-08T23:32:27Z batch=24 exit=0
+2026-09-08T23:32:27.852624150Z batch start UTC=2026-09-08T23:32:27Z batch=25 seconds=10
+2026-09-08T23:32:28.135071140Z pgbench (16.4 (Debian 16.4-1.pgdg120+2))
+2026-09-08T23:32:37.811875059Z transaction type: /work/read.sql
+2026-09-08T23:32:37.812011036Z scaling factor: 1
+2026-09-08T23:32:37.812022843Z query mode: simple
+2026-09-08T23:32:37.812028546Z number of clients: 8
+2026-09-08T23:32:37.812033549Z number of threads: 2
+2026-09-08T23:32:37.812038452Z maximum number of tries: 1
+2026-09-08T23:32:37.812043355Z duration: 10 s
+2026-09-08T23:32:37.812048158Z number of transactions actually processed: 26
+2026-09-08T23:32:37.812053360Z number of failed transactions: 0 (0.000%)
+2026-09-08T23:32:37.812058764Z latency average = 64.943 ms
+2026-09-08T23:32:37.812063966Z latency stddev = 20.937 ms
+2026-09-08T23:32:37.812069269Z rate limit schedule lag: avg 54.234 (max 81.543) ms
+2026-09-08T23:32:37.812074372Z average connection time = 53.590 ms
+2026-09-08T23:32:37.812079475Z tps = 2.702785 (including reconnection times)
+2026-09-08T23:32:37.812615679Z batch complete UTC=2026-09-08T23:32:37Z batch=25 exit=0
+2026-09-08T23:32:37.821233363Z batch start UTC=2026-09-08T23:32:37Z batch=26 seconds=10
+2026-09-08T23:32:38.092845195Z pgbench (16.4 (Debian 16.4-1.pgdg120+2))
+2026-09-08T23:32:47.755383943Z transaction type: /work/read.sql
+2026-09-08T23:32:47.755433968Z scaling factor: 1
+2026-09-08T23:32:47.755440971Z query mode: simple
+2026-09-08T23:32:47.755445273Z number of clients: 8
+2026-09-08T23:32:47.755449475Z number of threads: 2
+2026-09-08T23:32:47.755453878Z maximum number of tries: 1
+2026-09-08T23:32:47.755458280Z duration: 10 s
+2026-09-08T23:32:47.755462582Z number of transactions actually processed: 26
+2026-09-08T23:32:47.755466984Z number of failed transactions: 0 (0.000%)
+2026-09-08T23:32:47.755471086Z latency average = 64.152 ms
+2026-09-08T23:32:47.755479490Z latency stddev = 36.507 ms
+2026-09-08T23:32:47.755483893Z rate limit schedule lag: avg 51.382 (max 98.829) ms
+2026-09-08T23:32:47.755488495Z average connection time = 48.711 ms
+2026-09-08T23:32:47.755492997Z tps = 2.709152 (including reconnection times)
+2026-09-08T23:32:47.774568940Z batch complete UTC=2026-09-08T23:32:47Z batch=26 exit=0
+2026-09-08T23:32:47.774623568Z batch start UTC=2026-09-08T23:32:47Z batch=27 seconds=10
+2026-09-08T23:32:47.998771404Z pgbench (16.4 (Debian 16.4-1.pgdg120+2))
+2026-09-08T23:32:57.594365394Z transaction type: /work/read.sql
+2026-09-08T23:32:57.594414517Z scaling factor: 1
+2026-09-08T23:32:57.594421920Z query mode: simple
+2026-09-08T23:32:57.594426422Z number of clients: 8
+2026-09-08T23:32:57.594430524Z number of threads: 2
+2026-09-08T23:32:57.594434926Z maximum number of tries: 1
+2026-09-08T23:32:57.594438828Z duration: 10 s
+2026-09-08T23:32:57.594442830Z number of transactions actually processed: 26
+2026-09-08T23:32:57.594446932Z number of failed transactions: 0 (0.000%)
+2026-09-08T23:32:57.594450734Z latency average = 72.557 ms
+2026-09-08T23:32:57.594455536Z latency stddev = 36.746 ms
+2026-09-08T23:32:57.594459738Z rate limit schedule lag: avg 57.734 (max 110.064) ms
+2026-09-08T23:32:57.594484449Z average connection time = 55.458 ms
+2026-09-08T23:32:57.594490352Z tps = 2.717114 (including reconnection times)
+2026-09-08T23:32:57.604087692Z batch complete UTC=2026-09-08T23:32:57Z batch=27 exit=0
+2026-09-08T23:32:57.605842804Z batch start UTC=2026-09-08T23:32:57Z batch=28 seconds=10
+2026-09-08T23:32:57.783261988Z pgbench (16.4 (Debian 16.4-1.pgdg120+2))
+2026-09-08T23:33:07.358010878Z transaction type: /work/read.sql
+2026-09-08T23:33:07.358062091Z scaling factor: 1
+2026-09-08T23:33:07.360317569Z query mode: simple
+2026-09-08T23:33:07.360351878Z number of clients: 8
+2026-09-08T23:33:07.360357879Z number of threads: 2
+2026-09-08T23:33:07.360361880Z maximum number of tries: 1
+2026-09-08T23:33:07.360366081Z duration: 10 s
+2026-09-08T23:33:07.360370282Z number of transactions actually processed: 26
+2026-09-08T23:33:07.360374583Z number of failed transactions: 0 (0.000%)
+2026-09-08T23:33:07.360378885Z latency average = 39.355 ms
+2026-09-08T23:33:07.360383186Z latency stddev = 13.162 ms
+2026-09-08T23:33:07.360387587Z rate limit schedule lag: avg 32.796 (max 59.511) ms
+2026-09-08T23:33:07.360392088Z average connection time = 32.693 ms
+2026-09-08T23:33:07.360396289Z tps = 2.715890 (including reconnection times)
+2026-09-08T23:33:07.370969098Z batch complete UTC=2026-09-08T23:33:07Z batch=28 exit=0
+2026-09-08T23:33:07.370988003Z batch start UTC=2026-09-08T23:33:07Z batch=29 seconds=10
+2026-09-08T23:33:07.557058181Z pgbench (16.4 (Debian 16.4-1.pgdg120+2))
+2026-09-08T23:33:17.176187573Z transaction type: /work/read.sql
+2026-09-08T23:33:17.176238199Z scaling factor: 1
+2026-09-08T23:33:17.176246703Z query mode: simple
+2026-09-08T23:33:17.176250906Z number of clients: 8
+2026-09-08T23:33:17.176254607Z number of threads: 2
+2026-09-08T23:33:17.176258509Z maximum number of tries: 1
+2026-09-08T23:33:17.176262612Z duration: 10 s
+2026-09-08T23:33:17.176266614Z number of transactions actually processed: 26
+2026-09-08T23:33:17.176270516Z number of failed transactions: 0 (0.000%)
+2026-09-08T23:33:17.176291826Z latency average = 38.307 ms
+2026-09-08T23:33:17.176296829Z latency stddev = 11.825 ms
+2026-09-08T23:33:17.176301331Z rate limit schedule lag: avg 32.921 (max 54.332) ms
+2026-09-08T23:33:17.176305834Z average connection time = 32.707 ms
+2026-09-08T23:33:17.176310336Z tps = 2.710121 (including reconnection times)
+2026-09-08T23:33:17.177641916Z batch complete UTC=2026-09-08T23:33:17Z batch=29 exit=0
+2026-09-08T23:33:17.180447448Z batch start UTC=2026-09-08T23:33:17Z batch=30 seconds=10
+2026-09-08T23:33:17.333853051Z pgbench (16.4 (Debian 16.4-1.pgdg120+2))
+2026-09-08T23:33:26.973714348Z transaction type: /work/read.sql
+2026-09-08T23:33:26.973770978Z scaling factor: 1
+2026-09-08T23:33:26.973778882Z query mode: simple
+2026-09-08T23:33:26.973783384Z number of clients: 8
+2026-09-08T23:33:26.973787687Z number of threads: 2
+2026-09-08T23:33:26.973791889Z maximum number of tries: 1
+2026-09-08T23:33:26.973796591Z duration: 10 s
+2026-09-08T23:33:26.973801094Z number of transactions actually processed: 26
+2026-09-08T23:33:26.973805596Z number of failed transactions: 0 (0.000%)
+2026-09-08T23:33:26.973809598Z latency average = 71.570 ms
+2026-09-08T23:33:26.973813400Z latency stddev = 39.023 ms
+2026-09-08T23:33:26.973817402Z rate limit schedule lag: avg 57.483 (max 116.629) ms
+2026-09-08T23:33:26.973821104Z average connection time = 53.347 ms
+2026-09-08T23:33:26.973824706Z tps = 2.704446 (including reconnection times)
+2026-09-08T23:33:26.979308796Z batch complete UTC=2026-09-08T23:33:26Z batch=30 exit=0
+2026-09-08T23:33:26.982898487Z batch start UTC=2026-09-08T23:33:26Z batch=31 seconds=10
+2026-09-08T23:33:27.293198283Z pgbench (16.4 (Debian 16.4-1.pgdg120+2))
+2026-09-08T23:33:36.860313424Z transaction type: /work/read.sql
+2026-09-08T23:33:36.860393563Z scaling factor: 1
+2026-09-08T23:33:36.860417974Z query mode: simple
+2026-09-08T23:33:36.860423277Z number of clients: 8
+2026-09-08T23:33:36.860427579Z number of threads: 2
+2026-09-08T23:33:36.860431981Z maximum number of tries: 1
+2026-09-08T23:33:36.860436183Z duration: 10 s
+2026-09-08T23:33:36.860440685Z number of transactions actually processed: 26
+2026-09-08T23:33:36.860445188Z number of failed transactions: 0 (0.000%)
+2026-09-08T23:33:36.860449289Z latency average = 42.203 ms
+2026-09-08T23:33:36.860453491Z latency stddev = 12.859 ms
+2026-09-08T23:33:36.860457693Z rate limit schedule lag: avg 36.665 (max 67.071) ms
+2026-09-08T23:33:36.860462196Z average connection time = 36.434 ms
+2026-09-08T23:33:36.860466598Z tps = 2.720008 (including reconnection times)
+2026-09-08T23:33:36.865986440Z batch complete UTC=2026-09-08T23:33:36Z batch=31 exit=0
+2026-09-08T23:33:36.874516723Z batch start UTC=2026-09-08T23:33:36Z batch=32 seconds=10
+2026-09-08T23:33:37.036488853Z pgbench (16.4 (Debian 16.4-1.pgdg120+2))
+2026-09-08T23:33:46.612130245Z transaction type: /work/read.sql
+2026-09-08T23:33:46.612276014Z scaling factor: 1
+2026-09-08T23:33:46.612293122Z query mode: simple
+2026-09-08T23:33:46.612298824Z number of clients: 8
+2026-09-08T23:33:46.612303126Z number of threads: 2
+2026-09-08T23:33:46.612307228Z maximum number of tries: 1
+2026-09-08T23:33:46.612311330Z duration: 10 s
+2026-09-08T23:33:46.612423884Z number of transactions actually processed: 26
+2026-09-08T23:33:46.613263781Z number of failed transactions: 0 (0.000%)
+2026-09-08T23:33:46.613273086Z latency average = 43.656 ms
+2026-09-08T23:33:46.613277888Z latency stddev = 13.825 ms
+2026-09-08T23:33:46.613282090Z rate limit schedule lag: avg 36.828 (max 65.849) ms
+2026-09-08T23:33:46.613286692Z average connection time = 37.052 ms
+2026-09-08T23:33:46.613291094Z tps = 2.718145 (including reconnection times)
+2026-09-08T23:33:46.617681872Z batch complete UTC=2026-09-08T23:33:46Z batch=32 exit=0
+2026-09-08T23:33:46.621043763Z batch start UTC=2026-09-08T23:33:46Z batch=33 seconds=10
+2026-09-08T23:33:46.812389726Z pgbench (16.4 (Debian 16.4-1.pgdg120+2))
+2026-09-08T23:33:56.376951739Z transaction type: /work/read.sql
+2026-09-08T23:33:56.376997157Z scaling factor: 1
+2026-09-08T23:33:56.377004560Z query mode: simple
+2026-09-08T23:33:56.377008761Z number of clients: 8
+2026-09-08T23:33:56.377012463Z number of threads: 2
+2026-09-08T23:33:56.377016064Z maximum number of tries: 1
+2026-09-08T23:33:56.377019765Z duration: 10 s
+2026-09-08T23:33:56.377023567Z number of transactions actually processed: 26
+2026-09-08T23:33:56.377027468Z number of failed transactions: 0 (0.000%)
+2026-09-08T23:33:56.377031470Z latency average = 31.004 ms
+2026-09-08T23:33:56.377035171Z latency stddev = 9.878 ms
+2026-09-08T23:33:56.377038673Z rate limit schedule lag: avg 26.631 (max 39.198) ms
+2026-09-08T23:33:56.377042474Z average connection time = 26.725 ms
+2026-09-08T23:33:56.377046076Z tps = 2.721893 (including reconnection times)
+2026-09-08T23:33:56.381125554Z batch complete UTC=2026-09-08T23:33:56Z batch=33 exit=0
+2026-09-08T23:33:56.384378513Z batch start UTC=2026-09-08T23:33:56Z batch=34 seconds=10
+2026-09-08T23:33:56.487287037Z pgbench (16.4 (Debian 16.4-1.pgdg120+2))
+2026-09-08T23:34:06.036781146Z transaction type: /work/read.sql
+2026-09-08T23:34:06.036836658Z scaling factor: 1
+2026-09-08T23:34:06.036844760Z query mode: simple
+2026-09-08T23:34:06.036849561Z number of clients: 8
+2026-09-08T23:34:06.036853062Z number of threads: 2
+2026-09-08T23:34:06.036856463Z maximum number of tries: 1
+2026-09-08T23:34:06.036860164Z duration: 10 s
+2026-09-08T23:34:06.036866465Z number of transactions actually processed: 26
+2026-09-08T23:34:06.036870166Z number of failed transactions: 0 (0.000%)
+2026-09-08T23:34:06.036873567Z latency average = 30.564 ms
+2026-09-08T23:34:06.036876868Z latency stddev = 6.913 ms
+2026-09-08T23:34:06.036880168Z rate limit schedule lag: avg 26.496 (max 39.137) ms
+2026-09-08T23:34:06.036883569Z average connection time = 26.575 ms
+2026-09-08T23:34:06.036887570Z tps = 2.721993 (including reconnection times)
+2026-09-08T23:34:06.041409515Z batch complete UTC=2026-09-08T23:34:06Z batch=34 exit=0
+2026-09-08T23:34:06.044352395Z batch start UTC=2026-09-08T23:34:06Z batch=35 seconds=10
+2026-09-08T23:34:06.175011895Z pgbench (16.4 (Debian 16.4-1.pgdg120+2))
+2026-09-08T23:34:15.794205431Z transaction type: /work/read.sql
+2026-09-08T23:34:15.794303076Z scaling factor: 1
+2026-09-08T23:34:15.794311780Z query mode: simple
+2026-09-08T23:34:15.794316582Z number of clients: 8
+2026-09-08T23:34:15.794320884Z number of threads: 2
+2026-09-08T23:34:15.794325286Z maximum number of tries: 1
+2026-09-08T23:34:15.794330188Z duration: 10 s
+2026-09-08T23:34:15.794334690Z number of transactions actually processed: 26
+2026-09-08T23:34:15.794339293Z number of failed transactions: 0 (0.000%)
+2026-09-08T23:34:15.794343094Z latency average = 38.511 ms
+2026-09-08T23:34:15.794347196Z latency stddev = 15.445 ms
+2026-09-08T23:34:15.794350998Z rate limit schedule lag: avg 32.050 (max 53.886) ms
+2026-09-08T23:34:15.794355500Z average connection time = 31.730 ms
+2026-09-08T23:34:15.794360602Z tps = 2.705496 (including reconnection times)
+2026-09-08T23:34:15.799429645Z batch complete UTC=2026-09-08T23:34:15Z batch=35 exit=0
+2026-09-08T23:34:15.803252712Z batch start UTC=2026-09-08T23:34:15Z batch=36 seconds=10
+2026-09-08T23:34:15.998009323Z pgbench (16.4 (Debian 16.4-1.pgdg120+2))
+2026-09-08T23:34:25.582079401Z transaction type: /work/read.sql
+2026-09-08T23:34:25.582129621Z scaling factor: 1
+2026-09-08T23:34:25.582136324Z query mode: simple
+2026-09-08T23:34:25.582141326Z number of clients: 8
+2026-09-08T23:34:25.582145327Z number of threads: 2
+2026-09-08T23:34:25.582149129Z maximum number of tries: 1
+2026-09-08T23:34:25.582153030Z duration: 10 s
+2026-09-08T23:34:25.582157432Z number of transactions actually processed: 26
+2026-09-08T23:34:25.582161734Z number of failed transactions: 0 (0.000%)
+2026-09-08T23:34:25.582165936Z latency average = 42.104 ms
+2026-09-08T23:34:25.582202050Z latency stddev = 17.801 ms
+2026-09-08T23:34:25.582207652Z rate limit schedule lag: avg 36.610 (max 78.095) ms
+2026-09-08T23:34:25.582212454Z average connection time = 36.912 ms
+2026-09-08T23:34:25.582216256Z tps = 2.715906 (including reconnection times)
+2026-09-08T23:34:25.592871666Z batch complete UTC=2026-09-08T23:34:25Z batch=36 exit=0
+2026-09-08T23:34:25.597589375Z batch start UTC=2026-09-08T23:34:25Z batch=37 seconds=10
+2026-09-08T23:34:25.789719399Z pgbench (16.4 (Debian 16.4-1.pgdg120+2))
+2026-09-08T23:34:35.355307310Z transaction type: /work/read.sql
+2026-09-08T23:34:35.355400046Z scaling factor: 1
+2026-09-08T23:34:35.355410050Z query mode: simple
+2026-09-08T23:34:35.355414952Z number of clients: 8
+2026-09-08T23:34:35.355419253Z number of threads: 2
+2026-09-08T23:34:35.355423455Z maximum number of tries: 1
+2026-09-08T23:34:35.355427457Z duration: 10 s
+2026-09-08T23:34:35.355431758Z number of transactions actually processed: 26
+2026-09-08T23:34:35.355436160Z number of failed transactions: 0 (0.000%)
+2026-09-08T23:34:35.355440462Z latency average = 64.971 ms
+2026-09-08T23:34:35.355444663Z latency stddev = 58.168 ms
+2026-09-08T23:34:35.355448465Z rate limit schedule lag: avg 49.859 (max 148.050) ms
+2026-09-08T23:34:35.355452766Z average connection time = 47.330 ms
+2026-09-08T23:34:35.355457168Z tps = 2.720220 (including reconnection times)
+2026-09-08T23:34:35.361154687Z batch complete UTC=2026-09-08T23:34:35Z batch=37 exit=0
+2026-09-08T23:34:35.364614134Z batch start UTC=2026-09-08T23:34:35Z batch=38 seconds=10
+2026-09-08T23:34:35.509910911Z pgbench (16.4 (Debian 16.4-1.pgdg120+2))
+2026-09-08T23:34:45.086543345Z transaction type: /work/read.sql
+2026-09-08T23:34:45.086585662Z scaling factor: 1
+2026-09-08T23:34:45.086591765Z query mode: simple
+2026-09-08T23:34:45.086595666Z number of clients: 8
+2026-09-08T23:34:45.086599068Z number of threads: 2
+2026-09-08T23:34:45.086602469Z maximum number of tries: 1
+2026-09-08T23:34:45.086605971Z duration: 10 s
+2026-09-08T23:34:45.086609372Z number of transactions actually processed: 26
+2026-09-08T23:34:45.086612773Z number of failed transactions: 0 (0.000%)
+2026-09-08T23:34:45.086616175Z latency average = 34.806 ms
+2026-09-08T23:34:45.086619576Z latency stddev = 17.504 ms
+2026-09-08T23:34:45.086622877Z rate limit schedule lag: avg 28.814 (max 65.159) ms
+2026-09-08T23:34:45.086626279Z average connection time = 28.449 ms
+2026-09-08T23:34:45.086629680Z tps = 2.719669 (including reconnection times)
+2026-09-08T23:34:45.090848109Z batch complete UTC=2026-09-08T23:34:45Z batch=38 exit=0
+2026-09-08T23:34:45.093603638Z batch start UTC=2026-09-08T23:34:45Z batch=39 seconds=10
+2026-09-08T23:34:45.226530400Z pgbench (16.4 (Debian 16.4-1.pgdg120+2))
+2026-09-08T23:34:54.810945063Z transaction type: /work/read.sql
+2026-09-08T23:34:54.810983176Z scaling factor: 1
+2026-09-08T23:34:54.810987477Z query mode: simple
+2026-09-08T23:34:54.810990478Z number of clients: 8
+2026-09-08T23:34:54.810993479Z number of threads: 2
+2026-09-08T23:34:54.810996180Z maximum number of tries: 1
+2026-09-08T23:34:54.810999381Z duration: 10 s
+2026-09-08T23:34:54.811002282Z number of transactions actually processed: 26
+2026-09-08T23:34:54.811005283Z number of failed transactions: 0 (0.000%)
+2026-09-08T23:34:54.811008084Z latency average = 33.040 ms
+2026-09-08T23:34:54.811010885Z latency stddev = 14.050 ms
+2026-09-08T23:34:54.811013786Z rate limit schedule lag: avg 28.933 (max 70.327) ms
+2026-09-08T23:34:54.811016687Z average connection time = 28.849 ms
+2026-09-08T23:34:54.811019488Z tps = 2.725357 (including reconnection times)
+2026-09-08T23:34:54.813994690Z batch complete UTC=2026-09-08T23:34:54Z batch=39 exit=0
+2026-09-08T23:34:54.817890202Z traffic complete UTC=2026-09-08T23:34:54Z stop_requested=1

@@ -54,7 +54,9 @@ The [investigation](SCALING_REPLICATION_INVESTIGATION.md) explains the exact met
 
 ## Was replication-slot cleanup proven?
 
-**Not for all removed replicas.** We captured readiness, data agreement and graceful container removal. Primary logs contain conditional Patroni cleanup statements for three elastic slots, but not returned rows or before/after slot inventories. That does not prove deletion or WAL reclamation. The [replication investigation](SCALING_REPLICATION_INVESTIGATION.md#5-what-the-historical-slot-logs-actually-captured) distinguishes observed statements from missing outcome evidence and lists the next measurements needed.
+**Yes for the new isolated experiment; no for the original historical run.** The [new results](SLOT_VERIFICATION_RESULTS.md) independently verify all four actual physical-slot absences using timestamped returned slot/sender/receiver rows, matched active slots before stop, stable primary identity/timeline and a healthy permanent replica. Primary logs extend past the last observation and include elastic1 cleanup. Query errors, unknown state and timeout fail closed; the controller does not force-drop slots or manually remove DCS members.
+
+The original run still has only three conditional Patroni cleanup statements without captured returned outcomes. Its [historical evidence gap](SCALING_REPLICATION_INVESTIGATION.md#5-what-the-historical-slot-logs-actually-captured) is not retroactively erased. Neither run proves physical WAL-file/disk reclamation. Observed cleanup delays support asynchronous reconciliation; they do not establish an exact deletion time or fixed 30-second SLA.
 
 Production scale-in needs this check: an abandoned physical slot can retain WAL and eventually exhaust primary storage. Container deletion and volume retention do not establish the slot's state.
 
@@ -64,7 +66,7 @@ Not indiscriminately. Full SQL and debug logging can expose credentials, persona
 
 ## Blog-ready summary
 
-> We demonstrated load-triggered PostgreSQL read-replica scaling without Kubernetes. A custom PowerShell controller measured generated traffic, created four additional Docker containers, admitted them to HAProxy only after replication/readiness checks, and drained and removed them when traffic fell. Patroni managed HA/replication; it did not make load-based capacity decisions. This proves a bounded lifecycle demonstration, not a production-ready autoscaling product. Production requires either a supported database-aware scaling platform or an engineered controller with persistent reconciliation, safe failure handling and operational ownership. Read scaling does not increase the primary's write capacity, and complete replication-slot cleanup was not proven by this run.
+> We demonstrated load-triggered PostgreSQL read-replica scaling without Kubernetes. A custom PowerShell controller measured generated traffic, created four additional Docker containers, admitted them to HAProxy only after replication/readiness checks, and drained and removed them when traffic fell. A separate follow-up captured actual replication-slot rows and independently verified all four target slots absent after Patroni reconciliation, while retaining the permanent replica and data volumes. Patroni managed HA/replication; it did not make load-based capacity decisions. This proves a bounded lifecycle demonstration, not a production-ready autoscaling product. Production requires a supported database-aware scaling platform or an engineered persistent controller. Read scaling does not increase primary write capacity, observed delays are not a cleanup SLA, and slot absence does not prove physical disk reclamation.
 
 ### Claims to avoid
 
@@ -74,6 +76,7 @@ Not indiscriminately. Full SQL and debug logging can expose credentials, persona
 - “Kubernetes/any managed database solves this automatically” — capabilities and supported integration vary.
 - “Four new machines were provisioned” — four containers shared the existing Docker host.
 - “Writes were load-balanced across replicas” — only read connections were distributed.
-- “All replication slots were cleaned up” — the required before/after outcome evidence is missing.
+- “The original run proved all slot deletions” — it did not; only the separate new run has the required before/after rows.
+- “Slot absence proves reclaimed disk space” or “about 30 seconds proves an exact timer” — neither conclusion was established.
 
-For measured outcomes and evidence, see [results](RESULTS.md). These production choices are design guidance, not additional environments tested by Phase 4.
+For measured outcomes and evidence, see the [original results](RESULTS.md) and [new slot-verification results](SLOT_VERIFICATION_RESULTS.md). These production choices are design guidance, not additional environments tested by Phase 4.
