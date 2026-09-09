@@ -2,3 +2,6 @@
 /build/
 /docs/
 *.[dD][oO][cC][xX]
+/make-charts.py
+/make-phase4-charts.py
+/make-sdlc-charts.py
