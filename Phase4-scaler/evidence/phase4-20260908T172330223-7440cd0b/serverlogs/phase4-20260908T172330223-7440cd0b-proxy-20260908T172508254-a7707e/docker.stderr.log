@@ -1,3 +1,0 @@
-2026-09-08T17:23:58.592294582Z [NOTICE]   (1) : New worker (8) forked
-2026-09-08T17:23:58.592436007Z [NOTICE]   (1) : Loading success.
-2026-09-08T17:23:58.737765118Z [WARNING]  (8) : Server primary_route/base is DOWN, reason: Layer7 wrong status, code: 503, info: "Service Unavailable", check duration: 3ms. 1 active and 0 backup servers left. 0 sessions active, 0 requeued, 0 remaining in queue.
