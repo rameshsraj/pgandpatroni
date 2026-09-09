@@ -1,2 +1,0 @@
-{"senders" : null, "receiver" : [{"status":"streaming","sender_host":"pg-node-3","received_tli":3,"written_lsn":"0/B000888","flushed_lsn":"0/B000888"}]}
-

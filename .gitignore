@@ -6,3 +6,9 @@
 /make-phase4-charts.py
 /make-sdlc-charts.py
 /.vscode/
+/postgres-sharding-lab/docs/
+/postgres-sharding-lab/evidence/
+/postgres-sharding-lab/test-results/
+/postgres-patroni-ha/docs/
+/postgres-patroni-ha/evidence/
+/postgres-patroni-ha/test-results/

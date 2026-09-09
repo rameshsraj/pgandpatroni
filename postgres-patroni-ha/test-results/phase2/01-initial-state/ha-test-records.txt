@@ -1,1 +1,0 @@
-psql: error: connection to server at "localhost" (127.0.0.1), port 5000 failed: FATAL:  password authentication failed for user "appuser"

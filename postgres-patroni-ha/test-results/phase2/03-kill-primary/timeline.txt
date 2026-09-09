@@ -1,3 +1,0 @@
-T0 (primary kill): 2026-09-08 10:26:27.992 UTC
-T1 (check +~5s): 2026-09-08 10:26:35.102 UTC
-T2 (new leader pg-node-3 confirmed): 2026-09-08 10:27:19.190 UTC

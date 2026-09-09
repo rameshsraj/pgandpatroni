@@ -1,2 +1,0 @@
-http://localhost:2379 is healthy: successfully committed proposal: took = 3.056942ms
-

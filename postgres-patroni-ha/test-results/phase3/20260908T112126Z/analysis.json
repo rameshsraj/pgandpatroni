@@ -1,6 +1,0 @@
-{
-  "run": "20260908T112126Z",
-  "checks": "four online nodes; identical items/events fingerprints; no missing acknowledged tokens",
-  "utc": "2026-09-08T11:51:31.9757369Z",
-  "command": "pwsh -NoProfile -File scripts/phase3/summarize.ps1 -EvidencePath .\\test-results\\phase3\\20260908T112126Z"
-}

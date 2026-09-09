@@ -1,2 +1,0 @@
-R0 (docker start pg-node-2): 2026-09-08 10:28:05.187 UTC
-R1 (pg-node-2 confirmed streaming replica, TL=3): 2026-09-08 10:31:19.856 UTC
